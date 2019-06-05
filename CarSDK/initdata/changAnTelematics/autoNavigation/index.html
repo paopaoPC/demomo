@@ -1,0 +1,356 @@
+<div id="autoNavigation" class="page" data-view="autoNavigation/index">
+	<header id="nav-bar" class="bar bar-nav blue-bar"  navTitle='"发送到车"' navRight='{"image":"url(../common/img/oper_plus.png)"}'></header>
+	<style type="text/css">
+		#routeHeader{
+			height: 105px;
+			width: 100%;
+			margin-top:10px;
+			/*padding-left: 10px;
+			padding-right: 10px;*/
+		}
+
+		#routeBox{
+			height:auto;
+			width:100%;/*
+			padding-left: 5px;
+			padding-right: 5px;*/
+			/*margin-top:5px;*/
+			margin-bottom: 10px;
+		}
+
+		.commonAddress{
+			width: 100%;
+			height: 50px;
+			line-height: 50px;
+			/*padding-left: 15px;*/
+			/*border: 1px solid #E6E5EC;*/
+			margin-top: 5px;
+			background-color: #262c3c;
+			/*padding-right: 60px;*/
+			position: relative;
+		}
+		.commonAddress:before{
+			top: 0px;
+			left: -50%;
+			content: "";
+			display: block;
+			position: absolute;
+			width: 200%;
+			height: 1px;
+			background: #485570;
+			opacity: 0.7;
+			-webkit-transform: scale(0.5);
+		}
+		.commonAddress:after{
+			bottom: 0px;
+			left: -50%;
+			content: "";
+			display: block;
+			position: absolute;
+			width: 200%;
+			height: 1px;
+			background: #485570;
+			opacity: 0.7;
+			-webkit-transform: scale(0.5);
+		}
+		#routeFooter{
+			-webkit-backface-visibility: hidden;
+			backface-visibility: hidden;
+			z-index: 2;
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 8px;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+
+		#routelist{
+			width: 100%;
+			height: 100%;/*
+			padding-left: 5px;
+			padding-right: 5px;*/
+			border-radius: 5px;
+		}
+
+		.routeItem{
+			height: 90px;
+			/*border:1px solid #E6E5EC;*/
+			margin-top: 6px;
+			background-color: #262c3c;
+			position: relative;
+		}
+		.routeItem:before{
+			top: 0px;
+			left: -50%;
+			content: "";
+			display: block;
+			position: absolute;
+			width: 200%;
+			height: 1px;
+			background: #485570;
+			opacity: 0.7;
+			-webkit-transform: scale(0.5);
+		}
+		.routeItem:after{
+			bottom: 0px;
+			left: -50%;
+			content: "";
+			display: block;
+			position: absolute;
+			width: 200%;
+			height: 1px;
+			background: #485570;
+			opacity: 0.7;
+			-webkit-transform: scale(0.5);
+		}
+
+		.routeDetail{
+			padding-bottom: 5px;
+			height: 50px;
+			padding-left: 15px;
+			padding-right: 5px;
+			white-space:nowrap;
+			text-overflow:ellipsis;
+			-o-text-overflow:ellipsis;
+			overflow: hidden;
+		}
+		.routeDetail:active{
+			background-color: #151b26
+		}
+		.destination{
+			padding-top: 9px;
+			/*line-height: 38px;*/
+			width: 100%;
+			font-size: 14px;
+			margin-top: 5px
+		}
+
+		.noteMessage{
+			padding-left: 30px;
+			color: #FFFFFF;
+			font-size: 10px;
+			/*margin-top: 9px;*/
+			padding-top: 12px;
+		}
+
+		.routeAction{height:39px;/* border-top: 1px solid #E6E5EC;*/position: relative;}
+		.routeAction:after{
+			top: 0px;
+			left: -50%;
+			content: "";
+			display: block;
+			position: absolute;
+			width: 200%;
+			height: 1px;
+			background: #3c4454;
+			opacity: 0.7;
+			-webkit-transform: scale(0.5);
+		}
+		.routeAction ul{height:100%;}
+		.routeAction li{float:left;width: 50%;text-align: center;padding-top: 12px;height: 100%;}
+
+		.route-icon-home{
+		  background-image: url("../autoNavigation/img/home.png");
+		  background-repeat: no-repeat;
+		  padding-left: 20px;
+		  height: 20px;
+		  line-height: 20px;
+		  display: inline-block;
+		  background-size: 20px;
+		  padding-left: 30px;
+		  font-size: 14px;
+		  color: #FFFFFF;
+		}
+
+		.route-icon-company{
+			background-image: url("../autoNavigation/img/company.png");
+		  background-repeat: no-repeat;
+		  padding-left: 20px;
+		  height: 20px;
+		  line-height: 20px;
+		  display: inline-block;
+		  background-size: 20px;
+		  padding-left: 30px;
+		  font-size: 14px;
+		  color: #FFFFFF
+		}
+
+		.route-icon-delete{
+			background-image: url("../autoNavigation/img/delete.png");
+		  background-repeat: no-repeat;
+		  height: 32px;
+		  width: 32px;
+		  background-size: 32px;
+		  position: absolute;
+		}
+
+		.route-icon-edit{
+		    background-image: url("../autoNavigation/img/edit.png");
+			background-repeat: no-repeat;
+			/* padding-left: 20px; */
+			height: 15px;
+			/* line-height: 20px; */
+			display: inline-block;
+			background-size: 15px;
+			padding-left: 17px;
+			/* float: right; */
+			margin-top: 17px;
+		}
+
+		.route-icon-share{
+			background-image: url("../autoNavigation/img/share.png");
+		  background-repeat: no-repeat;
+		  padding-left: 18px;
+		  height: 16px;
+		  line-height: 16px;
+		  background-size: 16px;
+		  display: inline-block;
+		  font-size: 12px;
+		  color: #00c2ff;
+		}
+
+		.route-icon-locaiton{
+			background-image: url("../autoNavigation/img/location.png");
+			background-repeat: no-repeat;
+			padding-left: 30px;
+			background-size: 16px;
+			color: #FFFFFF
+		}
+
+		.route-icon-tocar{
+			background-image: url("../autoNavigation/img/tocar.png");
+			background-repeat: no-repeat;
+			padding-left: 24px;
+			height: 16px;
+			line-height: 16px;
+			background-size: 18px;
+			display: inline-block;
+			font-size: 12px;
+		}
+
+		.route-icon-tocar2{
+			background-image: url("../autoNavigation/img/tocar2.png");
+			background-repeat: no-repeat;
+			padding-left: 24px;
+			height: 16px;
+			line-height: 16px;
+			background-size: 18px;
+			display: inline-block;
+			font-size: 10px;
+			color: #00c2ff;
+    }
+
+		.hidden{visibility: hidden}
+		.deleteAction{
+			position: relative;
+			top: -85px;
+			left: 100%;
+		}
+
+		.dest-note{color:#FFFFFF;font-size: 10px;}
+		.address{
+			width: 86%;
+			float: left;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			-o-text-overflow: ellipsis;
+			overflow: hidden;
+			padding-left: 15px;
+		}
+		.edit{
+		  	width: 14%;
+			float: left;
+			height: 49px;
+			/*border-left: 1px solid #E6E5EC;*/
+			text-align: center;
+			position: relative;
+		}
+		.edit:after{
+			left: 0px;
+			bottom: 0;
+			content: "";
+			display: block;
+			position: absolute;
+			width: 1px;
+			height: 49px;
+			background: #3c4454;
+			opacity: 0.4;
+			-webkit-transform: scale(0.7);
+		}
+		.share{
+			/*border-right: 1px solid #E6E5EC;*/
+			position: relative;
+		}
+		#autoNavigation .share:active{
+			background-color: #151b26 !important
+		}
+		#autoNavigation .tocar:active{
+			background-color: #151b26 !important
+		}
+		.share:after{
+			right: 0px;
+			bottom: 0;
+			content: "";
+			display: block;
+			position: absolute;
+			width: 1px;
+			height: 39px;
+			background: #3c4454;
+			opacity: 0.4;
+			-webkit-transform: scale(0.7);
+		}
+		#homeInfo{padding-left: 20px;}
+		#companyInfo{padding-left: 5px;}
+
+		.route-btn{
+			color: #ffffff;
+			background-color: #00c3fe;
+			border: 1px solid #00c3fe;
+			line-height: 0.5;
+			font-size: 16px;
+			font-family: "Helvetica";
+			height: 44px;
+		}
+
+		#autoNavigation .scroll-content
+		{	
+			width:100%;
+			height:100%;
+			overflow: auto;
+			background-color: #1f232e;
+		}
+		
+	</style>
+
+	<div class="content" style="overflow:hidden">
+		<div class="scroll-content">
+			<div id="routeHeader">
+				<div class="commonAddress">
+					<div class="address" id="home">
+						<label class="route-icon-home">回家</label>
+						<label class="dest-note" id="homeInfo">点击设置</label>
+					</div>
+					<div class="edit" id="setHome">
+						<label class="route-icon-edit"></label>
+					</div>
+				</div>
+				<div class="commonAddress">
+					<div class="address" id="company">
+						<label class="route-icon-company">去公司</label>
+						<label class="dest-note" id="companyInfo">点击设置</label>
+					</div>
+					<div class="edit" id="setCompany">
+						<label class="route-icon-edit"></label>
+					</div>
+				</div>
+			</div>
+			<div id="routeBox">
+				<ul id="routelist"></ul>
+			</div>
+		</div>
+		<!-- <div id="routeFooter">
+			<button id="newRoute" class="btn route-btn btn-block" style="margin-bottom:5px"><img src="../common/img/oper_plus.png" style="width: 17px;height: 17px;margin-top: -3px;"> 新建目的地</button>
+		</div> -->
+	</div>
+</div>

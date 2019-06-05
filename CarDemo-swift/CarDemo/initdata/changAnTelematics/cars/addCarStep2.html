@@ -1,0 +1,125 @@
+
+<div id="addCarStep2" data-view='cars/addCarStep2'>
+<style type="text/css">
+#addCarStep2 .addCar_title{ height:40px; font-size:14px; line-height:40px; color:#1f1f1f; width:95%; margin:0px auto;}
+#addCarStep2 .addCar_wrap{ height:40px; font-size:14px; text-align:left; width:100%; margin:0px auto; background-color:#fff;}
+#addCarStep2 .addCar_wrap > div{ width:95%; height:100%; border-bottom:1px solid #d6d6d6; margin:0 auto;}
+#addCarStep2 .addCar_wrap span{ display:block; width:35%; height:40px; color:#000; float:left; line-height:40px; text-indent:7%;}
+#addCarStep2 .addCar_wrap input,select{ display:block; width:65%; border:none; float:left; height:39px; margin:0; background-color:#fff; box-shadow:none; font-size:14px;overflow: hidden;}
+#addCarStep2 .addCar_wrap .speDiv, .editDiv{
+    display:block; width:65%; border:none; float:left; height:39px; margin:0; background-color:#fff; box-shadow:none; font-size:14px;line-height: 19px;overflow: hidden;text-overflow:ellipsis; white-space:nowrap;padding: 10px 15px;font-family: sans-serif;
+}
+#addCarStep2 .addCar_wrap #insurance, #addCarStep2 #year-check-time{ display:block; text-indent:15px; width:65%; border:none; float:left; height:39px; margin:0; background-color:#fff; box-shadow:none; font-size:14px; text-align:left; line-height:40px;font-family: sans-serif;}
+#addCarStep2 #regis_car{ width:95%; height:40px; line-height:40px; margin:10px auto; border-radius:5px; background-color:#1e9dfa; color:#fff; font-size:18px; text-align:center;}
+#addCarStep2 .insurance-name{
+        display:block;
+        width:60%; 
+        border:none; 
+        float:left; 
+        height:39px; 
+        margin:0; 
+        background-color:#fff; 
+        box-shadow:none; 
+        font-size:14px;
+        line-height: 39px;
+        padding-left: 18px;
+    }
+ .carItem{
+    width: 100%;
+    height: 40px;
+    padding-left: 14px;
+    padding-top: 12px;
+}
+</style>
+
+    <script id="carItem" type="text/x-underscore-template">
+        <div class="carItem" data-value="<%=groupId%>">
+            <span class="carName"><%=groupName%></span>
+        </div>
+    </script>
+
+	<!-- 外围包裹层开始-->
+	<header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}'  navTitle='"添加车辆"'>
+    </header>
+    <div class="content">
+        
+        <div class="addCar_title">基本信息</div>
+        
+        <div class="addCar_wrap">
+        	<div>
+            	<span style='color:#000;'>名称</span>
+            	<input id="name" type="text" maxlength="11" placeholder="请给爱车取个名字"/>
+            </div>
+        </div>
+        
+        <div class="addCar_wrap">
+        	<div>
+            	<span>车架号</span>
+            	<div id="vin" class="speDiv" style="color:#909090;" type="text"></div>
+            </div>
+        </div>
+
+        <div class="addCar_wrap">
+            <div>
+                <span>车系</span>
+                <div role='seriesCar' style="color:#909090;" class='editDiv'>请选择车系</div>
+            </div>
+        </div>
+        
+        <div class="addCar_wrap">
+        	<div id='insurance-util-date'>
+            	<span style='color:#000;'>保险到期日</span>
+            	<div id="insurance"></div>
+            </div>
+        </div>
+
+        <div class="addCar_wrap">
+            <div>
+                <span style='color:#000;'>汽油型号</span>
+                <select id="oliType">
+                    <option>97</option>
+                    <option>93</option>
+                    <option>0</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- <div class="addCar_wrap">
+        	<div>
+            	<span style='color:#000;'>当前里程数</span>
+            	<input id="far_away" type="text" placeholder="请输入当前里程数"/>
+            </div>
+        </div> -->
+        
+        <div class="addCar_wrap">
+        	<div>
+            	<span style='color:#000;'>车牌号</span>
+            	<input id="car_number" maxLength="7" type="text" placeholder="请输入车牌号"/>
+            </div>
+        </div>
+
+        <div class="addCar_wrap">
+            <div id='last-time-check'>
+                <span style='color:#000;'>上次年检时间</span>
+                <div id="year-check-time"></div>
+            </div>
+        </div>
+
+        <!-- <div class="addCar_wrap">
+            <div>
+                <span style='color:#000;'>保险公司</span>
+                <input id="car_style" style="color:#000;"   type="text"/>
+            </div>
+        </div> -->
+        <div class="addCar_wrap">
+            <div>
+                <span>保险公司</span>
+                <div class="insurance-name"></div>
+                <div class="insurance-phone" style="display: none"></div>
+            </div>
+        </div>
+        <div id="regis_car">完成</div>
+        
+   	</div>
+	<div id="datePlugin"></div>
+</div>

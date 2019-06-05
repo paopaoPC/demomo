@@ -1,0 +1,407 @@
+<div id='distributorList' data-view="service/distributorList">
+    <style type="text/css">
+        #distributorList .content {
+            background-color: #ededed;
+        }
+
+        #distributorList .titleTap {
+            height: 35px;
+            width: 100%;
+            border-bottom: 1px solid #309ce4;
+            position: relative;
+            background-color: #fff;
+        }
+
+        #distributorList .muneList {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        #distributorList .distributor {
+            padding: 0px 10px;
+            position: absolute;
+            height: 100%;
+            width: 50%;
+        }
+
+        #distributorList .distributor > div {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+
+        #distributorList .map {
+            padding: 0px 10px;
+            position: absolute;
+            height: 100%;
+            width: 50%;
+            left: 50%;
+        }
+
+        #distributorList .map > div {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+
+        #distributorList .distributorList-icon {
+            position: absolute;
+            left: 0px;
+            width: 100%;
+            text-align: center;
+            height: 100%;
+            line-height: 35px;
+            color: #4f4f51;
+            border: none;
+        }
+
+        #distributorList .map-icon {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            height: 100%;
+            line-height: 35px;
+            color: #4f4f51;
+            border: none;
+        }
+
+        #distributorList .tapIcon.active {
+            border-bottom: 3px solid #09aaec;
+            color: #2986cc;
+        }
+
+        #distributorList .distributorList {
+            position: absolute;
+            top: 35px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            background-color: #ededed;
+            z-index: 999;
+            overflow: hidden;
+        }
+
+        #distributorList .distributorList-scroller {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+
+        #distributorList .distributorItem {
+            height: auto;
+            background-color: #fff;
+            border-bottom: 1px solid #c9c9c9;
+            margin-bottom: 5px;
+        }
+
+        #distributorList .distributorItem .distributorInfo {
+            padding: 12px 15px 15px 30px;
+            border-bottom: 1px solid #eeeeee;
+            width: 100%;
+            height: auto;
+            position: relative;
+        }
+
+        #distributorList .distributorItem .distributor-icon {
+            height: 50px;
+            width: 50px;
+        }
+
+        #distributorList .distributorItem .distributorInfoDetail {
+            position: relative;
+        }
+
+        #distributorList .distributorItem .distributorName {
+            font-size: 16px;
+            color: #585858;
+            margin-bottom: 6px;
+        }
+
+        #distributorList .distributorItem .businessHour {
+            color: #8e8e90;
+            font-size: 14px;
+        }
+
+        #distributorList .distributorItem .distance {
+            font-size: 12px;
+            color: #ff9189;
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+        }
+
+        #distributorList .distributorContactInfo {
+            padding: 10px 15px;
+            height: auto;
+            position: relative;
+            color: #aeaeae;
+            padding-right: 58px;
+        }
+
+        #distributorList .distributorItem .contactInfo {
+            padding: 7px 0px;
+            width: 100%;
+            height: auto;
+            position: relative;
+            border-right: 1px solid #c8c8c8;
+        }
+
+        #distributorList .distributorItem .address-icon {
+            background-repeat: no-repeat;
+            background-image: url('img/address-icon.png');
+            background-size: 16px 16px;
+            background-position: 100%;
+            height: 16px;
+            width: 16px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        #distributorList .distributorItem .address {
+            font-size: 14px;
+            margin-left: 5px;
+        }
+
+     /*   #distributorList .distributorItem .makecall {
+            position: absolute;
+            height: 30px;
+            width: 48px;
+            right: 10px;
+            top: 50%;
+            margin-top: -15px;
+            text-align: center;
+        }
+
+        #distributorList .distributorItem .makecall img {
+            height: 20px;
+            width: 20px;
+            margin-top: 5px;
+        }*/
+
+        #distributorList .mapArea {
+            left: 0px;
+            right: 0px;
+            position: absolute;
+            z-index: 99;
+            bottom: 0px;
+            top: 35px;
+            overflow: auto;
+        }
+
+        #distributorList .selectCity-icon {
+            position: absolute;
+            width: 50px;
+            height: 100%;
+            right: 0px;
+            line-height: 48px;
+            color: #fff;
+            text-align: center;
+            background-size: 20px 20px;
+            background-image: url('../service/img/selectCity-icon.png');
+            background-position: 50% 50%;;
+            background-repeat: no-repeat;
+        }
+        #distributorList .distributorItem {
+    height: 80px;
+    background-color: #fff;
+    border-bottom: 1px solid #d9d9d9;
+    border-top: 1px solid #d9d9d9;
+    margin-bottom: 12px;
+    overflow: hidden;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+}
+#distributorList .store1 ul li{
+    margin-bottom: 0px;
+    border-bottom: 1px solid #d9d9d9;
+    border-top: 1px solid #d9d9d9;
+}
+#distributorList .distributorItem .distributorInfo {
+    padding: 12px 0px 2px 0px; 
+    width: 80%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+#distributorList .left-img{
+    width: 20%;
+    float: left;
+    margin-bottom: 10px;
+    display: none;
+}
+#distributorList .left-img>img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-top: 10px
+}
+#distributorList .right-content{
+    margin-top: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    width: 100%;
+    /*padding-left: 19px;*/
+    font-size: 17px;
+    color: #343434;
+    line-height: 23px;
+    padding-right: 28px;
+}
+#distributorList .distributorItem .distributor-icon {
+    height: 50px;
+    width: 50px;
+}
+#distributorList .distributorItem .distributorInfoDetail{
+    position: relative;
+    width: 70%;
+    float: left;
+    margin-top: 6px
+}
+#distributorList .content-left{
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    float: left;
+    padding-left: 14px;
+    padding-right: 14px;
+    display: table;
+    position: relative;
+}
+#distributorList .distributorContactInfo1 {
+    width: 100%;
+    font-size: 14px;
+    position: relative;
+    color: #999999;
+    padding-bottom: 5px;
+    padding-right: 10px
+}
+#distributorList .distributorItem .contactInfo1 {
+    width: 82%;
+    height: auto;
+    position: relative;
+    padding-top: 12px;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    float: left;
+}
+#distributorList .distributorItem .distance1 {
+    height: 23px;
+    font-size: 14px;
+    float: right;
+    padding-right: 7px;
+    padding-top: 12px;
+}
+#distributorList .distributorItem .address-icon1 {
+    background-repeat: no-repeat;
+    background-image: url('../applyService/img/maintainLocation.png');
+    background-size: 13px 16px;
+    /*background-position: 100%;*/
+    height: 18px;
+    width: 18px;
+    display: inline-block;
+    vertical-align: middle;
+}
+#distributorList .distributorItem .address1 {
+    font-size: 14px;
+    /*margin-left: 5px;*/
+}
+#distributorList .content-right{
+    width: 40px;
+    height: 40px;
+    right: 1%;
+    top: 50%;
+    transform: translateY(-50%);
+    float: left;
+    background: url(../applyService/img/search_icon.png) no-repeat;
+    background-size: 20px 20px;
+    background-position: 50%;
+    position: absolute;
+    margin: auto 0;
+    display: inline-block;
+}
+#distributorList .content-right:after{
+    left: -7px;
+    content: "";
+    display: block;
+    position: absolute;
+    top: -57%;
+    width: 2px;
+    height: 80px;
+    background: #d9d9d9;
+    opacity: 0.7;
+    -webkit-transform: scale(0.5);
+}
+    </style>
+
+    <script id="distributor-template" type="text/x-underscore-template">
+    <%var dis = Number(distance);
+                    var d;
+                    if(dis !=0) {
+                        if(dis > 1000 || dis == 1000) {
+                            d = (dis/1000).toFixed(1) + "km";
+                        } else {
+                            d = parseInt(dis) + "m";
+                        }
+                    }%>
+                    
+    <li class="distributorItem"  data-name="<%=dealerName%>"  data-lng="<%=lng%>" data-lat='<%=lat%>'>
+        <div class="content-left">
+            <div class="distributorContactInfo1" data-lng="<%=lng%>" data-lat='<%=lat%>' style="height: auto;vertical-align: middle;display: table-cell;width:86%;float:left">
+                <div class="right-content"><%=dealerName%></div>
+                <div>
+                    <div class="contactInfo1">
+                        <span class="address-icon1"></span>
+                        <span class="address1"><%=addr%></span>
+                    </div>
+                    <div class="distance1"><%=d%></div>
+                </div>
+            </div>
+            <%if(tel){%>
+            <a id="changan-tel-link" class="makecall" href="tel:<%=tel%>">
+            <%} else {%>
+                <a id="no-tel">
+            <%}%>
+            <div class="content-right makecall">
+            </div></a>
+        </div>
+        
+    </li>
+
+</script>
+
+    <header id="nav-bar" class="bar bar-nav blue-bar" navTitle='"SOS"' navRight='{"hide":true}'>
+        <div class="selectCity-icon selectCity"></div>
+    </header>
+
+    <div class="content">
+        <div class="titleTap">
+            <div class="muneList">
+                <div class="distributor">
+                    <div>
+                        <span class="distributorList-icon tapIcon active" data-value="distributorList">经销商列表</span>
+                    </div>
+                </div>
+                <div class="map">
+                    <div>
+                        <span class="map-icon tapIcon" data-value="map">4S地图</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="distributorList" class="wrapper">
+            <div class="distributorList-scroller">
+                <ul>
+
+                </ul>
+            </div>
+        </div>
+        <div id="map" class="mapArea"></div>
+    </div>
+</div>

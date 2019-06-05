@@ -1,0 +1,478 @@
+<div id="bluetoothSharedListView" class="page" data-view="bluetooth/shared-list">
+	<style type="text/css">
+	#bluetoothSharedListView .iconOne {
+			position: absolute;
+			height: 28px;
+			width: 28px;
+			border-radius: 28px;
+			border: 1px solid #666666;
+			clip: rect(0px, 28px, 0px, 14px);
+			top: 0;
+		}
+
+		#bluetoothSharedListView .iconTwo {
+			position: absolute;
+			height: 28px;
+			width: 28px;
+			border-radius: 28px;
+			border: 1px solid #666666;
+			clip: rect(0px, 28px, 0px, 14px);
+			transform: rotate(180deg);
+			top: 0;
+		}
+
+		#bluetoothSharedListView .pulldown.flip .icon,#bluetoothSharedListView .pulldown2.flip .icon {
+			-webkit-transform: rotate(0) translateZ(0);
+		}
+
+		#bluetoothSharedListView .pulldown.loading .iconOne,#bluetoothSharedListView .pulldown2.loading .iconOne {
+			clip: rect(0px 28px 28px 14px) !important;
+		}
+
+		#bluetoothSharedListView .pulldown.loading .iconTwo,#bluetoothSharedListView .pulldown2.loading .iconTwo {
+			clip: rect(0px 28px 26px 14px) !important;
+		}
+
+		#bluetoothSharedListView .pulldown,#bluetoothSharedListView .pulldown2 {
+			height: 60px;
+			position: absolute;
+			top: -60px;
+			/*top: 0;*/
+			color: #666666;
+			width: 100%;
+			z-index: 999;
+			padding-top: 10px;
+			text-align: center;
+			font-weight: inherit;
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		#bluetoothSharedListView .pulldownWrap {}
+
+		#bluetoothSharedListView .pulldownWrap.hidden {
+			display: none;
+		}
+
+		#bluetoothSharedListView .pulldown .icon,#bluetoothSharedListView .pulldown2 .icon {
+			display: inline-block;
+			width: 28px;
+			height: 28px;
+			background-size: 28px;
+			float: none;
+			background: url("../home/img/home-down_1.png");
+			background-repeat: no-repeat;
+			background-position: 50%;
+			-webkit-animation-duration: 1.3s;
+		}
+
+		#bluetoothSharedListView .pulldown.flip .icon,#bluetoothSharedListView .pulldown2.flip .icon {
+			background-size: 0;
+		}
+
+		#bluetoothSharedListView .pulldown.loading .icon,#bluetoothSharedListView .pulldown2.loading .icon {
+			background: url("../home/img/home-loading_1.png") no-repeat;
+			background-size: 19px;
+			position: relative;
+			top: -3px;
+			width: 28px;
+			height: 28px;
+			background-position: 50%;
+		}
+
+		#bluetoothSharedListView #wrapper {
+			position: absolute;
+			z-index: 1;
+			width: 100%;
+			top: 0;
+			bottom: 0;
+			height: auto;
+			overflow: hidden;
+		}
+
+		#bluetoothSharedListView #scroller {
+			position: absolute;
+			z-index: 1;
+			width: 100%;
+			min-height: 101%;
+		}
+		#bluetoothSharedListView .im-text-navtitle {
+			/*font-size: 15px !important;*/
+		}
+		#bluetoothSharedListView .im-default-nav-bar {
+			border-bottom: none;
+		}
+		#bluetoothSharedListView .content {
+			background-color: #080808;
+			color: white;
+		}
+		#bluetoothSharedListView .input-item {
+			height: 46px;
+    		padding: 0 52px 0 120px;
+		}
+		#bluetoothSharedListView .item-label {
+			width: 120px;
+		    position: absolute;
+		    height: 40px;
+		    left: 0;
+		    line-height: 40px;
+		    text-align: left;
+		    padding-left: 15px;
+		}
+		#bluetoothSharedListView .item-input {
+			height: 40px;
+    		line-height: 40px;
+    		margin-top: -4px;
+		}
+		#bluetoothSharedListView .item-input .input-div,#bluetoothSharedListView .item-input input {
+			background: transparent;
+			margin-bottom: 0;
+			/*border-bottom: 1px solid #636363;*/
+			padding: 0;
+			height: 24px;
+			margin-top: 8px;
+			font-size: 13px;
+			padding-left: 6px;
+			color: rgb(153,153,153);
+		}
+		#bluetoothSharedListView .item-input .input-div {
+			height: 30px;
+			text-align: right;
+		}
+		#bluetoothSharedListView .input-item-time {
+			color: #0076d1;
+			font-size: 14px;
+			display: inline-block;
+			margin-right: 20px;
+		}
+		#bluetoothSharedListView .shared-btn {
+			height: 45px;
+			line-height: 45px;
+			text-align: center;
+			margin: auto;
+			background: #0098ff;
+			border-radius: 5px;
+			font-size: 18px;
+			/* margin-top: 15px; */
+			position: absolute;
+			left: 70px;
+			right: 70px;
+			bottom: 40px;
+		}
+		#bluetoothSharedListView .shared-list {
+			/*margin-top: 55px;*/
+		}
+		#bluetoothSharedListView .shared-list-head {
+			padding-left: 15px;
+		}
+		#bluetoothSharedListView .shared-list-item {
+			padding: 0;
+			/* padding-right: 35px; */
+			height: 150px;
+			font-size: 16px;
+			background-color: #141414;
+			margin-bottom: 6px;
+		}
+		#bluetoothSharedListView .shared-list-item-content {
+			position: relative;
+		    height: 100px;
+		    padding: 20px 15px;
+		    border-bottom: 1px solid #636363;
+		}
+		#bluetoothSharedListView .shared-list-item-head {
+			font-size: 12px;
+			color: #5a5a5a;
+			margin-bottom: 16px;
+		}
+		#bluetoothSharedListView .slic-item {
+			font-size: 16px;
+			color: white;
+		}
+		#bluetoothSharedListView .slic-item-left {
+			display: inline-block;
+		}
+		#bluetoothSharedListView .slic-item-right {
+			display: inline-block;
+			float: right;
+			text-align: right;
+			margin-top: -10px;
+		}
+		#bluetoothSharedListView .slic-item-operate {
+			position: absolute;
+			right: 45px;
+			top: 0;
+			width: 40px;
+			height: 50px;
+			background-repeat: no-repeat;
+			background-image: url(../bluetooth/img/backout.png);
+			background-size: 25px;
+			background-position: center;
+		}
+		#bluetoothSharedListView .slic-item-operate-edit {
+			position: absolute;
+			right: 10px;
+			top: 0;
+			width: 40px;
+			height: 50px;
+			background-repeat: no-repeat;
+			background-image: url(../bluetooth/img/edit.png);
+			background-size: 25px;
+			background-position: center;
+		}
+		
+		#bluetoothSharedListView .im-nav-right-text {
+			font-size: 17px;
+			color: white !important;
+		}
+		#bluetoothSharedListView .contact {
+			background-size: 25px;
+			width: 44px;
+			height: 32px;
+			background-repeat: no-repeat;
+			background-image: url(../bluetooth/img/addperson.png);
+			margin: auto;
+			background-position: center;
+			position: absolute;
+			right: 6px;
+			bottom: 8px;
+		}
+		#bluetoothSharedListView .right-icon {
+			background-size: 8px;
+		    width: 9px;
+		    height: 19px;
+		    background-repeat: no-repeat;
+		    background-image: url(../cars/img/icon_right.png);
+		    margin: auto;
+		    background-position: center;
+		    position: absolute;
+		    right: 21px;
+		    bottom: 16px;
+		}
+
+		#bluetoothSharedListView .shared-list-item-content-bottom {
+			position: relative;
+			height: 50px;
+			font-size: 16px;
+			line-height: 50px;
+			padding: 0 15px;
+		}
+		#bluetoothSharedListView .SLITCB-left {
+			color: rgb(0,152,255)
+		}
+		#bluetoothSharedListView .SLITCB-right {
+			
+		}
+		#bluetoothSharedListView .dialog-warp-phone {
+			display: none;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			z-index: 999;
+			background-color: rgba(0, 0, 0, 0.28);
+		}
+		#bluetoothSharedListView .dialog-warp-phone-wrap {
+			position: absolute;
+			top: 100px;
+			left: 37px;
+			right: 37px;
+			background-color: #e6e6e6;
+			height: 225px;
+			border-radius: 6px;
+			padding-top: 65px;
+		}
+		#bluetoothSharedListView .dialog-warp-phone-content-top {
+			color: black;
+		    font-size: 18px;
+		    text-align: center;
+		}
+		#bluetoothSharedListView .dialog-warp-phone-content-bottom {
+			font-size: 12px;
+		    color: rgb(0,152,255);
+		    margin-top: 10px;
+		    text-align: center;
+		}
+		#bluetoothSharedListView .dialog-warp-phone-bottom {
+			text-align: center;
+		    position: absolute;
+		    bottom: 20px;
+		    width: 100%;
+		}
+		#bluetoothSharedListView .dialog-warp-phone-cancel {
+			height: 44px;
+		    display: inline-block;
+		    width: 105px;
+		    border-radius: 6px;
+		    line-height: 44px;
+		    color: #454545;
+		    text-align: center;
+		    border: 1px solid #454545;
+		    font-size: 16px;
+		}
+		#bluetoothSharedListView .dialog-warp-phone-ok {
+				height: 44px;
+			    display: inline-block;
+			    width: 105px;
+			    border-radius: 6px;
+			    line-height: 44px;
+			    color: white;
+			    text-align: center;
+			    background-color: #0098ff;
+			    margin-left: 25px;
+			    border: 1px solid #0098ff;
+			    font-size: 16px;
+		}
+		#bluetoothSharedListView .shared-list-item-nickName {
+			display: none;
+		}
+		#bluetoothSharedListView .hasNickname.shared-list-item {
+			height: 200px;
+		}
+		
+		#bluetoothSharedListView .hasNickname .shared-list-item-content {
+			height: 150px;
+
+		}
+		#bluetoothSharedListView .hasNickname .shared-list-item-nickName {
+			display: block;
+		}
+		#bluetoothSharedListView .shared-no-network-icon {
+			background-size: 125px;
+		    width: 125px;
+		    height: 125px;
+		    background-repeat: no-repeat;
+		    background-image: url(../bluetooth/img/defaultpage-nowifi.png);
+		    margin: auto;
+		    background-position: center;
+		    margin-top: 100px;
+		}
+		#bluetoothSharedListView .shared-no-car-icon {
+			background-size: 125px;
+		    width: 125px;
+		    height: 125px;
+		    background-repeat: no-repeat;
+		    background-image: url(../bluetooth/img/defaultpage-noinformation.png);
+		    margin: auto;
+		    background-position: center;
+		    margin-top: 100px;
+		}
+		#bluetoothSharedListView .shared-no-network-text,#bluetoothSharedListView .shared-no-car-text {
+			text-align: center;
+		}
+
+    </style>
+
+    <script id="bluetoothSharedView_temp" type="text/x-underscore-template">
+    	<% for(var i=0;i<dataArr.length;i++){ %>
+    	<div class="shared-list-item <%=dataArr[i].nickName?'hasNickname':''%>" data-index="<%=i%>">
+    		<div class="shared-list-item-content">
+    			<div class="slic-item" style="margin-bottom: 29px;">
+    				<div class="slic-item-left">手机号</div>
+    				<div class="slic-item-right" style="margin-top: 0px;"><p><%=dataArr[i].phone%></p></div>
+    			</div>
+    			<div class="slic-item">
+    				<div class="slic-item-left">有效期</div>
+    				<div class="slic-item-right"><p><%=moment(dataArr[i].startTime).format('YYYY.MM.DD HH:mm')%></p><p>-<%=moment(dataArr[i].expireTime).format('YYYY.MM.DD HH:mm')%></p></div>
+    			</div>
+    			<div class="slic-item shared-list-item-nickName" style="margin-top: 29px;" >
+    				<div class="slic-item-left">备注</div>
+    				<div class="slic-item-right" style="margin-top: 0px;"><p><%=dataArr[i].nickName%></p></div>
+    			</div>
+    		</div>
+    		<div class="shared-list-item-content-bottom">
+    			<div class="SLITCB-left">有效</div>
+    			<div class="SLITCB-right">
+    				<div class="slic-item-operate" data-phone="<%=dataArr[i].phone%>" data-vin="<%=dataArr[i].vin%>"></div>
+    				<div class="slic-item-operate-edit"></div>
+    			</div>
+    		</div>
+    	</div>
+    	<%}%>
+    </script>
+
+    <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}' navTitle='"蓝牙钥匙授权列表"' style="background:transparent">
+    </header>
+    <div class="content">	
+		<!-- <div class="input-wrap" style="font-size: 16px;">
+			<div class="input-item" style="height: auto;padding: 0 15px;border-bottom: 1px solid #636363;margin-top: 16px;position: relative;">
+				<div class="item-label" style="position: relative;width: 200px;padding-left: 0;font-size: 16px;">被授权手机号</div>
+				<div class="item-input">
+					<input style='padding-left: 0;font-size: 16px;' type="text" id="phone-input" maxlength="11" placeholder="手机号">
+					<div class="contact"></div>
+				</div>
+			</div>
+			<div class="input-item">
+				<div class="item-label">有效期</div>
+				<div class="item-input">
+					<div class="input-item-time" data-value="1">一小时</div>
+					<div class="input-item-time" data-value="24">一天</div>
+					<div class="input-item-time" data-value="168">一周</div>
+					<div class="input-item-time" data-value="720">一月</div>
+				</div>
+			</div>
+			<div class="input-item" style="height: 32px;margin-top: 12px;">
+				<div class="item-label">起始时间</div>
+				<div class="item-input item-input-1">
+					<div id="item-input-1" class="input-div"></div>
+				</div>
+			</div>
+			<div class="input-item" style="border-bottom: 1px solid #636363;position: relative;">
+				<div class="item-label">有效期至</div>
+				<div class="item-input item-input-2">
+					<div id="item-input-2" class="input-div"></div>
+				</div>
+				<div class="right-icon"></div>
+			</div>
+			<div class="input-item" style="height: auto;padding: 0 15px;border-bottom: 1px solid #636363;margin-top: 10px;position: relative;">
+				<div class="item-label" style="position: relative;width: 200px;padding-left: 0;font-size: 16px;">备注(选填)</div>
+				<div class="item-input">
+					<input style='padding-left: 0;font-size: 16px;' type="text" id="phone-input" maxlength="11" placeholder="可填写被授权人昵称">
+				</div>
+			</div>
+             <div id="item-input-datepick"></div>
+		</div> -->
+		<div id="wrapper">
+		<div id="scroller">
+			<div class="pulldown">
+				<div class="pulldownWrap">
+					<div id='iconDiv'>
+						<span class="icon">
+							<div class='iconOne'></div>
+							<div class='iconTwo'></div>
+						</span>
+					</div>
+					<span class="label">下拉刷新...</span>
+				</div>
+			</div>
+			<div class="shared-list">
+				<div class="shared-list-content">
+
+				</div>
+			</div>
+			<div class="shared-no-network" style="display:none">
+				<div class="shared-no-network-icon"></div>
+				<div class="shared-no-network-text">加载失败，请检查网络</div>
+			</div>
+			<div class="shared-no-car" style="display:none">
+				<div class="shared-no-car-icon"></div>
+				<div class="shared-no-car-text">暂无授权用户</div>
+			</div>
+		</div>
+		</div>
+		<div class="dialog-warp-phone">
+			<div class="dialog-warp-phone-wrap">
+				<div class="dialog-warp-phone-content">
+					<div class="dialog-warp-phone-content-top">确定撤销<span></span>的授权吗？</div>
+					<div class="dialog-warp-phone-content-bottom">撤销会使该用户无法使用蓝牙钥匙哟</div>
+				</div>
+				<div class="dialog-warp-phone-bottom">
+					<div class="dialog-warp-phone-cancel">取消</div>
+					<div class="dialog-warp-phone-ok">确定</div>
+				</div>
+			</div>
+		</div>
+		<!-- <div class="shared-btn">确认授权</div> -->
+    </div>
+	<!-- <div id="datePlugin"></div> -->
+</div>

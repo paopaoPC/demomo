@@ -1,0 +1,282 @@
+<div id="Labmain" data-view='Laboratory/index'>
+    <style type="text/css">
+        .span {
+            display: inline-block;
+            width: 1px;
+            height: 100%;
+            vertical-align: middle;
+        }
+
+        #tour > li {
+            height: 55px;
+            font-size: 15px;
+            color: #666666;
+            background-color: #FFFFFF;
+            padding: 0;
+        }
+
+        #Labmain .table-view .table-view-cell {
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#d9d9d9' x='0' y='0' width='100%' height='0.5'/></svg>");
+            background-position: 0 100%
+        }
+
+        #Labmain .table-view-cell > a:not(.btn) {
+            height: 100%;
+            margin: 0;
+            padding-top: 19px;
+            padding-left: 14px;
+            line-height: 21px;
+        }
+
+        #Writetour {
+            width: 60px;
+            position: absolute;
+            bottom: 120px;
+            right: 1px;
+            -webkit-animation: myfirst 1s; /* Safari and Chrome */
+            -webkit-animation-iteration-count: infinite;
+        }
+
+        @keyframes myfirst {
+            0% {
+                width: 50px;
+            }
+            25% {
+                width: 55px;
+            }
+            50% {
+                width: 60px;
+            }
+            75% {
+                width: 55px;
+            }
+            100% {
+                width: 50px;
+            }
+        }
+
+        @-webkit-keyframes myfirst /* Safari 和 Chrome */
+        {
+            0% {
+                width: 50px;
+            }
+            25% {
+                width: 55px;
+            }
+            50% {
+                width: 60px;
+            }
+            75% {
+                width: 55px;
+            }
+            100% {
+                width: 50px;
+            }
+        }
+
+        #Labmain .gotroval-icon {
+            width: 19px !important;
+            height: 19px;
+            background: url(../Laboratory/images/icon_travel.png) no-repeat;
+            background-size: 19px 19px;
+            float: left;
+            margin-right: 15px;
+        }
+
+        #Labmain .findCar_icon {
+            width: 19px !important;
+            height: 19px;
+            background: url(../Laboratory/images/icon_sreach.png) no-repeat;
+            background-size: 19px 19px;
+            float: left;
+            margin-right: 15px;
+        }
+
+        #Labmain .goFootStep_icon {
+            width: 19px !important;
+            height: 19px;
+            background: url(../Laboratory/images/icon_addr.png) no-repeat;
+            background-size: 19px 19px;;
+            float: left;
+            margin-right: 15px;
+        }
+
+        #Labmain .expansion_icon {
+            width: 19px !important;
+            height: 19px;
+            background: url(../Laboratory/images/icon_control.png) no-repeat;
+            background-size: 19px 19px;
+            float: left;
+            margin-right: 15px;
+        }
+
+        #Labmain .remote_icon {
+            width: 19px !important;
+            height: 19px;
+            background: url(../Laboratory/images/icon_control.png) no-repeat;
+            background-size: 19px 19px;
+            float: left;
+            margin-right: 15px;
+        }
+        #Labmain .homeRemote_icon {
+            width: 19px !important;
+            height: 19px;
+            background: url(../Laboratory/images/icon_control.png) no-repeat;
+            background-size: 19px 19px;
+            float: left;
+            margin-right: 15px;
+        }
+        
+
+        #Labmain .teamTravel_icon {
+            width: 19px !important;
+            height: 19px;
+            background: url(../Laboratory/images/icon-team.png) no-repeat;
+            background-size: 19px 19px;
+            float: left;
+            margin-right: 15px;
+        }
+
+        #Labmain .icon-next {
+            position: absolute;
+            right: 14px;
+            width: 40px;
+            height: 100%;
+            background: url(../Laboratory/images/icon_into.png) no-repeat;
+            background-size: 7px 12px;
+            background-position: 100% 50%;
+            top: 0
+        }
+
+        #Labmain .navigate-right:after, .push-right:after {
+            display: none;
+        }
+
+        .new_tour {
+            position: fixed;
+            bottom: 50px;
+            width: 100%;
+        }
+
+        #cansle {
+            width: 20px;
+            position: absolute;
+            top: 1px;
+            right: 1px;
+        }
+    </style>
+    <script id="chose" type="text/x-underscore-template">
+        <div id="<%=tourId%>" class="goWrite"><span class="span"></span><%=tourName%></div>
+    </script>
+
+    <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}' navTitle='"实验室"'>
+    </header>
+    <div class="content">
+        <ul id="tour" class="table-view" style="background-color: #E5E8EF;font-size: 0.95em;margin-top:0">
+            <!--<li class="table-view-cell" id="Gotroval">-->
+            <!--<a class="navigate-right">-->
+            <!--<div class="table-view-sep gotroval-icon">&nbsp;</div>我的游记-->
+            <!--<div class="icon-next"></div>-->
+            <!--</a>-->
+            <!--</li>-->
+
+            <!--<li class="table-view-cell" id="Find_Car">-->
+            <!--<a class="navigate-right">-->
+            <!--<div class="table-view-sep findCar_icon">&nbsp;</div>拍照寻车-->
+            <!--<div class="icon-next"></div>-->
+            <!--</a>-->
+            <!--</li>-->
+
+            <!--<li class="table-view-cell" id="Gofootstep">-->
+            <!--<a class="navigate-right">-->
+            <!--<div class="table-view-sep goFootStep_icon">&nbsp;</div>我的足迹-->
+            <!--<div class="icon-next"></div>-->
+            <!--</a>-->
+            <!--</li>-->
+
+            <!--<li class="table-view-cell" id="GoImage">-->
+            <!--<a class="navigate-right">-->
+            <!--<span class="table-view-sep goImage_icon">&nbsp;</span>抓拍图库-->
+            <!--</a>-->
+            <!--</li>-->
+
+            <!--<li class="table-view-cell" id="ElectronicFence">-->
+            <!--<a class="navigate-right">-->
+            <!--<span class="table-view-sep">&nbsp;</span>电子围栏-->
+            <!--</a>-->
+            <!--</li>-->
+
+            <!--<li class="table-view-cell" id="userSet">-->
+            <!--<a class="navigate-right">-->
+            <!--<span class="table-view-sep userSet_icon">&nbsp;</span>实验室设置-->
+            <!--</a>-->
+            <!--</li>-->
+            <li class="table-view-cell" id="expansion">
+                <a class="navigate-right">
+                    <div class="table-view-sep expansion_icon">&nbsp;</div>
+                    扩展控制
+                    <div class="icon-next"></div>
+                </a>
+            </li>
+            <!--<li class="table-view-cell" id="teamTravel">-->
+                <!--<a class="navigate-right">-->
+                    <!--<span class="table-view-sep teamTravel_icon">&nbsp;</span>组队出行-->
+                    <!--<div class="icon-next"></div>-->
+                <!--</a>-->
+            <!--</li>-->
+            <li class="table-view-cell" id="autoPark">
+                <a class="navigate-right">
+                    <span class="table-view-sep remote_icon">&nbsp;</span>自动泊车
+                    <div class="icon-next"></div>
+                </a>
+            </li>
+            <li class="table-view-cell" id="camera">
+                <a class="navigate-right">
+                    <span class="table-view-sep remote_icon">&nbsp;</span>远程摄像
+                    <div class="icon-next"></div>
+                </a>
+            </li>
+            <li class="table-view-cell" id="longSet1">
+                <a class="navigate-right">
+                    <span class="table-view-sep remote_icon">&nbsp;</span>远程设置
+                    <div class="icon-next"></div>
+                </a>
+            </li>
+            <!--<li class="table-view-cell" id="Peripheralimage">-->
+                <!--<a class="navigate-right">-->
+                    <!--<div class="table-view-sep expansion_icon">&nbsp;</div>-->
+                    <!--周边影像-->
+                    <!--<div class="icon-next"></div>-->
+                <!--</a>-->
+            <!--</li>-->
+             <li class="table-view-cell" id="homeRemote">
+                <a class="navigate-right">
+                    <div class="table-view-sep homeRemote_icon">&nbsp;</div>
+                    家控制
+                    <div class="icon-next"></div>
+                </a>
+            </li>
+            <li class="table-view-cell" id="remote">
+                <a class="navigate-right">
+                    <div class="table-view-sep remote_icon">&nbsp;</div>
+                    公司控制
+                    <div class="icon-next"></div>
+                </a>
+            </li>
+            <!-- <li class="table-view-cell" id="voiceControl">
+                <a class="navigate-right">
+                    <div class="table-view-sep expansion_icon">&nbsp;</div>
+                    语音控制
+                    <div class="icon-next"></div>
+                </a>
+            </li> -->
+            <!--<li class="table-view-cell" id="setWifi">-->
+                <!--<a class="navigate-right">-->
+                    <!--<div class="table-view-sep expansion_icon">&nbsp;</div>-->
+                    <!--爱车WIFI设置-->
+                    <!--<div class="icon-next"></div>-->
+                <!--</a>-->
+            <!--</li>-->
+        </ul>
+    </div>
+</div>

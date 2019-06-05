@@ -1,0 +1,72 @@
+<div id="contacts" data-view='Laboratory/contacts'>
+	<style type="text/css">
+	#people_list >li {
+		position: relative;
+		margin-top: 10px;
+	    margin-left: 5px;
+	    margin-right: 5px;
+	    border-bottom-style: solid;
+	    border-bottom-width: 1px;
+	    border-bottom-color: gainsboro;
+	    border-top-style: solid;
+	    border-top-width: 1px;
+	    border-top-color: gainsboro;
+		height: 60px;
+		background-color: rgb(255, 255, 255);
+	}
+	#people_list >li > .head{
+		width: 50px;
+		border-radius: 100%;
+		padding-top: 4px;
+		padding-left: 7px;
+	}
+	#people_list > li >.write{
+		position: absolute;
+	    right: 55px;
+	    top: 13px;
+	}
+	#people_list > li >.delete{
+		position: absolute;
+	    right: 10px;
+	    top: 13px;
+	}
+	#people_list > li > span{
+	    position: relative;
+	    left: 20px;
+	    top: -10px;
+	    font-weight: 500;
+	    font-size: 16px;
+	}
+	#people_list >li >p{
+	    position: relative;
+	    top: -26px;
+	    left: 137px;
+	    font-size: 16px;
+	    color: black;
+	    width: 111px;
+	}
+	#count{
+		margin-top: 10px;
+		margin-left: 10px;
+		font-size: 16px;
+		color: steelblue;
+	}
+	</style>
+	<script id="connect_people" type="text/x-cunderscore-template">
+		<li>
+			<img class="head" src="../Laboratory/images/headImage.png"/>
+			<span><%=data.contactName%></span>
+			<p id="<%=data.id%>"><%=data.contactPhone%></p>
+			<img class="write" src="../Laboratory/images/write.png"/>
+			<img class="delete" src="../Laboratory/images/shanchu.png"/>
+		</li>
+	</script>
+	<header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"text":"添加"}' navTitle='"联系人设置"'>
+    </header>
+    <div class="content">
+    	<p id="count">车辆发生碰撞事故，将短信通知紧急联系人(0/3)</p>
+    	<ul id="people_list">
+    		
+    	</ul>
+	</div>
+</div>

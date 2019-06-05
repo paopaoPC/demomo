@@ -1,0 +1,106 @@
+<div id="LaboratoryHomeRemote" data-view='Laboratory/LaboratoryHomeRemote'>
+    <style type="text/css">
+    	#LaboratoryHomeRemote .content {
+    		background-color: #f1f1f1;
+    	}
+      #LaboratoryHomeRemote .LCItem {
+        margin-bottom: 17px;
+      }
+      #LaboratoryHomeRemote .LCIContent {
+        height: 60px;
+        background-color: white;
+        position: relative;
+      }
+      #LaboratoryHomeRemote .LCICIcon {
+        position: absolute;
+        width: 44px;
+        height: 100%;
+        margin-left: 25px;
+        background-position-y: 50%;
+        background-size: 44px;
+        background-repeat: no-repeat;
+      }
+      #LaboratoryHomeRemote #air .LCICIcon {
+        background-image: url(../Laboratory/images/lr_air.png);
+      }
+      #LaboratoryHomeRemote #curtain .LCICIcon {
+        background-image: url(../Laboratory/images/lr_curtain.png);
+      }
+      #LaboratoryHomeRemote #light .LCICIcon {
+        background-image: url(../Laboratory/images/lr_light.png);
+      }
+      #LaboratoryHomeRemote .LCICText {
+        height: 100%;
+        line-height: 60px;
+        padding-left: 79px;
+        font-size: 18px;
+        font-weight: bolder;
+      }
+      #LaboratoryHomeRemote .LCIButtonWarp {
+        background-color: white;
+      }
+      #LaboratoryHomeRemote .LCIButton {
+        display: inline-block;
+        width: 50%;
+        text-align: center;
+        color: #06bbff;
+        line-height: 63px;
+        height: 60px;
+        position: relative;
+        font-size: 17px;
+      }
+      #LaboratoryHomeRemote .LCIBLeft {
+        padding-left: 5px;
+      }
+      #LaboratoryHomeRemote .LCIBRight {
+        padding-right: 5px;
+      }
+      #LaboratoryHomeRemote .top_bottom_border:after,#LaboratoryHomeRemote .top_bottom_border:before,#LaboratoryHomeRemote .top_border:before {
+          content: '';
+          position: absolute;
+          display: inline-block;
+          width: 100%;
+          height: 1px;
+          background: #cecece;
+      }
+      #LaboratoryHomeRemote .right_border:after {
+          content: '';
+          position: absolute;
+          width: 1px;
+          height: 100%;
+          right: 0;
+          background: #cecece;
+      }
+
+    </style>
+    <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}' navTitle='"远程控制"'>
+    </header>
+    <div class="content">
+        <div id='air' class="LCItem" data-value="air">
+          <div class="LCIContent top_border">
+            <div class="LCICIcon"></div>
+            <div class="LCICText">空调</div>
+          </div>
+          <div class="LCIButtonWarp top_bottom_border">
+            <div class="LCIButton LCIBLeft right_border" data-value="打开空调">开启</div><div class="LCIButton LCIBRight" data-value="关闭空调">关闭</div>
+          </div>
+        </div>
+        <div id='curtain' class="LCItem" data-value="curtain">
+          <div class="LCIContent top_border">
+            <div class="LCICIcon"></div><div class="LCICText">窗帘</div>
+          </div>
+          <div class="LCIButtonWarp top_bottom_border">
+            <div class="LCIButton LCIBLeft right_border" data-value="打开窗帘">开启</div><div class="LCIButton LCIBRight" data-value="关闭窗帘">关闭</div>
+          </div>
+        </div>
+        <div id='light' class="LCItem" data-value="light">
+          <div class="LCIContent top_border">
+            <div class="LCICIcon"></div>
+            <div class="LCICText">台灯</div>
+          </div>
+          <div class="LCIButtonWarp top_bottom_border">
+            <div class="LCIButton LCIBLeft right_border" data-value="打开台灯">开启</div><div class="LCIButton LCIBRight" data-value="关闭台灯">关闭</div>
+          </div>
+        </div>
+    </div>
+</div>

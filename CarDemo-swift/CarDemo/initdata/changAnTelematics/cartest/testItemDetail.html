@@ -1,0 +1,335 @@
+<div id="testItemDetail" data-view="cartest/testItemDetail">
+	<style type="text/css">
+	#testItemDetail #testData{
+		width: 100%;
+		padding: 10px 0;
+		font-size: 12px;
+		text-align: center;
+	}
+	#testItemDetail .count{
+		width: 100%;
+	}
+     #testItemDetail .content::-webkit-scrollbar {
+        width: 0
+     }
+     #testItemDetail .content > div{
+     }
+	#testItemDetail .count > div{
+		display: inline-block;
+		width: 32%;
+		text-align: center;
+	}
+	#testItemDetail .count > div > div{
+		width: 100%;
+		padding: 0px 0px 8px 0px;
+		font-size: 14px;
+	}
+	#testItemDetail #test_falut{
+		font-size: 18px;
+		color: #fb7c00;
+		padding-bottom: 15px !important;
+	}
+	#testItemDetail #test_danger{
+		font-size: 18px;
+		color: #fb7c00;
+	}
+	#testItemDetail #test_normal{
+		font-size: 18px;
+		color: #01c38e;
+	}
+	#testItemDetail li{
+		width: 100%;
+		margin-top: 13px;
+		/*background-color: #fff;*/
+		/*border-top:1px solid #e4e4e4;
+		border-bottom:1px solid #e4e4e4;*/
+		position: relative;
+	}
+	#testItemDetail li > div{
+		width: 100%;
+	    font-size: 13px;
+	    padding: 13px;
+	    word-break: break-all;
+	}
+/*	#testItemDetail li .test_error{
+		width: 100%;
+		font-size: 14px;
+		background: url(../cartest/img/error1.png) no-repeat;
+		background-position: 2% 15px;
+		text-indent: 10%;
+		background-size: 20px 20px;
+	}
+	#testItemDetail li .test_danger{
+		width: 100%;
+		font-size: 14px;
+		background: url(../cartest/img/danger1.png) no-repeat;
+		background-position: 2% 15px;
+		text-indent: 10%;
+		background-size: 20px 20px;
+	}
+	#testItemDetail li .test_normal{
+		width: 100%;
+		font-size: 15px;
+		background: url(../cartest/img/correct1.png) no-repeat;
+		background-position: 2% 15px;
+		text-indent: 10%;
+		background-size: 20px 20px;
+	}*/
+	#testItemDetail .actions{
+		width: 100%;
+		padding-left: 10%;
+		height: 50px;
+	}
+	#testItemDetail .actions > div{
+		width: 25%;
+		margin-left: 5%;
+		height: 25px;
+		line-height: 25px;
+		text-align: center;
+		border-radius: 5px;
+		border:1px solid #3fc8d5;
+		color: #3fc8d5;
+		font-size: 11px;
+		float: left;
+	}
+	#testItemDetail .actions > div:first-child{
+		margin-left: 0px;
+	}
+	#testItemDetail .look_other{
+		width: 100%;
+		padding: 20px 0px;
+		font-size: 14px;
+		color: #09aaec;
+		text-align: center;
+		position: relative;
+	}
+	#testItemDetail .look_other>div{
+		background: url(../cartest/img/icon_down.png);
+		background-size: 10px;
+		background-position: 100% 50%;
+	}
+	/* 新样式 */
+	#testItemDetail .comment-item {
+		margin-top: 13px;
+	}
+	#testItemDetail .item-detail,#testItemDetail .comment-item {
+		background-color: white;
+		position: relative;
+		color: #bbb;
+	}
+	#testItemDetail .item-detail:before,#testItemDetail .comment-item:before{
+		top: 0px;
+		left: -50%;
+		content: "";
+		display: block;
+		position: absolute;
+		width: 200%;
+		height: 1px;
+		background: #9c9c9c;
+		opacity: 0.5;
+		-webkit-transform: scale(0.5);
+	}
+	#testItemDetail .item-detail:after,#testItemDetail .comment-item:after{
+		bottom: -1px;
+		left: -50%;
+		content: "";
+		display: block;
+		position: absolute;
+		width: 200%;
+		height: 1px;
+		background: #9c9c9c;
+		opacity: 0.5;
+		-webkit-transform: scale(0.5);
+	}
+
+	#testItemDetail .item-detai-name {
+		color: #333;
+		position: relative;
+		font-size: 16px;
+	}
+	#testItemDetail .test_normal:after {
+		content: "正常";
+	    display: inline-block;
+	    width: 55px;
+	    height: 21px;
+	    position: absolute;
+	    right: 0;
+	    top: 0;
+	    background: url(../cartest/img/correct1.png) no-repeat;
+	    background-size: 20px;
+	    text-indent: 22px;
+	    color: #5cd6ff;
+	    text-align: right;
+	    line-height: 22px;
+	    margin-top: -2px;
+	}
+	#testItemDetail .test_danger:after {
+		content: "风险";
+	    display: inline-block;
+	    width: 55px;
+	    height: 21px;
+	    position: absolute;
+	    right: 0;
+	    top: 0;
+	    background: url(../cartest/img/danger1.png) no-repeat;
+	    background-size: 20px;
+	    text-indent: 22px;
+	    color: #ffa110;
+	    text-align: right;
+	    line-height: 22px;
+	    margin-top: -2px;
+	}
+	#testItemDetail .test_error:after {
+		content: "故障";
+	    display: inline-block;
+	    width: 55px;
+	    height: 21px;
+	    position: absolute;
+	    right: 0;
+	    top: 0;
+	    background: url(../cartest/img/error1.png) no-repeat;
+	    background-size: 20px;
+	    text-indent: 22px;
+	    color: #f97d75;
+	    text-align: right;
+	    line-height: 22px;
+	    margin-top: -2px;
+	}
+
+	#testItemDetail .comment-item-title {
+		margin-bottom: 6px;
+	}
+	#testItemDetail .comment-item-value {
+		text-indent: 30px;
+    	line-height: 21px;
+	}   
+	#testItemDetail .item-suggest {
+		margin-top: 13px;
+		background-color: white;
+		color: #bbb;
+		line-height: 18px;
+	}
+	#testItemDetail .item-suggest.error span{
+		color: #f97d75;
+	}
+	#testItemDetail .item-suggest.danger span{
+		color: #ffa110;
+	}
+    </style>
+
+    <script id="fault_danger" type="text/x-underscore-template" >
+    	<%
+    		if(data.itemCode.replace(/(^\s*)|(\s*$)/g, "") == ''){
+				data.itemCode = '--';
+			}
+    	%>
+    	<div class='item-detail'>
+    		<div data-id=<%=data.itemName%> class="test_error item-detai-name"><%=data.itemName%></div>
+    	
+    		<div style="margin-top:14px">本次检测值：<%=data.detectValue%></div>
+    		<div style="margin-top:14px">标准参考值：<%=data.normalValue%></div>
+            <% if(data.mapValue){ %><div style="margin-top:14px">实际值：<%=data.mapValue%></div><% } %>
+
+    		<div style="margin-top:14px">故障描述：<%=data.description%></div>
+    		<div style="margin-top:14px">故障代码：<%=data.itemCode%></div>
+
+    	</div>
+
+    	<div class='item-suggest error'>
+    		解决建议：<span><%=data.suggest%></span>
+    	</div>
+
+    		<% if(data.comment){ %>
+	    		<div class='comment-item'>
+	    			<div class="comment-item-title">背景知识：</div>
+	    			<div class="comment-item-value"><%=data.comment%></div>
+	    		</div>
+	    	<% } %>
+
+    </script>
+
+    <script id="danger_fault" type="text/x-underscore-template" >
+    	<%
+    		if(data.itemCode.replace(/(^\s*)|(\s*$)/g, "") == ''){
+				data.itemCode = '--';
+			}
+    	%>
+    	<div class='item-detail'>
+    		<div data-id=<%=data.itemName%> class="test_danger item-detai-name"><%=data.itemName%></div>
+    		<div style="margin-top:14px">本次检测值：<%=data.detectValue%></div>
+        	<div style="margin-top:14px">标准参考值：<%=data.normalValue%></div>
+            <% if(data.mapValue){ %><div style="margin-top:14px">实际值：<%=data.mapValue%></div><% } %>
+            <div style="margin-top:14px">风险描述：<%=data.description%></div>
+    	</div>
+
+    	<div class='item-suggest danger'>
+    		解决建议：<span><%=data.suggest%></span>
+    	</div>
+
+
+        <% if(data.comment){ %>
+                <div class='comment-item'>
+    			<div class="comment-item-title">背景知识：</div>
+    			<div class="comment-item-value"><%=data.comment%></div>
+    		</div>
+    	<% } %>
+
+    </script>
+
+    <script id="normal_items" type="text/x-underscore-template" >
+
+    		<div class='item-detail'>
+	    		<div data-id=<%=data.itemName%> class="test_normal item-detai-name"><%=data.itemName%></div>
+	    		<div style="margin-top:14px">本次检测值：<%=data.detectValue%></div>
+	    		<div style="margin-top:14px">标准参考值：<%=data.normalValue%></div>
+                <% if(data.mapValue){ %><div style="margin-top:14px">实际值：<%=data.mapValue%></div><% } %>
+            </div>
+
+
+    		<% if(data.comment){ %>
+    		<div class='comment-item'>
+    			<div class="comment-item-title">背景知识：</div>
+    			<div class="comment-item-value"><%=data.comment%></div>
+    		</div>
+    		<% } %>
+    </script>
+
+    <script id="info_action" type="text/x-underscore-template">
+
+    	<div class="actions">
+    		<%
+    			for(var j =0;j<actions.length;j++){
+    		%>
+    			<div url="<%=urls[j]%>"><%=actions[j]%></div>
+    		<%
+    			}
+    		%>
+    	</div>
+
+    </script>
+
+   <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}' navTitle='"诊断详情"'>
+    </header>
+    <div class="content">
+    	
+
+
+    	<div>
+
+    		<ul class='fault_danger'>
+
+    		</ul>
+
+    	</div>
+
+
+    	<div>
+
+    		<ul class='normal_items'>
+
+    		</ul>
+
+    	</div>
+        
+    </div>
+</div>

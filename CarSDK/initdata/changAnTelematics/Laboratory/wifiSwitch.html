@@ -1,0 +1,64 @@
+<div id="wifiSwitch" data-view="Laboratory/wifiSwitch">
+    <style>
+        #wifiSwitch .content{
+            background-color: transparent;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-image:url(../Laboratory/images/beijing_number.png);
+        }
+        #wifiSwitch .switch {
+            margin-top:50px;
+            text-align: center;
+        }
+        #wifiSwitch .switch li {
+            height:20px;
+            width:50px;
+            background: url(../control/images/control_icon.png);
+            background-size:15px 15px;
+            background-position: center left;
+            text-align: right;
+            background-repeat: no-repeat;
+            font-size:0.13rem;
+            color:white;
+            display:inline-block;
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+        #wifiSwitch .switch li.selected {
+            background:url(../control/images/control_icons.png);
+            background-size:15px 15px;
+            background-position: center left;
+            text-align: right;
+            background-repeat: no-repeat;
+        }
+        #wifiSwitch .openWifi{
+            border-radius: 10px;
+            width: 60%;
+            margin: auto;
+            background:transparent;
+            font-size: 0.13rem;
+            border: 1px solid #00c2ff;
+            line-height: 40px;
+            height: 40px;
+            color:#00c2ff;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+    <script id='inputCircle' type="text/x-underscore-template">
+        <div class='inputCircle' style='width:40px; height:40px; position:relative; float:left;'>
+            <span style='display:block;width:2px;height:2px;background-color:#000;border-radius:100%; position:absolute;left:19px;top:19px;'></span>
+        </div>
+    </script>
+    <header id="nav-bar" class="bar bar-nav blue-bar" navTitle='"Wifi开关"' navRight='{"hide":true}'>
+    </header>
+
+    <div class="content">
+        <ul class="switch">
+            <li class="selected">开</li>
+            <li>关</li>
+        </ul>
+        <div class="openWifi">立即设置</div>
+    </div>
+
+</div>

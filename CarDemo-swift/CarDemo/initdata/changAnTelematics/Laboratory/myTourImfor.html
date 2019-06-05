@@ -1,0 +1,295 @@
+<div id="myTourImfor" data-view='Laboratory/myTourImfor'>
+	<style type="text/css">
+	 	#myTourImfor .im-nav-right-image{
+	 		background-size: 25px 5px !important
+	 	}
+		#myTourImfor #driving-route{
+			width: 100%;
+			height: 185px;
+		}
+		#myTourImfor .user-imfor-container{
+			width: 100%;
+			height: 85px;
+			position: absolute;
+			text-align: center;
+			top: 153px;
+			font-size: 13px;
+    		color: #666666;
+		}
+		#myTourImfor .user-imfor-container>img{
+			width: 63px;
+			height: 63px;
+			margin-bottom: 9px
+		}
+		#myTourImfor .tours-title{
+			width: 100%;
+			height: auto;
+			text-align: center;
+			margin-top: 70px;
+			font-size: 18px;
+			color: #333333;
+            line-height: 23px;
+		}
+		#myTourImfor .time-address{
+			width: 100%;
+			height: 14px;
+			text-align: center;
+			font-size: 14px;
+			color: #666666;
+			margin-top: 8px;
+		}
+		#myTourImfor .show-time{
+			background: url(../Laboratory/images/icon_clock.png) no-repeat;
+			background-size: 12px 13px;
+			padding-left: 16px;
+			background-position-y: 25%;
+		}
+		#myTourImfor .show-address{
+			background: url(../Laboratory/images/icon_address.png) no-repeat;
+			background-size: 12px 13px;
+			padding-left: 16px;
+			background-position-y: 25%;
+			margin-left: 10px
+		}
+		#myTourImfor .user-interact{
+			width: 96%;
+			height: 38px;
+			margin: 0 auto;
+			margin-top: 23px;
+			position: relative;
+		}
+		#myTourImfor .user-interact:after{
+			content: "";
+            width: 180%;
+            height: 1px;
+            background: #d9d9d9;
+            position: absolute;
+            -webkit-transform: scale(0.5);
+            opacity: 0.7;
+            left: -40%;
+            bottom: 42px
+		}
+		#myTourImfor .user-interact>div{
+			width: 33.333%;
+			height: 38px;
+			text-align: center;
+			line-height: 18px;
+			float: left;
+		}
+		#myTourImfor .draw-line{
+			position: relative;
+		}
+		#myTourImfor .draw-line:after{
+			content: "";
+            width: 1px;
+            height: 170%;
+            background: #d9d9d9;
+            position: absolute;
+            -webkit-transform: scale(0.5);
+            opacity: 0.7;
+            top: -36%;
+            left: 0
+		}
+		#myTourImfor .draw-line:before{
+			content: "";
+            width: 1px;
+            height: 170%;
+            background: #d9d9d9;
+            position: absolute;
+            -webkit-transform: scale(0.5);
+            opacity: 0.7;
+            top: -36%;
+            right: 0
+		}
+		#myTourImfor .number{
+			font-size: 15px;
+			color: #f95e09
+		}
+		#myTourImfor .text-dis{
+			font-size: 12px;
+			color: #f95e09
+		}
+		#myTourImfor .tour-imfor-container{
+			width: 100%;
+			height: auto;
+			overflow: hidden;
+			margin-top: 30px;
+		}
+		#myTourImfor .tour-list{
+			width: 100%;
+			height: auto;
+			overflow: hidden;
+			margin: 0 auto;
+			/*margin-bottom: 20px;*/
+		}
+		#myTourImfor .list-time{
+			/*width: 100%;*/
+			height: 14px;
+			background: url(../Laboratory/images/timeline_icon.png) no-repeat;
+			background-size: 14px 14px;
+			font-size: 12px;
+			color: #666666;
+			padding-left: 24px;
+			margin-left: 24px;
+			line-height: 14px;
+		}
+		#myTourImfor .container-list{
+			width: 94%;
+			height: auto;
+			overflow: hidden;
+			border-radius: 3px;
+			margin: 0 auto;
+		    /*margin-top: 12px;*/
+		    background-color: #FFFFFF;
+		}
+		#myTourImfor .tour-image{
+            width: 100%;
+            height: auto;
+        }
+        #myTourImfor .tour-image>img{
+            width: 100%;
+            height: 195px;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+        }
+        #myTourImfor .tour-title{
+        	padding-left: 10px;
+            padding-top: 7px;
+            color: #333333;
+            font-size: 14px;
+            line-height: 17px;
+            padding-right: 10px;
+        }
+        #myTourImfor .tour-content{
+            padding-left: 10px;
+            padding-top: 3px;
+            color: #333333;
+            font-size: 13px;
+            margin-bottom: 7px;
+            line-height: 17px;
+            padding-right: 10px;
+        }
+        #myTourImfor .tour-bottom{
+            width: 100%;
+            height: 26px;
+            font-size: 12px;
+            color: #666666;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        #myTourImfor .tour-time{
+            float: left;
+            height: 13px;
+            background: url(../Laboratory/images/icon_clock.png) no-repeat;
+            background-size: 12px 13px;
+            padding-left: 15px;
+            line-height: 14px;
+            margin-top: 5px;
+        }
+        #myTourImfor .tout-addr{
+            float: right;
+            height: 18px;
+            background: url(../Laboratory/images/icon_address_img.png) no-repeat;
+            background-size: 9px 12px;
+    		padding-left: 21px;
+		    padding-right: 10px;
+		    line-height: 18px;
+		    background-position: 8px;
+		    background-color: #efeff4;
+		    border-radius: 8px;
+		    color: #09aaec
+        }
+        #myTourImfor .top-line{
+        	width: 1px;
+        	height: 15px;
+        	margin-left: 30px;
+        	background-color: #09aaec;
+        	margin-top: -3px;
+        }
+        #myTourImfor .bottom-line{
+        	width: 1px;
+        	height: 30px;
+        	margin-left: 30px;
+        	background-color: #09aaec;
+        }
+        #myTourImfor .add-tour-list{
+        	width: 100%;
+        	height: 40px;
+        	background: url(../Laboratory/images/icon_add_toure.png) no-repeat;
+        	background-size: 23px 23px;
+        	background-position-x:50% 
+        }
+        #myTourImfor .line-border{
+        	width: 1px;
+        	height: 40px;
+        	margin-left: 30px;
+        	background-color: #09aaec
+        }
+        #myTourImfor .anchorBL {
+            display: none;
+        }
+	</style>
+	<script id="listImfor" type="text/x-underscore-template"></script>
+	<header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"image":"url(../Laboratory/images/icon_choose.png)"}' navTitle='""'>
+    </header>
+    <div class="content">
+    	<div id="driving-route"></div>
+    	<div class="user-imfor-container">
+    		<img src="../Laboratory/images/accont_image.png">
+    		<div>张三</div>
+    	</div>
+    	<div class="tours-title">开车到泰国</div>
+    	<div class="time-address">
+    		<span class="show-time">2016-06-03</span>
+    		<span class="show-address">泰国.海边</span>
+    	</div>
+    	<div class="user-interact">
+    		<div id="myTourReview">
+    			<p class="number">123</p>
+    			<p class="text-dis">评论</p>
+    		</div>
+    		<div class="draw-line">
+    			<p class="number">42</p>
+    			<p class="text-dis">点赞</p>
+    		</div>
+    		<div>
+    			<p class="number">0</p>
+    			<p class="text-dis">收藏</p>
+    		</div>
+    	</div>
+    	<div class="tour-imfor-container">
+    		<div class="tour-list">
+    			<div class="list-time">第一天 2016-06-03</div>
+    			<div class="top-line"></div>
+    			<div class="container-list">
+		            <div class="tour-image"><img src='../Laboratory/images/Tours/gri.jpg'/></div>
+		            <div class="tour-title">开车到泰国</div>
+		            <div class="tour-content">开车到泰国,这里的风景非常的美丽，就是人太多了，人妖也太多了！</div>
+		            <div class="tour-bottom">
+		                <div class="tour-time">2016-06-03</div>
+		                <div class="tout-addr">泰国.海边</div>
+		            </div>
+       			 </div>
+       			 <div class="bottom-line"></div>
+    		</div>
+
+    		<div class="tour-list">
+    			<div class="list-time">第二天 2016-06-04</div>
+    			<div class="top-line"></div>
+    			<div class="container-list">
+		            <div class="tour-image"><img src='../Laboratory/images/Tours/gri.jpg'/></div>
+		            <div class="tour-title">开车到泰国</div>
+		            <div class="tour-content">开车到泰国,这里的风景非常的美丽，就是人太多了，人妖也太多了！哈哈哈哈哈哈啊哈哈哈，搞笑！</div>
+		            <div class="tour-bottom">
+		                <div class="tour-time">2016-06-04</div>
+		                <div class="tout-addr">泰国.海边</div>
+		            </div>
+       			 </div>
+       			 <div class="bottom-line"></div>
+    		</div>
+
+    		<div class="add-tour-list"><div class="line-border"></div></div>
+    	</div>
+
+    </div>
+</div>

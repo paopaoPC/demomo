@@ -1,0 +1,125 @@
+<div id="findPinStepOne" data-view="cars/findPinStepOne">
+	<style type="text/css">
+	#findPinStepOne input{
+		font-size: 0.14rem;
+	}
+	.input_wrap
+	{
+		margin-top: 15px;
+		margin-left: 3%;
+		width: 94%;
+		height: 40px;
+
+	}		
+	#setPinBtnNext
+	{
+		width:95%; 
+	    height:40px; 
+	    line-height:40px; 
+	    margin:12px auto; 
+	    border-radius:5px; 
+	    background-color:#00c3fe; 
+	    color:#fff; 
+	    font-size:16px; 
+	    text-align:center;
+	}
+	#setPinBtnNext:active{
+		color: #09aaec
+	}
+	.content
+	{
+		top: 0px;
+	}
+	#findPinStepOne .requireItem {
+        position: relative;
+	    margin-top: 15px;
+	    width: 94%;
+	    margin-left: 3%;
+      }
+      #findPinStepOne .image-code{
+        width: 32%;
+        float: right;
+        height: 40px;
+        text-align: center;
+        /* padding-top: 14px; */
+        border-radius: 3px;
+        background-color: transparent; !important;
+      }
+      #findPinStepOne .imageCode{
+      	margin-top: 15px;
+      }
+      #findPinStepOne .image-code>img{
+        width: 100%;
+        height: 100%
+      }
+      #findPinStepOne .requireItem label {
+	      font-size: 14px;
+	      text-align: left;
+	      position: absolute;
+	      top: 40%;
+	      transform: translateY(-50%);
+	      -webkit-transform: translateY(-50%);
+	      margin-left: 15px;
+	      color: #bcbcbc;
+      }
+      #findPinStepOne .verifiation-btn{
+            width: 31%;
+		    position: absolute;
+		    height: 40px;
+		    text-align: center;
+		    border-radius: 3px;
+		    background-color: #00c3fe;
+		    color: #fff;
+		    border: 0px;
+		    font-family: '黑体';
+		    font-size: 14px;
+		    margin-left: 4%;
+      }
+      #findPinStepOne .verifiation-btn:active{
+      	color: #09aaec
+      }
+      #findPinStepOne .password-info {
+	        margin-top: 6px;
+	        padding: 0 3%;
+	        font-size: 12px;
+	        color: #999999;
+	      }
+	</style>
+
+	<header id="nav-bar" class="bar bar-nav blue-bar"  navRight='{"hide":"true"}' navTitle='"找回控车码"'>
+    </header>
+
+    <div class="content">
+        <div class = "imageCode requireItem">
+            <!--<label class="hint">手机验证码</label>-->
+            <input type="text" style = "width:65%;margin-bottom: 0" class="auth-code register-input" maxlength ='4' placeholder="输入图片验证码" onfocus="this.placeholder=''" onblur="this.placeholder='输入图片验证码'"><div class="image-code"><img id="checkImg" src=""/></div>
+          </div>
+        <div class = "verificationCode requireItem">
+      	    
+      	    <input id="cationCode" type="tel" maxLength="6" style = "width:65%;" placeholder="请输入验证码" class="auth-code register-input">
+      	    <button class="verifiation-btn">发送验证码
+            </button>
+        </div>
+        <div class='password-info'>请输入该车填写实名认证时填写的信息</div>
+        <div class="input_wrap">
+        	<select id="certificate_select">
+        		<option value="IDCARD">身份证</option>
+                <option value="PASSPORT">护照</option>
+                <option value="PLA">军官证</option>
+                <option value="POLICEPAPER">警官证</option>
+                <option value="TAIBAOZHENG">台湾居民来往大陆通行证</option>
+                <option value="HKIDCARD">港澳居民来往内地通行证</option>
+                <option value="UNITCREDITCODE">统一社会信用代码</option>
+                <option value="OTHERLICENCE">其他</option>
+        	</select>
+        </div>
+        <div class="input_wrap">
+        	<input id="certificateVal" type="text" placeholder="请输入证件号码" maxlength="20"/>
+        </div>
+        
+         
+        
+        <div id="setPinBtnNext">下一步</div>
+    
+   	</div>
+</div>

@@ -1,0 +1,47 @@
+<html>
+<head>
+	<title>Chameleon Exhibition</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"/>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta http-equiv="Access-Control-Allow-Origin" content="*"/>
+	<meta http-equiv="pragma" content="no-cache" />
+	<script type="text/javascript" src="../shared/js/baidumap-api-quick.js"></script>
+	<script type="text/javascript" src="../shared/js/baidumap-api-quick2.js"></script>
+	<script type="text/javascript">
+		function request(paras) {
+			var url = decodeURI(location.href);
+			var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+			var returnValue;
+			for (i = 0; i < paraString.length; i++) {
+				var tempParas = paraString[i].split('=')[0];
+				var parasValue = paraString[i].split('=')[1];
+				if (tempParas === paras)
+					returnValue = parasValue;
+			}
+
+			if (typeof(returnValue) == "undefined") {
+				return "";
+			} else {
+				return returnValue;
+			}
+		};
+		var start = request("start");
+		if(start){
+			start = JSON.parse(start);
+		}
+		var end = request("end");
+		if(end){
+			end = JSON.parse(end);
+		}
+		var opts = request("opts");
+		if(opts){
+			opts = JSON.parse(opts);
+		}
+	    var ss = new BMap.RouteSearch();
+	    ss.routeCall(start, end, opts);
+  </script>
+</head>
+<body></body>
+</html>

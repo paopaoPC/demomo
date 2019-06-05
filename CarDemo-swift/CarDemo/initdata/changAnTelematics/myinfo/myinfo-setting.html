@@ -1,0 +1,117 @@
+<div id="myinfo-setting" data-view='myinfo/myinfo-setting'>
+	<style type="text/css">
+	#myinfo-setting .span{
+		display: inline-block;
+	    width: 1px;
+	    height: 100%;
+	    vertical-align: middle;
+	}
+	#myinfo-setting #tour > li{
+		height: 55px;
+	    font-size: 15px;
+	    color: #666666;
+	    background-color: #FFFFFF;
+	    padding: 0;
+	}
+	#myinfo-setting  .table-view-cell > a:not(.btn):active {
+    	background-color: #f1f1f1 !important;
+    }
+	#myinfo-setting  .table-view .table-view-cell{
+		background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#d9d9d9' x='0' y='0' width='100%' height='0.5'/></svg>");
+		background-position: 0 100%
+	}
+	
+	#myinfo-setting .table-view-cell>a:not(.btn){
+		height: 100%;
+		margin: 0;
+		padding-top: 19px;
+		padding-left: 14px;
+		line-height: 21px;
+		}
+	#myinfo-setting .safe_icon{
+		width: 19px !important;
+		height: 19px;
+		background: url(../myinfo/image/myinfo-safeCenter-old.png) no-repeat;
+		background-size: 19px 19px;
+		float: left;
+		margin-right: 15px;
+	}
+	#myinfo-setting .about_icon{
+		width: 19px !important;
+		height: 19px;
+		background: url(../myinfo/image/myinfo-about-old.png) no-repeat;
+		background-size: 19px 19px;
+		float: left;
+		margin-right: 15px;
+	}
+	#myinfo-setting .logout_icon{
+		width: 19px !important;
+		height: 19px;
+		background: url(../myinfo/image/myinfo-logout.png) no-repeat;
+		background-size: 19px 19px;
+		float: left;
+		margin-right: 15px;
+	}
+	
+	#myinfo-setting .icon-next{
+		position: absolute;
+		right: 14px;
+		width: 40px;
+		height: 100%;
+		background: url(../Laboratory/images/icon_into.png) no-repeat;
+		background-size: 7px 12px;
+		background-position: 100% 50%;
+		top: 0
+	}
+	#myinfo-setting .navigate-right:after, .push-right:after{
+		display: none;
+	}
+	#myinfo-setting .new_tour{
+		position: fixed;
+		bottom: 50px;
+		width: 100%;
+	}
+	#myinfo-setting #cansle{
+		width: 20px;
+		position: absolute;
+		top: 1px;
+		right: 1px;
+	}
+	#myinfo-setting .noCantacts2{
+		width: 8px;
+		height: 8px;
+		background-color: red;
+		display: -webkit-box;
+		border-radius: 100%;
+		position: absolute;
+		top: 17px;
+		left: 115px;
+		visibility: hidden;
+	}
+	</style>
+
+	<header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}' navTitle='"设置"'>
+    </header>
+    <div class="content">
+    	<ul id="tour" class="table-view" style="background-color: #E5E8EF;font-size: 0.95em;margin-top:0px">
+			<li class="table-view-cell" id="safeCenter">
+				<a class="navigate-right">
+					<span class="table-view-sep safe_icon">&nbsp;</span>安全中心<span class="noCantacts2"></span>
+					<div class="icon-next"></div>
+				</a>
+			</li>
+			<li class="table-view-cell" id="about">
+				<a class="navigate-right">
+					<span class="table-view-sep about_icon">&nbsp;</span>关于
+					<div class="icon-next"></div>
+				</a>
+			</li>
+			<li class="table-view-cell" id="app-logout">
+				<a class="navigate-right">
+					<span class="table-view-sep logout_icon">&nbsp;</span>退出
+					<div class="icon-next"></div>
+				</a>
+			</li>
+    	</ul>
+	</div>
+</div>

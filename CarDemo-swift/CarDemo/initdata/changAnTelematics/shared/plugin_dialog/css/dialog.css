@@ -1,0 +1,67 @@
+.ui-dialog{
+	overflow: hidden;
+	margin: 0 auto;
+	z-index: 1002;
+	/* z-index: -1; */
+	position:absolute;
+	left: 0;
+	/*top: -10000px;*/
+    bottom: 15px;
+    display: block;
+    visibility: hidden;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    background-color: white;
+    -webkit-transform: translateZ(0);
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+}
+/** mask */
+.ui-mask{
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: black;
+	opacity: 0.3;
+    display: block;
+    visibility: hidden;
+	z-index: 1001;
+	/* z-index: -1; */
+    -webkit-transition: opacity 1s;
+     -moz-transition: opacity 1s;
+          transition: opacity 1s;
+    -webkit-transform: translateZ(0);
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+}
+.ui-dialog .ui-dialog-title {
+    position: relative;
+}
+
+.ui-dialog .ui-dialog-close{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+.ui-dialog .ui-dialog-container {
+    position: relative;
+}
+
+@-webkit-keyframes bounceOut{
+    from {opacity:0} 
+    to {opacity:1}
+    }
+@-moz-keyframes bounceOut{
+    from {opacity:0} 
+    to {opacity:1}
+}
+
+@-webkit-keyframes disappear{
+    from{opacity: 1}
+    to{opacity: 0}
+}
+@-moz-keyframes disappear{
+     from{opacity: 1}
+    to{opacity: 0}
+}

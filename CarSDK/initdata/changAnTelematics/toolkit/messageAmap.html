@@ -1,0 +1,162 @@
+<div data-view="toolkit/messageAmap" id="messageAmap">
+  <header id="nav-bar" class="bar bar-nav blue-bar" navTitle='""' navRight='{"hide":true}'></header>
+  <style type="text/css">
+    #messageAmap{      
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+    
+    #messageAmap .baidumap-address{
+      padding: 0 15px 15px;
+      height: 100%;
+    }
+    #messageAmap .baidumap-floatDiv{
+      z-index: 9;
+      position: absolute;
+      background: transparent;
+      width: 100%;
+      bottom: 0;
+    }
+    #messageAmap  .share:active{
+      background-color: #efeff4 !important
+    }
+    #messageAmap  .tocar:active{
+      background-color: #efeff4 !important
+    }
+    #messageAmap .baiduAddressInfo{padding-left: 10px;}
+    #messageAmap .swiper-slide{width: 100%};
+    
+    #messageAmap #searchedAddress{width:100%;}
+
+    #messageAmap .addressTemplate{
+      background-color: white;
+    }
+
+    #messageAmap .route-icon-save{
+      background-image: url("../toolkit/img/save.png");
+      background-repeat: no-repeat;
+      padding-left: 18px;
+      height: 16px;
+      line-height: 16px;
+      background-size: 16px;
+      display: inline-block;
+      font-size: 10px;
+      color: #1e9dfa;
+    }
+/*    #messageAmap  .route-icon-locaiton{
+      background-image: url("../toolkit/img/location.png");
+      background-repeat: no-repeat;
+      padding-left: 30px;
+      background-size: 16px;
+      color: #000000
+    }*/
+    #messageAmap  .noteMessage{
+      padding-left: 30px;color: #a3a6a8; font-size: 10px
+    }
+
+    #messageAmap .shadow{
+    /*  filter: progid:DXImageTransform.Microsoft.Shadow(color=black,strength=2);
+      -moz-box-shadow: 0 0 3px black;
+      -webkit-box-shadow: 0 0 3px black;
+      box-shadow: 0 0 3px black;
+      margin-top: 3px;*/
+      position: relative;
+    }
+    #messageAmap .shadow:after {
+      content:'';
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      right: -100%;
+      left: 0;
+      bottom: -100%;
+      border: 1px solid #d9d9d9;
+      border-radius: 5px;
+      transform: scale(0.5) translate(-50%,-50%);
+    }
+
+    #messageAmap .newRouteDetail{height:115px;position: relative;color: #333;}
+    #messageAmap .newRouteDetail span{
+      line-height: 25px;
+      height: 25px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      width:95%;
+      float: left;
+    }
+    #messageAmap .vline-r{border-right:1px solid #ddd;}
+    #messageAmap .newRouteDetail span{
+      font-size: 14px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+    }
+    #messageAmap #footer .routeActions{height:39px;/* border-top: 1px solid #E6E5EC;*/position: relative;}
+    #messageAmap #footer .routeActions:after{
+      top: 0px;
+      left: -50%;
+      content: "";
+      display: block;
+      position: absolute;
+      width: 200%;
+      height: 1px;
+      background: #3c4454;
+      opacity: 0.7;
+      -webkit-transform: scale(0.5);
+    }
+    #messageAmap #footer .routeActions ul{height:100%;}
+    #messageAmap #footer .shares:after{
+      /*right: 0px;
+      bottom: 0;
+      content: "";
+      display: block;
+      position: absolute;
+      width: 1px;
+      height: 39px;
+      background: #3c4454;
+      opacity: 0.4;
+      -webkit-transform: scale(0.7);*/
+    }
+    #messageAmap #footer .routeActions li{float:left;width: 100%;text-align: center;padding-top: 12px;height: 100%;}
+  </style>
+
+<script id="messageAmap-bottom" type="text/x-underscore-template">
+<% var notifyTypeStr,notifyType;
+  // if(notifyType == 'inwarn'){
+  //   notifyTypeStr = '驶入'
+  // } else if(notifyType == 'outwarn') {
+  //   notifyTypeStr = '驶出'
+  // }
+  %>
+<div class="swiper-slide">
+  <div class="baidumap-address">
+    <div class="shadow">
+      <div class="newRouteDetail baiduAddressInfo addressTemplate">
+        <span class="destination">车牌号：<span style="width: 70%;float: none;display: inline;"><%=plateNumber?plateNumber:'--'%></span></span>
+        <span>时间：<%=createdAt?createdAt:'--'%></span>
+        <span style="height: 50px;-webkit-line-clamp:2;">地址：<%=address?address:'--'%></span>
+        <%if(notifyType){%>
+          <span style='position: absolute;right: 10px;width: auto;font-size: 20px;height: auto;top: 20px;'><%=notifyTypeStr%></span>
+        <%}%>
+      </div>
+    </div>
+  </div>
+</div>
+</script>
+
+
+  
+  <div class="content">
+    <div id="messageAmap-content"></div>    
+    <div id="footer" class="baidumap-floatDiv">
+      <div class="swiper-container baidumap-floatDiv">
+        <div class="swiper-wrapper">
+          
+        </div>        
+      </div>
+    </div> 
+  </div>
+</div>

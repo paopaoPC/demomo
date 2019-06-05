@@ -1,0 +1,80 @@
+#remote {
+	/*position: absolute;*/
+	width: 100%;
+	height: 100%;
+	background-image: url(../control/img/background_1.png);
+	background-size: 100% 100%;
+	/*z-index: 999;*/
+	padding-top: 44px;
+}
+#remote .content-title{
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	text-align: center;
+	font-size: 0.20479912619rem; /*24px*/
+	color: #FFFFFF;
+	/*margin-top: 0.341331876984rem;/*40px*/
+	margin-bottom: 1.211728163293rem;/*142px*/
+}
+#remote .items{
+	width: 90%;
+	height: 0.793596613988rem;/*93px*/
+	padding-left: 33%;
+	line-height: 0.170665938492rem;/*20px*/
+    padding-top: 0.20479912619rem;/*24px*/
+    margin: 0 auto;
+    color: #FFFFFF;
+    position: relative;
+}
+#remote .items:after{
+	position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    display: block;
+    background: url(../control/img/icon_line.png);
+    background-size: 100% 100%;
+}
+#remote .items.background:before{
+	position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    display: block;
+    background: url(../control/img/icon_line.png);
+    background-size: 100% 100%;
+}
+#remote .items>span{
+	font-size: 0.102399563095rem;/*12px*/
+}
+#remote .items>span:first-child{
+	font-size: 0.196265829266rem;/*23px*/
+}
+#remote .items.active{
+	color: #00d5fe;
+	background: url(../control/img/icon_select.png) no-repeat;
+	background-size: 24px 16px;
+	background-position: 25% 50%;
+}
+#remote .content-bottom{
+	height: auto;
+	overflow: hidden;
+	margin-top: 1.194661569444rem;/*140px*/
+}
+#remote .content-bottom>div{
+	width: 1.06666212rem;
+	height: 41px;
+	line-height: 41px;
+	color: #00fffc;
+	font-size: 0.11946616rem;
+	text-align: center;
+	float: left;
+	border: 1px solid #3a5060;
+	border-radius: 5px;
+	margin-left: 0.34986517rem
+}

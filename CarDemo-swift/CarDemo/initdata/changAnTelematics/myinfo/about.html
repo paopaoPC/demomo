@@ -1,0 +1,38 @@
+<div id="about" data-view='myinfo/about'>
+    <style type="text/css">
+        #about #Icon{
+            display: block;
+            width: 80px;
+            height: 80px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 9%;
+            margin-bottom: 9%;
+        }
+        #about a{
+            line-height: 25px;
+        }
+        #about #versionNum{
+            float: right;
+            font-size: 16px;
+            color: rgba(128, 128, 128, 0.7);
+        }
+    </style>
+    <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}'  navTitle='"关于"'>
+    </header>
+    <div class="content">
+        <img id="Icon" src="../myinfo/image/144.png"/>
+        <ul class="table-view">
+            <li class="table-view-cell" style="display:none;">
+                <a class="navigate-right" id="currentVersion" data-value="safeCenter" style="padding-right: 30px;">
+                    <span class="table-view-sep">&nbsp;</span>当前版本<span id="versionNum">-.-.-</span>
+                </a>
+            </li>
+            <li class="table-view-cell">
+                <a class="navigate-right" id="Argument" data-value="my-info-cars">
+                    <span class="table-view-sep">&nbsp;</span>隐私协议
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

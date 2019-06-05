@@ -1,0 +1,201 @@
+<div data-view="violation/index" id="violation">
+  <header id="nav-bar" class="bar bar-nav blue-bar" navTitle='"违章查询"' navRight='{"hide":true}'></header>
+  <style type="text/css">
+    #violation .input-group{
+      background-color: #efeff4;
+    }
+    #violation .beeantInput, .specalInput, .beeantInputNext{
+      height: 50px;
+      overflow: hidden;
+      line-height: 53px;
+      position: relative;
+      background-color: #FFFFFF;
+    }
+    #violation .beeantInput:after{
+      bottom: 0px;
+      content: "";
+      display: block;
+      position: absolute;
+      left: -43%;
+      width: 200%;
+      height: 1px;
+      background: #d9d9d9;
+      opacity: 0.7;
+      -webkit-transform: scale(0.5);
+    }
+    #violation .specalInput:after{
+      bottom: -1px;
+      content: "";
+      display: block;
+      position: absolute;
+      left: -50%;
+      width: 200%;
+      height: 1px;
+      background: #d9d9d9;
+      opacity: 0.7;
+      -webkit-transform: scale(0.5);
+    }
+    #violation .beeantInput label, #violation .specalInput label{
+      float: left;
+      width: 27%;
+      padding-left: 7%;
+      /* line-height: 1.1; */
+      font-size: 16px;
+      color: #333333;
+    }
+    #violation .beeantInput input, #violation .specalInput input{
+      width:60%;
+      background-repeat: no-repeat;
+      background-position: 15px 100%;
+      border: 0;
+      font-size: 14px;
+      color: #999999;
+      background-image: none;
+    }
+
+    #violation .beeantInput ul, #violation .specalInput ul{
+      width:60%;
+      background-repeat: no-repeat;
+      background-position: 15px 100%;
+      border: 0;
+      float: right;
+    }
+    #violation #short-name-city{
+      width: 26%;
+      height: 100%;
+      border: none;
+      background: none;
+      border-radius: 0px;
+      font-size: 16px;
+      color: #09aaec;
+      box-shadow:none;
+      background:url(../violation/violationResults/select_down.png) no-repeat scroll right center transparent;
+      background-size: 12px;
+    }
+    #violation .specalInputNext{
+      margin-top: 12px;
+    }
+    #violation .specalInputNext:before{
+      top: 0px;
+      content: "";
+      display: block;
+      position: absolute;
+      left: -50%;
+      width: 200%;
+      height: 1px;
+      background: #d9d9d9;
+      opacity: 0.7;
+      -webkit-transform: scale(0.5);
+    }
+    #violation .carLocation{
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      background-color: #00c3fe;
+      width:27%!important;
+      color:white;
+      height: 100%;
+    }
+
+    #violation .carnumber{padding-left: 15px;  text-align: center;position: relative;}
+    #violation .carnumber:after{
+      left: 15px;
+      bottom: 16%;
+      content: "";
+      display: block;
+      position: absolute;
+      width: 1px;
+      height: 34px;
+      background: #d9d9d9;
+      opacity: 0.7;
+      -webkit-transform: scale(0.5);
+    }
+    #violation .carLocation:after{
+      right: 15px;           
+    }
+
+    #violation .beeantMain{width:100%; height:100%;}
+    #violation #save{padding-top: 32px;color:blue;padding-right: 14px;padding-left: 14px;}
+    #violation  #city{color:#1e9dfa;font-weight: bold;}
+    #violation #cityid{
+      text-align: right;
+      padding: 0px;
+      padding-right: 40px;
+      color: #666666;
+      background: url(../cars/img/icon_right.png) no-repeat right center;
+      background-size: 7px;
+      margin-right: 15px;
+      font-size: 16px;
+    }
+    #violation #codeimg{float: right;width: 40%;height: 40px;}
+    #violation #authcode{display: none}
+    #violation #searchViolation{
+      background-color: #00d6ff;
+      border: 1px solid #00d6ff;
+      font-size: 17px;
+      height: 44px;
+      line-height: 0.6;
+      /*width: 96%;
+      margin:0 auto;*/
+    }
+    #violation #searchViolation:active{
+      color: #09aaec
+    }
+    #violation .close-button {
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      background-image: url("../login/img/close-icon.png");
+      background-repeat: no-repeat;
+      background-size: 15px;
+      background-position: 50% 50%;
+      width: 50px;
+      height: 50px;
+      display: none;
+      z-index: 9999;
+      }
+  </style>
+  <div class="content">
+    <div class="content-wrapper">
+      <div class="beeantMain">
+        <form class="input-group">
+          <div class="beeantInput ">
+            <label>车牌号码</label>
+            <div class="beeantInputNext  carnumber">
+              <!-- <label id="carlocation" class="carLocation" data-value="cq">渝</label> -->
+              <select id="short-name-city">
+                <option value="京">京</option><option value="津">津</option><option value="沪">沪</option><option value="川">川</option><option value="鄂">鄂</option><option value="甘">甘</option><option value="赣">赣</option><option value="桂">桂</option><option value="贵">贵</option><option value="黑">黑</option><option value="吉">吉</option><option value="冀">冀</option><option value="晋">晋</option><option value="辽">辽</option><option value="鲁">鲁</option><option value="蒙">蒙</option><option value="闽">闽</option><option value="宁">宁</option><option value="青">青</option><option value="琼">琼</option><option value="陕">陕</option><option value="苏">苏</option><option value="皖">皖</option><option value="湘">湘</option><option value="新">新</option><option value="渝">渝</option><option value="豫">豫</option><option value="粤">粤</option><option value="浙">浙</option><option value="云">云</option><option value="藏">藏</option>
+              </select>
+              <input id="platenum" value="" maxlength="6" placeholder="请输入车牌号" name="platenum" style="height: 100%;width: 71%;padding-left: 15px;padding-right: 15px;">
+            </div>
+          </div>
+          <div class="beeantInput ">
+            <label>车身架号</label>
+            <input id="framenumber" maxlength="17" name="framenumber" type="text" value="" placeholder="请输入车架号">
+            <span class="close-button"></span>
+          </div>
+          <div class="specalInput ">
+            <label>发动机号</label>
+            <input id="enginenumber" maxlength="8" name="enginenumber" type="text" value="" placeholder="请输入发动机号">
+          </div>
+          <div class="specalInput specalInputNext">
+            <label style="width:40%">违章查询城市</label>
+            <ul>
+              <li id="cityid" class="table-view-cell" data-index="0" city-id="500100" data-parentid="500000">重庆</li>
+            </ul>
+          </div>
+          <div id="authcode" class="beeantInput ">
+            <label>验证码</label>
+            <div class="beeantInput">
+              <img id="codeimg">
+              <input id="auth" name="auth" type="text" value="" placeholder="请输入验证码">              
+            </div>
+            
+          </div>     
+        </form>        
+        <div id="save">
+          <button id="searchViolation" class="btn btn-primary btn-block">开始查询</button>
+        </div>
+      </div>
+    </div>      
+  </div>
+</div>

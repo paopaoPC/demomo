@@ -1,0 +1,91 @@
+<div id="addUserName" data-view="login/addUserName">
+    <style>
+
+      #addUserName input {
+            border: 1px solid #dededf !important;
+            height: 42px;
+        }
+
+        #addUserName .addUserName-input-block {
+            width: 95%;
+            margin: 20px auto 0;
+            height: 40px;
+        }
+
+        #addUserName .modifyPasswordStep1-input {
+            width: 100%;
+            height: 100%;
+            border: 1px solid #dededf;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        #addUserName .addUserNameButton {
+            display: -webkit-box;
+            width: 95%;
+            height: 44px;
+            /*line-height: 40px;*/
+            margin: 11px auto;
+            border-radius: 5px;
+            background-color: #00c3fe;
+            color: #fff;
+            font-size: 17px;
+            text-align: center;
+            margin-top: 50px;
+            border:none !important;
+        }
+
+        #addUserName .reslut-state {
+            margin: 10px auto 0;
+            padding-left: 10px;
+        }
+
+        #addUserName .input_item {
+            position: relative;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        #addUserName .input_item label {
+            font-size: 14px;
+            text-align: left;
+            position: absolute;
+            top: 36%;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            margin-left: 15px;
+            color: #bcbcbc;
+        }
+
+        #addUserName .check_code {
+            width: 70% !important;
+            float: left;
+        }
+
+        #addUserName .check_time {
+            width: 30%;
+            height: 40px;
+            float: left;
+            background-color: #00c3fe;
+            margin-top: 10px;
+            text-align: center;
+            color: #ffffff;
+            border: 0;
+            font-size: 14px;
+            font-family: '黑体'
+        }
+        #addUserName .clickBackground {
+            background-color: #52c3f2;
+        }
+
+    </style>
+    <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":true}' navTitle='"补全用户名"'>
+    </header>
+    <div class="content">
+        <div class="addUserName-input-block">
+            <input id="userNameInput" maxLength="15" type="text" placeholder="请补全用户名，3-15个字符" style="font-size: 15px;" onpaste="return false" onselectstart="return false"/>
+            <span style="color:gray;">*不能和电话号码相同</span>
+        </div>
+        <input type="button" class="addUserNameButton" value="确定"/>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div id="writecontact" data-view='Laboratory/writecontact'>
+	<style type="text/css">
+		#display >p >input{
+			 width: 63%;
+			 border-top-style: none;
+			 border-right-style: none;
+			 border-left-style: none;
+			 border-bottom-style: ridge;
+			 background-color: #efeff4;
+		 }
+		.span{
+			display: inline-block;
+			width: 1px;
+			height: 100%;
+			vertical-align: middle;
+		}
+	</style>
+	<script id="displaycontact" type="text/x-underscore-template">
+		<p style="margin-top: 10px;margin-left: 30px;font-size: 16px;">姓&nbsp;名:
+			<input style="text-align: center;font-weight: bold;" id="contact_name" value="<%=data.name%>" type="text"/></p>
+		<p id="<%=data.contactid%>" style="margin-top: 10px;margin-left: 30px;font-size: 16px;">电&nbsp;话:
+			<input style="text-align: center;font-weight: bold;" id="phonenumber" type="text" value="<%=data.tel%>"/></p>
+	</script>
+	<header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}' navTitle='"编辑联系人"'>
+    </header>
+    <div class="content">
+    	<div id="display" style=" width: 94%;
+									height: 70%;
+									position: absolute;
+									margin-top: 43px;
+									margin-left: 18px;">
+
+		</div>
+		<div id="save_contact" style="width: 268px;
+										height: 39px;
+										border-radius: 10px;
+										border-style: none;
+										font-size: 19px;
+										text-align: center;
+										background-color: gainsboro;
+										position: relative;
+										margin: 0 auto;
+										top: 525px;"><span class="span"></span>确定
+		</div>
+	</div>
+</div>

@@ -1,0 +1,134 @@
+<div id="historyBehavior" data-view="drivingBehavior/historyBehavior">
+	<style>
+		#historyBehavior .listview {
+			padding:0;
+			padding-top: 10px
+		}
+		#historyBehavior .scroller li {
+			height: auto;
+		}
+		#historyBehavior .one-driving-imfor{
+			width: 100%;
+			height: 120px;
+		}
+		#historyBehavior .driving-time{
+			width: 12%;
+			height: 100%;
+			text-align: right;
+			color: #4e555a;
+			float: left;
+			font-size: 12px
+		}
+		#historyBehavior .driving-time>p{
+			margin-top: 5px;
+		}
+		#historyBehavior .driving-line{
+			width: 10%;
+			height: 100%;
+			float: left;
+			text-align: center;
+		}
+		#historyBehavior .driving-line>img{
+			width: 25px;
+			height: 25px;
+		}
+		#historyBehavior .driving-line>div{
+			width: 1px;
+			height: 95px;
+			background-color: #e1e1e1;
+			margin-left: 50%;
+		}
+		#historyBehavior .driving-imformation{
+			width: 78%;
+			height: 100%;
+			float: left;
+		}
+		#historyBehavior .driving-distance{
+			width: 100%;
+			height: 30px;
+			padding-left: 10px;
+			line-height: 30px;
+			color: #6B6A6A;
+		}
+		#historyBehavior .driving-imfor{
+			width: 96%;
+			height: 80px;
+			background-color: #FFFFFF;
+			border: 0.01rem solid #e1e1e1;
+			position: relative;
+		}
+		#historyBehavior .driving-imfor-left{
+			width: 88%;
+			height: 100%;
+			float: left;
+		}
+		#historyBehavior .imfor-result{
+			padding-top: 10px;
+			padding-left: 10px;
+			font-size: 13px;
+		}
+		#historyBehavior .rapid-brake, .rapid-speed-up, .rapid-speed-reduction, .rapid-turn{
+			width: 25%;
+			height: auto;
+			float: left;
+			text-align: center;
+			font-size: 12px;
+			color: #4e555a;
+			margin-top: 25px
+		}
+		#historyBehavior .driving-imfor-left >div p:first-child{
+			margin-bottom: 5px
+		}
+		#historyBehavior .driving-imfor-right{
+			width: 12%;
+			height: 80px;
+			float: left;
+			text-align: center;
+			line-height: 80px;
+			color: #f59900;
+			font-weight: bold;
+		}
+	</style>
+	<script id="historyBehaviorTemplate" type="text/x-underscore-template">
+	<% var day,time,mileage,spendTime,speedUp,speedDown,sharpTurn,score %>
+	<div class="one-driving-imfor">
+		<div class="driving-time">
+			<p class="day"><%=day%></p>
+			<p><%=time%></p>
+		</div>
+		<div class="driving-line">
+			<img src="../drivingBehavior/img/icon_car.png">
+			<div></div>
+		</div>
+		<div class="driving-imformation">
+			<div class="driving-distance"><%=mileage%>km</div>
+			<div class="driving-imfor">
+				<div class="driving-imfor-left">
+					<div class="rapid-brake"><p><%=(spendTime/60).toFixed(1)%>h</p><p>驾驶时间</p></div>
+					<div class="rapid-speed-up"><p><%=speedUp%>次</p><p>急加速</p></div>
+					<div class="rapid-speed-reduction"><p><%=speedDown%>次</p><p>急减速</p></div>
+					<div class="rapid-turn"><p><%=sharpTurn%>次</p><p>急转弯</p></div>
+				</div>
+				<div class="driving-imfor-right">+<%=score%></div>
+			</div>
+		</div>
+	</div>
+	</script>
+	<header id="nav-bar" class="bar bar-nav blue-bar" navTitle='"驾驶历史"' navRight='{"hide":true}'>
+	</header>
+	<div class="content">
+			<div id='HCListview' class="listview">
+                <div class="scroller">
+                    <ul>
+                    </ul>
+                    <div class="message">
+                        <div class="empty">没有数据</div>
+                        <div class="error">请检查网络或刷新后再试</div>
+                    </div>
+                    <div class="pullup">
+	                      <span class="label"></span>
+	                  </div>
+                </div>
+            </div>
+	</div>
+</div>

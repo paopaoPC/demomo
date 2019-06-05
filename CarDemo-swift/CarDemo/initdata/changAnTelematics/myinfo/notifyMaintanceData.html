@@ -1,0 +1,47 @@
+<div id="notifyMaintanceData" data-view='myinfo/notifyMaintanceData'>
+    <style type="text/css">
+        #notifyMaintanceData .content_div{
+            width: 94%;
+            height: 45px;
+            color: #333333;
+            display:none;
+            margin-top: 20px;
+            margin-left: 3%;
+        }
+        #notifyMaintanceData .content_div>input{
+            border-radius: 3px;
+        }
+        #notifyMaintanceData .submitData{
+            width: 94%;
+            height: 38px;
+            background-color: #00c3fe;
+            color: #FFFFFF;
+            border-radius: 3px;
+            line-height: 38px;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 16px;
+            margin: 12px auto 0 auto;
+        }
+        #notifyMaintanceData .submitData:active{
+            color: #09aaec
+        }
+    </style>
+
+
+    <!-- 外围包裹层开始-->
+    <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":true}'  navTitle='"修改详情"'>
+    </header>
+    <div class="content">
+       <div class="content_div totalMile">
+            <input  type="tel" placeholder="请输入车辆总里程" maxLength= "7"/>
+       </div>
+        <div class="content_div spaceMaintance">
+            <input  type="tel" placeholder="请输入保养间隔" maxLength= "7"/>
+       </div>
+        <div class="content_div lastMaintance">
+            <input  type="tel" placeholder="请输入上次保养里程" maxLength= "7"/>
+       </div>
+       <div class="submitData">提 交</div>
+    </div>
+</div>

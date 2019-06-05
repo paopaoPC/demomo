@@ -1,0 +1,415 @@
+<div id="DrivingCharts" data-view='drivingReport/drivingCharts'>
+    <style type="text/css">
+        #DrivingCharts .chart-block {
+            height: 177px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-left: 14px;
+            margin-right: 14px;
+            border: 1px solid rgba(9, 170, 236, 0.45);
+            position: relative;
+        }
+
+        #DrivingCharts .content::-webkit-scrollbar {
+            width: 0
+        }     
+
+        #DrivingCharts .content {
+            background-color: #fff;
+        }
+
+        #DrivingCharts .im-default-nav-bar {
+            background-image: url(../drivingReport/img/back.png) !important;
+        }
+
+        #DrivingCharts .concrete-chart {
+            height: 100%;
+            background-color: white !important;
+        }
+
+        #DrivingCharts .chart-content {
+            height: 125px;
+            margin-top: 18px;
+        }
+
+        #DrivingCharts .chart-title-bar {
+            height: 35px;
+        }
+
+        #DrivingCharts .chart-title {
+            float: left;
+            line-height: 35px;
+            margin-left: 10px;
+            color: #333333;
+            font-size: 16px;
+        }
+
+        #DrivingCharts .chart-unit {
+            float: left;
+            line-height: 20px;
+            font-size: 10px;
+            margin-top: 10px;
+            margin-left: 5px;
+            color: #4e545a;
+        }
+
+        #DrivingCharts .chart-total {
+            float: right;
+            line-height: 35px;
+            font-size: 19px;
+            margin-right: 10px;
+            color: #333333 !important;
+        }
+
+        #DrivingCharts .chart-title-line {
+            height: 1px;
+            margin-left: 9px;
+            margin-right: 10px;
+            background-color: rgba(9, 170, 236, 0.45) !important;
+        }
+
+        #DrivingCharts .chart-other-tip {
+            position: absolute;
+            left: 44px;
+            width: 30px;
+            text-align: left;
+            font-size: 10px;
+            color: #666666;
+            margin-top: 3px;
+            bottom: 14px;
+        }
+
+        #DrivingCharts .tab-block {
+            height: 50px;
+            background-color: #f0f0f0;
+        }
+
+        #DrivingCharts .tab-container {
+            position: relative;
+            top: 10px;
+            width: 54%;
+            margin-left: 23%;
+            border: 1px solid #00c3fe;
+            border-radius: 5px;
+        }
+
+        #DrivingCharts .tab-item {
+            width: 25%;
+            border-right: 1px solid #00c3fe;
+            text-align: center;
+            padding: 5px 0;
+            font-size: 17px;
+            position: relative;
+        }
+
+        #DrivingCharts .tab-item-active {
+            background-color: #00c3fe;
+            color: white;
+        }
+
+        #DrivingCharts .tab-item-deactive {
+            background-color: transparent;
+            color: #1e9dfa;
+        }
+
+        #DrivingCharts .swipe-content {
+            height: 100%;
+        }
+
+        #DrivingCharts .total-block {
+            border-radius: 5px;
+            overflow: hidden;
+            margin-left: 10px;
+            margin-right: 10px;
+            background-color: #e9f9f1;
+        }
+
+        #DrivingCharts .total-row {
+            padding-left: 10px;
+            padding-right: 20px;
+            width: 100%;
+            height: 48px;
+            line-height: 48px;
+        }
+
+        #DrivingCharts .row-name {
+            margin-top: 0px;
+            float: left;
+            width: 50%;
+            text-align: center;
+            color: #4e545a;
+            font-size: 14px;
+        }
+
+        #DrivingCharts .row-value {
+            float: right;
+            width: 50%;
+            text-align: center;
+            color: #1e9dfa;
+            font-size: 14px;
+        }
+
+        #DrivingCharts #driving_date {
+            padding: 0.1rem 0;
+            height: 59px;
+            line-height: 0.3rem;
+            color: #333333;
+            font-size: 0.12rem;
+            position: relative;
+            text-align: center;
+        }
+
+        #DrivingCharts #driving_totledata {
+            width: 100%;
+        }
+
+        #DrivingCharts #driving_totledata ul {
+            width: 100%;
+            padding-left: 20px;
+        }
+
+        #DrivingCharts #driving_totledata ul li {
+            width: 100%;
+            height: 55px;
+            /*border-bottom: 1px solid #d9d9d9;*/
+            position: relative;
+        }
+
+        #DrivingCharts #driving_totledata ul li div {
+            width: 100%;
+            text-align: center;
+            font-size: 0.12rem;
+        }
+
+        #DrivingCharts #driving_totledata ul li div:first-child {
+            height: 0.4rem;
+            line-height: 55px;
+            float: right;
+            width: auto;
+            font-size: 12px;
+            color: #09aaec;
+            font-weight: normal !important;
+            margin-right: 20px;
+        }
+
+        #DrivingCharts #driving_totledata ul li div:last-child {
+            float: left;
+            width: auto;
+            font-size: 16px;
+            color: #333333;
+            height: 0.4rem;
+            line-height: 55px;
+        }
+
+        #DrivingCharts #driving_totledata ul li:after {
+            width: 200%;
+            height: 1px;
+            content: "";
+            background-color: #d9d9d9;
+            position: absolute;
+            left: -50%;
+            bottom: 0;
+            -webkit-transform: scale(0.5);
+            opacity: 0.7;
+        }
+
+        #DrivingCharts #driving_totledata ul li div span {
+            font-size: 17px;
+        }
+
+        .prev_week {
+            width: 25%;
+            float: left;
+            background: url(../home/img/left_arrow.png) no-repeat;
+            background-size: 0.06rem 0.11rem;
+            background-position: 30% center;
+            font-size: 0.14rem;
+            height: 38px;
+        }
+
+        #DrivingCharts .driving_date_words {
+            width: 50%;
+            float: left;
+            font-size: 15px;
+            color: #333333;
+            font-weight: 300;
+        }
+
+        .next_week {
+            width: 25%;
+            float: left;
+            background: url(../home/img/right_arrow.png) no-repeat;
+            background-size: 0.06rem 0.11rem;
+            background-position: 70% center;
+            font-size: 0.14rem;
+            height: 38px;
+        }
+
+        #DrivingCharts #slideChange {
+            width: 100%;
+            display: -webkit-box;
+            height: 42px;
+            line-height: 42px;
+            background-image: url(../drivingReport/img/back.png) !important;
+            /*position: fixed;*/
+            /*top: 44px;*/
+            /*left: 0px;*/
+            padding-left: 0px;
+            padding-right: 0px;
+            /*z-index: 1;*/
+        }
+
+        #DrivingCharts #slideChange:before {
+            content: "";
+            width: 200%;
+            height: 1px;
+            background: #4e4a59;
+            position: absolute;
+            -webkit-transform: scale(0.5);
+            opacity: 0.7;
+            left: -50%;
+        }
+
+        #DrivingCharts .second-title {
+            text-align: center;
+            width: 50%;
+            font-size: 17px;
+            color: white;
+        }
+
+        #DrivingCharts .swipe {
+            overflow: hidden;
+            visibility: hidden;
+            position: relative;
+            margin-top: 42px;
+        }
+
+        #DrivingCharts .swipe-wrap {
+            overflow: hidden;
+            position: relative;
+        }
+
+        #DrivingCharts .swipe-wrap > figure {
+            float: left;
+            width: 100%;
+            position: relative;
+        }
+
+        #DrivingCharts #slideChange .active-bar {
+            border-bottom: 3px solid rgb(0, 214, 255);
+        }
+
+        #DrivingCharts text {
+            color: #666666 !important;
+        }
+
+        #DrivingCharts #item0:after {
+            width: 1px;
+            height: 84px;
+            content: "";
+            background-color: #4e4a59;
+            position: absolute;
+            right: 0;
+            -webkit-transform: scale(0.5);
+            opacity: 0.7;
+            top: -21px;
+            z-index: 1;
+        }
+        #DrivingCharts #nav-bar .im-default-nav-bar:last-child{
+            /*display: none !important;*/
+        }
+    </style>
+    <script id="chart-template" type="text/x-underscore-template">
+        <div class="chart-block">
+            <div id="<%=chartId%>" class="concrete-chart" style="<%=chartStyle%>">
+                <div class="chart-title-bar">
+                    <text class="chart-title"><%=title%></text>
+                    <text class="chart-unit"><%=unit%></text>
+                    <text class="chart-total" style="<%=totalStyle%>"><%=total%></text>
+                </div>
+                <div class="chart-title-line" style="<%=titleLineStyle%>"></div>
+                <div id="chart-content" class="chart-content"></div>
+            </div>
+            <div class="chart-other-tip"><%=otherTip%></div>
+        </div>
+        <div style="height:20px"></div>
+    </script>
+
+    <header id="nav-bar" class="bar bar-nav blue-bar" navTitle='"统计"' navRight='{"hide":"true"}'></header>
+    <!-- <header id="nav-bar" class="bar bar-nav blue-bar" navTitle='""'navLeft='{"hide":true}' navRight='{"hide":true}'>
+        <div class="im-default-nav-bar">
+            <h1 class="title im-nav-title im-text-navtitle im-textclr-white" id="navTitle">统计</h1>
+            <button id="navLeft"
+                    class="button-image im-text-navbuttontext im-nav-button im-nav-left im-nav-left-image pull-left">
+            </button>
+            <button id="navRight"
+                    class="button-image im-text-navbuttontext im-nav-button  im-nav-right im-nav-right-image pull-right"
+                    style="display: none;">
+            </button>
+        </div>
+        <div id="slideChange">
+            <div id="item0" class="second-title active-bar" style="position: relative;">月</div>
+            <div id="item1" class="second-title">累计</div>
+        </div>
+    </header> -->
+    <div class="content">
+        <div id="slider" class="swipe">
+            <div class="swipe-wrap">
+                <div style="height: 650px;">
+                    <div id="driving_date">
+                        <div class="prev_week"></div>
+                        <div class="driving_date_words"></div>
+                        <div class="next_week"></div>
+                    </div>
+                    <div id="driving_charts">
+                       <div class="driving_charts_distance"></div> 
+                       <div class="driving_charts_petrol"></div> 
+                       <div class="driving_charts_maxVelo"></div> 
+                    </div>
+                </div>
+                <div style="height: 650px;">
+                    <!-- 总数据-->
+                    <div id="driving_totledata">
+                        <ul>
+                            <li id="chartsViewDistance">
+                                <div><span class="value"></span>Km</div>
+                                <div>总里程</div>
+                            </li>
+                          <!--   <li id="chartsViewPetrol">
+                                <div><span class="value"></span>L</div>
+                                <div>总油耗</div>
+                            </li> -->
+                        <!--     <li id="chartsViewTotalFee">
+                                <div><span class="value"></span>元</div>
+                                <div>总费用</div>
+                            </li> -->
+                        </ul>
+                        <ul>
+                            <li id="chartsViewMaxVelo">
+                                <div><span class="value"></span>h</div>
+                                <div>总耗时</div>
+                            </li>
+                            <li id="chartsViewAverVelo">
+                                <div><span class="value"></span>Km/h</div>
+                                <div>平均时速</div>
+                            </li>
+                        </ul>
+                     <!--    <ul id="chartsViewPetrol100" style="padding-left: 0;">
+                            <li>
+                                <div><span class="value"></span>L</div>
+                                <div style="margin-left: 20px;">百公里耗油</div>
+                            </li>
+                        </ul> -->
+                    </div>
+                    <ul style="width: 100%;margin-top: 55px;padding-left: 20px;padding-right: 10px;">
+                        <li style="text-align: center;
+                                    font-size: 13px;
+                                    color: #999999;">
+                            以上数据从使用APP开始计算
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

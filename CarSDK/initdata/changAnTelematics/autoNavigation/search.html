@@ -1,0 +1,110 @@
+<div id="search" data-view="autoNavigation/search">
+  <style>
+    #search .route-search-header {
+      /*background-image:url('../common/img/nav.png');*/
+      float: left;
+      display: inline-block;
+      width: 100%;
+    }
+
+    #search .searchIcon {
+      background-image: url("../autoNavigation/img/address.png");
+      background-size: 15px;
+      background-repeat: no-repeat;
+      font-size: 15px;
+      padding-left: 20px;
+    }
+    #search .address-imfor{
+      font-size: 12px;
+      color: #8f8e94;
+      margin-left: 20px;
+      line-height: 2;
+    }
+    #search .searchLocation{
+      width: 80%;
+      margin-top: 5px;
+      color: #929292;
+      -webkit-transition: all;
+      -moz-transition: all;
+      transition: all;
+      -webkit-transition-timing-function: linear;
+      -moz-transition-timing-function: linear;
+      transition-timing-function: linear;
+      -webkit-transition-duration: .2s;
+      -moz-transition-duration: .2s;
+      transition-duration: .2s;
+      position: relative;
+      display: inline-block;
+      padding: 6px 8px 7px;
+      margin-bottom: 0;
+      font-size: 12px;
+      font-weight: 400;
+      height: 0.3rem;
+      cursor: pointer;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    #search #searchResult li{
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding-right: 5px;
+      border-bottom: solid 1px #ddd;
+      padding-bottom: 5px;
+      padding-top: 10px;
+      padding-left: 20px;
+    }
+
+    #search #searchResult li > label{
+      height: 20px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      font-size: 14px;
+      padding-left: 15px;
+      padding-right: 10px;
+      display: inline-block;
+    }
+    #search .history-result:active, .search-result:active, #clearHistory:active{
+      background-color: #E6E6E7
+    }
+    #search .clearHistory{
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      /* padding-top: 15px; */
+      color: #666;
+    }
+
+    #search .emptyresult{
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      /* padding-top: 15px; */
+      color: #666;
+    }
+    #search .search-content{
+      width: 100%;
+      display: block;
+      text-align: center;
+      border-bottom: 1px solid gainsboro;
+      padding-bottom: 5px;
+    }
+  </style>
+  <!--<div class="route-search-header bar bar-nav blue-bar">-->
+    <!--<div class="im-default-nav-bar">-->
+      <!--<button id="navLeft" class="button-image im-text-navbuttontext im-nav-button im-nav-left im-nav-left-image pull-left"></button>-->
+      <!--<span><input id="searchLocation" class="searchLocation" placeholder="请输入地点" /></span>      -->
+    <!--</div>-->
+  <!--</div>-->
+  <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}'  navTitle='"添加目的地"'>
+  </header>
+  <div class="content">
+    <span class="search-content"><input id="searchLocation" class="searchLocation" placeholder="请输入地点" /></span>
+    <ul id="searchResult">
+    </ul>
+    <div class="clearHistory" id="clearAction">清除历史记录</div>
+  </div>
+</div>

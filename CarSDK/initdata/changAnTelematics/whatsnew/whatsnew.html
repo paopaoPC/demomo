@@ -1,0 +1,184 @@
+<div id='whatsnew' data-view="whatsnew/whatsnew">
+    <style type="text/css">
+        #whatsnew {
+            height: 100%;
+            width: 100%;
+        }
+
+        #whatsnew-slider.swipe {
+            overflow: hidden;
+            visibility: hidden;
+            position: relative;
+            width: 100%;
+        }
+
+        #whatsnew-slider.swipe .swipe-wrap {
+            background-color: #1076c8;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #whatsnew-slider.swipe .swipe-wrap > div {
+            float: left;
+            width: 100%;
+            position: relative;
+        }
+
+        #whatsnew-slider.swipe .image-area0 {
+            background: #fff;
+        }
+
+        #whatsnew-slider.swipe .image-area1 {
+            background: #fff;
+        }
+
+        #whatsnew-slider.swipe .image-area2 {
+            background: #fff;
+        }
+
+        #whatsnew-slider.swipe .image-area3 {
+            background: #fff;
+        }
+
+        #whatsnew-slider.swipe .image-area4 {
+            background: #fff;
+        }
+
+        #whatsnew-slider.swipe .image0 {
+            /*background-image: url("../whatsnew/img/1.png");*/
+            background-size: 100% 100%;
+            background-position: 50% 100%;
+            background-repeat: no-repeat;
+            border: 0px;
+            width: 100%;
+            height: 100%;
+        }
+
+        #whatsnew-slider.swipe .image1 {
+            /*background-image: url("../whatsnew/img/2.png");*/
+            background-size: 100% 100%;
+            background-position: 50% 100%;
+            background-repeat: no-repeat;
+            border: 0px;
+            width: 100%;
+            height: 100%;
+        }
+
+        #whatsnew-slider.swipe .image2 {
+            /*background-image: url("../whatsnew/img/3.png");*/
+            background-size: 100% 100%;
+            background-position: 50% 100%;
+            background-repeat: no-repeat;
+            border: 0px;
+            width: 100%;
+            height: 100%;
+        }
+
+        #whatsnew-slider.swipe .image3 {
+            /*background-image: url("../whatsnew/img/4.png");*/
+            background-size: 100% 100%;
+            background-position: 50% 100%;
+            background-repeat: no-repeat;
+            border: 0px;
+            width: 100%;
+            height: 100%;
+        }
+
+        #whatsnew-function-icon {
+            position: fixed;
+            width: 100%;
+            bottom: 6%;
+            padding: 0px 6%;
+            display: none;
+        }
+
+        #whatsnew-function-icon .login-button {
+            height: 44px;
+            line-height: 44px;
+            text-align: center;
+            width: 30%;
+            background-color: #74c443;
+            color: #fff;
+            border-radius: 3px;
+        }
+
+        #whatsnew-function-icon .registe-button {
+            height: 44px;
+            line-height: 44px;
+            text-align: center;
+            width: 55%;
+            background-color: #fff;
+            color: #595959;
+            border-radius: 3px;
+            position: absolute;
+            top: 0px;
+            right: 6%;
+        }
+
+        #whatsnew .IndexItem {
+            display: -webkit-inline-box;
+            width: 25px;
+            height: 3px;
+            background-color: white;
+        }
+
+        #whatsnew .active {
+            background-color: #333333;
+        }
+
+        #whatsnew .PageIndex {
+            position: absolute;
+            z-index: 100;
+            bottom: 15px;
+            width: 100%;
+            text-align: center;
+            display: none;
+        }
+        #whatsnew .startBg{
+            position: absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            z-index: -100;
+        }
+        #whatsnew .countdown{
+            position: absolute;
+            top:40px;
+            right:20px;
+            font-size: 18px;
+        }
+    </style>
+    <div id='whatsnew-slider' class='swipe' style="height:100%">
+        <div class='swipe-wrap' style="height:100%">
+            <div class="image-area0" style="height:100%">
+                <!--<div class="image0">
+                </div>-->
+                <span class="countdown">4s</span>
+                <img src="../whatsnew/img/1.png" class="image0"/>
+                <img src="../carLife/img/startPage.png" alt="" class="startBg">
+            </div>
+            <div class="image-area1" style="height:100%">
+                <!--<div class="image1">
+                </div>-->
+                <img src="../whatsnew/img/2.png" class="image1"/>
+            </div>
+            <div class="image-area2" style="height:100%">
+                <!--<div class="image2">
+                </div>-->
+                <img src="../whatsnew/img/3.png" class="image2"/>
+            </div>
+            <div class="image-area3" style="height:100%">
+                <!--<div class="image3"></div>
+                </div>-->
+                <img src="../whatsnew/img/4.png" class="image3"/>
+            </div>
+            <!--<div class="PageIndex">
+                <span class="IndexItem"></span>
+                <span class="IndexItem" style="margin-left: 5px;margin-right: 5px;"></span>
+                <span class="IndexItem" style="margin-right: 5px;"></span>
+                <span class="IndexItem"></span>
+            </div>-->
+        </div>
+    </div>
+</div>

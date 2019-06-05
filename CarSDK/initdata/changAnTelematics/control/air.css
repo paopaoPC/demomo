@@ -1,0 +1,186 @@
+#airContainer {
+	/*position: absolute;*/
+	width: 100%;
+	height: 100%;
+	background-image: url(../control/img/background_1.png);
+	background-size: 100% 100%;
+	/*z-index: 999;*/
+	/*animation:fadeOuts 1s;*/
+}
+#airContainer .content-top{
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+}
+#airContainer .content-title{
+	width: 100%;
+	height: auto;
+	font-size: 0.21333242rem;
+	text-align: center;
+	/*margin-top: 0.34133188rem;*/
+	color: #FFFFFF
+}
+#airContainer .content-info{
+	width: 100%;
+	height: auto;
+	text-align: center;
+	font-size: 0.11093286rem;
+	color: #FFFFFF;
+	margin-top: 0.15359934rem;
+	line-height: 0.18773253rem
+}
+#airContainer .content-info>p{
+	color: #FFFFFF
+}
+#airContainer .level-status{
+	text-align: center;
+	font-size: 0.15359934rem;
+	color: #FFFFFF;
+	/*margin-top: 0.8191965rem;*/
+}
+#airContainer .canvas-container{
+	width: 100%;
+	height: 130px;
+	overflow: hidden;
+	margin-top: 10px;
+	position: relative;
+}
+#airContainer .canvas-container>div{
+	float: left;
+	height: 100%
+}
+#airContainer .img-left, #airContainer .img-right{
+	width: 10%;
+}
+#airContainer .img-left{
+	background: url(../control/img/lowest_icon.png) no-repeat;
+	background-size: 17px 17px;
+	background-position: 50% 100%
+}
+#airContainer .img-right{
+	background: url(../control/img/hightest_icon.png) no-repeat;
+	background-size: 17px 17px;
+	background-position: 50% 100%
+}
+#airContainer .canvas-item{
+	width: 80%;
+	-webkit-clip-path:polygon(0px 100px,100% 0,100% 100%,0 100%)
+}
+#airContainer .canvas-item-light{
+	position: absolute;
+	width: 80%;
+	-webkit-clip-path:polygon(0px 100px,100% 0,100% 100%,0 100%);
+	left: 10%;
+	pointer-events:none;
+	/*visibility: hidden;*/
+}
+#airContainer .canvas-item>div{
+	width: 15%;
+	height: 100%;
+	/*background-color: #dfdfdf;*/
+	/*opacity: 0.2;*/
+	float: left;
+	margin-left: 1.6%
+}
+#airContainer .canvas-item-light>div{
+	width: 0;
+	height: 100%;
+	float: left;
+	margin-left: 1.6%;
+}
+#airContainer .item0{
+	background-image: -webkit-linear-gradient(left, rgba(24,226,243,0.2), rgba(39,225,235,0.2));
+}
+#airContainer .item1{
+	background-image: -webkit-linear-gradient(left, rgba(39,225,235,0.2), rgba(77,210,214,0.2));
+}
+#airContainer .item2{
+	background-image: -webkit-linear-gradient(left, rgba(77,210,214,0.2), rgba(131,186,173,0.2));
+}
+#airContainer .item3{
+	background-image: -webkit-linear-gradient(left, rgba(131,186,173,0.2), rgba(189,157,111,0.2));
+}
+#airContainer .item4{
+	background-image: -webkit-linear-gradient(left, rgba(189,157,111,0.2), rgba(231,132,50,0.2));
+}
+#airContainer .item5{
+	background-image: -webkit-linear-gradient(left, rgba(231,132,50,0.2), rgba(246,111,12,0.2));
+}
+#airContainer .item00{
+	background-image: -webkit-linear-gradient(left, #18e2f3, #27e1eb);
+}
+#airContainer .item11{
+	background-image: -webkit-linear-gradient(left, #27e1eb, #4dd2d6);
+}
+#airContainer .item22{
+	background-image: -webkit-linear-gradient(left, #4dd2d6, #83baad);
+}
+#airContainer .item33{
+	background-image: -webkit-linear-gradient(left, #83baad, #bd9d6f);
+}
+#airContainer .item44{
+	background-image: -webkit-linear-gradient(left, #bd9d6f, #e78432);
+}
+#airContainer .item55{
+	background-image: -webkit-linear-gradient(left, #e78432, #f66f0c);
+}
+#airContainer .active{
+	/*background-color: #18e3f4 !important*/
+}
+#airContainer #air_scroll {
+    width: 78%;
+    height: 4px;
+    top: 14px;
+    margin-left: 20px;
+    margin: 0 auto;
+    /*margin-top: 72px;*/
+    border-radius: 4px;
+    position: relative;
+    visibility: hidden;
+}
+
+#airContainer #air_scroll div:nth-child(1) {
+    /*float: left;*/
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    background-color: #18e2f3;
+    border-radius: 2px 0px 0px 2px;
+}
+
+#airContainer #air_scroll div:nth-child(2) {
+    float: right;
+    width: 100%;
+    height: 100%;
+    background-color: #23506d;
+    border-radius: 0px 2px 2px 0px;
+}
+
+#airContainer #air_scroll div.circle {
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    border: 1px solid #fff;
+    position: absolute;
+    top: -11px;
+    left: -6.25%;;
+    z-index: 99;
+    background-color: #ffffff;
+}
+#airContainer .air-bottom{
+	height: auto;
+	overflow: hidden;
+	/*margin-top: 76px*/
+}
+#airContainer .air-bottom>div{
+	width: 1.06666212rem;
+	height: 41px;
+	line-height: 41px;
+	color: #00fffc;
+	font-size: 0.11946616rem;
+	text-align: center;
+	float: left;
+	border: 1px solid #3a5060;
+	border-radius: 5px;
+	margin-left: 0.34986517rem
+}

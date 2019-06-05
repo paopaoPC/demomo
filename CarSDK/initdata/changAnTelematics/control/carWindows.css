@@ -1,0 +1,149 @@
+#carWindowsContainer {
+	/*position: absolute;*/
+	width: 100%;
+	height: 100%;
+	background-image: url(../control/img/background_1.png);
+	background-size: 100% 100%;
+	/*z-index: 999;*/
+	padding-top: 44px;
+}
+#carWindowsContainer .content-title{
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	text-align: center;
+	font-size: 0.20479912619rem; /*24px*/
+	color: #FFFFFF;
+	/*margin-top: 0.341331876984rem;/*40px*/
+	margin-bottom: 1.937rem;/*227px*/
+}
+#carWindowsContainer .carWindows-img-one {
+	width: 100%;
+    height: 200px;
+    background-image: url(../control/img/carWindows-wrap.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    z-index: 1000;
+    top: 100px;
+    position: absolute;
+}
+#carWindowsContainer .carWindows-img-two-wrap {
+	z-index: 999;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 200px;
+    top: 100px;
+}
+#carWindowsContainer .carWindows-img-two {
+    transition: top 1s ease-out;
+    -webkit-transition: top 1s ease-out;
+    position: absolute;
+    top: 0;
+	width: 100%;
+    height: 200px;
+    background-image: url(../control/img/carWindows-content.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+#carWindowsContainer .carWindows-img-two.open {
+    transition: top 1s ease-out;
+     -webkit-transition: top 1s ease-out;
+	top: 11px;
+}
+#carWindowsContainer .carWindows-img-two.open00 {
+      transition: top 0s ease-out;
+     -webkit-transition: top 0s ease-out;
+    top: 11px;
+}
+#carWindowsContainer .carWindows-img-three {
+	width: 100%;
+    height: 200px;
+    background-image: url(../control/img/carWindows-background.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    z-index: 998;
+    top: 56px;
+    position: absolute;
+    overflow: hidden;
+}
+#carWindowsContainer .items{
+	width: 90%;
+	height: 0.6570638631941836rem;/*77px*/
+	padding-left: 33%;
+	line-height: 0.170665938492rem;/*20px*/
+    padding-top: 0.1450660477181964rem;/*24px*/
+    margin: 0 auto;
+    color: #FFFFFF;
+    position: relative;
+}
+#carWindowsContainer .items:after{
+	position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    display: block;
+    background: url(../control/img/icon_line.png);
+    background-size: 100% 100%;
+}
+#carWindowsContainer .items.background:before{
+	position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    display: block;
+    background: url(../control/img/icon_line.png);
+    background-size: 100% 100%;
+}
+#carWindowsContainer .items>span{
+	font-size: 0.102399563095rem;/*12px*/
+	display: block;
+}
+#carWindowsContainer .items>span:first-child{
+	font-size: 0.196265829266rem;/*23px*/
+}
+#carWindowsContainer .items.active{
+	color: #00d5fe;
+	background: url(../control/img/icon_select.png) no-repeat;
+	background-size: 24px 16px;
+	background-position: 25% 50%;
+}
+#carWindowsContainer .content-bottom{
+	height: auto;
+	overflow: hidden;
+	margin-top: 0.6229rem;/*140px*/
+}
+#carWindowsContainer .content-bottom>div{
+	width: 1.06666212rem;
+	height: 41px;
+	line-height: 41px;
+	color: #00fffc;
+	font-size: 0.11946616rem;
+	text-align: center;
+	float: left;
+	border: 1px solid #3a5060;
+	border-radius: 5px;
+	margin-left: 0.34986517rem
+}
+#carWindowsContainer .items.active .carWindow-shadow {
+    background-image: url(../control/img/carWindows-select.png);
+}
+#carWindowsContainer .items .carWindow-shadow {
+    background-size: 100%;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+#carWindowsContainer .air-warning-info {
+    color:#c8ab11;
+    display: none;
+    text-align: center;
+    font-size: 10px;
+    margin-top: 24px;
+}

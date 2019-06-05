@@ -1,0 +1,300 @@
+<div id = "car-list2" data-view = "cars/carList2">
+<style type = "text/css">
+#car-list2 #wrapper {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        height: auto;
+        overflow: hidden;
+    }
+    #car-list2 #scroller {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        min-height: 101%;
+    }
+    #car-list2  .swiper-container {
+        height: 100%;
+    }
+    #car-list2 .iconOne {
+        position: absolute;
+        height: 28px;
+        width: 28px;
+        border-radius: 28px;
+        border: 1px solid #666666;
+        clip: rect(0px,28px,0px,14px);
+        top: 0;
+    }
+    #car-list2 .iconTwo {
+        position: absolute;
+        height: 28px;
+        width: 28px;
+        border-radius: 28px;
+        border: 1px solid #666666;
+        clip: rect(0px,28px,0px,14px);
+        transform: rotate(180deg);
+        top: 0;
+    }
+    #car-list2 .pulldown.flip .icon {
+        -webkit-transform: rotate(0) translateZ(0);
+    }
+    #car-list2 .pulldown.loading .iconOne {
+        clip: rect(0px 28px 28px 14px) !important;
+    }
+    #car-list2 .pulldown.loading .iconTwo {
+        clip: rect(0px 28px 26px 14px) !important;
+    }
+    #car-list2 .pulldown {
+        height: 60px;
+        position: absolute;
+        top: -60px;
+        /*top: 0;*/
+        color: #666666;
+        width: 100%;
+        z-index: 999;
+        padding-top: 10px;
+        text-align: center;
+        font-weight: inherit;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    #car-list2 .pulldownWrap {
+    
+    }
+    #car-list2 .pulldownWrap.hidden {
+        display: none;
+    }
+    #car-list2 .pulldown .icon {
+        display: inline-block;
+        width: 28px;
+        height: 28px;
+        background-size: 28px;
+        float: none;
+        background: url("../home/img/home-down_1.png");
+        background-repeat: no-repeat;
+        background-position: 50%;
+            -webkit-animation-duration: 1.3s;
+    }
+    #car-list2 .pulldown.flip .icon {
+        background-size: 0;
+    }
+    #car-list2 .pulldown.loading .icon {
+        background: url("../home/img/home-loading_1.png") no-repeat;
+        background-size: 19px;
+        position: relative;
+        top: -3px;
+        width: 28px;
+        height: 28px;
+        background-position: 50%;
+    }
+    #car-list2 .pulldown .label {
+      
+    }
+    #car-list2 .pulldown.loading .label, #car-list2 .pulldown.flip .label {
+        line-height: 28px;
+    }
+    #car-list2 #iconDiv {
+  
+    }
+    #car-list2 #pullDownInfoDiv {
+        display: block;
+        font-size: 10px;
+        line-height: 10px;
+        padding-left: 4px;
+        left: 30%;
+        position: relative;
+        margin-top: 7px;
+        margin-left: 15px;
+    }
+    #car-list2 .pulldownText {
+        display: inline-block;
+    }
+    #car-list2 .pulldown.flip #pullDownInfoDiv,#car-list2 .pulldown.loading #pullDownInfoDiv {
+        display: none;
+    }
+#car-list2
+{
+	background-color: white;
+	width: 100%;
+	height: 100%;
+}
+#car-list2 .content{
+	background-color: #efeff4 !important;
+}
+#content
+{
+	margin-top: 46px;
+	position: absolute;
+	width: 100%;
+	background-color: #FFFFFF
+}
+#car-list
+{
+	margin-top: 0px;
+	/*padding-top: 16px;*/
+	position: relative;
+	/*background-color: #FFFFFF*/
+}
+.bottom-gray-line
+{
+	background-color: #b0b0b0;
+	height: 1px;
+	width: 100%;
+	position: absolute;
+	top: 74px;
+}
+.my-car
+{
+	height: 92px;
+	width: 100%;
+	background-color: white;
+	position: relative;
+	margin: 12px 0 12px
+}
+.my-car.active{
+    background-color: #f1f1f1;
+}
+.my-car:first-child:before{
+	top: 0px;
+	content: "";
+	display: block;
+	position: absolute;
+	left: -50%;
+	width: 200%;
+	height: 1px;
+	background: #d9d9d9;
+	opacity: 0.7;
+	-webkit-transform: scale(0.5);
+}
+.my-car:after{
+	bottom: -1px;
+	content: "";
+	display: block;
+	position: absolute;
+	left: -50%;
+	width: 200%;
+	height: 1px;
+	background: #d9d9d9;
+	opacity: 0.7;
+	-webkit-transform: scale(0.5);
+}
+.left-item
+{
+	position: relative;
+	float: left;
+	width: 100px;
+	height: 100%;
+}
+.right-item
+{
+	position: relative;
+	float: left;
+	width: 180px;
+	height: 100%;
+}
+.arrow-item
+{
+	position: relative;
+	float: right;
+	width: 25px;
+	height: 100%;
+	text-align: right;
+	padding-right: 3%;
+}
+.other-car
+{
+	/* width: 94%; */
+	height: 44px;
+	line-height: 44px;
+	margin: 32px auto;
+	border-radius: 2px;
+	background-color: #00d6ff;
+	color: #fff;
+	font-size: 17px;
+	text-align: center;
+	margin-left: 14px;
+	margin-right: 14px;
+	display: none;
+}
+.other-car:active{
+    background-color: #FFFFFF;
+    color: #09aaec
+}
+#car-image
+{
+	height: 60px;
+    width: 71px;
+    margin-left: 14px;
+    display: block;
+    float: left;
+    margin-top: 16px;
+}
+#car-list2 .arrow-item>img{
+    width: 7px; 
+    height: 14px;
+    margin-top: 40px;
+}
+.right-top-item
+{
+	position: relative;
+	margin-left: 7px;
+	margin-top: 26px;
+	font-size: 17px;
+	color: #343434;
+}
+.right-bottom-item
+{
+	position: relative;
+	margin-left: 7px;
+	margin-top: 10px;
+	font-size: 14px;
+	color: #999999;
+	font-family: "Helvetica";
+}
+
+</style>
+
+<script id="my-car-template" type="text/x-underscore-template">
+	<div class = "my-car" data-index = '<%=index%>'>
+	<%
+			if(rows.imgHandlerId){
+				rows.imgPath=bfDataCenter.getBaseConfig_dssDownLoad()+"&token="+token+"&dsshandle="+rows.imgHandlerId
+			}else{
+                rows.imgPath='../cars/img/cs35.png'
+            }
+
+        %>
+		<div class = "left-item">
+	        <img src=<%=rows.imgPath%> id = "car-image"/>
+		</div>
+		<div class = "right-item">
+			<div class = "right-top-item"><%=rows.carName%></div>
+			<div class = "right-bottom-item"><%=rows.plateNumber%></div>
+		</div>
+		<div class = "arrow-item">
+			<img src="../cars/img/icon_right.png" />
+		</div>
+	</div>
+</script>
+
+<header id="nav-bar" class="bar bar-nav blue-bar"  navRight='{"hide":"true"}' navTitle='"选择车辆"'></header>
+	<div class = "content" style="background:#FFFFFF">
+		<div id="wrapper">
+            <div id="scroller">
+                <div class="pulldown">
+                    <div class="pulldownWrap">
+                        <div id='iconDiv'>
+                            <span class="icon"><div class='iconOne'></div>
+                            <div class='iconTwo'></div></span>
+                        </div>
+                        <span class="label">下拉刷新...</span>
+                    </div>
+                </div>
+                <div id = "car-list"></div>
+                <div id= "other_car" class="other-car">查询其他车辆</div>
+            </div>
+        </div>
+	</div>
+</div>

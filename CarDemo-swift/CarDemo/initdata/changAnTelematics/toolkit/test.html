@@ -1,0 +1,398 @@
+<div id="test" data-view='toolkit/test'>
+    <style type="text/css">
+        #test .content {
+            background-color: #f0f0f0;
+        }
+        #test .system_ts_time {
+            text-align: center;
+            font-size: 0.12rem;
+            color: #dadada;
+        }
+
+        #test .system_ts_title {
+            font-size: 17px;
+            text-align: left;
+            color: #343434;
+            text-align: left;
+            padding: 20px 0 20px 10px;
+            margin-right: 10px;
+            line-height: 19px;
+            margin-top: -5px;
+        }
+
+        #test .system_ts {
+            /*border-radius: 5px;*/
+            background-color: #fff;
+            /*margin: 0 14px 0px 14px;*/
+            color: #333;
+            position: relative;
+        }
+         #test .icon{
+            /*background: transparent !important;*/
+        }
+        #test .system_ts_img {
+            width: 100%;
+            height: 1.6rem;
+            padding: 0 10px 10px 10px;
+        }
+
+        #test .system_ts_img img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #test .system_ts_des {
+            font-size: 0.14rem;
+            color: #7f817c;
+            display: none;
+        }
+         #test .scroller{
+            min-height: 101% !important;
+        }
+        #test .system_ts_look {
+            height: 0.4rem;
+            /*border-top: 1px solid #dadada;*/
+            line-height: 0.4rem;
+            font-size: 14px;
+            color: #343434;
+            background: url(../toolkit/img/arrow.png) no-repeat;
+            background-size: 12px 12px;
+            background-position: right center;
+            text-align: left;
+            margin-left: 10px;
+            margin-right: 12px;
+        }
+
+        #test li{
+            height:auto;
+            margin-top: 16px;
+            text-align: center;
+            background-color: transparent;
+            border-bottom: 0;
+            border-top: 1px solid transparent;
+        }
+
+        #test .listview {
+            padding: 0;
+        }
+        #test .scroller ul {
+            margin-top: -12px;
+        }
+
+        #test .messageTitle {
+            height: 38px;
+            text-align: left;
+            padding-top: 18px;
+            padding-left: 15px;
+            font-size: 16px;
+            position: relative;
+            color: #333;
+        }
+        #test .messageTime {
+            float: right;
+            padding-right: 15px;
+            color: #999;
+            font-size: 14px;
+        }
+        #test .messageWarp {
+            min-height: 56px;
+            position: relative;
+        }
+        #test .messageWarp:after {
+            content: '';
+            width: 100%;
+            height: 1px;
+            background: #eee;
+            position: absolute;
+            left: 15px;
+            bottom: 0;
+        }
+        #test .messageBottom {
+            height: 30px;
+            float: right;
+            padding-right: 30px;
+            line-height: 30px;
+            color: #10b3ef;
+        }
+        #test .messageBottom:after {
+            content: '';
+            position: absolute;
+            background: url(../toolkit/img/arrow-blue.png);
+            width: 12px;
+            height: 20px;
+            background-size: 7px;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-top: 4px;
+            margin-left: 3px;
+        }
+        #test .messageIcon {
+            width: 60px;
+            height: 60px;
+            background-size: 60px;
+            background-repeat: no-repeat;
+            display: inline-block;
+            position: absolute;
+            left: 14px;
+            margin-top: 2px;
+        }
+        #test .messageContent {
+            padding-left: 15px;
+             padding-top: 2px; 
+            padding-right: 15px;
+            text-align: left;
+            font-size: 14px;
+            line-height: 22px;
+            white-space: normal;
+            -webkit-line-clamp: 2;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            color: #999;
+        }
+        #test .chrysanthemum {
+            width: 85px;
+            height: 74px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -50px;
+            margin-left: -43px;
+            background-color: rgba(66,66,66,0.5);
+            z-index: 999;
+            border-radius: 10px;
+        }
+
+        #test .readStatus {
+            display: none;
+        }
+
+        #test .readStatus.no {
+            display: inline-block;
+            background-color: #ff5500;
+            position: relative;
+            width: 8px;
+            height: 8px;
+            margin-right: 6px;
+            top: -1px;
+            border-radius: 22px;
+        }
+        #test .listview .message{
+            line-height: 60px;
+        }
+        #test .empty-warp {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        #test .empty-icon {
+            background-image: url(../toolkit/img/no-message.png);
+            background-size: 72px;
+            background-repeat: no-repeat;
+            width: 75px;
+            height: 75px;
+            margin: auto;
+            margin-top: 1rem;
+        }
+        #test .empty-text {
+            font-size: 14px;
+            color: #666;
+            line-height: 14px;
+            margin-top: 25px;
+        }
+        #test .system_ts:before {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            right: -100%;
+            left: 0;
+            bottom: -100%;
+            border: 1px solid #d9d9d9;
+            border-radius: 5px;
+            transform: scale(0.5) translate(-50%,-50%);
+        }
+        #test #navRight {
+            font-size: 0.1rem;
+            color: white !important;
+        }
+        #test .swiper-container {
+            width: 100%;
+            height: 100%;
+            padding-top: 40px;
+            box-sizing: border-box;
+        }
+        #test .swiper-message-nav {
+            position: absolute;
+            width: 100%;
+            background-color: white;
+            z-index: 99;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        #test .smn-button {
+            display: inline-block;
+            width: 50%;
+            float: left;
+            height: 40px;
+            text-align: center;
+            color: black;
+            line-height: 38px;
+            position: relative;
+        }
+
+        #test .smn-button.active {
+            color: #10b3ef;
+        }
+
+        #test .smn-button.active:after {
+            content: '';
+            background: #10b3ef;
+            position: absolute;
+            width: 80px;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            margin-left: -40px;
+        }
+
+        #test .item-content{
+        height: auto;
+        /*padding: 0 2%;*/
+        font-size: 0.12rem;
+        position: relative;
+        line-height: 1;
+        min-height:42px;
+    }
+    #test .scroller li{
+        height: auto;
+        border-bottom: none;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        background-color: transparent !important;
+    }
+    #test .controlHistory_title{
+        position: relative;
+            margin-top: 7px;
+    background: white;
+    }
+    #test .controlHistory_title:after{
+        bottom: 0;
+        content: "";
+        display: block;
+        position: absolute;
+        left: -50%;
+        width: 200%;
+        height: 1px;
+        background:#d0d0d0;
+        -webkit-transform:scale(0.5);
+    }
+    #test .item-content:after{
+        bottom: 0;
+        content: "";
+        display: block;
+        position: absolute;
+        left: -50%;
+        width: 200%;
+        height: 1px;
+        background:#d0d0d0;
+        -webkit-transform:scale(0.5);
+    }
+    #test .item-content > div{
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+    }
+    #test .item-content > div > div{
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+    }
+    #test .loadmore .label{
+        font-size: 0.15rem;
+    }
+    #test .scroller {
+        min-height:101% !important;
+    }
+
+    </style>
+    <script id="controlHistory_controlItem" type="text/x-underscore-template">
+        <%
+            var preTime = '';
+            var nextTime = '';
+            preTime = cmdSendTime.substring(0,11);
+            nextTime = cmdSendTime.substring(11,cmdSendTime.length-2);
+            var color = '#de3401';
+            var words = '失败';
+            if(handleStatus == 'Completed'){
+                color = '#29bd7f';
+                words = '成功';
+            }else if(handleStatus == "Runing"){
+                color = '#29bd7f';
+                words = '进行中';
+            }else if(handleStatus == 'Timeout'){
+                words = '超时';
+            }
+        %>
+        <div style="width:100%;height:32px;margin-top:10px">
+            <div  class='cmdDescription' style='width:38%;float:left;height:100%;text-align:left;text-indent:2%;line-height: 2.5'><%=cmdDescription%></div>
+            <div style='width:15%;float:left;height:100%;text-align:left;color:<%=color%>;line-height: 2.5'><%=words%></div>
+            <div style='width:15%;float:left;height:100%;text-align:left;line-height: 2.5'><%=userName%></div>
+            <div style='width:32%;float:left;height:100%;text-align:left; overflow:hidden;text-indent:20px;'>
+                <div style='width:100%;height:50%;text-align:left;'><%=preTime%></div>
+                <div style='width:100%;height:50%;line-height:17px;text-align:left;'><%=nextTime%></div>
+            </div>
+        </div>
+        <p style="padding-left: 5px;line-height: 1.5;padding-bottom: 10px;"><%=resultDesc%></p>
+    </script>
+
+    <script type="text/x-underscore-template" id="Message_Item">
+        <!--<% var noTime,time,titleImg %>
+        <% if(noTime != true){ %>
+        <span style="border-radius: 5px;padding:3.5px 8px;line-height:13px;font-size:13px;text-align:center;background: #c9c8cc;color: white;display: inline-block;margin-bottom:12px;margin-top:4px"><%=time%></span>
+        <% } %>
+        -->
+        <div class="system_ts" data-id="<%=id%>" data-time="<%=createdAt%>" data-infoTypeId="<%=infoTypeId%>" data-obj='<%=JSON.stringify(obj)%>'>
+                <div class='messageItem'>
+                    <div class="messageTitle"><span class="readStatus <%=readStatus?'':'no'%>"></span><%=title%><span class="messageTime"><%=moment(updatedAt).format('YY-M-D')%></span></div>
+                    <div class="messageWarp">
+                        <!-- <div class="messageIcon" style="background-image:url(<%=infoTypeImgUrl.replace("incall.","incallapi.")%>)"></div> -->
+                        <div class="messageContent"><%=summary%></div>
+                    </div>
+                    <div class="messageBottom">查看详情</div>
+                </div>
+            <div class="system_ts_des"></div>
+        </div>
+    </script>
+
+    <header id="nav-bar" class="bar bar-nav blue-bar" navTitle='"消息中心"' navRight='{"text":"标记本页为已读"}'>
+    </header>
+    <div class="content">
+                    <div id="Message_list" class="listview" style="height:  100% !important;">
+                        <div class="scroller">
+                            <div class="pulldown" style="postion:relative; display:none">
+                                <div id='iconDiv'>
+                                    <span class="icon"><div class='iconOne'></div>
+                                    <div class='iconTwo'></div></span>
+                                </div>
+                                <span class="label"></span>
+                            </div>
+                            <ul>
+                            </ul>
+                            <button class="loadmore btn btn-block btn-outlined">
+                                <div class="label">加载更多</div>
+                                <span class="icon"></span>
+                            </button>
+                            <div class="message">
+                                <div class="empty">
+                                    <div class="empty-warp">
+                                       <div class="empty-icon"></div> 
+                                       <div class="empty-text" style="font-size:14px;color:#666">您暂时还没有消息数据</div> 
+                                    </div>
+                                </div>
+                                    <div class="error">数据加载失败</div>
+                                </div>
+                             </div>
+                    </div>
+    </div>
+</div>

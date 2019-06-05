@@ -1,0 +1,10 @@
+{
+  "name": "cc_一键体检",
+  "identifier": "cc.cartest",
+  "description": "",
+  "version": "1.0.1",
+  "dependencies": {},
+  "build": 2,
+  "releaseNote": "",
+  "hidden": false
+}

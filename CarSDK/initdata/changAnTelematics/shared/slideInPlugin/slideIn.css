@@ -1,0 +1,82 @@
+.ui-slide-content{
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(128, 128, 128, 0.57);
+    z-index: 1000;
+}
+.ui-slide-content .data-content{
+    height: 100%;
+    width: 70%;
+    background: rgb(255, 255, 255);
+    margin-right: 0;
+    margin-left: auto;
+    position: absolute;
+    right: 0;
+    animation:slidein 0.5s;
+    -webkit-animation:slidein 0.5s; /* Safari and Chrome */
+}
+.ui-slide-content-slideOut{
+    animation:slideOut 0.5s;
+    -webkit-animation:slideOut 0.5s; /* Safari and Chrome */
+}
+@keyframes slideOut
+{
+    from {right:0;}
+    to {right:-100%;}
+}
+
+@-webkit-keyframes slideOut /* Safari and Chrome */
+{
+    from {right:0;}
+    to {right:-100%;}
+}
+@keyframes slidein
+{
+    from {right:-70%;}
+    to {right:0;}
+}
+
+@-webkit-keyframes slidein /* Safari and Chrome */
+{
+    from {right:-70%;}
+    to {right:0;}
+}
+.ui-slide-content .slide-title{
+    width: 100%;
+    height: 7%;
+    position: relative;
+    font-size: 18px;
+    padding-top: 18px;
+    border-bottom: 1px solid gainsboro;
+    text-align: center;
+    background: white;
+    z-index: 1000;
+}
+.ui-slide-content .title-text{
+    display: -webkit-inline-box;
+    color: rgba(0, 0, 0, 0.72);
+}
+.ui-slide-content .back{
+    margin-left: 10%;
+    color: #00B6FF;
+    float: left;
+}
+.ui-slide-content .close{
+    color: #00B6FF;
+    float: right;
+    margin-right: 10%;
+}
+.ui-slide-content ul{
+    width: 100%;
+}
+.ui-slide-content .data-li{
+    width: 100%;
+    height: 93%;
+}
+.ui-slide-content ul li{
+    height: auto;
+    min-height: 30px;
+    border-bottom: 1px solid gainsboro;
+}

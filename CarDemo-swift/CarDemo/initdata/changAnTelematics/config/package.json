@@ -1,0 +1,10 @@
+{
+  "name": "cc_通用配置",
+  "identifier": "cc.config",
+  "description": "",
+  "version": "1.0.0",
+  "dependencies": {},
+  "build": 1,
+  "releaseNote": "",
+  "hidden": false
+}

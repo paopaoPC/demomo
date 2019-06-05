@@ -1,0 +1,687 @@
+<div id='control' class="page" data-view="control/index">
+    <style type="text/css">
+    	#control .content {
+    		background-image: url(../control/img/background.png);
+		     background-color: #080808; 
+		    background-repeat: repeat;
+		    /* background-size: 100%; */
+    	} 
+    	#control .im-default-nav-bar {
+    		border-bottom: 0px;
+    		background: #080808;
+    	}
+    	#control .content .swiper-container {
+		    width: 100%;
+		    height: 100%;
+		    color: white;
+		}
+		#control .content .swiper-pagination  {
+			top: 10px;
+		    left: 0;
+		    width: 100%;
+		}
+		#control .content .swiper-pagination-switch {
+			width: 8px;
+		    height: 8px;
+		    margin: 0 4px;
+		    display: inline-block;
+		    border-radius: 100%;
+		    background: #6b6b6b;
+		}
+		#control .content .swiper-pagination-switch.swiper-active-switch {
+    		background: #fff;
+		}
+
+		#control #swiper22 .air-img-one {
+			width: 100%;
+		    height: 500px;
+		    background-image: url(../control/images/air-bg.png);
+		    background-size: 100%;
+		    background-repeat: no-repeat;
+		    z-index: 1000;
+		    position: absolute;
+		}
+
+
+		#control #swiper22 .purge-img-one {
+			width: 100%;
+		    height: 500px;
+		    background-image: url(../control/images/air-bg.png);
+		    background-size: 100%;
+		    background-repeat: no-repeat;
+		    z-index: 1000;
+		    position: absolute;
+		}
+
+		#control #swiper22 .carWindows-img-one {
+			width: 100%;
+		    height: 400px;
+		    background-image: url(../control/img/carWindows-wrap.png);
+		    background-size: 100%;
+		    background-repeat: no-repeat;
+		    z-index: 1000;
+		    top: 100px;
+		    position: absolute;
+		}
+		#control #swiper22 .air-img-two-wrap {
+			z-index: 1001;
+			position: absolute;
+			overflow: hidden;
+			width: 100%;
+			height: 165px;
+			top: 1.066662rem;
+		}
+		#control #swiper22 .air-img-two {
+			transition: top 1s ease-out;
+		    -webkit-transition: top 1s ease-out;
+		    position: absolute;
+		    /*top: -25px;*/
+    		 top: -120px; 
+		    width: 100%;
+		    height: 200px;
+		    background-image: url(../control/img/air-content.png);
+		    background-size: 100%;
+		    background-repeat: no-repeat;
+		}
+
+
+		#control #swiper22 .purge-img-two-wrap {
+			z-index: 1001;
+			position: absolute;
+			overflow: hidden;
+			width: 100%;
+			height: 165px;
+			top: 1.066662rem;
+		}
+
+		#control #swiper22 .purge-img-two {
+			transition: top 1s ease-out;
+		    -webkit-transition: top 1s ease-out;
+		    position: absolute;
+		    /*top: -25px;*/
+    		 top: -120px; 
+		    width: 100%;
+		    height: 200px;
+		    background-image: url(../control/img/purge-content.png);
+		    background-size: 100%;
+		    background-repeat: no-repeat;
+		}
+
+
+		@keyframes controlAnimate
+		{
+			0%   {top:-120px;}
+			100% {top:-15px;}
+		}
+
+		#control #swiper22 .air-img-two.animate,#control #swiper22 .purge-img-two.animate {
+			animation-name: controlAnimate;
+			animation-duration: 2s;
+			animation-timing-function: ease-out;
+			animation-delay: 0.6s;
+			animation-iteration-count: infinite;
+			animation-direction: normal;
+			animation-play-state: running;
+		}
+
+		@keyframes controlAnimate-v302
+		{
+			0%   {top: 110px;}
+			100% {top: -10px;}
+		}
+
+		#control #swiper22 .air-img-two.animate-v302 {
+			animation-name: controlAnimate;
+			animation-duration: 2s;
+			animation-timing-function: ease-out;
+			animation-delay: 0.6s;
+			animation-iteration-count: infinite;
+			animation-direction: normal;
+			animation-play-state: running;
+		}
+
+		#control #swiper22 .purge-img-two.animate-v302 {
+			animation-name: controlAnimate-v302;
+			animation-duration: 2s;
+			animation-timing-function: ease-out;
+			animation-delay: 0.6s;
+			animation-iteration-count: infinite;
+			animation-direction: normal;
+			animation-play-state: running;
+		}
+	
+		#control #swiper22 .carWindows-img-two-wrap {
+			z-index: 999;
+		    position: absolute;
+		    overflow: hidden;
+		    width: 100%;
+		    height: 165px;
+		    top: 100px;
+		}
+
+
+		#control #swiper22 .carWindows-img-two {
+			transition: top 1s ease-out;
+		    -webkit-transition: top 1s ease-out;
+		    position: absolute;
+		    top: 40px;
+		    width: 100%;
+		    height: 200px;
+		    background-image: url(../control/img/carWindows-content.png);
+		    background-size: 100%;
+		    background-repeat: no-repeat;
+		}
+
+
+		#control #swiper22 .dormer-img-one {
+			width: 100%;
+		    height: 450px;
+		    background-image: url(../control/images/control-dormer-one.png);
+		    background-size: 100%;
+		    background-repeat: no-repeat;
+		    z-index: 1000;
+		    top: 0;
+		    position: absolute;
+		}
+
+		#control #swiper22 .dormer-img-two-wrap {
+			z-index: 1000;
+		    position: absolute;
+		    overflow: hidden;
+		    width: 100%;
+		    height: 1.1264rem;
+		    top: 0.85332rem;
+		}
+		#control #swiper22 .dormer-img-two {
+			transition: top 1.8s ease-out;
+		    -webkit-transition: top 1.8s ease-out;
+		    position: absolute;
+		    top: 16px;
+		    width: 100%;
+		    height: 200px;
+		    background-image: url(../control/images/control-dormer-two.png);
+		    background-size: 100%;
+		    background-repeat: no-repeat;
+		}
+
+		#control #swiper22 .icon-wrap {
+			position: absolute;
+		    width: 90%;
+		    left: 5%;
+		    height: 78px;
+		    bottom: 120px;
+		}
+
+		#control #swiper22 .swiper-slide-remote .icon-wrap {
+		    height: 185px;
+    		bottom: 75px;
+		}
+
+		#control #swiper22 .icon-button {
+			width: 50%;
+			height: 100%;
+			display: inline-block;
+			text-align: center;
+			position: absolute;
+			z-index: 1000;
+		}
+		#control #swiper22 .icon-control {
+			height: 50px;
+		    width: 50px;
+		    border-radius: 50px;
+		    overflow: hidden;
+		    position: relative;
+		    margin: auto;
+		    background-size: 50px;
+		    background-repeat: no-repeat;
+		    margin-bottom: 15px;
+		}
+		#control #swiper22 .swiper-slide-carWindows .icon-carWindows-open {
+		    background-image: url(../control/images/control-carWindow-open.png);
+		}
+		#control #swiper22 .swiper-slide-carWindows .icon-carWindows-close {
+		    background-image: url(../control/images/control-carWindow-close.png);
+		}
+		#control #swiper22 .swiper-slide-air .icon-air-open,#control #swiper22 .swiper-slide-autoAir .icon-air-open {
+		    background-image: url(../control/images/control-air-open.png);
+		}
+		#control #swiper22 .swiper-slide-air .icon-air-close,#control #swiper22 .swiper-slide-autoAir .icon-air-close {
+		    background-image: url(../control/images/control-air-close.png);
+		}
+		#control #swiper22 .swiper-slide-purge .icon-purge-open {
+		    background-image: url(../control/images/control-purge-open.png);
+		}
+		#control #swiper22 .swiper-slide-purge .icon-purge-close {
+		    background-image: url(../control/images/control-purge-close.png);
+		}
+		#control #swiper22 .swiper-slide-dormer .icon-dormer-open {
+		    background-image: url(../control/images/control-dormer-open.png);
+		}
+		#control #swiper22 .swiper-slide-dormer .icon-dormer-close {
+		    background-image: url(../control/images/control-dormer-close.png);
+		}
+		#control #swiper22 .swiper-slide-remote .icon-lock-open {
+		    background-image: url(../control/images/control-lock-open.png);
+		}
+		#control #swiper22 .swiper-slide-remote .icon-lock-close {
+		    background-image: url(../control/images/control-lock-close.png);
+		}
+		#control #swiper22 .swiper-slide-remote .icon-flashLight {
+		    background-image: url(../control/images/control-flashLight.png);
+		}
+		#control #swiper22 .swiper-slide-remote .icon-whistle {
+		    background-image: url(../control/images/control-whistle.png);
+		}
+
+		#control #swiper22 .slider-svg {
+			position: absolute;
+		    top: 0;
+		    display: none; 
+		    z-index: 25;
+		    left: 50%;
+		    transform: translateX(-50%);
+		    -webkit-transform: translateX(-50%);
+		}
+		#control #oilView.noResource .oilView_car{
+            display: none;
+        }
+        #control #oilView.noCar .oilView_car{
+            display: none;
+        }
+        #control #oilView .oilView_car.main_car{
+            z-index: 14;
+        }
+        #control #oilView .oilView_car.LF{
+            z-index: 16;
+        }
+        #control #oilView .oilView_car.LB{
+            z-index: 15;
+        }
+        #control #oilView .oilView_car.RF{
+            z-index: 13;
+        }
+        #control #oilView .oilView_car.RB{
+            z-index: 12;
+        }
+        #control #oilView .oilView_car.lowBeam{
+            z-index:17
+        }
+        #control #oilView .oilView_car.dormer{
+            z-index:18
+        }
+        #control #oilView .oilView_car.positionLamp{
+            z-index:19
+        }
+        #control #oilView .oilView_car.turnLndicator{
+            z-index:20
+        }
+        #control #oilView .oilView_car {
+        	height: 330px;
+		    position: absolute;
+		    width: 100%;
+		    background-size: 3.7rem;
+		    background-position: center bottom;
+		    background-repeat: no-repeat;
+        }
+
+        #control .air-temp-value {
+        	text-align: center;
+		    margin-top: 58px;
+		    position: absolute;
+		    width: 100%;
+		    font-size: 20px;
+		    z-index: 1100;
+        }
+
+        #controlIndex .mbsc-ios .dwo {
+        	background: rgba(0, 0, 0, 0.8);
+        }
+        #controlIndex .mbsc-ios .dwbc {
+        	/* display: none; */
+        	top: 3.333334em;
+        	margin-top: 300px;
+        }
+        #controlIndex .mbsc-ios .dwb {
+        	color: #fff !important;
+        }
+        #controlIndex .mbsc-ios .dwwr {
+        	background-color: transparent;
+        	padding-bottom: 80px;
+        }
+        #controlIndex .mbsc-ios .dwwr:before {
+			content: '档位';
+			color: #dedede;
+			font-size: 14px;
+			position: absolute;
+			left: 12%;
+			top: 3.833334em;
+			margin-top: 135px;
+        }
+        #controlIndex .mbsc-ios.dw-select .dwwr:before {
+			content: '目标温度';
+			color: #dedede;
+			font-size: 14px;
+			position: absolute;
+			left: 12%;
+			top: 3.333334em;
+			margin-top: 135px;
+        }
+        
+        #controlIndex .mbsc-ios .dwwb {
+        	background-color: transparent;
+        }
+        #controlIndex .mbsc-ios .dw-li {
+        	color: #535353;
+        }
+        #controlIndex .mbsc-ios .dw-sel {
+        	color: #e5e5e5;
+        	font-size: 26px;
+        }
+        #controlIndex .mbsc-ios .dw-sel .dw-i span {
+			font-size: 45px;
+         }
+        #controlIndex .mbsc-ios .dw-ltr {
+        	top: 100px !important;
+        }
+        #controlIndex .mbsc-ios .dwl {
+        	display: none;
+        }
+        #controlIndex .mbsc-ios .dwpm .dwwol {
+        	height: 89px;
+        	margin-top: -44.5px;
+        }
+         #controlIndex .dw-select .dwwol {
+         	left: 34%;
+    		width: 34%;
+    		height: 89px;
+    		margin-top: -43px;
+         }
+         #controlIndex  .dwwol {
+         	left: 18%;
+         	width: 65%;
+    		height: 89px;
+    		margin-top: -43px;
+         }
+         #controlIndex .mbsc-ios .dwb-c {
+         	display: none;
+         }
+        #controlIndex .mbsc-ios .dwv::after, .mbsc-ios .dwbc::after {
+        	display: none;
+        }
+        #controlIndex .mbsc-ios .dwbw {
+        	width: 50%;
+		    border: 1px solid #fff;
+		    border-radius: 5px;
+		    float: none;
+		    margin: auto;
+		    background: rgba(0, 0, 0, 0.6);
+        }
+        #controlIndex .mbsc-ios .dwb {
+        	color: #fff;
+        	width: 100%;
+        }
+        #controlIndex .dw-i {
+        	text-align: center;
+        	font-size: 24px;
+        }
+        #controlIndex .mbsc-ios .dw-sel .dw-i {
+        	font-size: 40px;
+        }
+
+        #controlIndex .mbsc-ios .dwbw {
+        	width: 50%;
+        	border: 1px solid #fff;
+        	border-radius: 5px;
+        	float: none;
+        	margin: auto;
+        	background: rgba(0, 0, 0, 0.6);
+        }
+        #controlIndex .mbsc-ios .dwb-s .dwb {
+			color: #fff !important;
+        }
+        #controlIndex .mbsc-ios .dwwo {
+        	background: transparent;
+        }
+        #controlIndex .mbsc-ios .dwv {
+        	visibility : hidden;
+        }
+        #controlIndex .dwc {
+        	max-width: 74%;
+        	margin-left: 20%;
+        }
+        #controlIndex .oilView_lock_staus {
+            z-index: 14;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            background-size: 40px;
+            background-repeat: no-repeat;
+            top: 260px;
+            right: 25px;
+        }
+        #controlIndex .oilView_lock_staus.lock {
+        	background-image: url('../control/img/icon_suo.png')
+        }
+        #controlIndex .oilView_lock_staus.unlock {
+        	background-image: url('../control/img/icon_kasuo.png')
+        }
+ 		#controlIndex .icon-button input {
+	        display: none;
+	    }
+
+
+    </style>
+    <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"text":"历史"}' 
+            navTitle='""'>
+    </header>
+    <div class="content">
+    	<div id="swiper22" class="swiper-container">
+		    <div class="swiper-wrapper">
+		        <div class="swiper-slide swiper-slide-remote">
+		        	<div class="oilView_lock_staus"></div>
+		        	<div id="oilView" class="">
+		        		<div class="oilView_car main_car" style="background-image: url('../home/img/CAR.png')"></div>
+	                    <div class="oilView_car LF" style="background-image: none"></div>
+	                    <div class="oilView_car LB" style="background-image:none"></div>
+	                    <div class="oilView_car RF" style="background-image:none"></div>
+	                    <div class="oilView_car RB" style="background-image:none "></div>
+	                    <div class="oilView_car lowBeam" style="background-image: none"></div>
+	                    <div class="oilView_car positionLamp" style="background-image: none"></div>
+	                    <div class="oilView_car turnLndicator" style="background-image:none"></div>
+	                    <div class="oilView_car dormer" style="background-image: none"></div>
+	                    <div class="oilView_car trunk" style="background-image: none"></div>
+		        	</div>
+		        	<div class="icon-wrap">
+		        		<div class="icon-button" data-cmd='0' data-type="door">
+		        			<div class="icon-control icon-lock-open">
+			        			<svg class="slider-svg " version="1.1">
+	                                <path  fill="none" />
+	                            </svg>
+		        			</div>
+		        			<span>解锁</span>
+		        			
+		        		</div>
+		        		<div class="icon-button" style="left: 50%;" data-cmd='1' data-type="door">
+		        			<div class="icon-control icon-lock-close">
+			        			<svg class="slider-svg " version="1.1">
+	                                <path  fill="none" />
+	                            </svg>
+		        			</div>
+		        			<span>上锁</span>
+		        		</div>
+		        		<div class="icon-button" style="top: 110px;" data-cmd='0' data-type="whistle">
+		        			<div class="icon-control icon-flashLight">
+		        				<svg class="slider-svg " version="1.1">
+	                                <path  fill="none" />
+	                            </svg>
+		        			</div>
+		        			<span>闪灯</span>
+		        		</div>
+		        		<div class="icon-button" style="top: 110px;left: 50%;" data-cmd='1' data-type="whistle">
+		        			<div class="icon-control icon-whistle">
+			        			<svg class="slider-svg " version="1.1">
+	                                <path  fill="none" />
+	                            </svg>
+		        			</div>
+		        			<span>闪灯鸣笛</span>
+		        		</div>
+		        	</div>
+		        </div>
+		        <div class="swiper-slide  swiper-slide-air">
+		        	<div>
+		        		<!-- <div class="air-temp-value">车内温度：<span></span> ℃</div> -->
+		        		<div class="air-img-one"></div>
+		        		<div class="air-img-two-wrap">
+							<div class="air-img-two"></div>
+						</div>
+		        	</div>
+		        	<div class="icon-wrap">
+		        		<div class="icon-button" data-cmd="0" data-type="air" >
+		        			<div class="icon-control icon-air-open">
+		        				<svg class="slider-svg " version="1.1">
+	                                <path fill="none" />
+	                            </svg>
+		        			</div>
+		        			<span>打开空调</span>
+		        			<input id="auctionType0" style="display:none" />
+		        		</div>
+		        		<div class="icon-button" style="left: 50%;" data-cmd="1" data-type="air" >
+		        			<div class="icon-control icon-air-close">
+                                <svg class="slider-svg " version="1.1">
+	                                <path fill="none" />
+	                            </svg>
+		        			</div>
+		        			<span>关闭空调</span>
+		        		</div>
+		        	</div>
+		        </div>
+		        <div class="swiper-slide  swiper-slide-autoAir">
+		        	<div>
+		        		<div class="air-temp-value">车内温度：<span></span> ℃</div>
+		        		<div class="air-img-one"></div>
+		        		<div class="air-img-two-wrap">
+							<div class="air-img-two"></div>
+						</div>
+		        	</div>
+		        	<div class="icon-wrap">
+		        		<div class="icon-button" data-cmd="0" data-type="autoAir" >
+		        			<div class="icon-control icon-air-open">
+		        				<svg class="slider-svg " version="1.1">
+	                                <path  fill="none" />
+	                            </svg>
+		        			</div>
+		        			<span>打开空调</span>
+		        			<select class="select-auction-type" id="auctionType" style="display:none" data-role="none">
+		        				<option value="18"><span>18</span>°C</option>
+		        				<option value="19"><span>19</span>°C</option>
+		        				<option value="20"><span>20</span>°C</option>
+		        				<option value="21"><span>21</span>°C</option>
+		        				<option value="22"><span>22</span>°C</option>
+		        				<option value="23"><span>23</span>°C</option>
+		        				<option value="24"><span>24</span>°C</option>
+		        				<option value="25"><span>25</span>°C</option>
+		        				<option value="26"><span>26</span>°C</option>
+		        				<option value="27"><span>27</span>°C</option>
+		        				<option value="28"><span>28</span>°C</option>
+		        				<option value="29"><span>29</span>°C</option>
+		        				<option value="30"><span>30</span>°C</option>
+		        				<option value="31"><span>31</span>°C</option>
+		        				<option value="32"><span>32</span>°C</option>
+		        			</select>
+		        		</div>
+		        		<div class="icon-button" style="left: 50%;" data-cmd="1" data-type="autoAir" >
+		        			<div class="icon-control icon-air-close">
+                                <svg class="slider-svg " version="1.1">
+	                                <path  fill="none" />
+	                            </svg>
+		        			</div>
+		        			<span>关闭空调</span>
+		        		</div>
+		        	</div>
+		        </div>
+		        <div class="swiper-slide swiper-slide-carWindows">
+		        	<div>
+		        		<div class="carWindows-img-one"></div>
+			        	<div class="carWindows-img-two-wrap">
+							<div class="carWindows-img-two"></div>
+						</div>
+		        	</div>
+		        	<div class="icon-wrap">
+		        		<div class="icon-button" data-cmd='0' data-type="carWindows">
+		        			<div class="icon-control icon-carWindows-open">
+			        			<svg class="slider-svg " version="1.1">
+	                                <path  fill="none" />
+	                            </svg>
+		        			</div>
+		        			<span>打开车窗</span>
+		        			
+		        		</div>
+		        		<div class="icon-button"  style="left: 50%;" data-cmd='1' data-type="carWindows">
+		        			<div class="icon-control icon-carWindows-close">
+			        			<svg class="slider-svg " version="1.1">
+	                                <path  fill="none" />
+	                            </svg>
+		        			</div>
+		        			<span>关闭车窗</span>
+		        		</div>
+		        	</div>
+		        	
+		        </div>
+		        <div class="swiper-slide swiper-slide-purge">
+		        	<div>
+		        		<div class="purge-img-one"></div>
+		        		<div class="purge-img-two-wrap">
+							<div class="purge-img-two"></div>
+						</div>
+		        	</div>
+		        	<div class="icon-wrap">
+		        		<div class="icon-button" data-cmd='0' data-type="purge">
+		        			<div class="icon-control icon-purge-open">
+			        			<svg class="slider-svg " version="1.1">
+	                                <path  fill="none" />
+	                            </svg>
+		        			</div>
+		        			<span>打开空气净化</span>
+		        		</div>
+		        		<div class="icon-button"  style="left: 50%;" data-cmd='1' data-type="purge">
+		        			<div class="icon-control icon-purge-close">
+			        			<svg class="slider-svg " version="1.1">
+	                                <path  fill="none" />
+	                            </svg>
+		        			</div>
+		        			<span>关闭空气净化</span>
+		        		</div>
+		        	</div>
+		        </div>
+		        <div class="swiper-slide swiper-slide-dormer">
+    	        	<div>
+    	        		<div class="dormer-img-one"></div>
+    		        	<div class="dormer-img-two-wrap">
+    						<div class="dormer-img-two"></div>
+    					</div>
+    	        	</div>
+					<div class="icon-wrap">
+		        		<div class="icon-button" data-cmd='0' data-type="dormer">
+		        			<div class="icon-control icon-dormer-open">
+			        			<svg class="slider-svg " version="1.1">
+	                                <path  fill="none" />
+	                            </svg>
+		        			</div>
+		        			<span>打开天窗</span>
+		        		</div>
+		        		<div class="icon-button" style="left: 50%;" data-cmd='1' data-type="dormer">
+		        			<div class="icon-control icon-dormer-close">
+			        			<svg class="slider-svg " version="1.1">
+	                                <path fill="none" />
+	                            </svg>
+		        			</div>
+		        			<span>关闭天窗</span>
+		        		</div>
+		        	</div>
+		        </div>
+		    </div>
+		    <!-- 如果需要分页器 -->
+		    <div class="swiper-pagination"></div>
+		</div>
+    </div>
+</div>

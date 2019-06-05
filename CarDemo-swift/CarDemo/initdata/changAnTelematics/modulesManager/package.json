@@ -1,0 +1,10 @@
+{
+  "name": "cc_模块管理",
+  "identifier": "cc.modulesManager",
+  "description": "",
+  "version": "1.0.1",
+  "dependencies": {},
+  "build": 2,
+  "releaseNote": "最新发布",
+  "hidden": false
+}

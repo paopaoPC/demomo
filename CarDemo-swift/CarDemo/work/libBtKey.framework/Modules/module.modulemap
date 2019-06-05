@@ -1,0 +1,6 @@
+framework module libBtKey {
+  umbrella header "libBtKey.h"
+
+  export *
+  module * { export * }
+}

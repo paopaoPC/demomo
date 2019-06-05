@@ -1,0 +1,675 @@
+<div id="bluetoothView" class="page" data-view="bluetooth/index" >
+	<style type="text/css">
+		#bluetoothView * {
+        -webkit-touch-callout:none !important;
+        -webkit-user-select:none !important;
+        -khtml-user-select:none !important;
+        -moz-user-select:none !important;
+        -ms-user-select:none !important;
+        user-select:none !important;
+        }
+        #bluetoothView input {      
+         -webkit-user-select:auto !important; /*webkit浏览器*/     
+        } 
+		#bluetoothView.page.isNoTbox #nav-bar{
+			display: none;
+		} 
+		#bluetoothView.page.isNoTbox .content {
+			top: 14px !important;
+		}
+		#bluetoothView.page.isNoTbox {
+    		bottom: 0;
+		}
+		#bluetoothView .content {
+			background-image: url(../home/img/background.png);
+			background-repeat: no-repeat;
+			background-size: 100% 480px;
+			background-color: #080808;
+		}
+		#bluetoothView .im-default-nav-bar {
+			border-bottom: 0;
+		}
+		#bluetoothView .bluetoothControl-btn-1 {
+			margin-top: 41px;
+		    margin-bottom: 39px;
+		    height: 31px;
+		}
+		#bluetoothView .bluetoothControl-btn-2 {
+			height: 31px;
+			margin-bottom: 45px;
+			margin-left: 45px;
+    		margin-right: 45px;
+		}
+
+		#bluetoothView .bluetoothControl-btn-3 {
+			height: 31px;
+			margin-bottom: 48px;
+			margin-left: 45px;
+    		margin-right: 45px;
+		}
+
+		#bluetoothView .bluetoothControl-btn-4 {
+			height: 30px;
+		}
+
+		#bluetoothView .bluetoothControl-btn-5 {
+			margin-top: 48px;
+			height: 30px;
+		}
+		    
+		#bluetoothView .control-btn {
+			width: 85px;
+			height: 31px;
+			margin: auto;
+			background-color: #0076d1;
+			color: white;
+			line-height: 31px;
+			text-align: center;
+			border-radius: 6px;
+			font-size: 15px;
+		}
+		#bluetoothView .control-btn:active {
+			background-color: #1521ff;
+		}
+		#bluetoothView .control-btn-left {
+			float: left;
+		}
+
+		#bluetoothView .control-btn-right {
+			float: right;
+		}
+		#bluetoothView .control-switch {
+			display: inline-block;
+			width: 33.3%;
+			color: white;
+			margin: auto;
+		}
+		#bluetoothView .control-switch-left {
+			width: 38%;
+			text-align: right;
+			float: left;
+			height: 30px;
+    		line-height: 30px;
+		}
+
+		#bluetoothView .control-switch-center {
+			width: 24%;
+			text-align: center;
+			position: relative;
+		}
+
+		#bluetoothView .control-switch-right {
+			width: 38%;
+			text-align: left;
+			float: right;
+			height: 30px;
+    		line-height: 30px;
+		}
+
+		/* switch */
+		#bluetoothView .switch {
+	        width: 57px;
+	        height: 28px;
+	        position: relative;
+	        border: 1px solid #dfdfdf;
+	        background-color: #fdfdfd;
+	        box-shadow: #dfdfdf 0 0 0 0 inset;
+	        border-radius: 20px;
+	        background-clip: content-box;
+	        display: inline-block;
+	        -webkit-appearance: none;
+	        user-select: none;
+	        outline: none;
+	    }
+	    #bluetoothView .switch:before {
+	        content: '';
+	        width: 26px;
+	        height: 26px;
+	        position: absolute;
+	        top: 0;
+	        left: 0;
+	        border-radius: 20px;
+	        background-color: #fff;
+	        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+	    }
+	    #bluetoothView .switch:checked {
+	        border-color: #0076d1;
+	        box-shadow: #64bd63 0 0 0 16px inset;
+	        background-color: #64bd63;
+	    }
+	    #bluetoothView .switch:checked:before {
+	        left: 30px;
+	    }
+	    #bluetoothView .switch.switch-anim {
+	        transition: border cubic-bezier(0, 0, 0, 1) 0.4s, box-shadow cubic-bezier(0, 0, 0, 1) 0.4s;
+	    }
+	    #bluetoothView .switch.switch-anim:before {
+	        transition: left 0.3s;
+	    }
+	    #bluetoothView .switch.switch-anim:checked {
+	        box-shadow: #0076d1 0 0 0 16px inset;
+	        background-color: #0076d1;
+	        transition: border ease 0.4s, box-shadow ease 0.4s, background-color ease 1.2s;
+	    }
+	    #bluetoothView .switch.switch-anim:checked:before {
+	        transition: left 0.3s;
+	    }
+	    #bluetoothView .content-success {
+			display: none;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+	    }
+
+	    #bluetoothView .content-faile {
+			display: none;
+			color: white;
+			text-align: center;
+	    }
+		#bluetoothView .bf-chrysanthemum {
+			top: 30%;
+			width: 50%;
+			height: 74px;
+			position: absolute;
+			/* text-align: center; */
+			left: 25%;
+			margin: auto;
+			margin-top: -50px;
+			/* margin-left: -43px; */
+			/* background-color: rgba(66,66,66,0.5); */
+			background-color: transparent;
+			z-index: 999;
+			border-radius: 10px;
+			font-size: 12px;
+		}
+		#bluetoothView .content-faile-info {
+			font-size: 12px;
+			margin-top: 40%;
+			padding-bottom: 25px;
+		}
+
+		#bluetoothView .content-faile-btn {
+			width: 87px;
+			height: 28px;
+			margin: auto;
+			background-color: #0c5fc7;
+			border-radius: 5px;
+			font-size: 12px;
+			line-height: 28px;
+			color: #f7eeee;
+		}
+
+		#bluetoothView .bluetoothStaus {
+			position: absolute;
+			left: 12px;
+			top: -35px;
+		    width: 27px;
+			height: 35px;
+			background-image: url(../bluetooth/img/bluetooth_status.png);
+			background-size: 24px;
+			background-position-x: 0;
+			background-repeat: no-repeat;
+		}
+		#bluetoothView .bluetoothStaus.light {
+			background-size: 13.5px;
+			background-image: url(../bluetooth/img/bluetooth_status_light.png); 
+		}
+		#bluetoothView .bluetoothPasscode {
+			color: white;
+		    text-align: center;
+		    padding-top: 0px;
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		    width: 100%;
+		    font-size: 12px;
+			display: none;
+			color: #00c2ff;
+		}
+		#bluetoothView .im-default-nav-bar .title {
+			/*font-size: 16px !important;*/
+		}
+		#bluetoothView .swiper-slide-one,#bluetoothView .control-bottom {
+            display: -webkit-box;
+            display: flex;
+            justify-content: space-around;
+            -webkit-justify-content: space-around;
+        }
+        #bluetoothView .swiper-slide {
+            color: white;
+            height: 72%;
+        }
+        #bluetoothView .swiper-container{
+            overflow:visible;
+            height: 140px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        #bluetoothView .control-bottom {
+        	width: 100%;
+        	height: 100px;
+        	position: absolute;
+        	bottom: 140px;
+        	background-color: #080808;
+        }
+
+        #bluetoothView .SS-one-item-icon {
+            background-size: 75px;
+            width: 76px;
+            height: 42px;
+            background-repeat: no-repeat;
+            /*background-image: url(../home/img/oushang-sendcar.png);*/
+            margin: auto;
+            background-position: center;
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        #bluetoothView .SS-one-item-wrap {
+            width: 40%;
+            /*padding-top: 16px;*/
+        }
+      #bluetoothView .SS-one-item-wrap-door.SS-one-item-close .SS-one-item .SS-one-item-icon {
+      	background-size: 47px;
+      	width: 47px;
+      	height: 47px;
+          background-image: url(../home/image1/unlock-k.png);
+      }
+      #bluetoothView .SS-one-item-wrap-door.SS-one-item-close .SS-one-item:active .SS-one-item-icon {
+      	background-size: 47px;
+      	width: 47px;
+      	height: 47px;
+          background-image: url(../home/image1/unlock.png);
+      }
+      #bluetoothView .SS-one-item-wrap-door.SS-one-item-open .SS-one-item .SS-one-item-icon {
+      	background-size: 47px;
+      	width: 47px;
+      	height: 47px;
+          background-image: url(../home/image1/lock-k.png);
+      }
+      #bluetoothView .SS-one-item-wrap-door.SS-one-item-open .SS-one-item:active .SS-one-item-icon {
+      	background-size: 47px;
+      	width: 47px;
+      	height: 47px;
+          background-image: url(../home/image1/lock.png);
+      }
+
+      #bluetoothView .SS-one-item-wrap-carWindows.SS-one-item-close .SS-one-item .SS-one-item-icon {
+          background-image: url(../home/image2/closethewindow-k.png);
+
+      }
+      #bluetoothView .SS-one-item-wrap-carWindows.SS-one-item-close .SS-one-item:active .SS-one-item-icon {
+          background-image: url(../home/image2/closethewindow.png);
+      }
+      #bluetoothView .SS-one-item-wrap-carWindows.SS-one-item-open .SS-one-item .SS-one-item-icon {
+          background-image: url(../home/image2/openthewindow-k.png);
+      }
+      #bluetoothView .SS-one-item-wrap-carWindows.SS-one-item-open .SS-one-item:active .SS-one-item-icon {
+          background-image: url(../home/image2/openthewindow.png);
+
+      }
+
+      #bluetoothView .SS-one-item-wrap-dormer.SS-one-item-close .SS-one-item .SS-one-item-icon {
+          background-image: url(../home/image2/closeskylight-k.png);
+      }
+      #bluetoothView .SS-one-item-wrap-dormer.SS-one-item-open .SS-one-item .SS-one-item-icon {
+          background-image: url(../home/image2/openskylight-k.png);
+      }
+       #bluetoothView .SS-one-item-wrap-dormer.SS-one-item-close .SS-one-item:active .SS-one-item-icon {
+          background-image: url(../home/image2/closeskylight.png);
+      }
+      #bluetoothView .SS-one-item-wrap-dormer.SS-one-item-open .SS-one-item:active .SS-one-item-icon {
+          background-image: url(../home/image2/openskylight.png);
+      }
+
+      #bluetoothView .SS-one-item-wrap-slidingdoor.SS-one-item-open .SS-one-item .SS-one-item-icon {
+          background-image: url(../home/image2/slidingdoor-right-k.png);
+      }
+      #bluetoothView .SS-one-item-wrap-slidingdoor.SS-one-item-open .SS-one-item:active .SS-one-item-icon {
+          background-image: url(../home/image2/slidingdoor-right.png);
+      }
+   /*   #bluetoothView .SS-one-item-wrap-slidingdoor.SS-one-item-open.unable .SS-one-item-icon,#bluetoothView .SS-one-item-wrap-slidingdoor.SS-one-item-open.unable .SS-one-item:active .SS-one-item-icon {
+          background-image: url(../home/image2/slidingdoor-unable.jpg);
+      }*/
+
+      #bluetoothView .SS-one-item-wrap-air.SS-one-item-open .SS-one-item .SS-one-item-icon {
+          background-image: url(../home/image2/closeairconditioner-k.png);
+      }
+      #bluetoothView .SS-one-item-wrap-air.SS-one-item-close .SS-one-item .SS-one-item-icon {
+          background-image: url(../home/image2/openairconditioner-k.png);
+      }
+      #bluetoothView .SS-one-item-wrap-autoAir.SS-one-item-open .SS-one-item .SS-one-item-icon {
+          background-image: url(../home/image2/closeairconditioner-k.png);
+      }
+      #bluetoothView .SS-one-item-wrap-autoAir.SS-one-item-close .SS-one-item .SS-one-item-icon {
+          background-image: url(../home/image2/openairconditioner-k.png);
+      }
+
+      #bluetoothView .SS-one-item-wrap-air.SS-one-item-open .SS-one-item:active .SS-one-item-icon {
+          background-image: url(../home/image2/closeairconditioner.png);
+      }
+      #bluetoothView .SS-one-item-wrap-air.SS-one-item-close .SS-one-item:active .SS-one-item-icon {
+          background-image: url(../home/image2/openairconditioner.png);
+      }
+      #bluetoothView .SS-one-item-wrap-autoAir.SS-one-item-open .SS-one-item:active .SS-one-item-icon {
+          background-image: url(../home/image2/closeairconditioner.png);
+      }
+      #bluetoothView .SS-one-item-wrap-autoAir.SS-one-item-close .SS-one-item:active .SS-one-item-icon {
+          background-image: url(../home/image2/openairconditioner.png);
+      }
+
+      #bluetoothView .SS-one-item-wrap-whistle-0 .SS-one-item .SS-one-item-icon {
+          background-image: url(../home/image2/flash-k.png);
+      }
+      #bluetoothView .SS-one-item-wrap-whistle-0 .SS-one-item:active .SS-one-item-icon {
+          background-image: url(../home/image2/flash.png);
+      }
+      #bluetoothView .SS-one-item-wrap-whistle-1 .SS-one-item .SS-one-item-icon {
+      	background-size: 47px;
+      	width: 47px;
+      	height: 47px;
+          background-image: url(../home/image1/honking-k.png);
+      }
+      #bluetoothView .SS-one-item-wrap-whistle-1 .SS-one-item:active .SS-one-item-icon {
+      	background-size: 47px;
+      	width: 47px;
+      	height: 47px;
+          background-image: url(../home/image1/honking.png);
+      }
+
+      #bluetoothView .SS-one-item-wrap-trunk .SS-one-item .SS-one-item-icon {
+          background-image: url(../home/image2/opentrunk-k.png);
+      }
+      #bluetoothView .SS-one-item-wrap-trunk .SS-one-item:active .SS-one-item-icon {
+          background-image: url(../home/image2/opentrunk.png);
+      }
+      #bluetoothView .SS-one-item-wrap-trunk.unable .SS-one-item-icon,#bluetoothView .SS-one-item-wrap-trunk.unable .SS-one-item:active .SS-one-item-icon {
+          background-image: url(../home/image2/trunk-unable.jpg);
+      }
+
+
+
+      #bluetoothView .SS-one-item-wrap-purge.SS-one-item-open .SS-one-item .SS-one-item-icon {
+          background-image: url(../home/image2/closeairconditioner-k.png);
+      }
+      #bluetoothView .SS-one-item-wrap-purge.SS-one-item-open .SS-one-item:active .SS-one-item-icon {
+          background-image: url(../home/image2/closeairconditioner.png);
+      }
+      #bluetoothView .SS-one-item-wrap-purge.SS-one-item-close .SS-one-item .SS-one-item-icon {
+          background-image: url(../home/image2/openairconditioner-k.png);
+      }
+      #bluetoothView .SS-one-item-wrap-purge.SS-one-item-close .SS-one-item:active .SS-one-item-icon {
+          background-image: url(../home/image2/openairconditioner.png);
+      }
+
+        #bluetoothView .SS-one-item-span {
+            text-align: center;
+            /*margin-top: 10px;*/
+            font-size: 12px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 6px;
+        }
+        #bluetoothView .im-nav-right-image {
+            background-size: 15px 13px;
+            margin-right: 6px;
+        }
+        #bluetoothView .SS-one-item {
+        	color: white;
+        	text-align: center;
+        }
+		#bluetoothView .control-bottom:after {
+			content: '';
+			display: block;
+			width: 100%;
+			position: absolute;
+			height: 1px;
+			background: #333;
+			bottom: 0;
+			left: 0;
+		}
+		#bluetoothView .content .swiper-pagination  {
+		    bottom: 30px;
+		    left: 0;
+		    width: 100%;
+		}
+		#bluetoothView .content .swiper-pagination-switch {
+		    width: 8px;
+		    height: 8px;
+		    margin: 0 4px;
+		    display: inline-block;
+		    border-radius: 100%;
+		    background: #6b6b6b;
+		}
+		#bluetoothView .content .swiper-pagination-switch.swiper-active-switch {
+		    background: #fff;
+		}
+		#bluetoothView .blueetoothStatus-wrap .BTSW-icon {
+		    display: inline-block;
+		    background-size: 16px 17px;
+		    background-image: url(../home/image/oushang-bluetooth-not-connected.png);
+		}
+		#bluetoothView .blueetoothStatus-wrap.active .BTSW-icon {
+		    display: none;
+		    background-size: 16px 17px;
+		    background-image: url(../home/image/oushang-bluetooth-not-connected.png);
+		}
+		#bluetoothView .blueetoothStatus-wrap .BTSW-icon-active {
+		    display: none;
+		    background-size: 16px 17px;
+		    background-image: url(../home/image/oushang-bluetooth-connected.png);
+		}  
+		#bluetoothView .blueetoothStatus-wrap.active .BTSW-icon-active {
+		    display: inline-block;
+		    background-size: 16px 17px;
+		    background-image: url(../home/image/oushang-bluetooth-connected.png);
+		}
+		#bluetoothView .blueetoothStatus-wrap .BTSW-text {
+		    display: inline-block;
+		}
+		#bluetoothView .blueetoothStatus-wrap.active .BTSW-text {
+		    display: none;
+		}
+
+		#bluetoothView .blueetoothStatus-wrap .BTSW-text-active {
+		    display: none;
+		}
+		#bluetoothView .blueetoothStatus-wrap.active .BTSW-text-active {
+		    display: inline-block;
+		    color: #0099fe;
+		} 
+		#bluetoothView .oilView-contentWrapItem {
+		    width: 40%;
+		    margin-top: 20px;
+    		margin-left: 24px;
+		}
+		#bluetoothView .OVCW-icon {
+		    width: 17px;
+		    height: 17px;
+		    background-repeat: no-repeat;
+		    margin: auto;
+		    background-position: center;
+		    position: relative;
+		    display: inline-block;
+		}
+		#bluetoothView .OVCW-icon {
+		    vertical-align: middle;
+		}
+		#bluetoothView .OVCW-text {
+		    vertical-align: middle;
+		    font-size: 16px;
+		    color: white;
+		}
+		#bluetoothView .yubiao-icon {
+		    background: url(../login/img/head_logo.png);
+		    background-size: 157px;
+		    background-repeat: no-repeat;
+		    background-position: 50% 0;
+		    height: 96px;
+		    margin-top: 131px;
+		    display: none;
+		}
+		 #bluetoothView .blueetoothStatus-wrap-icon {
+           width: 107px;
+           height: 29px;
+           background-size: 106px;
+           background-repeat: no-repeat;
+           background-image: url(../home/image2/bluetooth-notconnected.png);
+           display: inline-block;
+           margin-top: -5px;
+        }
+        #bluetoothView .blueetoothStatus-wrap-icon.loading {
+           background-image: url(../home/image2/bluetooth-connecting.png);
+        }
+        #bluetoothView .blueetoothStatus-wrap-icon.active {
+           background-image: url(../home/image2/bluetooth-connected.png);
+        }
+        #bluetoothView .default-img{
+        	position: absolute;
+        	top: 50px;
+        	background-size: 3.2rem;
+        	background-repeat: no-repeat;
+        	display: block;
+        	background-image: url(../ppResource/f201/carDefault.png);
+        	z-index: 99;
+        	width: 100%;
+        	height: 2rem;
+        	display: none;
+        }
+
+    </style>
+
+    <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}' navTitle='""' style="background:transparent">
+    </header>
+    <div class="content">	
+		<div class="content-success">
+			<div class="bluetoothPasscode">蓝牙配对码：<span></span></div>
+			<div class="oilView-contentWrapItem blueetoothStatus-wrap">
+				<div class="blueetoothStatus-wrap-icon"></div>
+			    <!-- <span class="OVCW-icon BTSW-icon"></span>
+			    <span class="OVCW-text BTSW-text">钥匙未连接</span>
+			    <span class="OVCW-icon BTSW-icon-active"></span>
+			    <span class="OVCW-text BTSW-text-active">钥匙已连接</span> -->
+			</div>
+            <div class="yubiao-icon" style="display:none"></div>
+			<iframe id="iframe_test_1" src="" frameborder="0" style="margin-top: 0rem; width: 100%;height: 2rem;display:none;max-height: 240px;"></iframe> 
+			<div class="default-img"></div>
+		<!-- 	<div class="bluetoothControl-btn bluetoothControl-btn-1">
+				<div class="control-btn share-bluetooth">分享钥匙</div>
+			</div> -->
+		<!-- 	<div class="bluetoothControl-btn bluetoothControl-btn-2">
+				<div class="control-btn control-btn-left" data-value="actionUnlock_blueTooth">解锁</div>
+				<div class="control-btn control-btn-right" data-value="actionLock_blueTooth">闭锁</div>
+			</div>
+			<div class="bluetoothControl-btn bluetoothControl-btn-3">
+				<div class="control-btn control-btn-left" data-value="actionOpenTrunk_blueTooth">开启后备箱</div>
+				<div class="control-btn control-btn-right" data-value="actionSearchVeicle_blueTooth">寻车</div>
+			</div>
+			<div class="bluetoothControl-btn bluetoothControl-btn-3">
+				<div class="control-btn control-btn-left control-btn-long"  data-touch="actionLongLock_blueTooth">长按升窗</div>
+				<div class="control-btn control-btn-right control-btn-long" data-touch="actionLongUnlock_blueTooth">长按降窗</div>
+			</div> -->
+			<!-- <div class="bluetoothControl-btn-5">
+				<div>
+					<span class="control-switch control-switch-left">关闭左侧滑门</span>
+					<div class="control-switch control-switch-center">
+						<input class="switch switch-anim" id="switch-door-left"  data-type="door-left" type="checkbox"/>
+						<div class="switch-shadow" style="position: absolute;width: 100px;height: 30px;top: 0;"></div>
+					</div>
+					<span class="control-switch control-switch-right">开启左侧滑门</span>
+				</div>
+			</div> -->
+		<!-- 	<div class="bluetoothControl-btn-5">
+				<div>
+					<span class="control-switch control-switch-left">关闭右侧滑门</span>
+					<div class="control-switch control-switch-center">
+						<input class="switch switch-anim" id="switch-door-right" data-type="door-right" type="checkbox"/>
+						<div class="switch-shadow" style="position: absolute;width: 100px;height: 30px;top: 0;"></div>
+					</div>
+					<span class="control-switch control-switch-right">开启右侧滑门</span>
+				</div>
+			</div>
+			<div class="bluetoothControl-btn-5" style="display: none;">
+				<div>
+					<span class="control-switch control-switch-left">熄火</span>
+					<div class="control-switch control-switch-center">
+						<input class="switch switch-anim" id="switch-fire" data-type="fire" type="checkbox"/>
+						<div class="switch-shadow" style="position: absolute;width: 100px;height: 30px;top: 0;"></div>
+					</div>
+					<span class="control-switch control-switch-right">点火</span>
+				</div>
+			</div> -->
+			<div class="control-bottom">
+				<div class="SS-one-item-wrap SS-one-item-wrap-door SS-one-item-close" style="width:22%">
+				    <div class="SS-one-item" data-value="actionUnlock_blueTooth">
+				        <div class="SS-one-item-icon" style="display:block"></div>
+				        <div class="SS-one-item-span" style="margin-top: 10px;">解锁</div>
+				    </div>
+				</div>
+				<div class="SS-one-item-wrap SS-one-item-wrap-door SS-one-item-open" style="width:22%">
+				    <div class="SS-one-item" data-value="actionLock_blueTooth">
+				        <div class="SS-one-item-icon" style="display:block"></div>
+				        <div class="SS-one-item-span" style="margin-top: 10px;">闭锁</div>
+				    </div>
+				</div>
+				<div class="SS-one-item-wrap SS-one-item-wrap-whistle-1" style="width:22%">
+				    <div class="SS-one-item" data-value="whistle1_blueTooth">
+				        <div class="SS-one-item-icon" style="display:block">
+				        </div>
+				        <div class="SS-one-item-span" style="margin-top: 10px;">闪灯鸣笛</div>
+				    </div>
+				</div>
+			</div>
+			<div id="swiper22" class="swiper-container">
+	             <div class="swiper-wrapper">
+	                 <div class="swiper-slide swiper-slide-one">
+	                 	<div class="SS-one-item-wrap SS-one-item-wrap-whistle-0">
+	                 	    <div class="SS-one-item" data-value="whistle0_blueTooth" style="padding-top: 40px;">
+	                 	        <div class="SS-one-item-icon">
+	                 	        </div>
+	                 	        <div class="SS-one-item-span">闪灯</div>
+	                 	    </div>
+	                 	</div>
+	                 	<div class="SS-one-item-wrap SS-one-item-wrap-trunk" style="padding-top: 40px;">
+	                 	    <div class="SS-one-item" data-value="actionOpenTrunk_blueTooth">
+	                 	        <div class="SS-one-item-icon"></div>
+	                 	        <div class="SS-one-item-span">后备箱</div>
+	                 	    </div>
+	                 	</div>
+	                 </div>
+	                 <div class="swiper-slide swiper-slide-one">
+	                 	<div class="SS-one-item-wrap SS-one-item-wrap-dormer SS-one-item-close">
+	         	            <div class="SS-one-item" data-value="actionSunroofOpen" style="padding-top: 40px;">
+	         	                <div class="SS-one-item-icon"></div>
+	         	                <div class="SS-one-item-span">开天窗</div>
+	         	            </div>
+	         	        </div>
+	         	        <div class="SS-one-item-wrap SS-one-item-wrap-dormer SS-one-item-open">
+	         	            <div class="SS-one-item" data-value="actionSunroofClose" style="padding-top: 40px;">
+	         	                <div class="SS-one-item-icon"></div>
+	         	                <div class="SS-one-item-span">关天窗</div>
+	         	            </div>
+	         	        </div>
+	                 </div>
+	                 <div class="swiper-slide swiper-slide-one">
+	                 	<div class="SS-one-item-wrap SS-one-item-wrap-slidingdoor SS-one-item-open">
+	                 	    <div class="SS-one-item"  data-value="actionRightSlidingDoor_blueTooth" style="padding-top: 40px;">
+	                 	        <div class="SS-one-item-icon"></div>
+	                 	        <div class="SS-one-item-span">右滑门</div>
+	                 	    </div>
+	                 	</div>
+	                 	<div class="SS-one-item-wrap"></div>
+	                 </div>
+	             </div>
+	             <div class="swiper-pagination"></div>
+            </div>
+		</div>
+		<div class="content-faile">
+			<div class="content-faile-info">加载失败，请检查网络!</div>
+			<div class="content-faile-btn">重新加载</div>
+		</div>
+		
+    </div>
+</div>

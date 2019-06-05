@@ -1,0 +1,123 @@
+<div data-view="autoNavigation/baidumap" id="baiduMap">
+  <header id="nav-bar" class="bar bar-nav blue-bar" navTitle='"地图选点"' navRight='{"hide":true}'></header>
+  <style type="text/css">
+    #baidumap{      
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+    
+    .baidumap-address{
+      padding-left: 15px;
+      padding-right: 15px;
+      height: 100%;
+    }
+    .baidumap-floatDiv{
+      z-index:9;
+      position: absolute; 
+      background: transparent;
+      top:100%;
+      margin-top: -105px;
+      height: 100px;
+      width: 100%;
+    }
+    #baiduMap .share:active{
+      background-color: #efeff4 !important
+    }
+    #baiduMap .tocar:active{
+      background-color: #efeff4 !important
+    }
+    .baiduAddressInfo{padding-left: 15px;}
+    .swiper-slide{width: 100%};
+    
+    #searchedAddress{width:100%;}
+
+    .addressTemplate{
+      background-color: white;
+    }
+
+    .route-icon-save{
+      background-image: url("../autoNavigation/img/save.png");
+      background-repeat: no-repeat;
+      padding-left: 18px;
+      height: 16px;
+      line-height: 16px;
+      background-size: 16px;
+      display: inline-block;
+      font-size: 10px;
+      color: #1e9dfa;
+    }
+    #baiduMap .route-icon-locaiton{
+      background-image: url("../autoNavigation/img/location.png");
+      background-repeat: no-repeat;
+      padding-left: 30px;
+      background-size: 16px;
+      color: #000000
+    }
+    #baiduMap .noteMessage{
+      padding-left: 30px;color: #a3a6a8; font-size: 10px
+    }
+
+    .shadow{
+      filter: progid:DXImageTransform.Microsoft.Shadow(color=black,strength=2);
+      -moz-box-shadow: 0 0 3px black;
+      -webkit-box-shadow: 0 0 3px black;
+      box-shadow: 0 0 3px black;
+      margin-top: 3px;
+    }
+
+    .newRouteDetail{height:55px;}
+    .newRouteDetail span{
+      line-height: 25px;
+      height: 25px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      width:100%;
+      float: left;
+    }
+    .vline-r{border-right:1px solid #ddd;}
+    .newRouteDetail span{
+      font-size: 14px;
+    }
+    #footer .routeActions{height:39px;/* border-top: 1px solid #E6E5EC;*/position: relative;}
+    #footer .routeActions:after{
+      top: 0px;
+      left: -50%;
+      content: "";
+      display: block;
+      position: absolute;
+      width: 200%;
+      height: 1px;
+      background: #3c4454;
+      opacity: 0.7;
+      -webkit-transform: scale(0.5);
+    }
+    #footer .routeActions ul{height:100%;}
+    #footer .shares:after{
+      /*right: 0px;
+      bottom: 0;
+      content: "";
+      display: block;
+      position: absolute;
+      width: 1px;
+      height: 39px;
+      background: #3c4454;
+      opacity: 0.4;
+      -webkit-transform: scale(0.7);*/
+    }
+    #footer .routeActions li{float:left;width: 100%;text-align: center;padding-top: 12px;height: 100%;}
+  </style>
+
+
+  
+  <div class="content">
+    <div id="baidumap"></div>    
+    <div id="footer" class="baidumap-floatDiv">
+      <div class="swiper-container baidumap-floatDiv">
+        <div class="swiper-wrapper">
+          
+        </div>        
+      </div>
+    </div> 
+  </div>
+</div>

@@ -1,0 +1,116 @@
+.ui-dialog-old,.ui-dialog-old-version-update{
+    background: #f5f5f5;
+    -webkit-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.6);
+    -webkit-border-radius: 8px;
+}
+.ui-dialog-old-version-update {
+    background: white;
+}
+
+.ui-dialog-old .ui-dialog-title,.ui-dialog-old-version-update .ui-dialog-title {
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    text-align: center;
+    background: #f5f5f5;
+    font-weight: 700;
+    -webkit-border-radius: 3px 3px 0 0;
+}
+.ui-dialog-old .ui-dialog-title h3,.ui-dialog-old-version-update .ui-dialog-title h3{
+    line-height:50px;
+}
+.ui-dialog-old .ui-dialog-close,.ui-dialog-old-version-update .ui-dialog-close{
+    cursor: pointer;
+    border-width: 0;
+    display: inline-block;
+    padding: 7px 9px;
+    margin: 2px;
+    line-height: 1;
+    -webkit-border-radius: 3px;
+}
+
+.ui-dialog-old .ui-dialog-close-hover,.ui-dialog-old-version-update .ui-dialog-close-hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.ui-dialog-old .ui-dialog-content{
+    padding:20px;
+    position: relative;
+    word-break:break-all;
+    text-align: center;
+    color: #333333;
+    font-size: 15px;
+}
+
+.ui-dialog-old-version-update .ui-dialog-content {
+    padding: 37px;
+    position: relative;
+    word-break: break-all;
+    text-align: center;
+    color: #333333;
+    font-size: 15px;
+    padding-top: 50%;
+    padding-bottom: 55px;
+    background-image: url(../img/update-bg.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin-top: -3.5%;
+    text-align: left;
+}
+.ui-dialog-old-version-update .ui-dialog-content:after {
+    content: '建议在wifi环境下下载';
+    position: absolute;
+    bottom: 15px;
+    left: 37px;
+    font-size: 11px;
+    color: #999;
+}
+
+.ui-dialog-old .ui-dialog-btns,.ui-dialog-old-version-update .ui-dialog-btns {
+    table-layout: fixed;
+    display: table;
+    border-collapse: collapse;
+    margin: 0px 0 0 0;
+    width: 100%;
+}
+.ui-dialog-old .ui-dialog-btns .ui-btn,.ui-dialog-old-version-update .ui-dialog-btns .ui-btn {
+    padding: 0;
+    font-size: 16px;
+    width: 100%;
+    display: table-cell;
+    float: none;
+    text-align: center;
+    height: 44px;
+    line-height: 44px;
+    color: #232323;
+    border: 1px solid #ddd;
+    border-bottom: 0 none;
+    cursor: pointer;
+    /*background-color: #00c3fe;*/
+    color: #09aaec;
+    font-size: 16px;
+}
+
+.ui-dialog-old .ui-dialog-btns .ui-btn:first-child,.ui-dialog-old-version-update .ui-dialog-btns .ui-btn:first-child {
+    -webkit-border-bottom-left-radius: 3px;
+    border-left: 0 none;
+}
+
+.ui-dialog-old .ui-dialog-btns .ui-btn:last-child,.ui-dialog-old-version-update .ui-dialog-btns .ui-btn:last-child {
+    -webkit-border-bottom-right-radius: 3px;
+    border-right: 0 none;
+}
+
+.ui-dialog-old .ui-dialog-btns .ui-btn.ui-state-hover,.ui-dialog-old-version-update .ui-dialog-btns .ui-btn.ui-state-hover {
+    background-color: #e2e2e2;
+}
+
+/*css for pad*/
+@media all and (min-device-width:768px) and (max-device-width: 1024px){
+    .ui-dialog-old,.ui-dialog-old-version-update{
+        min-width: 500px;
+    }
+    .ui-dialog-old .ui-dialog-title,.ui-dialog-old-version-update .ui-dialog-title{
+        min-height: 1.1em;
+    }
+}

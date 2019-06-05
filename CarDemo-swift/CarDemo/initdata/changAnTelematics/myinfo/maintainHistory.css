@@ -1,0 +1,514 @@
+{
+    -webkit-tap-highlight-color:blue;
+}
+#maintainHistory .content{
+    /*background-color: #ffffff;*/
+}
+#maintainHistory .headContent1.noSelect {
+    background-size: 0;
+}
+
+#maintainHistory .headContent1,#maintainHistory .headContent4
+{ 
+    height:56px;  
+    width:100%; 
+    background-color: transparent;
+    position: relative;
+    overflow: hidden;
+}
+#maintainHistory .headContent1{
+    background: url(../myinfo/image/arrow.png) no-repeat;
+    background-size: 7px 14px;
+    background-position: 95% 50%;
+}
+#maintainHistory .headContent1:active{
+    background-color: rgba(255,255,255,0.05);
+}
+#maintainHistory .headContent1:before{
+    top: 0px;
+    content: "";
+    display: block;
+    position: absolute;
+    left: -50%;
+    width: 200%;
+    height: 1px;
+    background: #3c3b48;
+    /*opacity: 0.7;*/
+    -webkit-transform: scale(0.5);
+}
+#maintainHistory .headContent1:after{
+    bottom: 0px;
+    content: "";
+    display: block;
+    position: absolute;
+    left: -44%;
+    width: 200%;
+    height: 1px;
+    background: #3c3b48;
+    opacity: 0.7;
+    -webkit-transform: scale(0.5);
+}
+#maintainHistory .headContent4:after{
+    bottom: -1px;
+    content: "";
+    display: block;
+    position: absolute;
+    left: -50%;
+    width: 200%;
+    height: 1px;
+    background: #3c3b48;
+    opacity: 0.7;
+    -webkit-transform: scale(0.5);
+}
+#maintainHistory .headContent2
+{ 
+    height:50px; 
+    font-size:14px; 
+    text-align:left; 
+    width:100%; 
+    margin:0px auto; 
+    background-color:#fff;
+    position: relative;
+    margin-top: 1px;
+}
+
+#maintainHistory .headContent3
+{ 
+    height: 46px;
+    font-size: 17px;
+    text-align: left;
+    line-height: 51px;
+    width: 100%;
+    color: #333333;
+    padding-left: 92px;
+    margin: 0px auto;
+    position: relative;
+    margin-top: 32px;
+    background: url(../myinfo/image/title_icon.png) no-repeat;
+    background-size: 35px 35px;
+    background-position: 51px 50%;
+}
+#maintainHistory .headContentTitle
+{ 
+    /*width:35%; */
+    height:56px;  
+    float:left; 
+    /*text-indent:5%;*/
+    padding-left: .11946616rem;
+    line-height: 58px;
+    color: #FFFFFF;
+    font-size: 15px
+}
+#maintainHistory .headContent5{
+    width: 100%;
+    height:auto;
+    padding-top: 11px;
+    overflow: hidden;
+    padding-left: .11946616rem;
+    padding-right: .11946616rem;
+}
+#maintainHistory .headContent5>div{
+    width: 50%;
+    height: auto;
+    float: left;
+}
+#maintainHistory .headContent5>div>span:first-child{
+    font-size: 13px;
+    color: #666666;
+    line-height: 18px;
+}
+#maintainHistory .headContent5>div>span:last-child{
+    font-size: 14px;
+    color: #09aaec;
+    margin-left: 7px;
+    text-align: right;
+}
+#maintainHistory .float-right{
+    text-align: right;
+}
+#maintainHistory #wholeMaile{
+    /*width: 65%;*/
+    height: 56px;
+    float: left;
+    line-height: 58px;
+    color: #00c6f6;
+    font-size: 17px;
+    /*text-align: right;*/
+    padding-right: 14px;
+    margin-left: 5px;
+    /*background: url(../myinfo/image/arrow.png) no-repeat;
+    background-size: 7px 14px;
+    background-position: 92% 50%;*/
+}
+#maintainHistory .notifyStyle{
+    color: #ffffff !important;
+    font-size: 22px !important;
+}
+#maintainHistory .notifyStyle1{
+    color: #09aaec !important;
+    font-size: 14px !important;
+}
+#maintainHistory #surplusMaile{
+    /*width: 65%;*/
+    height: 56px;
+    float: left;
+    line-height: 58px;
+    color: #FFFFFF;
+    font-size: 22px;
+    /*text-align: right;*/
+    padding-right: 14px;
+    margin-left: 5px;
+}
+#maintainHistory .headLine1 
+{
+    width: 90%;
+    height: 1px;
+    background-color: #dedede;
+    margin-left: 5%;
+}
+#maintainHistory .headLine2 
+{
+    width: 100%;
+    height: 1px;
+    background-color: #dedede;
+    margin-left: 0px;
+}
+#maintainHistory .headLine3 
+{
+    width: 100%;
+    height: 1px;
+    background-color: #dedede;
+    margin-left: 0px;
+
+}
+#maintainHistory select
+{ 
+    width:65%;  
+    float:right; 
+    background-color:#fff; 
+    font-size:14px;
+    margin-top:7px;
+    height: 40px;
+    border:none;
+    box-shadow: none;
+}
+
+#maintainHistory input
+{ 
+    display:block; 
+    width:65%;  
+    float:right; 
+    background-color:#fff; 
+    font-size:14px;
+    height: 40px;
+    border:none;
+    position: absolute;
+    left: 35%;
+    padding-left: 18px;
+    top: 7px;
+}
+/****************************************************************/
+#maintainHistory .listview
+{
+    padding:0;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    top: 214px;
+    /*margin-bottom: 20px;*/
+    height: auto;
+    /*background-color: white;*/
+}
+#maintainHistory .line{
+    background-color: #09a2e9;
+    width: 1px;
+    height: 180px;
+    position: absolute;
+    top: -100px;
+    left: 68px;
+    z-index: -3;
+    display: none;
+}
+#maintainHistory .message{
+    line-height: 20px;
+    height: 150px
+}
+#maintainHistory .empty{
+    background: url(../myinfo/image/no_datas_icon.png) no-repeat;
+    background-size: 25px 33px;
+    background-position: 50% 40%;
+    padding-top:80px;
+    color: #999999;
+    font-size: 15px;
+}
+#maintainHistory .listCell
+{
+    /*background-color: #FFF;*/
+    /*padding-left: 14px;*/
+    padding-right: 14px;
+    width: 100%;
+    padding-top: 15px;
+    position: relative;
+}
+#maintainHistory .timeLineBlock 
+{
+    width: 80px;
+    float: left;
+    height: 30px;
+    /*background-color: red;*/
+    /*border:solid;*/
+}
+#maintainHistory .roundCornerBorder
+{
+    border:1px solid #dedede; 
+    border-radius:5px;
+    margin-left: 94px;
+    /*margin-top: 10px;*/
+    right: 10px;
+    padding-top: 11px;
+    background-color: white;
+}
+#maintainHistory .img_icon{
+    width: 13px;
+    height: auto;
+    float: left;
+}
+#maintainHistory .scroller li .selection{
+    display: none;
+    min-height: 101% !important
+}
+#maintainHistory .img_icon>img{
+    width: 11px;
+}
+#maintainHistory .timeLineDateBlock 
+{
+    width: 57px;
+    height: 100%;
+    position: absolute;
+    margin-left: 0px;
+}
+#maintainHistory .timeLineLineBlock 
+{
+    width: 50px;
+    height: 100%;
+    background-color: dashed;
+    position: absolute;
+    left: 45px;
+    top: 0px;
+}
+#maintainHistory .timeLineYear 
+{
+    font-size: 15px;
+    color: #09a2e9;
+    margin-top: -7px;
+    height: 15px;
+    text-align: right;
+}
+#maintainHistory .timeLineMonth
+{
+    font-size: 11px;
+    color: #666666;
+    margin-top: 5px;
+    text-align: right;
+
+}
+#maintainHistory .timeLineBlackLine1
+{
+    background-color: #09a2e9;
+    width: 1px;
+    height: 0px;
+    margin-left: 46%;
+    margin-top: -1px;
+    position: absolute;
+}
+#maintainHistory .redPointAndTriangle
+{
+    top: 44px;
+    /*height: 10px;*/
+    margin-left: 45%;
+    position: relative;
+}
+#maintainHistory .timeLineRedPoint 
+{
+    position: absolute;
+    margin-left: -6px;
+    margin-top: 1px;
+    width: 13px;
+    height: 13px;
+    border-radius: 100%;
+    background: url(../myinfo/image/cricle_icon.png) no-repeat;
+    background-size: 13px 13px;
+    background-position: 50% 50%;
+}
+#maintainHistory .littleTriangle
+{
+    width: 0px;
+    height: 0px;
+    margin-top: -2px;
+    float: right;
+    border-width: 10px;
+    border-style:dashed solid dashed dashed;
+    border-color:transparent #dedede transparent transparent;
+    font-size:0; 
+    line-height:0;
+}
+
+#maintainHistory .clearColorTriangle
+{
+    width: 15px;
+    height: 15px;
+    margin-top: -9px;
+    margin-left: -8px;
+    border-width: 9px;
+    border-style: dashed dashed dashed dashed;
+    border-color: transparent #FFF transparent transparent;
+    font-size: 0;
+    line-height: 0;
+}
+#maintainHistory .timeLineBlackLine2
+{
+    background-color: #09a2e9;
+    width: 1px;
+    height: 46%;
+    margin-left: 46%;
+    margin-bottom: 0;
+    position: absolute;
+}
+#maintainHistory .timeLineBlackLine2.active{
+    display: none;
+}
+#maintainHistory .scroller
+{
+    overflow: hidden;
+    min-height: 101% !important
+}
+#maintainHistory .scroller li
+{
+    height: auto;
+    border-bottom: 0px;
+    position: relative;
+    background-color: #efeff4
+}
+#maintainHistory .maintainTitleBlock
+{
+    width:100%;
+    height:20px;
+}
+#maintainHistory .maintainTitle 
+{
+    float:left;
+    font-size: 11px;
+    color:#8f8e94;
+    line-height: 20px;
+    margin-left: 10px;
+}
+#maintainHistory .maintainTime
+{
+    float:right;
+    margin-top: 5px;
+    margin-right: 5px;
+    width:40px;
+    height: 20px;
+    background-size: 100% 100%;
+}
+#maintainHistory .maintainContent 
+{
+    padding-left: 10px;
+    font-size: 17px;
+    line-height: 25px;  
+    position: relative;
+    width: 100%;
+    height: auto
+}
+#maintainHistory .maintainContentBlock{
+    position: relative;
+    margin-bottom: 6px;
+}
+#maintainHistory .maintainContentBlock:after{
+    content: "";
+    bottom: -10px;
+    width: 200%;
+    height: 1px;
+    left: -50%;
+    position: absolute;
+    background: #d9d9d9;
+    display: block;
+    opacity: 0.7;
+    -webkit-transform:scale(0.5);
+}
+#maintainHistory .maintainDetail 
+{
+    line-height: 20px;
+    word-wrap: break-word;
+    font-size: 16px;
+    color: #666666;
+    /*margin-left: 18px;*/
+    padding-right: 20px;
+}
+
+#maintainHistory .maintainCost 
+{
+    /*position: absolute;*/
+    bottom: 2px;
+    right:10px;
+    text-align: right;
+    color: #ef834d;
+    height: 20px;
+    padding-right: 5px;
+}
+#maintainHistory .maintainLine 
+{
+   background-color: #dedede;
+   height:1px;
+   margin-top: 3px;
+   margin-bottom: 3px;
+}
+#maintainHistory .maintainShopBlock
+{
+    padding-top: 12px;
+    padding-left: 10px;
+    height:35px;
+}
+#maintainHistory .maintainMapIcon 
+{
+    float:left;
+    background-image: url('../myinfo/image/maintainLocation.png');
+    background-size: 13px 17px;
+    width:13px;
+    height:17px;
+    background-repeat: no-repeat;
+    left:120px;
+}
+#maintainHistory .maintainShopName 
+{
+    width: 80%;
+    font-size: 14px;
+    color: #09a2e9;
+    float: left;
+    margin-left: 5px;
+    line-height: 17px;
+   display: -webkit-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+#maintainHistory .wacxg{
+      display: block;
+      width: 70%;
+      float: right;
+      background-color: #f5f5f5;
+      font-size: 14px;
+      height: 40px;
+      line-height: 40px;
+      color:#909090;
+      position: absolute;
+      left: 30%;
+      padding-left: 18px;
+      top: 7px;
+}
+
+
+
+
+

@@ -1,0 +1,83 @@
+<div id="violationResults" data-view='violation/violationResults/violationResults'>
+    <style type="text/css">
+        #violationResults .pulldown{
+            /*margin-top: -50px*/
+        }
+        #violationResults .pulldown .icon{
+            left: 30%;
+            position: absolute;
+        }
+    </style>
+    <script id="violationResults-temp" type="text/x-underscore-template">
+        <%function isNull(data) {
+            var def = true;
+            if (typeof data == "string") {
+                data = data.trim();
+            }
+            if ((typeof data !== "undefined" && data && data.length !== 0) || typeof data === "function") {
+                def = false;
+            }
+            return def;
+        }%>
+        <div class="listCell">
+            <div class = "detailNumberBlock">
+            </div>
+            <div class="lis-detail">
+                <div class = "timeBlock">
+                    <!--<span class = "cellTitle"></span>-->
+                    <span class = "cellDate"><%=time.substr(0,10)%></span>
+                    <span class = "cellTime"><%=time.substr(10,6)%></span>
+                    <span style="font-size: 12px;color:#333333;float: right;margin-right: 10px;margin-top: 10px;">罚款金额</span>
+                </div>
+                <div class="scoreAndmoney">
+                    <span class="list-score">扣<%=score%>分</span><span class="list-number">¥ <%=pay%>元</span>
+                </div>
+                <span class="infoText">违章地点</span>
+                <div class = "locationBlock">
+                    <!--<span class = "cellTitle"></span>-->
+                    <div class = "locationDetail"><%=location%></div>
+                </div>
+                <span class="infoText">违章条例</span>
+                <div class = "reasonBlock">
+                    <!--<span class = "cellTitle"></span>-->
+                    <div class = "violationDetail"><%=content%></div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <!-- 外围包裹层开始-->
+    <header id="nav-bar" class="bar bar-nav blue-bar" navTitle='"违章列表"' navRight='{"text":"修改信息"}'></header>
+
+<div class="content">
+<!-- content -->
+
+<div class = "topItem">
+    <div class="topItem-left">
+
+    </div>
+    <div class="topItem-right">
+        <div class="car-number"></div>
+        <div class="score-money"><span class="icon-text">扣</span><span id="score">0分</span><span class="icon-text" style="margin-left: 30px;">罚</span><span id="money">0元</span></div>
+    </div>
+</div>
+<!-- list -->
+    <div id="violationResults-list"  class="listview" style="overflow:hidden">
+        <div class="scroller">
+            <div class="pulldown" style="postion:relative; display:none">
+                <div id='iconDiv'>
+                    <span class="icon"><div class='iconOne'></div>
+                    <div class='iconTwo'></div></span>
+                </div>
+                <span class="label"></span>
+            </div>
+            <ul>
+            </ul>
+            <div class="message">
+                <div class="empty">没有数据</div>
+                <div class="error">数据加载失败</div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

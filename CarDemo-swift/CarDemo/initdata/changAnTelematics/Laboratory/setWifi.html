@@ -1,0 +1,440 @@
+<div id="setWifi" data-view="Laboratory/setWifi">
+	<style type="text/css">
+        #setWifi #wrapper {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        height: auto;
+        overflow: hidden;
+    }
+    #setWifi #scroller {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        min-height: 101%;
+    }
+    #setWifi  .swiper-container {
+        height: 100%;
+    }
+    #setWifi .iconOne {
+        position: absolute;
+        height: 28px;
+        width: 28px;
+        border-radius: 28px;
+        border: 1px solid #666666;
+        clip: rect(0px,28px,0px,14px);
+        top: 0;
+    }
+    #setWifi .iconTwo {
+        position: absolute;
+        height: 28px;
+        width: 28px;
+        border-radius: 28px;
+        border: 1px solid #666666;
+        clip: rect(0px,28px,0px,14px);
+        transform: rotate(180deg);
+        top: 0;
+    }
+    #setWifi .pulldown.flip .icon {
+        -webkit-transform: rotate(0) translateZ(0);
+    }
+    #setWifi .pulldown.loading .iconOne {
+        clip: rect(0px 28px 28px 14px) !important;
+    }
+    #setWifi .pulldown.loading .iconTwo {
+        clip: rect(0px 28px 26px 14px) !important;
+    }
+    #setWifi .pulldown {
+        height: 60px;
+        position: absolute;
+        top: -60px;
+        /*top: 0;*/
+        color: #666666;
+        width: 100%;
+        z-index: 999;
+        padding-top: 10px;
+        text-align: center;
+        font-weight: inherit;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    #setWifi .pulldownWrap {
+        font-size: 12px;
+        height: 28px;
+        line-height: 28px;
+        text-align: left;
+        position: relative;
+        padding-left: 28px;
+        display: block;
+        margin-top: 6px;
+    }
+    #setWifi .pulldownWrap.hidden {
+        display: none;
+    }
+    #setWifi .pulldown .icon {
+        display: inline-block;
+        width: 28px;
+        height: 28px;
+        background-size: 28px;
+        float: none;
+        background: url("../home/img/home-down_1.png");
+        background-repeat: no-repeat;
+        background-position: 50%;
+            -webkit-animation-duration: 1.3s;
+    }
+    #setWifi .pulldown.flip .icon {
+        background-size: 0;
+    }
+    #setWifi .pulldown.loading .icon {
+        background: url("../home/img/home-loading_1.png") no-repeat;
+        background-size: 19px;
+        position: relative;
+        top: -3px;
+        width: 28px;
+        height: 28px;
+        background-position: 50%;
+    }
+    #setWifi .pulldown .label {
+        position: relative;
+        display: block;
+        padding-left: 4px;
+        font-size: 12px;
+        line-height: 28px;
+        left: 30%;
+        margin-top: -1px;
+        margin-left: 15px;
+    }
+    #setWifi .pulldown.loading .label, #setWifi .pulldown.flip .label {
+        line-height: 28px;
+    }
+    #setWifi #iconDiv {
+        display: inline-block;
+        width: 28px;
+        height: 28px;
+        position: absolute;
+        left: 30%;
+    }
+    #setWifi #pullDownInfoDiv {
+        display: block;
+        font-size: 10px;
+        line-height: 10px;
+        padding-left: 4px;
+        left: 30%;
+        position: relative;
+        margin-top: 7px;
+        margin-left: 15px;
+    }
+    #setWifi .pulldownText {
+        display: inline-block;
+    }
+    #setWifi.pulldown.flip #pullDownInfoDiv,#setWifi.pulldown.loading #pullDownInfoDiv {
+        display: none;
+    }
+	 	#setWifi{
+
+		 }
+		#setWifi .content{
+			/*padding-top: 20px !important;*/
+	        /*background-color: transparent;*/
+			/*background-repeat: no-repeat;
+			background-size: 100% 100%;
+			background-image:url(../Laboratory/images/beijing_number.png);*/
+		 }
+        #setWifi .head{
+            width: 100%;
+            font-size: 0.12rem;
+            color: #fff;
+            line-height:200%;
+            font-family: 'Helvetica';
+        }
+        #setWifi .head .headLeft{
+            float:left;
+            text-align: right;
+            width:50%;
+        }
+        #setWifi .head .headRight{
+            float: right;
+            text-align: left;
+            width: 50%;
+        }
+        #setWifi .switch {
+            width: 100%;
+            height: 44px;
+            margin-top: 14px;
+            color:#333333;
+            font-size:16px;
+            clear: both;
+            background-color: #FFFFFF;
+            border-top:1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            padding-left: 14px;
+            box-sizing:border-box;
+            line-height: 44px;
+            /*text-align: center;*/
+        }
+        #setWifi .switch .checkBox{
+            /*display: inline-block;
+            width:1em;
+            height:1em;
+            border: solid 1px grey;
+            position: relative;*/
+            width: 50px;
+            height: 30px;
+            border: 1px solid #e0e0e0;
+            border-radius: 15px;
+            float: right;
+            margin-right: 14px;
+            margin-top: 6px;
+            position: relative;
+        }
+        #setWifi .check-icon{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 30px;
+            border:1px solid #e0e0e0;
+            left: 0;
+            top: -1px;
+            background-color: #FFFFFF
+        }
+        #setWifi .switch .active{
+            /*content: '';
+            position: absolute;
+            width: 0.15rem;
+            height: 0.07rem;
+            background: transparent;
+            top: -1px;
+            left: -2px;
+            border: 1px solid #00c3fe;
+            border-top: none;
+            border-right: none;
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-50deg);*/
+        }
+	/*	#setWifi .switch li {
+			height:20px;
+			width:50px;
+			background: url(../control/images/control_icon.png);
+			background-size:15px 15px;
+			background-position: center left;
+			text-align: right;
+			background-repeat: no-repeat;
+			display:inline-block;
+			margin-left: 40px;
+			margin-right: 40px;
+		}
+		#setWifi .switch li.selected {
+			background:url(../control/images/control_icons.png);
+			background-size:15px 15px;
+			background-position: center left;
+			text-align: right;
+			background-repeat: no-repeat;
+		} */
+        #setWifi .note{
+            width:100%;
+            font-size: 13px;
+            color: #666666;
+            /*text-align: center;*/
+            margin-top: 8px;
+            margin-bottom: 25px;
+            padding-left: 14px;
+            box-sizing: border-box;
+        }
+        #setWifi .updateTime{
+
+        }
+		#setWifi .input-item{
+			width: 100%;
+			height: 40px;
+			/*padding-right: 4%*/
+			margin-top: 15px
+		}
+		#setWifi .web-psw{
+			/*margin-top: 15px !important;*/
+			display: none;
+		}
+		#setWifi .input-item>div{
+			width: 100%;
+			height: 100%
+		}
+		#setWifi .input-item div>label{
+			float: left;
+			width: 30%;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+            color: #ffffff;
+		}
+		#setWifi .input-item div>input, #setWifi .input-item>div>select{
+			width: 60%;
+			height: 100%;
+			float: left;
+            color: #cccccc;
+            background:transparent;
+           /* border:1px solid #ffffff */
+            font-size: 0.12799945rem;
+		}
+		#setWifi .show-psw{
+			margin-top: 15px;
+			padding-left: 30%;
+			display: none;
+            color:#cccccc;
+		}
+		#setWifi .check-box{
+	        width: 0.10239956rem;
+	        height: 0.10239956rem;
+	        background-color: transparent;
+	        border:1px solid #78787d;
+	        border-radius: 0.01706659rem;
+	        position: relative;
+	        float: left;
+	      }
+	    #setWifi  .active{
+	        /*content: '';
+	        position: absolute;
+	        width: 0.07679967rem;
+	        height: 0.04266648rem;
+	        background: transparent;
+	        top: 1px;
+	        left: 1px;
+	        border: 1px solid #00c3fe;
+	        border-top: none;
+	        border-right: none;
+	        -webkit-transform:rotate(-45deg);
+	        transform :rotate(-45deg);*/
+            background-color: #00c3fe
+	      }
+	    /* #setWifi .show-info{
+	      	width: 80%;
+	      	height: 200px;
+	      	margin: 0 auto;
+	      	margin-top: 10px;
+	      	text-align: center;
+    		border: 1px solid #dfdfdf;
+    		padding-top: 100px;
+		}*/
+		#setWifi .sure-buttom{
+			width: 92%;
+			height: 44px;
+			line-height: 44px;
+			text-align: center;
+			border: 1px solid #00c3fe;
+			color: #00c3fe;
+			margin: 0 auto;
+			margin-top: 20px;
+            border-radius: 5px;
+            background-color: transparent;
+		}
+		#setWifi .sure-buttom.changeStatus{
+
+		}
+        #setWifi .items{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            border-top: 1px solid  #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            padding-left: 14px;
+            box-sizing:border-box;
+            background-color: #FFFFFF
+        }
+        #setWifi .items-line{
+            margin-top: 12px;
+        }
+        #setWifi .items>div{
+            width: 100%;
+            height: 44px;
+            line-height: 44px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        #setWifi .items>span{
+            height: 44px;
+            line-height: 44px;
+            float: left;
+            color: #333333;
+        }
+        #setWifi .items>span:last-child{
+            color: #999999;
+            float: right;
+            margin-right: 14px;
+        }
+        #setWifi .items>div:last-child{
+            border-bottom: none;
+        }
+        #setWifi .items>div>span{
+            float: left;
+            color: #333333;
+        }
+        #setWifi .items>div>div{
+            height: 100%;
+            line-height: 44px;
+            float: right;
+            text-align: right;
+            padding-right: 18px;
+            color: #999999;
+            background: url(../cars/img/icon_right.png) no-repeat;
+            background-position: 95% center;
+            background-size: 0.07rem 0.14rem;
+            margin-right: 10px
+        }
+        #setWifi .items>div>select{
+            height: 100%;
+            width: 220px;
+            float: right;
+            text-align: right;
+            color: #999999;
+            border:none;
+            background-color: transparent;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            border-radius: 0;
+            line-height: 22px;
+            margin-bottom: 0;
+            padding-left: 136px;
+            background: url(../cars/img/icon_right.png) no-repeat;
+            background-position: 94% center;
+            background-size: 0.07rem 0.14rem;
+        }
+	</style>
+	<script id='inputCircle' type="text/x-underscore-template">
+        <div class='inputCircle' style='width:40px; height:40px; position:relative; float:left;'>
+            <span style='display:block;width:4px;height:4px;background-color:#000;border-radius:100%; position:absolute;left:19px;top:19px;'></span>
+        </div>
+    </script>
+	<header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}' navTitle='"爱车wifi设置"'>
+    </header>
+    <div class="content">
+        <div class="switch">
+            <label>爱车启动后开启WIFI</label>
+            <div class="checkBox"><div class="check-icon"></div></div>
+        </div>
+        <div class="note">如果开启，车辆在下次点火后自动启动车载WIFI</div>
+        <div class="items">
+            <div>
+                <span>SSID</span>
+                <div class='editDiv' id="ssid">请设置SSID(仅限于英文和数字)</div>
+            </div>
+            <div>
+                <span>安全类型</span>
+                <select id="securtyType">
+                    <option value="0" style="background-color: transparent"><div>无</div></option>
+                    <option value="1" style="background-color: transparent"><div>WPA2-psk</div></option>
+                </select>
+            </div>
+            <div class="web-psw">
+                <span>安全密码</span>
+                <div class='editDiv' id="password">请设置安全密码</div>
+            </div>
+        </div>
+        <div class="items items-line" style="display: none;">
+            <span>已连接此WIFI的设备数量</span>
+            <span class="wifiConnect">0个</span>
+        </div>
+        <div class="note">上次更新时间<span class="updateTime"></span></div>
+        
+        <div class="sure-buttom">确定</div>
+        
+    </div>
+</div>

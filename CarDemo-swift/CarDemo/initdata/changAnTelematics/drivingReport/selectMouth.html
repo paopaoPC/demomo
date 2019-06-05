@@ -1,0 +1,142 @@
+<div id="selectMouth" class = "page" data-view='drivingReport/selectMouth' >
+  <style type="text/css">
+    #selectMouth .content {
+        background-color: white;
+    }
+    #selectMouth .contentHead {
+        background: #f0eff5;
+        height: 43px;
+        border-bottom: solid 1px #d9d9d9;
+        color: #666666;
+        position: relative;
+    }
+    #selectMouth .tdHead {
+        display: inline-block;
+        width: 14.285%;
+        float: left;
+        text-align: center;
+        line-height: 43px;
+        font-size: 12px;
+    }
+    #selectMouth #navRight:active{
+        color: rgba(0,0,0,0.5) !important;
+    }
+    #selectMouth .dataTitle {
+        height: 53px;
+        padding: 17px 0;
+        /*padding-left: 15px;*/
+        font-size: 20px;
+    }
+    #selectMouth .tr {
+        height: 69px;
+    }
+    #selectMouth .noDay {
+        width: 14.258%;
+        height: 69px;
+        display: inline-block;
+        float: left;
+    }
+    #selectMouth .day {
+        width: 14.258%;
+        height: 69px;
+        /*border-top: solid 1px #cbcbcb;*/
+        display: inline-block;
+        float: left;
+        position: relative;
+    }
+    #selectMouth .dayValue {
+        height: 36px;
+        display: block;
+        border-radius: 36px;
+        width: 36px;
+        margin: 4px auto;
+        margin-bottom: 2px;
+        line-height: 36px;
+        text-align: center;
+        color: #999999;
+        font-size: 18px;
+    }
+    #selectMouth .dataTitle {
+        height: 53px;
+        border-bottom: 1px solid #d9d9d9;
+        margin-left: 14px;
+    }
+    #selectMouth .today {
+        background: #00c2ff;
+        color: #fff !important;
+    }
+    #selectMouth .actived {
+        color: #09aaec;
+        /*font-weight: bold;*/
+    }
+    #selectMouth #price {
+        color: #F95E09;
+        font-size: 11px;
+        text-align: center;
+        width: 100%;
+        display: block; 
+        margin-left: -4px;
+        position: relative;
+    }
+    #selectMouth .im-text-navbuttontext {
+        color: #00c2ff;
+    }
+    #selectMouth #wrapper {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        top: 43px;
+        bottom: 67px;
+        height: auto;
+        overflow: hidden;
+    }
+    #selectMouth #scroller {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+    }
+    #selectMouth .dataTable{
+        margin-top: 10px
+    }
+    #selectMouth .backToday {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 67px;
+        background-color: #f8f8fa;
+    }
+    #selectMouth .todayButton {
+        width: 125px;
+        height: 36px;
+        background-color: white;
+        border-radius: 5px;
+        margin: auto;
+        margin-top: 16px;
+        line-height: 34px;
+        text-align: center;
+        color: #08aaeb;
+        border: 1px solid #08aaeb;
+    }
+  </style>
+  <header id="nav-bar" class="bar bar-nav blue-bar" navTitle='"行程报告"' navRight='{"text":" "}'>
+  </header>
+  <div class="content">
+    <div class="contentHead">
+        <div class="tdHead">周一</div>
+        <div class="tdHead">周二</div>
+        <div class="tdHead">周三</div>
+        <div class="tdHead">周四</div>
+        <div class="tdHead">周五</div>
+        <div class="tdHead">周六</div>
+        <div class="tdHead">周日</div>
+    </div>
+    <div id="wrapper">
+        <div id="scroller">
+            
+        </div>
+    </div>
+    <div class="backToday">
+        <div class="todayButton">回今天</div>
+    </div>
+  </div>
+</div>

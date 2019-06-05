@@ -1,0 +1,1236 @@
+<div id="drivingReport" class = "page" data-view='drivingReport/index' >
+
+  <style type="text/css">
+    #drivingReport #navTitle {
+        line-height: 40px !important;
+    }
+    #drivingReport #navTitle:after {
+        content: '';
+        background-image: url(../drivingReport/img/arrow.png);
+        width: 6px;
+        height: 9px;
+        background-size: 6px;
+        display: block;
+        margin: auto;
+        margin-top: -8px;
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+    }
+    #drivingReport .im-default-nav-bar {
+        border-bottom: solid rgba(60, 61, 73, 0.8) 1px;
+    }
+    #drivingReport .content {
+        /*background-image: url(../drivingReport/img/background.png);*/
+        background-color: #101420;
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+    #drivingReport .content::-webkit-scrollbar {
+        width: 0
+     }
+    #drivingReport #navLeft {
+        display: block !important;
+        color: #00d6ff !important;
+        font-size: 17px;
+    }
+    #drivingReport .im-nav-left-image {
+   /*     background-size: 20px 17px;
+        background-position-x: 20px;*/
+    }
+    #drivingReport .datetime-title {
+        display: box;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content:space-between;
+        justify-content: space-between;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        color: white;
+        position: absolute;
+        width: 100%;
+    }
+    #drivingReport .datetime-title span {
+        width: 14%;
+        -webkit-flex-grow: 1;
+        flex-grow: 1;
+        text-align: center;
+        height: 18px;
+        line-height: 18px;
+        font-size: 18px;
+        transform: scale(0.5);
+        -webkit-transform: scale(0.5);
+    }
+
+    #drivingReport .datetime-title span.active {
+        /*color: #00d5fe;*/
+    }
+
+    #drivingReport .datetime-title span.disable {
+        color: rgba(255, 255, 255, 0.1);
+    }
+
+    
+
+    #drivingReport .datetime-swipe {
+        position: relative;
+        margin: 0 5px;
+        height: 65px;
+        overflow: hidden;
+    }
+
+    #drivingReport .datetime-swipe-slide {
+        height: 61px;
+    }
+
+    #drivingReport .datetime-swipe-slide {
+        display: box;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        padding-top: 18px;
+    }
+
+    #drivingReport .datetime-swipe-item {
+        display: inline-block;
+        width: 14%;
+        -webkit-flex-grow: 1;
+        flex-grow: 1;
+    }
+
+    #drivingReport .item-circle {
+        width:  30px;
+        height:  30px;
+        margin: auto;
+        position: relative;
+        /*border:  2px solid rgba(255, 255, 255, 0.5);*/
+        border-radius: 30px;
+    }
+
+    #drivingReport .item-circle.enable {
+        /*border:  2px solid #00d5fe;*/
+    }
+
+    #drivingReport .item-circle.disable {
+        /*border:  2px solid rgba(255, 255, 255, 0.1);*/
+    }
+
+
+    #drivingReport .item-circle p {
+        position: relative;
+        text-align: center;
+        height: 100%;
+        line-height: 30px;
+        z-index: 1;
+        color: white;
+        font-size:  16px;
+    }
+    #drivingReport .item-circle.active p {
+        color: black;
+    }
+    #drivingReport .item-circle.disable p {
+        color: rgba(255, 255, 255, 0.1);
+    }
+
+    #drivingReport .item-circle .item-circle-background {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+        border-radius: 30px;
+        background-color: #00d5fe;
+        visibility: hidden;
+    }
+
+    #drivingReport .item-circle.active .item-circle-background {
+        visibility: visible;
+    }
+
+
+    #drivingReport #circle {
+        padding-top: 50%;
+        position: relative;
+        z-index: 1;
+    }
+
+    #drivingReport #circle-false {
+        padding-top: 50%;
+        position: relative;
+        z-index: 1;
+    }
+
+
+    #drivingReport #circle canvas {
+        transform: translate(-50%,-50%) scale(0.317333);
+        -webkit-transform: translate(-50%,-50%) scale(0.317333);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    }
+
+
+
+    #drivingReport .pushMyDrivingBehavior {
+        display: none;
+        position: absolute;
+        width: 0.34133187698399rem;
+        height: 0.34133187698399rem;
+        background: rgba(6, 6, 6, 0.4);
+        top: 0;
+        left: 0;
+        border-radius: 100px;
+        border: solid 1px #3c4455;
+        font-size: 0.1023995630952rem;
+        color: #00d6ff;
+        z-index: 10;
+        visibility: visible;
+    }
+
+    #drivingReport .loading .pushMyDrivingBehavior,#drivingReport .content.error .pushMyDrivingBehavior { 
+        visibility: hidden;
+    }
+
+    #drivingReport .pushMyDrivingBehavior:active {
+        background-color: rgba(25, 24, 33, 0.3);
+    }
+
+    #drivingReport .strong {
+        position: absolute;
+        height: 100%;
+        top: 0;
+        width: 60%;
+        left: 20%;
+        color: white;
+        text-align: center;
+    }
+    #drivingReport .strongTitle {
+        text-align: center;
+        display: inline-block;
+        padding-top: 0.13133187698399rem;
+        font-size: 14px;
+        color: white;
+        margin-left: 5px;
+    }
+    #drivingReport .loading .strongTitle,#drivingReport .error .strongTitle {
+        display: none;
+    }
+    #drivingReport .strongTitle p {
+        color: white;
+        padding-bottom: 2px;
+        text-align: left;
+        font-size: 12px;
+    }
+    #drivingReport .strongValue {
+        font-size: 0.89599617708298rem;
+        height: 0.69599617708298rem;
+        text-align: center;
+        font-family: DIN-Condensed-Bold;
+        color: #00d5fe;
+        display: inline-block;
+        float: left;
+        padding-left: 0.21199781547599rem;
+    }
+
+    #drivingReport .loading .strongValue,#drivingReport .content.error .strongValue {
+        display: none;
+    }
+
+    #drivingReport .strongValue-loading {
+        font-size: 0.89599617708298rem;
+        text-align: center;
+        font-family: OPTIGiant;
+        color: #00d5fe;
+        display: none;
+    }
+
+    #drivingReport .loading .strongValue-loading,#drivingReport .content.error .strongValue-loading {
+        display: block;
+    }
+
+    #drivingReport .circleBackground {
+        padding-top: 50%;
+        position: absolute;
+        width: 100%;
+        top: 0.20142221599468rem;
+    }
+
+    #drivingReport .circleText {
+        height: 1px;
+        width: 60%;
+        margin-top: -0.035332969245998rem;
+        font-size: 10px;
+        position: absolute;
+        left: 20%;
+    }
+
+    #drivingReport .circleTextName {
+        height: 1px;
+        width: 74%;
+        margin-top: 0.093866266170598rem;
+        font-size: 10px;
+        position: absolute;
+        left: 13%;
+    }
+
+    #drivingReport .CTLeftName {
+        float: left;
+        color: #00d5fe;
+        font-size: 10px;
+    }
+
+    #drivingReport .CTRightName {
+        float: right;
+        color: rgba(255, 255, 255, 0.1);
+        font-size: 10px;
+    }
+
+    #drivingReport .CTLeft {
+        color: #00d5fe;
+        float: left;
+        display: block;
+    }
+/*
+    #drivingReport .loading .CTLeft,#drivingReport .content.error .CTLeft {
+        display: none;
+    }*/
+
+  /*  #drivingReport .loading .circleTextName,#drivingReport .content.error .circleTextName {
+        display: none;
+    }*/
+
+    #drivingReport  .CTLeft-loading {
+        color: #00d5fe;
+        float: left;
+        display: none;
+    }
+
+ /*   #drivingReport .loading .CTLeft-loading,#drivingReport .content.error .CTLeft-loading {
+        display: block;
+    }*/
+
+    #drivingReport .CTRight {
+        float: right;
+        color: rgba(255, 255, 255, 0.1);
+        display: block;
+    }
+
+/*    #drivingReport .loading .CTRight,#drivingReport .content.error .CTRight {
+        display: none;
+    }*/
+
+    #drivingReport .CTRight-loading {
+        color: rgba(255, 255, 255, 0.1);
+        float: right;
+        display: none;
+    }
+
+ /*   #drivingReport .loading .CTRight-loading,#drivingReport .content.error .CTRight-loading {
+        display: block;
+    }*/
+
+    #drivingReport .circleBackground canvas {
+        transform: translate(-50%,-50%) scale(0.317333);
+        -webkit-transform: translate(-50%,-50%) scale(0.317333);
+        top: 50%;
+        left: 50%;
+        position: absolute;
+    }
+
+    #drivingReport .circleWarp {
+        padding-top: 0.20142221599468rem;
+        padding-bottom:  0.34133187698399rem;
+        position: relative;
+    }
+
+    #drivingReport #circle canvas {
+        visibility: visible;
+    }
+
+    #drivingReport .loading #circle canvas,#drivingReport .content.error #circle canvas {
+        visibility: hidden;
+    }
+
+    
+    #drivingReport .drivingReportInfo {
+        display: box;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content:space-between;
+        justify-content: space-between;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        color: white;
+        color: white; 
+        margin-top: 0.34133187698399153rem;
+    }
+
+
+    #drivingReport .drivingReportInfo-content {
+        display: inline-block;
+        width: 30%;
+    }
+
+    #drivingReport .drivingReportInfo-content p {
+        color: white;
+        text-align: center;
+        padding-top: 1px;
+    }
+
+    #drivingReport .drivingReportInfo .DRI-contentValue {
+        font-size: 23px;
+        font-family: DIN-Condensed-Bold;
+        height: 24px;
+    }
+
+    #drivingReport .content.loading .DRI-contentValue,#drivingReport .content.error .DRI-contentValue {
+        display: none;
+    }
+
+    #drivingReport .drivingReportInfo .DRI-contentValue-loading {
+        font-size: 23px;
+        font-family: DIN-Condensed-Bold;
+        display: none;
+    }
+
+    #drivingReport .content.loading .DRI-contentValue-loading,#drivingReport .content.error .DRI-contentValue-loading {
+        display: block;
+    }
+
+    #drivingReport .drivingReportInfo-content .DRI-contentText {
+        font-size: 12px;
+    }
+    #drivingReport .contentWarp {
+        margin-bottom: 0.4266648462299894rem;
+    }
+    #drivingReport .marginDiv {
+        height: 0.085332969245998rem;
+        width: 100%;
+        background: rgba(25, 24, 33, 0.3);
+    }
+     #drivingReport .driving-option3{
+        width: 100%;
+        position: relative;
+    }
+    #drivingReport .option3-content{
+        font-size: .13653270508rem;
+        color: #ffffff;
+        text-align: center;
+    }
+    #drivingReport .option3-content>p{
+        color: white;
+    }
+    #drivingReport .option3-content>p:last-child{
+        font-size: .1194661569rem;
+        line-height: .13653270508rem;
+    }
+    #drivingReport .driving-route{
+        width: 100%;
+        height: auto;
+    }
+    #drivingReport .content.error .driving-route {
+        display: none;
+    }
+    #drivingReport .list-content{
+        width: 100%;
+        height: 1.09226201rem;
+        position: relative;
+    }
+    #drivingReport .list-left{
+        width: 14.7%;
+        height: 100%;
+        float: left;
+        font-size: 10px;
+        color: #9da3ac;
+        padding-top: 24px;
+        text-align: right;
+        padding-right: 3px;
+        line-height: 1.5;
+    }
+    #drivingReport .list-left span {
+        color: white;
+    }
+    #drivingReport .list-center{
+        width: 0.13653275rem;
+        height: 100%;
+        float: left;
+        text-align: center;
+        position: absolute;
+            left: 14.7%;
+    }
+    #drivingReport .list-center>div{
+        width: 1px;
+        background-color: #4c525b;
+        margin-left: 50%;
+        position: absolute;
+    }
+    #drivingReport .driving-route .list-content:first-child .line-top {
+        display: none;
+    }
+    #drivingReport .driving-route .list-content:last-child .line-bottom {
+        display: none;
+    }
+    #drivingReport .list-center .imgDiv {
+        width: 0.12799945rem;
+        height: 0.12799945rem;
+        position: absolute;
+        top: 0.20893231rem;
+        left: .5px;
+        margin-left: 0;
+        background-color: rgba(0,214,255,0.2);
+        border-radius: 0.06826638rem;
+    }
+    #drivingReport .list-center img{
+        width: 0.09386627rem;
+        height: 0.09386627rem;
+        position: absolute;
+        top: 0.01856659rem;
+        left: 0.01856659rem;
+    }
+    #drivingReport .list-right{
+        width: 85.3%;
+        height: 100%;
+        float: left;
+        padding-right: 14px;
+        padding-left: 23px;
+    }
+    #drivingReport .shadow-list-right{
+        width: 85.3%;
+        height: 100%;
+        float: left;
+        padding-right: 14px;
+        padding-left: 23px;
+        margin-left: 14.7%;
+    }
+    #drivingReport .list-right-title{
+        width: 20px;
+        height: 100%;
+        float: left;
+        padding-top: 12px;
+    }
+    #drivingReport .list-right-content{
+        width: 100%;
+        height: 89px;
+        background: rgba(164, 164, 164, 0.1);
+        margin-top: 15px;
+        color: #FFFFFF;
+        padding-left: 10px;
+        float: left;
+            border-radius: 2px;
+    }
+    #drivingReport .list-content.deleteDriving .list-right-content {
+        background: #263143;
+    }
+    #drivingReport .list-right-datas{
+        width: 90%;
+        height: 73px;
+        float: left;
+        padding-top: 1px;
+        position: relative;
+    }
+    #drivingReport .list-name{
+        height: 14px;
+        margin-top: 10px;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        overflow : hidden;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        font-size: 13px;
+        line-height: 15px;
+    }
+    #drivingReport .list-start{
+        font-size: 11px;
+        color: #00ffac;
+    }
+    #drivingReport .list-end{
+        font-size: 11px;
+        color: #f95e09;
+        margin-top: 13px;
+    }
+    #drivingReport .list-datas{
+        padding-left: 3px;
+        padding-bottom: 10px;
+        padding-top: 13px;
+        width: 107%;
+    }
+    #drivingReport .list-datas>div{
+        width: 25%;
+        height: 100%;
+        vertical-align: middle;
+        font-size: 9px;
+        float: left;
+    }
+    #drivingReport .list-datas>div>span:first-child{
+        color: #00d6ff;
+        font-size: 13px;
+    }
+    #drivingReport #navRight {
+        color: #00d6ff !important;
+        font-size: 17px;
+        margin-right: 5px;
+    }
+    #drivingReport .marginDiv {
+        height: 10px;
+        width: 100%;
+        background: rgba(25, 24, 33, 0.3);
+    }
+    #drivingReport.page {
+        background: url(../common/img/background.png) no-repeat;
+        background-size: 100% 100%;
+            background-color: #252432;
+    }
+    #drivingReport #nav-bar {
+        background: transparent;
+    }
+    #drivingReport .line-top {
+        top: -0.2033324231rem;
+        bottom: 0.90892958rem;
+    }
+    #drivingReport .line-bottom {
+        height: 0.69973035rem;
+        bottom: 0.03rem;
+    }
+
+    /* scroller */
+        #drivingReport #wrapper {
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            top: 0;
+            bottom: 0;
+            height: auto;
+            overflow: hidden;
+        }
+        #drivingReport #scroller {
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            min-height: 100.5%;
+        }
+        #drivingReport .pulldown {
+            height: 60px;
+            position: absolute;
+            top: -60px;
+            /*top: 0;*/
+            color: white;
+            width: 100%;
+            z-index: 999;
+            padding-top: 10px;
+            text-align: center;
+            font-weight: inherit;
+        }
+        #drivingReport .pullDownInfoTop {
+            font-size: 13px;
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            position: relative;
+        }
+        #drivingReport .pullDownInfoTop.hidden {
+            display: none;
+        }
+        #drivingReport .pullDowningInfoTop {
+            display: none;
+        }
+        #drivingReport .pullDownedInfoTop {
+            display: none;
+        }
+        #drivingReport .pullDowningInfoTop.show {
+            display: block;
+        }
+        #drivingReport .pullDownedInfoTop.show {
+            display: block;
+        }
+        #drivingReport .pullDownInfoBottom {
+            font-size: 10px;
+            margin-top: 3px;
+            padding-left: 10px;
+            height: 19px;
+            position: relative;
+            line-height: 19px;
+        }
+        #drivingReport .pulldown .icon {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            background-size: 25px 50px;
+            float: none;
+        }
+        #drivingReport .pulldown.flip .pullDownInfoBottom {
+            display: none;
+        }
+        #drivingReport .pulldown.loading .icon {
+            background: url("../home/img/home-loading.png") no-repeat;
+            background-size: 19px;
+            position: relative;
+            top: -3px;
+            width: 19px;
+            height: 19px;
+        }
+        #drivingReport .pulldown .label {
+            position: relative;
+            display: inline-block;
+        }
+       #drivingReport .pulldown.loading .label, #drivingReport .pulldown.flip .label {
+            line-height: 60px;
+        }
+
+
+        #drivingReport .iconOne {
+            position: absolute;
+            height: 28px;
+            width: 28px;
+            border-radius: 28px;
+            border: 1px solid white;
+            clip: rect(0px,28px,0px,14px);
+            top: 0;
+        }
+        #drivingReport .iconTwo {
+            position: absolute;
+            height: 28px;
+            width: 28px;
+            border-radius: 28px;
+            border: 1px solid white;
+            clip: rect(0px,28px,0px,14px);
+            transform: rotate(180deg);
+            top: 0;
+        }
+        #drivingReport .pulldown.flip .icon {
+            -webkit-transform: rotate(0) translateZ(0);
+        }
+        #drivingReport .pulldown.loading .iconOne {
+            clip: rect(0px 28px 28px 14px) !important;
+        }
+        #drivingReport .pulldown.loading .iconTwo {
+            clip: rect(0px 28px 26px 14px) !important;
+        }
+        #drivingReport .pulldown {
+            height: 60px;
+            position: absolute;
+            top: -60px;
+            /*top: 0;*/
+            color: white;
+            width: 100%;
+            z-index: 999;
+            padding-top: 10px;
+            text-align: center;
+            font-weight: inherit;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        #drivingReport .pulldownWrap {
+        
+        }
+        #drivingReport .pulldownWrap.hidden {
+            display: none;
+        }
+        #drivingReport .pulldown .icon {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background-size: 28px;
+            float: none;
+            background: url("../home/img/home-down.png");
+            background-repeat: no-repeat;
+            background-position: 50%;
+                -webkit-animation-duration: 1.3s;
+        }
+        #drivingReport .pulldown.flip .icon {
+            background-size: 0;
+        }
+        #drivingReport .pulldown.loading .icon {
+            background: url("../home/img/home-loading.png") no-repeat;
+            background-size: 19px;
+            position: relative;
+            top: -3px;
+            width: 28px;
+            height: 28px;
+            background-position: 50%;
+        }
+        #drivingReport .pulldown .label {
+         
+        }
+        #drivingReport .pulldown.loading .label, #drivingReport .pulldown.flip .label {
+            line-height: 28px;
+        }
+        
+        #drivingReport #iconDiv {
+       
+        }
+        #drivingReport #pullDownInfoDiv {
+            display: block;
+            font-size: 10px;
+            line-height: 10px;
+            padding-left: 4px;
+            left: 30%;
+            position: relative;
+            margin-top: 7px;
+            margin-left: 15px;
+        }
+        #drivingReport .pulldownText {
+            display: inline-block;
+        }
+        #drivingReport .pulldown.flip #pullDownInfoDiv,#chargeIndex .pulldown.loading #pullDownInfoDiv {
+            display: none;
+        }
+
+        /* scroller end */
+        #drivingReport .pt-perspective {
+            position: relative;
+            color: white;
+            width: 100%;
+            z-index: 10;
+        }
+        #drivingReport #circle-slider {
+            width: 100%;
+            height: 100%;
+            margin-top: 5px;
+        }
+        #drivingReport .circle-arrow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+        #drivingReport .left-circle-arrow {
+            float: left;
+            height: 60px;
+            width: 8%;
+            margin-top: 20%;
+        }
+        #drivingReport .left-circle-arrow span {
+            background-image: url(../drivingReport/img/left-arrow.svg);
+            background-repeat: no-repeat;
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            background-size: 14px 24px;
+            margin-left: 6px;
+            margin-top: 20px;
+        }
+        #drivingReport .right-circle-arrow {
+            float: right;
+            height: 60px;
+            width: 8%;
+            margin-top: 20%;
+        }
+
+        #drivingReport .right-circle-arrow span {
+            background-image: url(../drivingReport/img/right-arrow.svg);
+            background-repeat: no-repeat;
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            background-size: 14px 24px;
+            margin-right: 6px;
+            margin-top: 20px;
+            float: right;
+        }
+
+        #drivingReport #chrysanthemumWarp {
+            z-index: 9999;
+        }
+
+        #drivingReport .chrysanthemum {
+            margin-left: -42.5px;
+        }
+
+        #drivingReport #mainTitle {
+            font-size: 15px;
+        }
+
+        #drivingReport .swiper-slide {
+            height: auto !important;
+        }
+        #drivingReport .overIncallInfo {
+            margin-top: 15px;
+            font-size: 12px;
+        }
+        #drivingReport .loading .overIncallInfo,#drivingReport .error .overIncallInfo { 
+            display: none;
+        }
+        #drivingReport .overIncallValue {
+            font-size: 18px;
+        }
+        #drivingReport .deleteDriving-warp {
+            position: absolute;
+            color: white;
+            background-color: #263143;
+            width: 106px;
+            height: 37px;
+            line-height: 37px;
+            text-align: center;
+            top: -37px;
+            left: 40%;
+            border-radius: 6px;
+            z-index: 1000;
+            display: none;
+        }
+        #drivingReport .list-content.deleteDriving .deleteDriving-warp {
+            display: block;
+        }
+        #drivingReport .deleteDriving-warp:after {
+            content: '';
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            position: absolute;
+            bottom: -6px;
+            left: 45px;
+            background-color: #263143;
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+        }
+        #drivingReport .list-content {
+
+        }
+        /* 常规车中间的4个车况项目 */
+        #drivingReport .line1 {
+            width: 100%;
+            height: .5973307847rem;
+        }
+        #drivingReport .route-block {
+            height: .5973307847rem;
+            width: 50%;
+            float: left;
+            padding-left: .0853329692rem;
+            background-color: transparent;
+        }
+        #drivingReport .little-icon {
+            position: relative;
+            left: .3413318770rem;
+            top: .1621326416rem;
+        }
+        #drivingReport .little-number {
+            position: relative;
+            margin-left: 0.407864627819rem;
+            top: .1586659385rem;
+            font-size: 0.3245322046625934rem;
+            color: white;
+            font-family: DIN-Condensed-Bold;
+            display: -moz-inline-box;
+            display: inline-block;
+            text-align: right;
+        }
+        #drivingReport .little-unit {
+            position: relative;
+            top: .1503324231rem;
+            left: .6007974878rem;
+            font-size: .11093286rem;
+            color: white;
+            font-family: "Helvetica";
+        }
+        #drivingReport .little-unit-span {
+            font-size: 0.08533296924599788rem;
+            line-height: .11093286rem;
+        }
+        #drivingReport .time-block {
+            height: .5973307847rem;
+            width: 50%;
+            float: left;
+            background-color: transparent;
+        }
+        #drivingReport .line2 {
+            margin-top: .1535993446rem;
+            width: 100%;
+            height: .5973307847rem;
+        }
+        #drivingReport .oil-block {
+            height: .5973307847rem;
+            width: 50%;
+            float: left;
+            padding-left: .0853329692rem;
+            background-color: transparent;
+        }
+        #drivingReport .fee-block {
+            height: .5973307847rem;
+            width: 50%;
+            float: left;
+            background-color: transparent;
+        }
+        #drivingReport .item-circle-bottom {
+            height: 15px;
+            color: #737987;
+            text-align: center;
+            font-size: 10px;
+            padding-top: 5px;
+        }
+        #drivingReport .driving-option4 {
+            padding: 0 14px;
+        }
+        #drivingReport .option4-warp {
+            text-align: center;
+            color: white;
+            background-color: rgba(164, 164, 164, 0.1);
+            height: 36px;
+            line-height: 36px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        #drivingReport .option4-icon {
+            background-image: url(../drivingReport/img/arrow.png);
+            width: 6px;
+            height: 9px;
+            display: inline-block;
+            background-size: 6px;
+            margin-left: 7px;
+        }
+        #drivingReport .list-name-icon {
+            background-image: url(../drivingReport/img/arrow.png);
+            width: 6px;
+            height: 9px;
+            background-size: 6px;
+            position: absolute;
+            right: 4px;
+            top: 36px;
+        }
+        #drivingReport .guide-shadow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 9;
+            display: none;
+        }
+        #drivingReport .guide-setting-driving-history {
+            width: 262px;
+            height: 207px;
+            margin: auto;
+            display: none;
+        }
+        #drivingReport .guide-shadow-image {
+            z-index: 10;
+        }
+        #drivingReport .guide-setting-driving-history .guide-shadow-image {
+            width: 100%;
+            height: 100%;
+            background-image: url(../drivingReport/img/guide-setting-driving-history.png);
+            background-size: 262px;
+            background-repeat: no-repeat;
+        }
+        #drivingReport .guide-delete-driving {
+            width: 100%;
+            height: 1.09226201rem;
+            display: none;
+            position: relative;
+        }
+        #drivingReport .guide-delete-driving .guide-shadow-image {
+            width: 195px;
+            height: 145px;
+            background-image: url(../drivingReport/img/guide-delete-driving.png);
+            background-size: 195px;
+            background-repeat: no-repeat;
+            position: absolute;
+            right: 26px;
+            top: -24px;
+        }
+
+    
+  </style>
+  <script id="datetime-swipe-template" type="text/x-underscore-template">
+    <% var datetimeDataArrItem %>
+    <div class="datetime-swipe-slide swiper-slide">
+        <div class="datetime-swipe-item">
+            <div id="<%='datetime-swipe-'+datetimeDataArrItem[0].datetime%>" class="item-circle <%=datetimeDataArrItem[0].disable?'disable':''%>" data-value="<%=datetimeDataArrItem[0].datetime%>" data-week="0">
+                <p><%=datetimeDataArrItem[0].num%></p>
+                <div class="item-circle-background"></div>
+            </div>
+            <div class="item-circle-bottom" id="<%='datetime-bottom-'+datetimeDataArrItem[0].datetime%>"></div>
+        </div>
+        <div class="datetime-swipe-item">
+            <div id="<%='datetime-swipe-'+datetimeDataArrItem[1].datetime%>" class="item-circle <%=datetimeDataArrItem[1].disable?'disable':''%>" data-value="<%=datetimeDataArrItem[1].datetime%>" data-week="1">
+                <p><%=datetimeDataArrItem[1].num%></p>
+                <div class="item-circle-background"></div>
+            </div>
+            <div class="item-circle-bottom" id="<%='datetime-bottom-'+datetimeDataArrItem[1].datetime%>"></div>
+
+        </div>
+        <div class="datetime-swipe-item">
+            <div id="<%='datetime-swipe-'+datetimeDataArrItem[2].datetime%>" class="item-circle <%=datetimeDataArrItem[2].disable?'disable':''%>" data-value="<%=datetimeDataArrItem[2].datetime%>" data-week="2">
+                <p><%=datetimeDataArrItem[2].num%></p>
+                <div class="item-circle-background"></div>
+            </div>
+            <div class="item-circle-bottom" id="<%='datetime-bottom-'+datetimeDataArrItem[2].datetime%>"></div>
+
+        </div>
+        <div class="datetime-swipe-item">
+            <div id="<%='datetime-swipe-'+datetimeDataArrItem[3].datetime%>" class="item-circle <%=datetimeDataArrItem[3].disable?'disable':''%>" data-value="<%=datetimeDataArrItem[3].datetime%>" data-week="3">
+                <p><%=datetimeDataArrItem[3].num%></p>
+                <div class="item-circle-background"></div>
+            </div>
+            <div class="item-circle-bottom" id="<%='datetime-bottom-'+datetimeDataArrItem[3].datetime%>"></div>
+
+        </div>
+        <div class="datetime-swipe-item">
+            <div id="<%='datetime-swipe-'+datetimeDataArrItem[4].datetime%>" class="item-circle <%=datetimeDataArrItem[4].disable?'disable':''%>" data-value="<%=datetimeDataArrItem[4].datetime%>" data-week="4">
+                <p><%=datetimeDataArrItem[4].num%></p>
+                <div class="item-circle-background"></div>
+            </div>
+            <div class="item-circle-bottom" id="<%='datetime-bottom-'+datetimeDataArrItem[4].datetime%>"></div>
+
+        </div>
+        <div class="datetime-swipe-item">
+            <div id="<%='datetime-swipe-'+datetimeDataArrItem[5].datetime%>" class="item-circle <%=datetimeDataArrItem[5].disable?'disable':''%>" data-value="<%=datetimeDataArrItem[5].datetime%>" data-week="5">
+                <p><%=datetimeDataArrItem[5].num%></p>
+                <div class="item-circle-background"></div>
+            </div>
+            <div class="item-circle-bottom" id="<%='datetime-bottom-'+datetimeDataArrItem[5].datetime%>"></div>
+        </div>
+        <div class="datetime-swipe-item">
+            <div id="<%='datetime-swipe-'+datetimeDataArrItem[6].datetime%>" class="item-circle <%=datetimeDataArrItem[6].disable?'disable':''%>" data-value="<%=datetimeDataArrItem[6].datetime%>" data-week="6">
+                <p><%=datetimeDataArrItem[6].num%></p>
+                <div class="item-circle-background"></div>
+            </div>
+            <div class="item-circle-bottom" id="<%='datetime-bottom-'+datetimeDataArrItem[6].datetime%>"></div>
+        </div>
+    </div>
+  </script>
+  <script id="datetime-title-template" type="text/x-underscore-template">
+    <span class="<%=datetimeDataItem[0].disable?'disable':''%><%=activeNum==0?' active':''%>">一</span>
+    <span class="<%=datetimeDataItem[1].disable?'disable':''%><%=activeNum==1?' active':''%>">二</span>
+    <span class="<%=datetimeDataItem[2].disable?'disable':''%><%=activeNum==2?' active':''%>">三</span>
+    <span class="<%=datetimeDataItem[3].disable?'disable':''%><%=activeNum==3?' active':''%>">四</span>
+    <span class="<%=datetimeDataItem[4].disable?'disable':''%><%=activeNum==4?' active':''%>">五</span>
+    <span class="<%=datetimeDataItem[5].disable?'disable':''%><%=activeNum==5?' active':''%>">六</span>
+    <span class="<%=datetimeDataItem[6].disable?'disable':''%><%=activeNum==6?' active':''%>">日</span>
+  </script>
+  <script type="text/x-underscore-template" id="rout-datas">
+        <div class="list-content list-content-<%=i%>" data-index="<%=i%>" data-id='<%=drivingHistoryId%>'>
+            <div class="deleteDriving-warp">删除</div>
+            <div class="list-left">
+                <p><%=startTimeStr%></p>
+                <p><%=endTimeStr%></p>
+            </div>
+            <div class="list-center">
+                <div class="line-top"></div>
+                <div class="imgDiv"><img src="../drivingReport/img/cricle_node.png"></div>
+                <div class="line-bottom"></div>
+            </div>
+            <div class="list-right">
+                <div class="list-right-content">
+                    <div class="list-right-title">
+                        <div class="list-start">起</div>
+                        <div class="list-end">终</div>
+                    </div>
+                    <div class="list-right-datas">
+                        <div class="list-name" style='margin-top: 9px'><%=startAddressName%></div>
+                        <div class="list-name" style="margin-right: 14px"><%=endAddressName%><span class="list-name-icon"></span></div>
+                        <div class="list-datas">
+                            <div><span><%=mileage%></span> <span>km</span></div>
+                            <div><span><%=spendTime.toFixed(0)%></span> <span>分钟</span></div>
+                            <div><span><%=avrgSpeed.toFixed(0)%></span> <span>km/h</span></div>
+                            <!--<div><span><%=oil%></span> <span>L</span></div>-->
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+  </script>
+  
+  <header id="nav-bar" class="bar bar-nav blue-bar" navTitle='""' navRight='{"text":"分享"}'>
+  </header>
+  <div class="content">
+      <div id="wrapper">
+          <div id="scroller">
+              <div class="pulldown">
+                    <div class="pulldownWrap">
+                        <div id='iconDiv'>
+                            <span class="icon"><div class='iconOne'></div>
+                            <div class='iconTwo'></div></span>
+                        </div>
+                        <span class="label">下拉刷新...</span>
+                    </div>
+                    
+              </div>
+              <div class='contentWarp'>
+                    <div class="datetime-swipe">
+                        <div class="datetime-title">
+                            
+                        </div>
+                        <div class="datetime-content">
+                            <div id="datetime-slider" class="swiper-container">
+                              <div id='datetime-swipe-wrap' class="swiper-wrapper">
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="drivingReportInfo">
+                        <div class = "line1">
+                            <div class = "route-block">
+                            <div>
+                              <img src="../drivingReport/img/whole-route.png" class = "little-icon" width="20px" height="20px">
+                              <span class = "little-number" id = "total-kilo">0.0</span>
+                            </div>
+                            <div>
+                              <span class = "little-unit">里程 <span class="little-unit-span">km</span></span>
+                            </div>
+                          </div>
+                            <div class = "time-block">
+                                <div>
+                                    <img src="../drivingReport/img/whole-time.png" class = "little-icon" width="20px" height="20px">
+                                    <span class = "little-number" id = "total-time">0.0</span>
+                                </div>
+                                <div>
+                                    <span class = "little-unit">耗时 <span class="little-unit-span">分</span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "line2" style="display:none" id="drivingIndexView-oil">
+                            <div class = "oil-block">
+                            <div>
+                              <img src="../drivingReport/img/whole-oil.png" class = "little-icon" width="20px" height="20px">
+                              <span class = "little-number" id = "total-oil">0.0</span>
+                            </div>
+                            <div>
+                              <span class = "little-unit">耗油 <span class="little-unit-span">L</span></span>
+                            </div>
+                          </div>
+                            <div class = "fee-block">
+                                <div>
+                                    <img src="../drivingReport/img/whole-cost.png" class = "little-icon" width="20px" height="20px">
+                                    <span class = "little-number" id = "total-fee">0.0</span>
+                                </div>
+                                <div>
+                                    <span class = "little-unit">油费 <span class="little-unit-span">元</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+             
+              </div>
+
+            <div class="driving-option3">
+                <div class="option3-content" id = "driving-option2">
+                    <p>共有 <span id = "driving-number">0</span> 段行程</p>
+                </div>
+            </div>
+            <div class="driving-option4">
+                <div class="option4-warp">获得 <span class="option4-score">--</span> 分驾驶经验值，查看详情<span class="option4-icon"></span></div>
+            </div>
+            <div class="driving-route">
+            </div>
+
+          </div>
+      </div>
+      <div class="guide-shadow">
+        <div class="guide-shadow-warp guide-setting-driving-history">
+            <div class="guide-shadow-image"></div>
+        </div>
+        <div class="guide-shadow-warp guide-delete-driving">
+            <div class="guide-shadow-image"></div>
+            <div class="shadow-list-right"></div>
+        </div>
+      </div>
+  </div>
+</div>

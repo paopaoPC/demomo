@@ -1,0 +1,36 @@
+<html>
+<head>
+        <meta charset="utf-8" content="telephone=no" name="format-detection">
+</head>
+<script type="text/javascript">
+	var page;
+	window.onDeviceOneLoaded = function(){
+		page = sm("do_Page");
+		var arrs = [];
+		var objs = document.getElementsByTagName('img');
+		for(var int=0;int<objs.length;int++)
+		{
+		arrs.push( objs[int].src);
+		}
+		for(var int=0;int<objs.length;int++)
+		{
+		objs[int].tag = int;
+		objs[int].onclick = function (){
+			page.fire("postDetailImageClick",{"index":this.tag,"imgs":arrs});
+		}
+		}
+	}
+	function getContentHeight(){
+		return document.getElementById('cos1body').offsetHeight;
+	}  
+</script>
+<style>
+/* CSS Document */
+
+</style>
+<body style = "background-color : white;wdith:100% " >
+<div  id="cos1body" style = " background-color : white;wdith:100% ">
+##source##
+</div>
+</body>
+</html>

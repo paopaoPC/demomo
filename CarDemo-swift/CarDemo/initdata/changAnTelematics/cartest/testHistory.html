@@ -1,0 +1,238 @@
+<div id="testHistory" data-view="cartest/testHistory">
+	<style>
+		#testHistory .testHistory-label
+		{
+			width: 100%;
+			height: 39px;
+			text-align: center;
+			font-size: 13px;
+			line-height: 39px;
+			color:rgb(112, 112, 112);
+		}
+
+		#testHistory .testHistory-item-block
+		{
+			width: 100%;
+			height:120px; 
+		
+			background-color: transparent;
+		}
+
+		#testHistory .testHistory-item
+		{
+			position: relative;
+			width: 100%;
+			height:105px;
+		}
+		#testHistory .testHistory-item:active{
+			background-color: #f1f1f1
+		}
+		#testHistory .testHistory-item:after{
+			bottom: 0px;
+			left: -50%;
+			content: "";
+			display: block;
+			position: absolute;
+			width: 200%;
+			height: 1px;
+			background: gray;
+			opacity: 0.7;
+			-webkit-transform: scale(0.5);
+			z-index: 99;
+		}
+		#testHistory .testHistory-item:before{
+			top: 0px;
+			left: -50%;
+			content: "";
+			display: block;
+			position: absolute;
+			width: 200%;
+			height: 1px;
+			background: gray;
+			opacity: 0.7;
+			-webkit-transform: scale(0.5);
+			z-index: 99;
+		}
+		/*#testHistory .testHistory-line
+		{
+			width: 100%;
+			height: 1px;
+			background-color: gray;
+			opacity: 0.2;
+			z-index: 1;
+		}*/
+
+		#testHistory .testHistory-item-head
+		{
+			position: relative;
+			width: 100%;
+			height: 32px;
+			line-height: 32px;
+			background-color: white;
+		}
+
+		#testHistory .testHistory-test-date
+		{
+			display: inline;
+			font-size: 13px;
+			height: 100%;
+			margin-left: 19px;
+			color:rgb(114, 114, 114);
+		}
+
+		#testHistory .testHistory-test-time
+		{
+			display: inline;
+			font-size: 12px;
+			height: 100%;
+			margin-left: 5px;
+			color:rgb(114, 114, 114);
+		}
+
+		#testHistory .testHistory-item-content
+		{
+			position: absolute;
+			top: 32px;
+			bottom: 0px;
+			left: 0px;
+			right: 0px;
+			font-size: 0px;
+			background-color: white;
+		}
+
+		#testHistory .testHistory-score-block
+		{
+			display: inline-block;
+			width:30%;
+			height: 100%;
+			text-align: center;
+			vertical-align: top;
+		}
+
+		#testHistory .testHistory-score-circle
+		{
+			width: 52px;
+			height: 52px;
+			border-radius: 100%;
+			border: 1px solid rgb(195, 195, 195);
+			text-align: center;
+			margin-top: 3px;
+			margin-left: auto;
+			margin-right: auto;
+		}	
+
+		#testHistory .testHistory-score
+		{
+			font-size: 20px;
+			line-height: 20px;
+			margin-top: 9px;
+			margin-bottom: 3px;
+			color:#1e9dfa;
+		}	
+
+		#testHistory .testHistory-result-block
+		{
+			display: inline-block;
+			text-align: center;
+			width: 60%;
+			height: 100%;
+			font-size: 0px;
+			vertical-align: top;
+		}
+
+		#testHistory .testHistory-result-item
+		{
+			display: inline-block;
+			text-align: center ;
+			width:33.3%;
+			height: 100%;
+		}
+
+		#testHistory .testHistory-result-name
+		{
+			margin-top: 10px;
+			font-size: 14px;
+			color:rgb(89, 89, 89);
+		}
+
+		#testHistory .testHistory-result
+		{
+			margin-top: 8px;
+			font-size: 20px;
+		}
+
+		#testHistory .testHistory-icon-more-block
+		{
+			display: inline-block;
+			background-image: url(../cartest/img/icon-right.png);
+			background-position: 40% 22%;
+			background-size: 7px 14px;
+			background-repeat: no-repeat;
+			width: 10%;
+			height: 100%;
+		}
+	</style>
+	<script id="historyItemTemplate" type="text/x-underscore-template">
+    	<div class="testHistory-item-block">
+    		<div id="testHistoryItem" itemID="<%=checkHistoryId%>" class="testHistory-item">
+    			<div class="testHistory-item-head">
+    				<div class="testHistory-test-date">
+    					体检时间:<%=dataTime%>
+    				</div>
+    				<div class="testHistory-test-time">
+    					<%=time%>
+    				</div>
+    			</div>
+    			<div class="testHistory-item-content">
+    				<div class="testHistory-score-block">
+    					<div class="testHistory-score-circle">
+    						<div class="testHistory-score">
+    							<%=score%>
+    						</div>
+    						<div style="font-size:9px;color:rgb(127, 127, 127);">
+    							分
+    						</div>
+    					</div>
+    				</div>
+    				<div class="testHistory-result-block">
+	    				<div class="testHistory-result-item">
+	    					<div class="testHistory-result-name">
+	    						故障
+	    					</div>
+	    					<div class="testHistory-result" style="color:rgb(227,85,125)">
+	    						<%=faultCount%>
+	    					</div>
+	    				</div><!-- 
+    			 	 --><div class="testHistory-result-item">
+	    					<div class="testHistory-result-name">
+	    						风险
+	    					</div>
+	    					<div class="testHistory-result" style="color:rgb(252,124,0)">
+	    						<%=riskCount%>
+	    					</div>
+	    				</div><!-- 
+    			 	 --><div class="testHistory-result-item">
+	    					<div class="testHistory-result-name">
+	    						正常
+	    					</div>
+	    					<div class="testHistory-result" style="color:rgb(2, 194, 143)">
+	    						<%=normalCount%>
+	    					</div>
+	    				</div>
+	    			</div><!-- 
+	    		 --><div class="testHistory-icon-more-block">
+	    		 	</div>
+	    		</div>
+    		</div>
+    	</div>
+    </script>
+	<header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}' navTitle='"历史诊断报告"'>
+    </header>
+	<div class="content">
+		<div id="testHistoryLabel" class="testHistory-label">
+			最近10次报告 
+		</div>
+		<div id="testHistoryList" style="width:100%">
+		</div>
+	</div>
+</div>

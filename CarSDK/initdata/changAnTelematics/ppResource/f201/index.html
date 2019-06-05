@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>three.js webgl - FBX loader</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+        body {
+            font-family: Monospace;
+            background-color: #000;
+            color: #fff;
+            margin: 0px;
+            overflow: hidden;
+        }
+
+        #info {
+            color: #fff;
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            text-align: center;
+            z-index: 100;
+            display: block;
+        }
+
+        #info a {
+            color: #046;
+            font-weight: bold;
+        }
+
+        #menu {
+            position: absolute;
+            bottom: 50px;
+            width: 100%;
+            text-align: center;
+        }
+
+        button {
+            background: transparent;
+            border: 0px;
+            width: 102px;
+            height: 134px;
+            background-image: url("Assets/Textures/c5.png");
+        }
+
+        button:hover {
+            background-image: url("Assets/Textures/c5z.png");
+        }
+
+        button:active {
+            color: #000000;
+            background-color: rgba(0, 255, 255, 0.75);
+        }
+
+        #loading {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: black;
+            z-index: 1001;
+        }
+
+        #loading_logo {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background: url("Assets/Textures/loading_logo.png") center no-repeat;
+            background-size: auto 100%;
+        }
+
+        #loading_progress {
+            position: absolute;
+            width: 0%;
+            height: 3px;
+            top: 70%;
+            left: 25%;
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="loading">
+    <div id="loading_logo"></div>
+    <div id="loading_progress"></div>
+</div>
+
+<div id="info">
+
+</div>
+<!-- <div id="menu">
+    <button id="table" style=background-image: url("Assets/Textures/c5z.png");>TABLE</button>
+    <button id="sphere">SPHERE</button>
+    <button id="helix">HELIX</button>
+    <button id="grid">GRID</button>
+</div> -->
+
+<script src="build/three.js"></script>
+
+<script src="js/zepto.min.js"></script>
+
+<script src="js/libs/inflate.min.js"></script>
+<script src="js/loaders/FBXLoader.js"></script>
+<script src="js/libs/ammo.js"></script>
+<script src="js/controls/OrbitControls.js"></script>
+
+<script src="js/WebGL.js"></script>
+<script src="js/libs/stats.min.js"></script>
+<script src="js/libs/dat.gui.min.js"></script>
+<script src="js/objects/Lensflare.js"></script>
+<script src="./InterF.js"></script>
+
+<script>
+    function updateProgress(percent) {
+        document.getElementById('loading_progress').style.width = 50 * percent + '%';
+    }
+
+    updateProgress(0);
+
+    if (WEBGL.isWebGLAvailable() === false) {
+
+        document.body.appendChild(WEBGL.getWebGLErrorMessage());
+
+    }
+
+    var container, stats, controls;
+    var camera, scene, renderer, light;
+
+    var clock = new THREE.Clock();
+
+    var mixers = [];
+
+    var group;
+
+    var texCube;
+
+    var carMat;
+
+    var carLightMat;
+
+    var carGrassMat;
+
+    var carWheelAction;
+
+    var openActions = {};
+
+    var closeActions = {};
+
+    var partStates = {
+        'qlc': 0,
+        'hlc': 0,
+        'qrc': 0,
+        'hrc': 0,
+        'bc': 0,
+        'tcc': 0,
+        'light': 0,
+        'Rot': 1,
+        'wheel': 0,
+        'qlbc': 0,
+        'qrbc': 0,
+        'hlbc': 0,
+        'hrbc': 0
+    }
+
+    var loadId = 0;
+
+    var windowsMap = {};
+
+    var windowStartPos = {};
+
+    var windowEndPos = {};
+
+    var speed = 0.01;
+
+    var carLoaded = false;
+
+    var spriteGroup = [];
+
+    var raycaster = new THREE.Raycaster();
+    var mouse = new THREE.Vector3();
+
+    var dirLight;
+
+    var potLights = [];
+
+    var carBodyColor = '#000000';
+
+    var sceneLight;
+
+    var flares = [];
+
+    var refPower = 0.1;
+
+    var spePower = 0xeeeeee;
+
+    var aoMap;
+    init();
+
+    initCar();
+    animate();
+
+    function init() {
+
+        container = document.createElement('div');
+        document.body.appendChild(container);
+
+        document.body.addEventListener('touchmove', function (e) {
+            e.preventDefault();
+        }, {passive: false});
+
+        camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
+        camera.position.set(0, 50, 200);
+
+        controls = new THREE.OrbitControls(camera);
+        controls.target.set(0, 50, 0);
+        controls.update();
+        controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
+        controls.dampingFactor = 0.1;
+        controls.autoRotate = true;
+        // controls.autoRotate = false;
+        controls.autoRotateSpeed = 0.1;
+        controls.enableRotate = true;
+        controls.rotateSpeed = 0.07;
+        controls.screenSpacePanning = false;
+        controls.enablePan = false;
+
+        controls.minDistance = 180;
+        controls.maxDistance = 300;
+        // controls.maxDistance = 1000;
+        controls.maxPolarAngle = Math.PI / 2;
+        //controls.minPolarAngle = Math.PI / 2.5;
+
+//				var r = "Assets/Textures/Park2/";
+//				var urls = [
+//					r + "posx.jpg", r + "negx.jpg",
+//					r + "posy.jpg", r + "negy.jpg",
+//					r + "posz.jpg", r + "negz.jpg"
+//				];
+
+        // var r = "Assets/Textures/huanjing/";
+        // var urls = [
+        //     r + "555_r.jpg", r + "555_l.jpg",
+        //     r + "555_u.jpg", r + "555_d.jpg",
+        //     r + "555_f.jpg", r + "555_b.jpg"
+        // ];
+        // texCube = new THREE.CubeTextureLoader().load(urls);
+        texCube = new THREE.CubeTextureLoader()
+            .setPath('Assets/Textures/huanjing/')
+            .load(['555_r.jpg', '555_l.jpg', '555_u.jpg', '555_d.jpg', '555_f.jpg', '555_b.jpg']);
+
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x000000);
+        //scene.background = texCube;
+        //scene.fog = new THREE.Fog( 0xa0a0a0, 150, 800 );f
+
+        sceneLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.7);
+        sceneLight.position.set(0, 200, 0);
+        scene.add(sceneLight);
+
+        dirLight = new THREE.DirectionalLight(0xFFF8E8, 0.5);
+        dirLight.position.set(0, 200, 200);
+        dirLight.castShadow = false;
+
+        // scene.add(dirLight);
+
+        var spotLight = new THREE.SpotLight(0xffffff, 0.35);
+        spotLight.castShadow = true;
+        scene.add(spotLight);
+        spotLight.position.set(0, 500, 0);
+        spotLight.shadow.mapSize.width = 512;
+        spotLight.shadow.mapSize.height = 512;
+        spotLight.shadow.camera.near = 0.5;
+        spotLight.shadow.camera.far = 1000;
+
+        group = new THREE.Group();
+        group.position.set(-50, 30, 0);
+        //group.rotateY(90);
+        group.visible = false;
+        scene.add(group);
+
+        // scene.add( new THREE.CameraHelper( light.shadow.camera ) );
+
+        scene.fog = new THREE.Fog(0x000000, 300, 400);
+
+
+        var grid = new THREE.GridHelper(3000, 100, 0x888888, 0x888888);
+        grid.position.set(-16, 19, 0);
+        grid.material.opacity = 0.2;
+        grid.material.transparent = true;
+        scene.add(grid);
+
+        // var textureLoader = new THREE.TextureLoader();
+        //var diflMap = textureLoader.load( "Assets/Textures/floors/FloorsCheckerboard_S_Diffuse.jpg" );
+        //var norMap = textureLoader.load( "Assets/Textures/floors/FloorsCheckerboard_S_Normal.jpg" );
+        var mesh = new THREE.Mesh(new THREE.PlaneBufferGeometry(3000, 3000, 100, 100), new THREE.MeshStandardMaterial({
+            color: 0x14171f,
+            // depthWrite: false
+        }));
+        //mesh.material.map = diflMap;
+        //mesh.material.normalMap = norMap;
+        mesh.position.set(-16, 19, 0);
+        mesh.rotation.x = -Math.PI / 2;
+        mesh.scale.set(1, 1, 1);
+        mesh.receiveShadow = true;
+        scene.add(mesh);
+
+        var textureLoader = new THREE.TextureLoader();
+        aoMap = textureLoader.load("Assets/Models/GI_texture2048.jpg");
+        // carMat = new THREE.MeshPhongMaterial({color: 0xffffff, envMap: texCube});
+        // carMat.reflectivity = refPower;
+        // carMat.specular = new THREE.Color(0x000000);
+        // carMat.shininess = 0;
+        // carMat.aoMap = aoMap;
+        // carMat.aoMapIntensity = 0.2;
+
+        carMat = new THREE.MeshStandardMaterial({
+            color: 0xffffff,
+            envMap: texCube,
+            roughness: 0.5,
+            metalness: 0.1,
+            aoMap: aoMap,
+            aoMapIntensity: 0.4
+        });
+
+        // carGrassMat = new THREE.MeshPhongMaterial({color: 0x000000, envMap: texCube});
+        // carGrassMat.reflectivity = 0.8;
+        // carGrassMat.specular = new THREE.Color(0xFFF5DF);
+        // carGrassMat.shininess = 30;
+
+        carGrassMat = new THREE.MeshStandardMaterial({
+            color: 0x888888,
+            envMap: texCube,
+            metalness: 0.7,
+            roughness: 0.1,
+            opacity: 0.4,
+            transparent: true,
+            premultipliedAlpha: true,
+            side: THREE.DoubleSide,
+            depthWrite: false
+        });
+
+        carLightMat = new THREE.MeshPhongMaterial({color: 0xffffff, envMap: texCube});
+        carLightMat.reflectivity = 0.3;
+        carLightMat.specular = new THREE.Color(0xFFF5DF);
+        carLightMat.shininess = 60;
+        carLightMat.transparent = true;
+        carLightMat.emissive = new THREE.Color(0x000000);
+        carLightMat.opacity = 0.1;
+
+        renderer = new THREE.WebGLRenderer({antialias: true});
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        container.appendChild(renderer.domElement);
+
+        // initGui();
+
+        window.addEventListener('resize', onWindowResize, false);
+        window.addEventListener('click', onMouseClick, false);
+
+        // stats
+        //stats = new Stats();
+        //container.appendChild( stats.dom );
+
+    }
+
+    function onWindowResize() {
+
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+
+        // renderer.setSize(window.innerWidth, window.innerHeight);
+
+    }
+
+
+    function onMouseClick(event) {
+
+        //通过鼠标点击的位置计算出raycaster所需要的点的位置，以屏幕中心为原点，值的范围为-1到1.
+
+        var x = (event.layerX / window.innerWidth) * 2 - 1;
+        var y = -(event.layerY / window.innerHeight) * 2 + 1;
+        var z = 0.5;
+        mouse.set(x, y, z);
+        // 通过鼠标点的位置和当前相机的矩阵计算出raycaster
+        raycaster.setFromCamera(mouse, camera);
+
+        // 获取raycaster直线和所有模型相交的数组集合
+        var intersects = raycaster.intersectObjects(spriteGroup, true);
+
+        if (intersects.length > 0) {
+            //console.log(intersects[0].object.name);
+            var nm = intersects[0].object.name;
+            pressSprite(nm);
+        }
+
+    }
+
+    function pressSprite(nm) {
+        //左前门
+        if (nm === 'flSp') {
+            unState('qlc');
+        }
+        //左前玻璃
+        else if (nm === 'flbo') {
+            unState('qlbc');
+        }
+        //左后门
+        else if (nm === 'blSp') {
+            unState('hlc');
+        }
+        //左后窗户
+        else if (nm === 'blbo') {
+            unState('hlbc');
+        }
+        //右前门
+        else if (nm === 'frSp') {
+            unState('qrc');
+        }
+        //右前玻璃
+        else if (nm === 'frbo') {
+            unState('qrbc');
+        }
+        //右后门
+        else if (nm === 'brSp') {
+            unState('hrc');
+        }
+        //右后窗户
+        else if (nm === 'brbo') {
+            unState('hrbc');
+        }
+        //后门
+        else if (nm === 'bSp') {
+            unState('bc');
+        }
+        //天窗skySp
+        else if (nm === 'skySp') {
+            unState('tcc');
+        }
+        //车轮
+        else if (nm === 'wheel') {
+            unState('wheel');
+        }
+        //车灯
+        else if (nm === 'light') {
+            unState('light');
+        }
+    }
+
+    function initSprites() {
+
+        var textureLoader = new THREE.TextureLoader();
+        var spMap = textureLoader.load("Assets/Textures/fun.png");
+        var spMat = new THREE.SpriteMaterial({map: spMap, color: 0xffffff, fog: true});
+        spMat.opacity = 0.3;
+        var spSize = 8;
+
+        group.traverse(function (child) {
+
+            if (child.name === '左车门控制') {
+                //左前门
+                var flSp = new THREE.Sprite(spMat);
+                flSp.position.set(25, -6, 5);
+                flSp.scale.set(spSize, spSize, 1);
+                flSp.name = 'flSp';
+                child.add(flSp);
+                spriteGroup.push(flSp);
+
+                //左前窗户
+                var flbo = new THREE.Sprite(spMat);
+                flbo.position.set(25, -6, 20);
+                flbo.scale.set(spSize, spSize, 1);
+                flbo.name = 'flbo';
+                child.add(flbo);
+                spriteGroup.push(flbo);
+            }
+            else if (child.name === '左侧门控制') {
+                //左后门
+                var blSp = new THREE.Sprite(spMat);
+                blSp.position.set(8, -6, 5);
+                blSp.scale.set(spSize, spSize, 1);
+                blSp.name = 'blSp';
+                child.add(blSp);
+                spriteGroup.push(blSp);
+
+
+                //左后窗户
+                var blbo = new THREE.Sprite(spMat);
+                blbo.position.set(15, -6, 20);
+                blbo.scale.set(spSize, spSize, 1);
+                blbo.name = 'blbo';
+                child.add(blbo);
+                spriteGroup.push(blbo);
+
+            }
+            else if (child.name === '右车门控制') {
+                //左前门
+                var frSp = new THREE.Sprite(spMat);
+                frSp.position.set(25, 6, 5);
+                frSp.scale.set(spSize, spSize, 1);
+                frSp.name = 'frSp';
+                child.add(frSp);
+                spriteGroup.push(frSp);
+
+                //左前窗户
+                var frbo = new THREE.Sprite(spMat);
+                frbo.position.set(25, 6, 20);
+                frbo.scale.set(spSize, spSize, 1);
+                frbo.name = 'frbo';
+                child.add(frbo);
+                spriteGroup.push(frbo);
+            }
+            else if (child.name === '右侧门控制') {
+                //左后门
+                var brSp = new THREE.Sprite(spMat);
+                brSp.position.set(8, 6, 5);
+                brSp.scale.set(spSize, spSize, 1);
+                brSp.name = 'brSp';
+                child.add(brSp);
+                spriteGroup.push(brSp);
+
+                //左后窗户
+                var brbo = new THREE.Sprite(spMat);
+                brbo.position.set(15, 6, 20);
+                brbo.scale.set(spSize, spSize, 1);
+                brbo.name = 'brbo';
+                child.add(brbo);
+                spriteGroup.push(brbo);
+            }
+            else if (child.name === '后logo') {
+                //后门
+                var bSp = new THREE.Sprite(spMat);
+                bSp.position.set(100, 0, -25);
+                bSp.scale.set(spSize * 30, spSize * 30, 1);
+                bSp.name = 'bSp';
+                child.add(bSp);
+                spriteGroup.push(bSp);
+                //console.log(bSp);
+            }
+            else if (child.name === '天窗控制') {
+                //天窗
+                var skySp = new THREE.Sprite(spMat);
+                skySp.position.set(6, 0, 6);
+                skySp.scale.set(spSize, spSize, 1);
+                skySp.name = 'skySp';
+                child.add(skySp);
+                spriteGroup.push(skySp);
+            }
+            //车灯
+            else if (child.name === 'Object216') {
+                var lightSp = new THREE.Sprite(spMat);
+                lightSp.position.set(-350, 0, 200);
+                lightSp.scale.set(spSize * 30, spSize * 30, 1);
+                lightSp.name = 'light';
+                child.add(lightSp);
+                spriteGroup.push(lightSp);
+
+            }
+            else if (child.name === 'Box034') {
+                //console.log(child);
+                //车轮
+                var wheelSp = new THREE.Sprite(spMat);
+                wheelSp.position.set(0, 15, 35);
+                wheelSp.scale.set(spSize, spSize, 1);
+                wheelSp.name = 'wheel';
+                group.add(wheelSp);
+                spriteGroup.push(wheelSp);
+            }
+        });
+    }
+
+    function initCar() {
+        loadCarBody();
+        loadCarWheels();
+        loadCarBackDoor('door_backdoor', 0, 30, 30, 60);
+        loadCarObjectsAndAnimation('window_sky', 0, 60, 60, 120);
+        loadCarDoorAndAnimation('door_front_left', 0, 50, 50, 100, 'window_front_left', 0, 55, 55, 110);
+        loadCarDoorAndAnimation('door_back_left', 0, 50, 50, 100, 'window_back_left', 0, 55, 55, 110);
+        loadCarDoorAndAnimation('door_front_right', 0, 45, 45, 90, 'window_front_right', 0, 55, 55, 110);
+        loadCarDoorAndAnimation('door_back_right', 0, 50, 50, 100, 'window_back_right', 0, 55, 55, 110);
+    }
+
+    function loadCarBody() {
+        var loader = new THREE.FBXLoader();
+        loader.load('Assets/Models/car_body.FBX', function (object) {
+
+            object.scale.set(0.0333333333333333333334, 0.0333333333333333333334, 0.0333333333333333333334);
+            object.position.set(48.35, 25.3, 0);
+            group.add(object);
+
+            object.traverse(function (child) {
+
+                if (child.name === 'Plane069') {
+
+                    child.visible = false;
+                }
+                if (child.name === 'Object007') {
+                    child.visible = false;
+                }
+            });
+            loadId++;
+
+        });
+    }
+
+    function loadCarWheels() {
+        var loader = new THREE.FBXLoader();
+        loader.load('Assets/Models/car_wheels.FBX', function (object) {
+
+            object.mixer = new THREE.AnimationMixer(object);
+            mixers.push(object.mixer);
+
+            var act = object.mixer.clipAction(object.animations[0]);
+            carWheelAction = act;
+            act.timeScale = 0.5;
+            var wheel = new THREE.Group();
+            wheel.position.set(-0.5, 0.5, 0);
+            //group.rotateY(90);
+            wheel.scale.set(0.0395, 0.0395, 0.0395);
+            group.add(wheel);
+            //object.scale.set(0.0333333333333333333334,0.0333333333333333333334,0.0333333333333333333334);
+            //object.position.set(-50.35, 25.3, 0);
+            wheel.add(object);
+
+            loadId++;
+
+        });
+    }
+
+    function loadCarBackDoor(nm, openStart, openEnd, closeStart, closeEnd) {
+        var loader = new THREE.FBXLoader();
+        loader.load('Assets/Models/' + nm + '.FBX', function (object) {
+
+            object.mixer = new THREE.AnimationMixer(object);
+            mixers.push(object.mixer);
+
+            var all = object.mixer.clipAction(object.animations[0]);
+            var openClip = THREE.AnimationUtils.subclip(all._clip, 'open', openStart, openEnd);
+            var closeClip = THREE.AnimationUtils.subclip(all._clip, 'close', closeStart, closeEnd);
+
+            object.animations.push(openClip);
+            object.animations.push(closeClip);
+
+            var openAction = object.mixer.clipAction(openClip);
+            var closeAction = object.mixer.clipAction(closeClip);
+            openAction.setLoop(THREE.LoopOnce, 1);
+            closeAction.setLoop(THREE.LoopOnce, 1);
+            openAction.clampWhenFinished = true;
+            closeAction.clampWhenFinished = true;
+
+            openActions[nm] = openAction;
+            closeActions[nm] = closeAction;
+
+            var back = new THREE.Group();
+            back.position.set(-1, -0.5, 0);
+            //group.rotateY(90);
+            back.scale.set(0.0396, 0.0396, 0.0396);
+            group.add(back);
+            //object.scale.set(0.0333333333333333333334,0.0333333333333333333334,0.0333333333333333333334);
+            //object.position.set(-50.35, 25.3, 0);
+            back.add(object);
+            //console.log(object);
+            loadId++;
+
+        });
+    }
+
+    function loadCarObjectsAndAnimation(nm, openStart, openEnd, closeStart, closeEnd) {
+        var loader = new THREE.FBXLoader();
+        loader.load('Assets/Models/' + nm + '.FBX', function (object) {
+
+            object.mixer = new THREE.AnimationMixer(object);
+            mixers.push(object.mixer);
+
+            var all = object.mixer.clipAction(object.animations[0]);
+            var openClip = THREE.AnimationUtils.subclip(all._clip, 'open', openStart, openEnd);
+            var closeClip = THREE.AnimationUtils.subclip(all._clip, 'close', closeStart, closeEnd);
+
+            object.animations.push(openClip);
+            object.animations.push(closeClip);
+
+            var openAction = object.mixer.clipAction(openClip);
+            var closeAction = object.mixer.clipAction(closeClip);
+            openAction.setLoop(THREE.LoopOnce, 1);
+            closeAction.setLoop(THREE.LoopOnce, 1);
+            openAction.clampWhenFinished = true;
+            closeAction.clampWhenFinished = true;
+
+            openActions[nm] = openAction;
+            closeActions[nm] = closeAction;
+
+            group.add(object);
+
+            object.traverse(function (child) {
+
+                if (child.name === 'Object335') {
+                    loader.load('Assets/Models/BackLogo.FBX', function (logo) {
+
+                        logo.position.set(child.position.x + 1, child.position.y, child.position.z + 3);
+                        logo.rotation.set(child.rotation.x, child.rotation.y, child.rotation.y);
+                        logo.scale.set(0.033, 0.034, 0.034);
+                        child.parent.add(logo);
+                        //console.log(logo.position);
+                        //console.log(logo.rotation);
+                    });
+                }
+            });
+
+            loadId++;
+
+        });
+    }
+
+    function loadCarDoorAndAnimation(nm, openStart, openEnd, closeStart, closeEnd, winName, winOpenStart, winOpenEnd, winCloseStart, winCloseEnd) {
+        var loader = new THREE.FBXLoader();
+        loader.load('Assets/Models/' + nm + '.FBX', function (object) {
+
+            object.mixer = new THREE.AnimationMixer(object);
+            mixers.push(object.mixer);
+
+            var all = object.mixer.clipAction(object.animations[0]);
+
+            var openClip = THREE.AnimationUtils.subclip(all._clip, 'open', openStart, openEnd);
+            var closeClip = THREE.AnimationUtils.subclip(all._clip, 'close', closeStart, closeEnd);
+            object.animations.push(openClip);
+            object.animations.push(closeClip);
+            //console.log(object.animations);
+            var openAction = object.mixer.clipAction(object.animations[1]);
+            var closeAction = object.mixer.clipAction(object.animations[2]);
+            openAction.setLoop(THREE.LoopOnce, 1);
+            closeAction.setLoop(THREE.LoopOnce, 1);
+            openAction.clampWhenFinished = true;
+            closeAction.clampWhenFinished = true;
+
+            openActions[nm] = openAction;
+            closeActions[nm] = closeAction;
+            //closeActions[nm].play();
+
+            group.add(object);
+
+
+            var winloader = new THREE.FBXLoader();
+            winloader.load('Assets/Models/' + winName + '.FBX', function (win) {
+
+                win.mixer = new THREE.AnimationMixer(win);
+                mixers.push(win.mixer);
+
+                var winAll = win.mixer.clipAction(win.animations[0]);
+
+                var winOpenClip = THREE.AnimationUtils.subclip(winAll._clip, 'open', winOpenStart, winOpenEnd);
+                var winCloseClip = THREE.AnimationUtils.subclip(winAll._clip, 'close', winCloseStart, winCloseEnd);
+                win.animations.push(winOpenClip);
+                win.animations.push(winCloseClip);
+
+                var winOpenAction = win.mixer.clipAction(win.animations[1]);
+                var winCloseAction = win.mixer.clipAction(win.animations[2]);
+                winOpenAction.setLoop(THREE.LoopOnce, 1);
+                winCloseAction.setLoop(THREE.LoopOnce, 1);
+                winOpenAction.clampWhenFinished = true;
+                winCloseAction.clampWhenFinished = true;
+
+                openActions[winName] = winOpenAction;
+                closeActions[winName] = winCloseAction;
+                //openActions[winName].play();
+
+                var cld = object.children[0];
+                var pos = object.children[0].position;
+                cld.add(win);
+                win.rotation.set(0, 0, 0);
+                win.position.set(-pos.x, -pos.y, -pos.z);
+
+                loadId++;
+
+            });
+
+            loadId++;
+
+        });
+    }
+
+    function checkCar() {
+        if (loadId === 12) {
+            group.traverse(function (child) {
+
+                if (child.isMesh) {
+                    child.castShadow = true;
+
+                    // console.log(child.material.name);
+
+                    // child.receiveShadow = true;
+                    //child.material.side = THREE.DoubleSide;
+                    if (child.material.name === '车身_白色' || child.material.name === '车门框架') {
+
+                        child.material = carMat;
+                        // console.log(child.material);
+                    }
+                    else if (child.material.name === '前车灯') {
+                        child.material = carLightMat;
+                    }
+                    else if (child.material.name === '挡风玻璃') {
+                        child.material = carGrassMat;
+
+                        // var glassMat = child.material;
+                        // glassMat.color = new THREE.Color(0x888888);
+                        // glassMat.opacity = 0.5;
+                        // glassMat.alphaMap = null;
+                        // glassMat.envMap = texCube;
+                        // glassMat.reflectivity = 0.2;
+                        // //glassMat.specular = new THREE.Color(0xFFF5DF);
+                        // glassMat.shininess = 30;
+                        // console.log(child.material);
+                    }
+                    else if (child.material.name === '侧门玻璃') {
+                        child.material = carGrassMat;
+
+                        // var glassMat = child.material;
+                        // glassMat.color = new THREE.Color(0x888888);
+                        // glassMat.opacity = 0.5;
+                        // glassMat.alphaMap = null;
+                        // glassMat.envMap = texCube;
+                        // glassMat.reflectivity = 0.2;
+                        // //glassMat.specular = new THREE.Color(0xFFF5DF);
+                        // glassMat.shininess = 30;
+                        // //console.log(child.material);
+                        // //console.log(glassMat.specular);
+                    }
+                    else if (child.material.name === '后侧窗玻璃') {
+                        child.material = carGrassMat;
+
+                        // var glassMat = child.material;
+                        // glassMat.color = new THREE.Color(0x888888);
+                        // glassMat.opacity = 0.5;
+                        // glassMat.alphaMap = null;
+                        // glassMat.envMap = texCube;
+                        // glassMat.reflectivity = 0.2;
+                        // //glassMat.specular = new THREE.Color(0xFFF5DF);
+                        // glassMat.shininess = 30;
+                        // //console.log(child.material);
+
+                    }
+                    else if (child.material.name === '玻璃黑边') {
+                        //child.material = carGrassMat;
+                        var glassMat = child.material;
+                        glassMat.alphaMap = null;
+                        glassMat.color = new THREE.Color(0x050505);
+                        glassMat.opacity = 1;
+                        glassMat.envMap = texCube;
+                        glassMat.reflectivity = 0.3;
+                        glassMat.specular = new THREE.Color(0x989898);
+                        glassMat.shininess = 10;
+                        //console.log(child.material);
+
+                    }
+                    else if (child.material.name === '黑色_塑料' || child.material.name === '高反黑漆') {
+                        //child.material = carGrassMat;
+                        var glassMat = child.material;
+                        glassMat.envMap = texCube;
+                        glassMat.reflectivity = 0.5;
+                        glassMat.specular = new THREE.Color(0xFFF5DF);
+                        glassMat.shininess = 10;
+
+                    }
+                    else if (child.material.name === '后车灯') {
+                        //child.material = carGrassMat;
+                        var glassMat = child.material;
+                        child.material.envMap = texCube;
+                        child.material.reflectivity = 0.5;
+                        child.material.specular = new THREE.Color(0xFFF5DF);
+                        child.material.shininess = 50000;
+
+                    }
+                    else if (child.material.name === '不锈钢') {
+                        //child.material = carGrassMat;
+                        var glassMat = child.material;
+                        glassMat.envMap = texCube;
+                        glassMat.reflectivity = 0.6;
+                        glassMat.specular = new THREE.Color(0xFFF5DF);
+                        glassMat.shininess = 50;
+
+                    }
+                    else if (child.material.name === '车灯_光源') {
+                        //child.material = carGrassMat;
+                        var glassMat = child.material;
+                        glassMat.color = new THREE.Color(0xffffff);
+                        glassMat.envMap = texCube;
+                        glassMat.reflectivity = 0.7;
+                        glassMat.specular = new THREE.Color(0xFFF5DF);
+                        glassMat.shininess = 100;
+
+                    }
+                    else if (child.material.name === '车灯') {
+//                                var textureLoader = new THREE.TextureLoader();
+//                                var sp = textureLoader.load( "Assets/Textures/Deng.jpg" );
+//                                console.log(sp);
+//                                var glassMat = child.material;
+//                                glassMat.map = sp;
+//                                glassMat.color = new THREE.Color(0xffffff);
+//                                glassMat.envMap = texCube;
+//                                glassMat.reflectivity = 0.9;
+//                                glassMat.specular = new THREE.Color(0xFFF5DF);
+//                                glassMat.shininess = 100;
+                    }
+                    if (child.name === 'Object216') {
+                        console.log("333333333333333333333");
+                        //创建车灯灯光
+                        var potLight = new THREE.PointLight(0x81CBFF, 2, 10);
+                        potLight.position.set(-24, 21, 22);
+                        potLight.visible = false;
+                        //var sphere = new THREE.SphereBufferGeometry( 0.5, 16, 8 );
+                        //potLight.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xff0040 } ) ) );
+                        var textureLoader = new THREE.TextureLoader();
+
+                        var textureFlare0 = textureLoader.load("Assets/Textures/lensflare0.png");
+                        var textureFlare1 = textureLoader.load("Assets/Textures/lensflare0_alpha.png");
+                        var textureFlare2 = textureLoader.load("Assets/Textures/hexangle.png");
+                        var lensflare = new THREE.Lensflare();
+                        lensflare.addElement(new THREE.LensflareElement(textureFlare0, 600, 0.015));
+                        //lensflare.addElement( new THREE.LensflareElement( textureFlare1, 512, -0.01, new THREE.Color(0x69C7FF)) );
+                        lensflare.addElement(new THREE.LensflareElement(textureFlare2, 128, 0.01, new THREE.Color(0x69C7FF)));
+                        lensflare.position.set(0, 0, 0);
+                        potLight.add(lensflare);
+                        group.add(potLight);
+                        potLights.push(potLight);
+                        flares.push(lensflare);
+
+                        potLight = new THREE.PointLight(0x81CBFF, 2, 10);
+                        potLight.position.set(-24, 21, -22);
+                        potLight.visible = false;
+                        //var sphere = new THREE.SphereBufferGeometry( 0.5, 16, 8 );
+                        //potLight.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xff0040 } ) ) );
+                        //textureFlare0 = textureLoader.load( "Assets/Textures/lensflare0.png" );
+                        lensflare = new THREE.Lensflare();
+                        lensflare.addElement(new THREE.LensflareElement(textureFlare0, 600, 0.015));
+                        //lensflare.addElement( new THREE.LensflareElement( textureFlare1, 512, -0.01 , new THREE.Color(0x69C7FF)) );
+                        lensflare.addElement(new THREE.LensflareElement(textureFlare2, 128, 0.01, new THREE.Color(0x69C7FF)));
+                        lensflare.position.set(0, 0, 0);
+                        potLight.add(lensflare);
+                        group.add(potLight);
+                        potLights.push(potLight);
+                        flares.push(lensflare);
+                        //scene.add(ground);
+                    }
+                }
+                else {
+                    if (child.name === '车窗_前_左（控制器）') {
+                        windowsMap['Front_Left'] = child;
+                        windowStartPos['Front_Left'] = new THREE.Vector3(18.746, 2.115, 10.731);
+                        windowStartPos['Front_Left'].set(child.position.x, child.position.y, child.position.z);
+                        windowEndPos['Front_Left'] = new THREE.Vector3(0, 0, 0);
+                        windowEndPos['Front_Left'].set(18.746, 0.248, -4.779);
+                    }
+                    else if (child.name === '车窗_前_右（控制器）') {
+                        windowsMap['Front_Right'] = child;
+                        windowStartPos['Front_Right'] = new THREE.Vector3(18.750, -2.108, 10.809);
+                        windowStartPos['Front_Right'].set(child.position.x, child.position.y, child.position.z);
+                        windowEndPos['Front_Right'] = new THREE.Vector3(0, 0, 0);
+                        windowEndPos['Front_Right'].set(18.750, -0.241, -4.701);
+                    }
+                    else if (child.name === '车窗_侧_左（控制器）') {
+                        windowsMap['Back_Left'] = child;
+                        windowStartPos['Back_Left'] = new THREE.Vector3(15.526, 3.605, 12.219);
+                        windowStartPos['Back_Left'].set(child.position.x, child.position.y, child.position.z);
+                        windowEndPos['Back_Left'] = new THREE.Vector3(0, 0, 0);
+                        windowEndPos['Back_Left'].set(15.526, 1.915, -3.623);
+                    }
+                    else if (child.name === '车窗_侧_右（控制器）') {
+                        windowsMap['Back_Right'] = child;
+                        windowStartPos['Back_Right'] = new THREE.Vector3(15.526, -3.605, 12.219);
+                        windowStartPos['Back_Right'].set(child.position.x, child.position.y, child.position.z);
+                        windowEndPos['Back_Right'] = new THREE.Vector3(0, 0, 0);
+                        windowEndPos['Back_Right'].set(15.526, -1.915, -3.623);
+                    }
+                }
+
+            });
+
+            loadId++;
+            group.visible = true;
+            carLoaded = true;
+            //initSprites();
+        }
+    }
+
+    function checkCarState() {
+
+
+
+        //前左门
+        if (partStates['qlc'] != stateMap['qlc']) {
+            changeDoorState('door_front_left', stateMap['qlc']);
+            partStates['qlc'] = stateMap['qlc'];
+        }
+        //后左门
+        else if (partStates['hlc'] != stateMap['hlc']) {
+            changeDoorState('door_back_left', stateMap['hlc']);
+            partStates['hlc'] = stateMap['hlc'];
+        }
+        //前右门
+        else if (partStates['qrc'] != stateMap['qrc']) {
+            changeDoorState('door_front_right', stateMap['qrc']);
+            partStates['qrc'] = stateMap['qrc'];
+        }
+        //后右门
+        else if (partStates['hrc'] != stateMap['hrc']) {
+            changeDoorState('door_back_right', stateMap['hrc']);
+            partStates['hrc'] = stateMap['hrc'];
+        }
+        //后门
+        else if (partStates['bc'] != stateMap['bc']) {
+            changeDoorState('door_backdoor', stateMap['bc']);
+            partStates['bc'] = stateMap['bc'];
+        }
+        //天窗
+        else if (partStates['tcc'] != stateMap['tcc']) {
+            changeDoorState('window_sky', stateMap['tcc']);
+            partStates['tcc'] = stateMap['tcc'];
+        }
+        //灯光
+        else if (partStates['light'] != stateMap['light']) {
+            changeLight(stateMap['light']);
+            partStates['light'] = stateMap['light'];
+        }
+        //旋转
+        else if (partStates['Rot'] != stateMap['Rot']) {
+            if (stateMap['Rot'] === 0) {
+                controls.autoRotate = false;
+            }
+            else if (stateMap['Rot'] === 1) {
+                controls.autoRotate = true;
+            }
+            partStates['Rot'] = stateMap['Rot'];
+        }
+        //车轮
+        else if (partStates['wheel'] != stateMap['wheel']) {
+            changeWheelState(stateMap['wheel']);
+            partStates['wheel'] = stateMap['wheel'];
+        }
+
+        group.visible = carVisible;
+
+        if (loadId > 13) return;
+
+        if (loadId > 12) {
+            loadId++;
+            setTimeout(function () {
+                group.visible = carVisible;
+                hasLoad = true;
+                $('#loading').fadeOut(500);
+            }, 1000);
+        }
+
+        updateProgress(loadId / 13);
+    }
+
+    function checkCarColor() {
+        if (carBodyColor != carColor) {
+            console.log(carColor);
+            carBodyColor = carColor;
+            //dirLight.intensity = 0.2;
+            //sceneLight.intensity = 0.7;
+            //scene.background = new THREE.Color( 0x000000 );
+            if (carColor === '#ffffff') {
+                carMat.color = new THREE.Color(0xffffff);
+                carMat.reflectivity = refPower;
+                carMat.specular = new THREE.Color(0x000000);
+                carMat.shininess = 0;
+                //sceneLight.intensity = 0.65;
+            }
+            else if (carColor === '#1834b8') {
+                carMat.color = new THREE.Color(0x1834B8);
+                carMat.reflectivity = refPower;
+                carMat.specular = new THREE.Color(spePower);
+                carMat.shininess = 20;
+            }
+            else if (carColor === '#ab0c01') {
+                carMat.color = new THREE.Color(0xAB0C01);
+                carMat.reflectivity = refPower;
+                carMat.specular = new THREE.Color(spePower);
+                carMat.shininess = 20;
+            }
+            else if (carColor === '#6a684f') {
+                carMat.color = new THREE.Color(0x6a684f);
+                carMat.reflectivity = refPower;
+                carMat.specular = new THREE.Color(spePower);
+                carMat.shininess = 20;
+                //scene.background = new THREE.Color(0x818181);
+                //dirLight.intensity = 0.2;
+                //sceneLight.intensity = 0.9;
+            }
+            else if (carColor === '#646464') {
+                carMat.color = new THREE.Color(0x646464);
+                carMat.reflectivity = refPower;
+                carMat.specular = new THREE.Color(spePower);
+                carMat.shininess = 20;
+            }
+            else {
+                carMat.color = new THREE.Color(0xffffff);
+                carMat.reflectivity = refPower;
+                carMat.specular = new THREE.Color(0x000000);
+                carMat.shininess = 0;
+            }
+        }
+
+    }
+
+    function changeWheelState(vl) {
+        //关闭
+        if (vl === 0) {
+            carWheelAction.stop();
+        }
+        else if (vl === 1) {
+            carWheelAction.play();
+        }
+    }
+
+    function changeLight(vl) {
+        if (vl === 1) {
+            //carLightMat.emissive = new THREE.Color(0xffffff);
+            //carLightMat.opacity = 1;
+            for (var i = 0; i < potLights.length; i++) {
+                potLights[i].visible = true;
+            }
+        }
+        else if (vl === 0) {
+            //carLightMat.emissive = new THREE.Color(0x000000);
+            //carLightMat.opacity = 0.2;
+            for (var i = 0; i < potLights.length; i++) {
+                potLights[i].visible = false;
+            }
+        }
+    }
+
+    function changeDoorState(nm, vl) {
+        //关闭
+        if (vl === 0) {
+            openActions[nm].stop();
+            closeActions[nm].play();
+        }
+        else if (vl === 1) {
+            closeActions[nm].stop();
+            openActions[nm].play();
+        }
+    }
+
+    function updateWindowState() {
+        if (carLoaded) {
+            updateWindowsPos('Front_Left', 1.0 - stateMap['qlbc']);
+            updateWindowsPos('Front_Right', 1.0 - stateMap['qrbc']);
+            updateWindowsPos('Back_Left', 1.0 - stateMap['hlbc']);
+            updateWindowsPos('Back_Right', 1.0 - stateMap['hrbc']);
+        }
+    }
+
+    function partOpen(nm) {
+        closeActions[nm].stop();
+        openActions[nm].play();
+    }
+
+    function partClose(nm) {
+        openActions[nm].stop();
+        closeActions[nm].play();
+    }
+
+    function unState(nm) {
+        var st = stateMap[nm];
+        if (st === 0) {
+            stateMap[nm] = 1;
+        }
+        else if (st === 1) {
+            stateMap[nm] = 0;
+        }
+    }
+
+    function initGui() {
+        var options = new function () {
+            this.Red = function () {
+                var cl = changeAnyColor;
+                cl('#ab0c01');
+            };
+            this.Blue = function () {
+                var cl = changeAnyColor;
+                cl('#1834b8');
+            };
+            this.White = function () {
+                var cl = changeAnyColor;
+                cl('#ffffff');
+            };
+            this.Black = function () {
+                var cl = changeAnyColor;
+                cl('#6a684f');
+            };
+            this.Gray = function () {
+                var cl = changeAnyColor;
+                cl('#646464');
+            }
+        };
+
+        var gui = new dat.GUI();
+        var folder = gui.addFolder('颜色');
+        folder.open();
+        folder.add(options, 'Red');
+        folder.add(options, 'Blue');
+        folder.add(options, 'White');
+        folder.add(options, 'Gray');
+        folder.add(options, 'Black');
+
+        var carOptions = new function () {
+            this.后门 = function () {
+                unState('bc');
+            };
+            this.左前门 = function () {
+                unState('qlc');
+            };
+            this.左前玻璃 = function () {
+                unState('qlbc');
+            };
+            this.左后门 = function () {
+                unState('hlc');
+            };
+            this.左后玻璃 = function () {
+                unState('hlbc');
+            };
+            this.右前门 = function () {
+                unState('qrc');
+            };
+            this.右前玻璃 = function () {
+                unState('qrbc');
+            };
+            this.右后门 = function () {
+                unState('hrc');
+            };
+            this.右后玻璃 = function () {
+                unState('hrbc');
+            };
+            this.车轮 = function () {
+                unState('wheel');
+            };
+            this.天窗 = function () {
+                unState('tcc');
+            };
+            this.前灯 = function () {
+                unState('light');
+            };
+        };
+
+        var folder1 = gui.addFolder('打开');
+        folder1.open();
+        folder1.add(carOptions, '后门');
+        folder1.add(carOptions, '左前门');
+        folder1.add(carOptions, '左前玻璃');
+        folder1.add(carOptions, '左后门');
+        folder1.add(carOptions, '左后玻璃');
+        folder1.add(carOptions, '右前门');
+        folder1.add(carOptions, '右前玻璃');
+        folder1.add(carOptions, '右后门');
+        folder1.add(carOptions, '右后玻璃');
+        folder1.add(carOptions, '车轮');
+        folder1.add(carOptions, '天窗');
+        folder1.add(carOptions, '前灯');
+
+        gui.domElement.style.webkitUserSelect = 'none';
+    }
+
+    function updateWindowsPos(nm, percent) {
+        var startPos = windowStartPos[nm].clone();
+        var endPos = windowEndPos[nm].clone();
+        var pos = windowsMap[nm].position.clone();
+        var nowPercent = pos.distanceTo(endPos) / startPos.distanceTo(endPos);
+        if (nowPercent < percent) {
+            nowPercent += speed;
+            if (nowPercent > percent) {
+                nowPercent = percent;
+            }
+        }
+        else {
+            nowPercent -= speed;
+            if (nowPercent < percent) {
+                nowPercent = percent;
+            }
+        }
+
+        var nowPos = endPos.lerp(startPos, nowPercent);
+        windowsMap[nm].position.set(nowPos.x, nowPos.y, nowPos.z);
+    }
+
+    function updateLight() {
+
+        var pos = camera.position;
+        dirLight.position.set(pos.x, pos.y + 1000, pos.z);
+    }
+
+    //
+
+    function animate() {
+
+        requestAnimationFrame(animate);
+
+        if (!carVisible) {
+            if (group.visible !== carVisible) {
+                group.visible = carVisible;
+                renderer.render(scene, camera);
+            }
+
+            return;
+        }
+
+        checkCarState();
+        checkCarColor();
+        updateWindowState();
+
+        var del = clock.getDelta();
+        if (mixers.length > 0) {
+
+            for (var i = 0; i < mixers.length; i++) {
+
+                mixers[i].update(del);
+            }
+
+        }
+
+        checkCar();
+
+        updateLight();
+
+        var camPos = camera.position;
+        if (camPos.x < 0 || camPos.y > 200) {
+            for (var i = 0; i < flares.length; i++) {
+                flares[i].visible = true;
+            }
+        }
+        else {
+            for (var i = 0; i < flares.length; i++) {
+                flares[i].visible = false;
+            }
+        }
+
+        renderer.render(scene, camera);
+
+        //stats.update();
+
+        controls.update();
+
+    }
+
+</script>
+
+</body>
+</html>

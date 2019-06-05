@@ -1,0 +1,26 @@
+{
+  "name": "AppCv",
+  "description": "AppCv Mobile Platform",
+  "version": "0.0.1",
+  "author": {
+    "name": "Justin Yip",
+    "email": "justin.yip@foxmail.com"
+  },
+  "homepage": "https://github.com/yezhiming/piece",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yezhiming/piece.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.9.12",
+    "express": "*",
+    "gulp": "^3.9.0",
+    "gulp-jshint": "^1.12.0",
+    "gulp-notify": "^2.2.0",
+    "http-proxy": "*",
+    "request": "^2.65.0",
+    "through2": "~0.6.1",
+    "yargs": "^3.29.0"
+  }
+}

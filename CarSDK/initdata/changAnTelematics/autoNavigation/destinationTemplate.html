@@ -1,0 +1,15 @@
+<div class="swiper-slide">
+  <div class="baidumap-address">
+    <div class="shadow">
+      <div class="newRouteDetail baiduAddressInfo addressTemplate">
+         <span class="destination route-icon-locaiton"><%=name%></span>
+         <span class="routeInfo" id="info<%=id%>" data-id="<%=id%>"><%=duration%> <%=distance%></span>
+      </div>
+      <div class="destinationAction addressTemplate" data-id="<%=id%>">
+        <ul>
+          <li class="tocar" data-lng="<%=lng%>" data-name="<%=name%>"  data-lat="<%=lat%>"><span class="route-icon-tocar" data-lng="<%=lng%>" data-name="<%=name%>"  data-lat="<%=lat%>">发送到车</span></li>         
+        </ul>
+      </div>      
+    </div>
+  </div>
+</div>

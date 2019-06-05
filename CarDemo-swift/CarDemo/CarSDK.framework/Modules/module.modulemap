@@ -1,0 +1,6 @@
+framework module CarSDK {
+  umbrella header "CarSDK.h"
+
+  export *
+  module * { export * }
+}

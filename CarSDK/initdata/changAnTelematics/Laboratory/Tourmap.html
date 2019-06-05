@@ -1,0 +1,87 @@
+<div id="Tourmap" data-view='Laboratory/Tourmap'>
+    <style type="text/css">
+        #Tourmap .content_item{
+            margin-top: 5px;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            border: solid 1px gainsboro;
+            width: 98%;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 5px;
+            background-color: seashell;
+            min-height: 134px;
+        }
+        #Tourmap .content_item .img_item{
+            width: 24%;
+            max-height: 70px;
+        }
+        #Tourmap .describe{
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-top: 5px;
+            line-height: normal;
+            color: rgba(0, 0, 0, 0.71);
+        }
+        #Tourmap .location{
+            padding-left: 5px;
+            padding-right: 5px;
+            margin-top: 5px;
+            position: relative;
+            color: rgba(0, 0, 0, 0.71);
+        }
+        #Tourmap .selectedItem{
+            border: 2px solid #21C1A2;
+        }
+        #Tourmap #NoneTour{
+            width: 100%;
+            text-align: center;
+            padding-top: 25%;
+            display: none;
+        }
+        #Tourmap #goAdd{
+            margin-top: 5px;
+            height: 30px;
+            width: 100px;
+            font-size: 15px;
+            font-weight: 600;
+            border-style: none;
+            background-color: rgba(0, 152, 255, 0.79);
+            color: white;
+            border-radius: 4px;
+        }
+    </style>
+    <script type="text/x-underscore-template" id="tour_item">
+        <%var time=data.travelTime.substring(0,10);%>
+        <div class="content_item" id="<%=data.id%>" data-value="1">
+            <p class="images" style="padding-left: 5px;padding-right: 5px;">
+
+            </p>
+            <p class="describe">
+                <%=data.discribetion%>
+            </p>
+            <p class="location">
+                <img src="../Laboratory/images/ief.png" style="width: 20px;">
+                <span style="position: absolute;top: 3px;left: 30px;"><%=data.travelLocation%></span>
+                <img src="../Laboratory/images/eys.png" style="width: 20px;margin-left: 110px;"/>
+                <span style="position: absolute;top: 3px;left: 165px;"><%=time%></span>
+            </p>
+        </div>
+    </script>
+    <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}' navTitle='"游记详情"'>
+    </header>
+    <div class="content" style="overflow: hidden;">
+        <div style="width:100%;height:50%;position:absolute;z-index: 10;" id="my_tour_map"></div>
+        <div style="width: 100%;position: absolute;bottom: 0px;height: 28px;"></div>
+        <div style="height: 49%;width: 100%;margin-top: 85%;" style="overflow-y: hidden;" id="wrapper">
+            <div id="scroller" style="width: 100%;">
+
+            </div>
+            <div id="NoneTour">
+                <p style="font-size: 15px;color: black;">您还没有添加游记内容哦!</p>
+                <p style="font-size: 15px;color: black;margin-top: 5px;">(∩＿∩)</p>
+                <button id="goAdd">现在就去</button>
+            </div>
+        </div>
+    </div>
+</div>

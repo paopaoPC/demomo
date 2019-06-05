@@ -1,0 +1,10 @@
+{
+  "name": "cc_自动导航",
+  "identifier": "cc.autoNavigation",
+  "description": "",
+  "version": "1.0.0",
+  "dependencies": {},
+  "build": 1,
+  "releaseNote": "",
+  "hidden": false
+}

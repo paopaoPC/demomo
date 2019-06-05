@@ -1,0 +1,209 @@
+<div id='selectArea' data-view='service/selectArea'>
+<style type="text/css">
+#selectArea .searchArea {
+  position: absolute;
+  height: 100%;
+  width: 70%;
+  margin: auto;
+  left: 16%;
+}
+#selectArea #searchInput {
+  background-color: #cbe6f9;
+  box-shadow: none;
+  border: none;
+  border-radius: 11px;
+  height: 22px;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  color: #5f6c7c;
+  padding-left: 15px;
+  padding-right: 30px;
+}
+#selectArea .selectedArea {
+  position: absolute;
+  width: 50px;
+  height: 100%;
+  right: 0px;
+  line-height: 48px;
+  color: #fff;
+  text-align: center;
+  top: 0px;
+  font-size: 14px;
+}
+#selectArea .search-icon {
+  position: absolute;
+  background-image: url('../service/img/search-icon.png');
+  background-size: 12px 12px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+  top: 50%;
+  margin-top: -8px;
+  right: 10px;
+}
+#selectArea .currentLocation {
+  padding: 10px 16px;
+  background-color: #f7f7f5;
+  width: 100%;
+  height: auto;
+  color: #8a8a88;
+  font-size: 14px;
+  border-bottom: 1px solid #aeaeac;
+  position: relative;
+}
+#selectArea .where {
+  position: absolute;
+  right: 16px;
+  top: 10px;
+}
+#selectArea .where-text {
+  vertical-align: middle;
+  display: inline-block;
+}
+#selectArea .where-icon {
+  display: inline-block;
+  background-image: url('img/where-icon.png');
+  background-size: 16px 16px;
+  background-position: 100%;
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+  vertical-align: middle;
+}
+#selectArea #selectList {
+  position: absolute;
+  bottom: 0px;
+  top: 0px;
+  background-color: #fff;
+  width: 100%;
+  overflow: hidden;
+}
+#selectArea #provinceList {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 90px;
+  bottom: 0px;
+}
+#selectArea .proviceClass {
+  height: auto;
+  border-bottom: 1px solid #c8c8c8;
+  width: 100%;
+}
+#selectArea .provinceTitle {
+  padding-left: 20px;
+  color: #717171;
+  background-color: #ededed;
+  height: 24px;
+  line-height: 24px;
+  border-bottom: 1px solid #c8c8c8;
+  font-size: 14px;
+}
+#selectArea .provinceItem {
+  padding-left: 20px;
+  color: #959595;
+  background-color: #ffffff;
+  height: auto;
+  line-height: 30px;
+  font-size: 16px;
+  border: none;
+}
+#selectArea .provinceText {
+  height: 100%;
+  width: 100%;
+  border-bottom: 1px solid #c8c8c8;
+}
+#selectArea .proviceClass .provinceItem:last-child .provinceText {
+  border-bottom: none;
+}
+#selectArea #cityList {
+  position: absolute;
+  left: 90px;
+  right: 0px;
+  border-left: 1px solid #c8c8c8;
+  top: 0px;
+  bottom: 0px;
+  padding-left: 20px;
+}
+#selectArea #cityList li {
+  height: 35px;
+  line-height: 35px;
+  background-color: #fff;
+  border-bottom: 1px solid #c8c8c8;
+  padding-left: 30px;
+  color: #737373;
+}
+#selectArea #cityList li .selection {
+  display: none;
+}
+#selectArea .activeProvince.provinceItem {
+  color: #ed5565;
+}
+#selectArea .activeCity.cityItem {
+  color: #ed5565;
+}
+</style>
+<script id="provinceTitle-template" type="text/x-underscore-template">
+   <div class="provinceTitle" id=<%=provinceTitle%>><%=provinceTitle%></div>
+</script>
+<script id="province-template" type="text/x-underscore-template">
+  <div class="provinceItem" data-value="<%=provinceName%>">
+   <div class="provinceText"><%=provinceName%></div>
+  </div>
+</script>
+<script id="city-template" type="text/x-underscore-template">
+	<div class="cityItem" data-value="<%=addrId%>" data-province="<%=pid%>"><%=cityName%></div>
+</script>
+
+<!-- <header class="bar bar-nav blue-bar">
+    <button class="btn btn-link btn-nav pull-left backbtn goBack">
+      <span class="icon icon-left-nav"></span>
+    </button>
+    <div class="searchArea" id = "">
+    	<div class=""></div>
+    	<input id="searchInput" />
+      <span class="search-icon"></span>
+    </div>
+     <div class="selectedArea">重庆</div>
+</header> -->
+
+
+  <header id="nav-bar" class="bar bar-nav blue-bar" navTitle='{"hide":true}' navRight='{"hide":true}'>
+    <div class="searchArea" id = "">
+      <div class=""></div>
+      <input id="searchInput" />
+      <span class="search-icon"></span>
+    </div>
+  </header>
+
+<div class="content">
+ <!--  <div class="currentLocation">
+    <div class="">当前位置</div>
+    <div class="where">
+      <span class="where-icon"></span>
+      <span class="where-text" data-value=""></span>
+    </div>
+  </div> -->
+  <div id="selectList">
+  	<div id="provinceList">
+      <div class="scroller">
+        <ul>
+          
+        </ul>
+      </div>
+  	</div>
+  	<div id="cityList">
+  		<div class="scroller">
+        <ul>
+
+        </ul>
+      </div>
+  	</div>
+  </div>
+</div>
+</div>

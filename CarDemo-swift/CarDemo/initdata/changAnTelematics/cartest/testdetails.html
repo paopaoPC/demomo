@@ -1,0 +1,255 @@
+<div id="testDetails" data-view="cartest/testdetails">
+	<style type="text/css">
+	#testDetails #testData{
+		width: 100%;
+		padding: 10px 0;
+		font-size: 12px;
+		text-align: center;
+	}
+	#testDetails .count{
+		width: 100%;
+	}
+     #testDetails .content::-webkit-scrollbar {
+        width: 0
+     }
+	#testDetails .content::-webkit-scrollbar {
+        width: 0
+     }
+	#testDetails .count > div{
+		display: inline-block;
+		width: 32%;
+		text-align: center;
+	}
+	#testDetails .count > div > div{
+		width: 100%;
+		padding: 0px 0px 8px 0px;
+		font-size: 14px;
+	}
+	#testDetails #test_falut{
+		font-size: 18px;
+		color: #fb7c00;
+		padding-bottom: 15px !important;
+	}
+	#testDetails #test_danger{
+		font-size: 18px;
+		color: #fb7c00;
+	}
+	#testDetails #test_normal{
+		font-size: 18px;
+		color: #01c38e;
+	}
+	#testDetails li{
+		width: 100%;
+		margin-top: 10px;
+		background-color: #fff;
+		/*border-top:1px solid #e4e4e4;
+		border-bottom:1px solid #e4e4e4;*/
+		position: relative;
+	}
+	#testDetails li:before{
+		top: 0px;
+		left: -50%;
+		content: "";
+		display: block;
+		position: absolute;
+		width: 200%;
+		height: 1px;
+		background: #485570;
+		opacity: 0.5;
+		-webkit-transform: scale(0.5);
+	}
+	#testDetails li:after{
+		bottom: -1px;
+		left: -50%;
+		content: "";
+		display: block;
+		position: absolute;
+		width: 200%;
+		height: 1px;
+		background: #485570;
+		opacity: 0.5;
+		-webkit-transform: scale(0.5);
+	}
+	#testDetails li:first-child{
+		margin-top: 0px;
+	}
+	#testDetails li > div{
+		width: 80%;
+		margin:0px auto;
+		font-size: 13px;
+		line-height: 150%;
+		padding: 5px 0px;
+		word-break: break-all;
+	}
+	#testDetails li > div:first-child{
+		padding: 0px 0px;
+		padding-top: 15px;
+	}
+	#testDetails li > div:last-child{
+		padding: 0px 0px;
+		padding-bottom: 15px;
+	}
+	#testDetails li .test_error{
+		width: 100%;
+		font-size: 14px;
+		background: url(../cartest/img/error1.png) no-repeat;
+		background-position: 2% 15px;
+		text-indent: 10%;
+		background-size: 20px 20px;
+	}
+	#testDetails li .test_danger{
+		width: 100%;
+		font-size: 14px;
+		background: url(../cartest/img/danger1.png) no-repeat;
+		background-position: 2% 15px;
+		text-indent: 10%;
+		background-size: 20px 20px;
+	}
+	#testDetails li .test_normal{
+		width: 100%;
+		font-size: 15px;
+		background: url(../cartest/img/correct1.png) no-repeat;
+		background-position: 2% 15px;
+		text-indent: 10%;
+		background-size: 20px 20px;
+	}
+	#testDetails .actions{
+		width: 100%;
+		padding-left: 10%;
+		height: 50px;
+	}
+	#testDetails .actions > div{
+		width: 25%;
+		margin-left: 5%;
+		height: 25px;
+		line-height: 25px;
+		text-align: center;
+		border-radius: 5px;
+		border:1px solid #3fc8d5;
+		color: #3fc8d5;
+		font-size: 11px;
+		float: left;
+	}
+	#testDetails .actions > div:first-child{
+		margin-left: 0px;
+	}
+	#testDetails .look_other{
+		width: 100%;
+		padding: 20px 0px;
+		font-size: 14px;
+		color: #09aaec;
+		text-align: center;
+		position: relative;
+	}
+	#testdetails .look_other>div{
+		background: url(../cartest/img/icon_down.png);
+		background-size: 10px;
+		background-position: 100% 50%;
+	}
+    </style>
+
+    <script id="fault_danger" type="text/x-underscore-template" >
+    	<%
+    		if(data.itemCode.replace(/(^\s*)|(\s*$)/g, "") == ''){
+				data.itemCode = '--';
+			}
+    	%>
+
+    		<div data-id=<%=data.itemName%> class="test_error"><%=data.itemName%></div>
+    		<div style="padding-bottom: 0px">项目描述：<%=data.comment?data.comment:'-'%></div>
+    		<div>故障描述：<%=data.description%></div>
+    		<div>故障代码：<%=data.itemCode%></div>
+    		<div>本次检测值：<%=data.detectValue%></div>
+    		<div>标准参考值：<%=data.normalValue%></div>
+    		<div>风险评估：异常</div>
+    		<div>解决建议：<%=data.suggest%></div>
+
+    </script>
+
+    <script id="danger_fault" type="text/x-underscore-template" >
+    	<%
+    		if(data.itemCode.replace(/(^\s*)|(\s*$)/g, "") == ''){
+				data.itemCode = '--';
+			}
+    	%>
+
+    		<div data-id=<%=data.itemName%> class="test_danger"><%=data.itemName%></div>
+    		<div style="padding-bottom: 0px">项目描述：<%=data.comment?data.comment:'-'%></div>
+    		<div>故障描述：<%=data.description%></div>
+        <div>故障代码：<%=data.itemCode%></div>
+        <div>本次检测值：<%=data.detectValue%></div>
+        <div>标准参考值：<%=data.normalValue%></div>
+        <div>风险评估：风险</div>
+        <div>解决建议：<%=data.suggest%></div>
+
+    </script>
+
+    <script id="normal_items" type="text/x-underscore-template" >
+
+    		<div data-id=<%=data.itemName%> class="test_normal"><%=data.itemName%></div>
+    		<div style="padding-bottom: 0px">项目描述：<%=data.comment?data.comment:'-'%></div>
+    		<div>本次检测值：<%=data.detectValue%></div>
+    		<div>标准参考值：<%=data.normalValue%></div>
+    </script>
+
+    <script id="info_action" type="text/x-underscore-template">
+
+    	<div class="actions">
+    		<%
+    			for(var j =0;j<actions.length;j++){
+    		%>
+    			<div url="<%=urls[j]%>"><%=actions[j]%></div>
+    		<%
+    			}
+    		%>
+    	</div>
+
+    </script>
+
+   <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}' navTitle='"体检报告详情"'>
+    </header>
+    <div class="content">
+    	
+    	<div id="testData"></div>
+
+    	<div class="count">
+    		<div>
+    			<div>故障</div>
+    			<div id="test_falut"></div>
+    		</div>
+    		<div>
+    			<div>风险</div>
+    			<div id="test_danger"></div>
+    		</div> 
+    	 	<div>
+    			<div>正常</div>
+    			<div id="test_normal"></div>
+    		</div>
+    		
+    		
+    	</div>
+
+    	<div>
+
+    		<ul class='fault_danger'>
+
+    		</ul>
+
+    	</div>
+
+    	<div class='look_other'>
+    			<span>收起正常项目</span>
+    			<img id="iconImg" src="../cartest/img/icon_down.png" style="width: 10px;
+margin-left: 5px;position: absolute;top: 25px;">
+    	</div>
+
+    	<div style="margin-top: 4px;">
+
+    		<ul class='normal_items'>
+
+    		</ul>
+
+    	</div>
+        
+    </div>
+</div>

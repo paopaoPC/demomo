@@ -1,0 +1,469 @@
+{
+    -webkit-tap-highlight-color:blue;
+}
+#maintainHistoryTbox{
+    /*background: url(../common/img/background.png);*/
+}
+#maintainHistoryTbox .blue-bar, #maintainHistoryTbox .im-default-nav-bar, #maintainHistoryTbox .content{
+    /*background-color: transparent !important;*/
+}
+#maintainHistoryTbox .content{
+    background-color: #efeff4 !important;
+}
+#maintainHistoryTbox .headContent1,#maintainHistoryTbox .headContent4
+{ 
+    height:56px;  
+    width:100%; 
+    background-color: transparent;
+    position: relative;
+    overflow: hidden;
+}
+#maintainHistoryTbox .headContent1:after{
+    bottom: 0px;
+    content: "";
+    display: block;
+    position: absolute;
+    left: -44%;
+    width: 200%;
+    height: 1px;
+    background: #3c3b48;
+    opacity: 0.7;
+    -webkit-transform: scale(0.5);
+}
+#maintainHistoryTbox .headContent1:before{
+    top: 0px;
+    content: "";
+    display: block;
+    position: absolute;
+    left: -50%;
+    width: 200%;
+    height: 1px;
+    background: #3c3b48;
+    /*opacity: 0.7;*/
+    -webkit-transform: scale(0.5);
+}
+#maintainHistoryTbox .headContent4:after{
+    bottom: -1px;
+    content: "";
+    display: block;
+    position: absolute;
+    left: -50%;
+    width: 200%;
+    height: 1px;
+    background: #3c3b48;
+    opacity: 0.7;
+    -webkit-transform: scale(0.5);
+}
+#maintainHistoryTbox .headContent2
+{ 
+    height:50px; 
+    font-size:14px; 
+    text-align:left; 
+    width:100%; 
+    margin:0px auto; 
+    background-color:#fff;
+    position: relative;
+    margin-top: 1px;
+}
+
+#maintainHistoryTbox .headContent3
+{ 
+    height: 56px;
+    font-size: 17px;
+    text-align: left;
+    line-height: 51px;
+    width: 100%;
+    color: #333333;
+    padding-left: 92px;
+    margin: 0px auto;
+    position: relative;
+    padding-top: 10px;
+    background: url(../myinfo/image/title_icon.png) no-repeat;
+    background-size: 35px 35px;
+    background-position: 51px 71%;
+    background-color: #efeff4;
+}
+#maintainHistoryTbox .headContentTitle
+{ 
+    width:40%; 
+    height:56px;  
+    float:left; 
+    text-indent:5%;
+    line-height: 58px;
+    color: #FFFFFF;
+    font-size: 15px
+}
+#maintainHistoryTbox #wholeMaile, #maintainHistoryTbox #spaceMaile, #maintainHistoryTbox #nextMaile{
+    width: 60%;
+    height: 56px;
+    float: left;
+    line-height: 58px;
+    color: #00c6f6;
+    font-size: 17px;
+    text-align: right;
+    padding-right: 14px;
+}
+#maintainHistoryTbox .notifyStyle{
+    color: #ffffff !important;
+    font-size: 22px !important;
+}
+#maintainHistoryTbox #surplusMaile{
+    width: 60%;
+    height: 56px;
+    float: left;
+    line-height: 58px;
+    color: #FFFFFF;
+    font-size: 22px;
+    text-align: right;
+    padding-right: 14px;
+}
+#maintainHistoryTbox .headLine1 
+{
+    width: 90%;
+    height: 1px;
+    background-color: #dedede;
+    margin-left: 5%;
+}
+#maintainHistoryTbox .headLine2 
+{
+    width: 100%;
+    height: 1px;
+    background-color: #dedede;
+    margin-left: 0px;
+}
+#maintainHistoryTbox .headLine3 
+{
+    width: 100%;
+    height: 1px;
+    background-color: #dedede;
+    margin-left: 0px;
+
+}
+#maintainHistoryTbox select
+{ 
+    width:65%;  
+    float:right; 
+    background-color:#fff; 
+    font-size:14px;
+    margin-top:7px;
+    height: 40px;
+    border:none;
+    box-shadow: none;
+}
+
+#maintainHistoryTbox input
+{ 
+    display:block; 
+    width:65%;  
+    float:right; 
+    background-color:#fff; 
+    font-size:14px;
+    height: 40px;
+    border:none;
+    position: absolute;
+    left: 35%;
+    padding-left: 18px;
+    top: 7px;
+}
+/****************************************************************/
+#maintainHistoryTbox .listview
+{
+    padding:0;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    top: 163px;
+    /*margin-bottom: 20px;*/
+    height: auto;
+    /*background-color: white;*/
+}
+#maintainHistoryTbox .message{
+    line-height: 20px;
+    height: 150px
+}
+#maintainHistoryTbox .empty{
+    background: url(../myinfo/image/no_datas_icon.png) no-repeat;
+    background-size: 25px 33px;
+    background-position: 50% 40%;
+    padding-top:80px;
+    color: #999999;
+    font-size: 15px;
+}
+#maintainHistoryTbox .listCell
+{
+    /*background-color: #FFF;*/
+    /*padding-left: 14px;*/
+    padding-right: 14px;
+    width: 100%;
+    padding-top: 15px;
+    position: relative;
+}
+#maintainHistoryTbox .timeLineBlock 
+{
+    width: 80px;
+    float: left;
+    height: 30px;
+    /*background-color: red;*/
+    /*border:solid;*/
+}
+#maintainHistoryTbox .roundCornerBorder
+{
+    border:1px solid #dedede; 
+    border-radius:5px;
+    margin-left: 94px;
+    /*margin-top: 10px;*/
+    right: 10px;
+    padding-top: 11px;
+    background-color: white;
+}
+#maintainHistoryTbox .img_icon{
+    width: 13px;
+    height: auto;
+    float: left;
+}
+#maintainHistoryTbox .img_icon>img{
+    width: 11px;
+    display: -webkit-box;
+    margin-top: 2px;
+}
+#maintainHistoryTbox .timeLineDateBlock 
+{
+    width: 57px;
+    height: 100%;
+    position: absolute;
+    margin-left: 0px;
+}
+#maintainHistoryTbox .timeLineLineBlock 
+{
+    width: 50px;
+    height: 100%;
+    background-color: dashed;
+    position: absolute;
+    left: 45px;
+    top: 0px;
+}
+#maintainHistoryTbox .timeLineYear 
+{
+    font-size: 15px;
+    color: #09a2e9;
+    margin-top: -7px;
+    height: 15px;
+    text-align: right;
+}
+#maintainHistoryTbox .timeLineMonth
+{
+    font-size: 11px;
+    color: #666666;
+    margin-top: 5px;
+    text-align: right;
+}
+#maintainHistoryTbox .timeLineBlackLine1
+{
+    background-color: #09a2e9;
+    width: 1px;
+    height: 0px;
+    margin-left: 46%;
+    margin-top: -1px;
+    position: absolute;
+}
+#maintainHistoryTbox .redPointAndTriangle
+{
+    top: 44px;
+    /*height: 10px;*/
+    margin-left: 45%;
+    position: relative;
+}
+#maintainHistoryTbox .timeLineRedPoint 
+{
+    position: absolute;
+    margin-left: -6px;
+    margin-top: 1px;
+    width: 13px;
+    height: 13px;
+    border-radius: 100%;
+    background: url(../myinfo/image/cricle_icon.png) no-repeat;
+    background-size: 13px 13px;
+    background-position: 50% 50%;
+}
+#maintainHistoryTbox .littleTriangle
+{
+    width: 0px;
+    height: 0px;
+    margin-top: -2px;
+    float: right;
+    border-width: 10px;
+    border-style:dashed solid dashed dashed;
+    border-color:transparent #dedede transparent transparent;
+    font-size:0; 
+    line-height:0;
+}
+
+#maintainHistoryTbox .clearColorTriangle
+{
+    width: 15px;
+    height: 15px;
+    margin-top: -9px;
+    margin-left: -7px;
+    border-width: 9px;
+    border-style: dashed dashed dashed dashed;
+    border-color: transparent #FFF transparent transparent;
+    font-size: 0;
+    line-height: 0;
+}
+#maintainHistoryTbox .timeLineBlackLine2
+{
+    background-color: #09a2e9;
+    width: 1px;
+    height: 46%;
+    margin-left: 46%;
+    margin-bottom: 0;
+    position: absolute;
+}
+#maintainHistoryTbox .timeLineBlackLine2.active{
+    display: none;
+}
+#maintainHistoryTbox .scroller
+{
+    overflow: hidden;
+    min-height: 101% !important;
+}
+#maintainHistoryTbox .scroller li
+{
+    height: auto;
+    border-bottom: 0px;
+    position: relative;
+    background-color: #efeff4
+}
+#maintainHistoryTbox .maintainTitleBlock
+{
+    width:100%;
+    height:20px;
+}
+#maintainHistoryTbox .maintainTitle 
+{
+    float:left;
+    font-size: 11px;
+    color:#8f8e94;
+    line-height: 20px;
+    margin-left: 10px;
+}
+#maintainHistoryTbox .maintainTime
+{
+    float:right;
+    margin-top: 5px;
+    margin-right: 5px;
+    width:40px;
+    height: 20px;
+    background-size: 100% 100%;
+}
+#maintainHistoryTbox .maintainContent 
+{
+    padding-left: 10px;
+    font-size: 17px;
+    line-height: 25px;  
+    position: relative;
+    width: 100%;
+    height: auto
+}
+#maintainHistoryTbox .maintainContentBlock{
+    position: relative;
+    margin-bottom: 6px;
+}
+#maintainHistoryTbox .line{
+    background-color: #09a2e9;
+    width: 1px;
+    height: 180px;
+    position: absolute;
+    top: -100px;
+    left: 68px;
+    z-index: -3;
+    display: none;
+}
+#maintainHistoryTbox .maintainContentBlock:after{
+    content: "";
+    bottom: -10px;
+    width: 200%;
+    height: 1px;
+    left: -50%;
+    position: absolute;
+    background: #d9d9d9;
+    display: block;
+    opacity: 0.7;
+    -webkit-transform:scale(0.5);
+}
+#maintainHistoryTbox .maintainDetail 
+{
+    line-height: 20px;
+    word-wrap: break-word;
+    font-size: 16px;
+    color: #666666;
+    margin-left: 18px;
+    padding-right: 20px;
+}
+
+#maintainHistoryTbox .maintainCost 
+{
+    /*position: absolute;*/
+    bottom: 2px;
+    right:10px;
+    text-align: right;
+    color: #ef834d;
+    height: 20px;
+    padding-right: 5px;
+}
+#maintainHistoryTbox .maintainLine 
+{
+   background-color: #dedede;
+   height:1px;
+   margin-top: 3px;
+   margin-bottom: 3px;
+}
+#maintainHistoryTbox .maintainShopBlock
+{
+    padding-top: 12px;
+    padding-left: 10px;
+    height:35px;
+}
+#maintainHistoryTbox .maintainMapIcon 
+{
+    float:left;
+    background-image: url('image/maintainLocation.png');
+    background-size: 13px 17px;
+    width:13px;
+    height:17px;
+    background-repeat: no-repeat;
+    left:120px;
+}
+#maintainHistoryTbox .maintainShopName 
+{
+    width: 80%;
+    font-size: 14px;
+    color: #09a2e9;
+    float: left;
+    margin-left: 5px;
+    line-height: 17px;
+   display: -webkit-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+#maintainHistoryTbox .wacxg{
+      display: block;
+      width: 70%;
+      float: right;
+      background-color: #f5f5f5;
+      font-size: 14px;
+      height: 40px;
+      line-height: 40px;
+      color:#909090;
+      position: absolute;
+      left: 30%;
+      padding-left: 18px;
+      top: 7px;
+}
+
+
+
+
+

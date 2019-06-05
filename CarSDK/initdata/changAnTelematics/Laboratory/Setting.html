@@ -1,0 +1,93 @@
+<div id="Setting" data-view='Laboratory/Setting'>
+    <style type="text/css">
+        #safety > li{
+            width: 98%;
+            height: 40px;
+            border-width: 1px;
+            border-bottom-style: solid;
+            margin: 4px;
+            border-bottom-color: gainsboro;
+        }
+        .notice{
+            position: absolute;
+            font-size: 10px;
+            left: 10px;
+            color: gray;
+            white-space: normal;
+            display: -webkit-inline-box;
+            margin-top: 11px;
+            margin-left: 68px;
+            width: 62%;
+            line-height: normal;
+        }
+        .bottom_box{
+            width: 44px;
+            height: 24px;
+            position: relative;
+            background-color: gray;
+            top: -32px;
+            border-radius: 15px;
+            left: 87%;
+        }
+        .bottom_in{
+            width: 24px;
+            height: 24px;
+            background-color: white;
+            margin-top: 0px;
+            position: relative;
+            border-radius: 12px;
+        }
+        .selected{
+            /*left: 20px;*/
+            -webkit-animation:myfirst1 0.5s; /* Safari and Chrome */
+        }
+        @-webkit-keyframes myfirst1 /* Safari 和 Chrome */
+        {
+            0%   {-webkit-transform:translate(0px,0);}
+            25%  {-webkit-transform:translate(5px,0);}
+            50%  {-webkit-transform:translate(10px,0);}
+            75%  {-webkit-transform:translate(15px,0);}
+            100% {-webkit-transform:translate(20px,0);}
+            /*0%   {left:0px;}*/
+            /*25%  {left:5px;}*/
+            /*50%  {left:10px;}*/
+            /*75%  {left:15px;}*/
+            /*100% {left:20px;}*/
+        }
+        .Green{
+            background-color: green;
+        }
+    </style>
+    <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}' navTitle='"设置"'>
+    </header>
+    <div class="content">
+
+        <ul id="safety" class="table-view" style="background-color: #E5E8EF;font-size: 0.95em">
+            <li>
+                <span style="margin: 11px 65px 11px 15px;">车身防盗<span class="span"></span><span class="notice">防盗系统被触发，将通知您</span></span>
+                <div  id="bottom_box1" class="bottom_box">
+                    <div id="safe_bottom" class="bottom_in"></div>
+                    <div class="bottom_change" style="width: 100%;height: 24px;position: absolute;top: 0px;"></div>
+                </div>
+            </li>
+
+            <li style="position: relative">
+                <span style="margin: 11px 0px 11px 15px;">事故处理<span class="span"></span><span id="notice" class="notice">发生碰撞时，抓拍同时会通知您的紧急联系人</span></span>
+                <div  id="bottom_box2" class="bottom_box">
+                    <div id="hit_in" class="bottom_in"></div>
+                    <div class="bottom_change" style="width: 100%;height: 24px;position: absolute;top: 0px;"></div>
+                </div>
+            </li>
+
+            <!--<li style="position: relative" id="manage_contacts">-->
+                <!--<span style="margin: 11px 65px 11px 15px;">紧急联系人<span class="span"></span></span></span>-->
+            <!--</li>-->
+
+            <!--<li class="table-view-cell" id="manage_contacts">-->
+                <!--<a class="navigate-right">-->
+                    <!--<span class="table-view-sep">&nbsp;</span>紧急联系人-->
+                <!--</a>-->
+            <!--</li>-->
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,346 @@
+<div id="introductionInfo" data-view='toolkit/introductionInfo'>
+<style type="text/css">
+    #introductionInfo #guild{
+        width: 100%;
+        height: 45px;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: gainsboro;
+        display: table;
+        padding-left: 10px;
+        /*position: fixed;*/
+        /*z-index: 99;*/
+        background: #efeff4;
+    }
+    #introductionInfo .guildT{
+        display: table-cell;
+        vertical-align: middle;
+        color: black;
+    }
+
+    #introductionInfo #wrapper {
+        position: absolute;
+        /*z-index: 1;*/
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: white;
+        overflow: hidden;
+    }
+
+    #introductionInfo #scroller {
+        min-height: 100.5%;
+    }
+
+    #introductionInfo #scroller ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        text-align: left;
+        margin-bottom:3px;
+    }
+
+    #introductionInfo #scroller li {
+        padding: 0 10px;
+        line-height: 40px;
+        border-top: 1px solid #fff;
+        background-color: white;
+        font-size: 14px;
+        /*border-bottom: 1px solid gainsboro;*/
+        margin-top: 1px;
+    }
+
+    #introductionInfo li img{
+        /*width: 100%;*/
+    }
+    #introductionInfo #scroll-over{
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+        position: absolute;
+        top: 0px;
+        display: none;
+    }
+    #introductionInfo #nav-bar {
+        top: -64px;
+        transition: top .6s;
+        -webkit-transition: top .6s;
+    }
+    #introductionInfo #nav-bar.active {
+        top: 0;
+        transition: top .6s;
+        -webkit-transition: top .6s;
+    }
+    #introductionInfo .content {
+        top: 0 !important;
+        background: white;
+        overflow: hidden;
+    }
+    #introductionInfo .contentHead {
+       padding: 14px 14px 19px;
+       height: .38rem;
+       font-size: 13px;
+       color: #999;
+    }
+    #introductionInfo .bookName {
+        float: left;
+        margin-left: -6px;
+    }
+    #introductionInfo .bookChapter {
+            float: right;
+        position: absolute;
+        right: 14px;height: 14px;
+        line-height: 14px;
+        overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+    }
+    #introductionInfo .bookChapter span {
+        padding-left: 10px;
+    }
+    #introductionInfo .leftMenuSelectWrap {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        margin-left: -44px;
+        z-index: 2;
+        top: 0;
+        left: -100%;
+        transition: left .6s;
+        -webkit-transition: left .6s;
+        z-index: 999;
+    }
+    #introductionInfo .leftMenuSelectWrap.active {
+        left: 0;
+        transition: left .6s;
+        -webkit-transition: left .6s;
+    }
+    #introductionInfo .leftMenuSelect {
+        width: 100%;
+        height: 100%;
+        padding-left: 44px;
+        position: absolute;
+    }
+    #introductionInfo .leftMenuWrap {
+        padding-left: 27px;
+        width: 100%;
+        height: 100%;
+        background: white;
+        padding-right: 15px;
+    }
+    #introductionInfo .LMSHead {
+        color: #343434;
+        font-size: 19px;
+        height: 111px;
+        padding-top: 62px;
+        border-bottom: 1px solid #d9d9d9;
+    }
+    #introductionInfo .LMSCItem {
+        /*height: 48px; */
+        line-height: 20px;
+        padding: 13px 0 12px;
+        border-bottom: 1px solid #d9d9d9;
+        padding-right: 15px;
+        font-size: 17px;
+        color: #3d3d3d;
+    }
+    #introductionInfo .LMSCItem.active {
+        color: #09a2e9;
+    }
+     #introductionInfo .LMSCItem .LMSCIText {
+        margin-left: 12px;
+     }
+    #introductionInfo .leftMenuMask {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: black;
+        opacity: 0.7;
+        display: none;
+        z-index: 998;
+    }
+    #introductionInfo .contentBottom {
+        position: absolute;
+        bottom: -49px;
+        transition: bottom .6s;
+        -webkit-transition: bottom .6s;
+        height: 49px;
+        width: 100%;
+        background-color: #fbfbfc;
+        border-top: 1px solid #cfcfcf;
+        padding: 16px 0 15px 16px;
+        z-index: 2;
+    }
+    #introductionInfo .contentBottom.active {
+        bottom: 0;
+        transition: bottom .6s;
+        -webkit-transition: bottom .6s;
+    }
+    #introductionInfo .contentBottomIcon {
+        background: url("../toolkit/img/menu.png");
+        background-size: 28px 18px;
+        width: 28px;
+        height: 18px;
+    }
+    #introductionInfo  #navLeft {
+        position: relative;
+    }
+
+    #introductionInfo #navLeft::after {
+        content: '行车说明书';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 13px;
+        font-size: 17px;
+        width: 150px;
+        text-align: left;
+    }
+    #introductionInfo #thelistHead {
+        /*height: 140px;*/
+        padding: 82px 14px 29px;
+    }
+    #introductionInfo #thelistHeadWarp {
+        padding-bottom: 5px;
+        line-height: 24px;
+        font-size: 19px;
+        position: relative;
+    }
+    #introductionInfo #thelistHeadWarp span {
+        margin-left: 10px;
+    }
+    #introductionInfo #thelistHeadWarp::after {
+        content: '';
+        width: 100%;
+        height: 2px;
+        transform: scaleY(0.5);
+        background-color: #7f7f7f;
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    #introductionInfo .LMSCItemWarp {
+        position: absolute;
+        top: 111px;
+        bottom: 0;
+        overflow: hidden;
+    }
+    #introductionInfo .swipe-slide {
+        position: absolute;
+        height: 100%;
+    }
+    #introductionInfo .swipe {
+        overflow: hidden;
+        visibility: hidden;
+        position: relative;
+    }
+    #introductionInfo .swipe-wrap {
+        overflow: hidden;
+        position: relative;
+    }
+    #introductionInfo .scroller li{
+        height: auto;
+    }
+    #introductionInfo .pullup {
+        position: absolute;
+        width: 100%;
+        visibility: hidden;
+    }
+    #introductionInfo .intrLoading {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        font-size: 18px;
+    }
+    #introductionInfo .loadingText,#introductionInfo .loadingError {
+        margin-top: 50%;
+    }
+    #introductionInfo .loadingError {
+        display: none;
+    }
+     #introductionInfo .intrLoading.success .loadingText,#introductionInfo .intrLoading.success .loadingError {
+        display: none;
+    }
+    #introductionInfo .intrLoading.error .loadingText {
+        display: none;
+    }
+    #introductionInfo .intrLoading.error .loadingError {
+        display: block;
+    }
+    #introductionInfo .intrInfo {
+        position: absolute;
+        bottom: -20px;
+        width: 100%;
+        text-align: center;
+        height: 20px;
+        font-size: 14px;
+        color: #999;
+    }
+</style>
+
+    <script type="text/x-underscore-template" id="introductionInfo-leftMenuSelect">
+        <div class="LMSCItem" data-index='<%=index%>' data-id='<%=data.contentId%>'><span><%=chapter%></span><span class='LMSCIText'><%=data.subject%></span></div>
+    </script>
+    <script type="text/x-underscore-template" id="introductionInfo-swipe-scroll">
+       <div class='content-list-warrp'>
+            <div class="content-list" style='width:100%;height:100%;position:relative; overflow:hidden;'>
+                <div id="mytour_list"  class="listview scroller-wrapper" style='padding:0'>
+                  <div class="scroller" id="scroller">
+                        <div class="intrLoading">
+                            <div class="loadingText">内容加载中...</div>
+                            <div class="loadingError">内容加载失败</div>
+                        </div>
+                        <ul id="thelist">
+                            <div id='thelistHead'></div>
+                            <li></li>
+                        </ul>
+                        <div class="intrInfo">左右滑动，即可切换页面</div>
+
+                   </div>
+              </div>
+            </div>                   
+        </div>
+    </script>
+<!--  <div class="pullup">
+                          <span class="label">上拉翻页</span>
+                      </div> -->
+
+<header id="nav-bar" class="bar bar-nav blue-bar" navTitle='""' navRight='{"hide":true}'>
+</header>
+
+
+<div class="content">
+    <div class="contentHead">
+        <span class='bookName'></span><span class='bookChapter'></span>
+    </div>
+     <div id="slider" class="swipe">
+     <div class="swipe-wrap">
+   
+    </div>
+    </div>
+    <div id="scroll-over"></div>
+    <div class="contentBottom">
+        <div class="contentBottomIcon"></div>
+    </div>
+    <div class="leftMenuSelectWrap"> 
+        <div class="leftMenuSelect">
+            <div class="leftMenuWrap">
+                <div class="LMSHead">目录</div>
+                <div class="LMSCItemWarp">
+                    <div class="LMSContent">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="leftMenuMask"></div>
+</div>
+</div>

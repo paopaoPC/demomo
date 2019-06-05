@@ -1,0 +1,109 @@
+.ui-dialog{
+    /*background: #f5f5f5;*/
+    /*-webkit-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.6);*/
+    -webkit-border-radius: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-color: transparent;
+}
+
+.ui-dialog .ui-dialog-title {
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    text-align: center;
+    background: #f5f5f5;
+    font-weight: 700;
+    -webkit-border-radius: 3px 3px 0 0;
+}
+.ui-dialog .ui-dialog-title h3{
+    line-height:50px;
+}
+.ui-dialog .ui-dialog-close{
+    cursor: pointer;
+    border-width: 0;
+    display: inline-block;
+    padding: 7px 9px;
+    margin: 2px;
+    line-height: 1;
+    -webkit-border-radius: 3px;
+}
+
+.ui-dialog .ui-dialog-close-hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.ui-dialog .ui-dialog-content{
+    padding:16px;
+    position: relative;
+    word-break:break-all;
+    text-align: center;
+    color: #333333;
+    font-size: 15px;
+    line-height: 22px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #dfdfdf;
+}
+.ui-dialog .ui-dialog-content.active{
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.ui-dialog .ui-dialog-btns {
+    table-layout: fixed;
+    display: table;
+    border-collapse: collapse;
+    margin: 0px 0 0 0;
+    width: 100%;
+}
+.ui-dialog .ui-dialog-btns .ui-btn {
+    padding: 0;
+    font-size: 16px;
+    width: 100%;
+    /*display: table-cell;*/
+    float: none;
+    text-align: center;
+    height: 50px;
+    line-height: 54px;
+    /*color: #232323;*/
+    border: 1px solid #ddd;
+    border-bottom: 0 none;
+    cursor: pointer;
+    /*background-color: #00c3fe;*/
+    color: #09aaec;
+    font-size: 16px;
+}
+
+.ui-dialog .ui-dialog-btns .ui-btn:first-child {
+    -webkit-border-bottom-left-radius: 3px;
+    border-left: 0 none;
+    background-color: #FFFFFF;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border: none;
+    color: #e5433f;
+    margin-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.ui-dialog .ui-dialog-btns .ui-btn:last-child {
+    -webkit-border-bottom-right-radius: 3px;
+    margin-top: 10px;
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    color: #098ce1
+}
+.ui-dialog .ui-dialog-btns .ui-btn.ui-state-hover {
+    background-color: #e2e2e2;
+}
+
+/*css for pad*/
+@media all and (min-device-width:768px) and (max-device-width: 1024px){
+    .ui-dialog{
+        min-width: 500px;
+    }
+    .ui-dialog .ui-dialog-title{
+        min-height: 1.1em;
+    }
+}

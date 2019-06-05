@@ -1,0 +1,140 @@
+<div id="selectCalendar" class = "page" data-view='drivingReport/selectCalendar' >
+  <style type="text/css">
+    #selectCalendar .content {
+        background: #FFF;
+    }
+    #selectCalendar .yearContent {
+        margin-bottom: 25px;
+    }
+    #selectCalendar .yearContentBody {
+        padding: 5px 15px; 
+    }
+    #selectCalendar .yearContentHead {
+        /*height: 51px;*/
+        /*padding: 26px 0;*/
+        font-size: 27px;
+        /*border-bottom: 1px solid #cbcbcb;*/
+        margin-left: 15px;
+        margin-top: 26px;
+        padding-top: 0;
+        color: #333333;
+    }
+    #selectCalendar .dataTableTr {
+        position: relative;
+        font-size: 0;
+    }
+    #selectCalendar .dataTableTd{
+        display: inline-block;
+        width: 33.33%;
+    }
+    #selectCalendar .dataTable {
+        font-size: 12px;
+    }
+    #selectCalendar .tableLeft {
+        float:left;
+    }
+    #selectCalendar .tableCenter {
+        margin: auto;
+        display: table;
+    }
+    #selectCalendar .tableRight {
+        float:right;
+    }
+    #selectCalendar .mouthData {
+        float: left;
+        font-size: 17px;
+        color: #333333;
+    }
+    #selectCalendar .priceData {
+        float: right;
+        text-align: right;
+        font-size: 14px;
+        color: #f95e09;
+    }
+    #selectCalendar .dataTable .td {
+        text-align: center;
+        width: 15px;
+        height: 15px;
+        font-size: 12px;
+        border-radius: 7.5px;
+        display: table-cell;
+        color: #999999;
+    }
+    #selectCalendar .td span {
+        display: inline-block;
+        transform: scale(0.66);
+        -webkit-transform: scale(0.66); 
+        height: 100%;
+        line-height: 15px; 
+    }
+    #selectCalendar .dataTitle {
+        width: 105px;
+        display: table;
+        margin: 0 auto;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        padding-left: 3px;
+    }
+    #selectCalendar .td.today {
+        color: white;
+        background: #00c2ff;
+    }
+    #selectCalendar .tbody {
+        color: #636363;
+        font-weight: lighter;
+    }
+    #selectCalendar .actived {
+        color: #09aaec !important;
+        /*font-weight: bold;*/
+    }
+    @media (max-width:360px) {
+        #selectCalendar .dataTableTd {
+            transform: scale(0.86);
+            -webkit-transform: scale(0.86);
+        }
+        #selectCalendar .dataTitle {
+            width: 100%;
+        }
+        #selectCalendar .yearContentBody {
+            padding: 5px 10px;
+        }
+    }
+    @media (min-width:335px) {
+        #selectCalendar .dataTitle {
+            width: 105px;
+        }
+    }
+    @media (min-width:400px) {
+        #selectCalendar .dataTableTd {
+            transform: scale(1.05);
+            -webkit-transform: scale(1.05);
+        }
+        #selectCalendar .yearContentBody {
+            padding: 5px 18px;
+        }
+    }
+    #selectCalendar #wrapper {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        height: auto;
+        overflow: hidden;
+    }
+
+    #selectCalendar #scroller {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+    }
+  </style>
+  <header id="nav-bar" class="bar bar-nav blue-bar" navTitle='"行程报告"' navRight='{"hide":"true"}'>
+  </header>
+  <div class="content">
+    <div id="wrapper">
+        <div id="scroller">
+        </div>
+    </div>
+  </div>
+</div>

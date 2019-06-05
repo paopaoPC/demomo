@@ -1,0 +1,10 @@
+{
+  "name": "cc_违章查询",
+  "identifier": "cc.violation",
+  "description": "",
+  "version": "1.0.1",
+  "dependencies": {},
+  "build": 2,
+  "releaseNote": "",
+  "hidden": false
+}

@@ -1,0 +1,101 @@
+<div id="fenceDetail" data-view="connetJD/fenceDetail">
+	<style>
+		#fenceDetail .content{
+			padding-left: 6%;
+		}
+		#fenceDetail .addCar_wrap
+		{ 
+		    height:50px; 
+		    font-size:14px; 
+		    text-align:left; 
+		    width:100%; 
+		    margin:0px auto; 
+		    background-color:#fff;
+		    position: relative;
+		}
+		#fenceDetail .addCar_wrap div
+		{ 
+		    width:93%; 
+		    height:100%; 
+		    margin:0;
+		    
+		}
+		#fenceDetail .addCar_wrap:after{
+		    bottom: 0px;
+		    content: "";
+		    display: block;
+		    position: absolute;
+		    left: -50%;
+		    width: 200%;
+		    height: 1px;
+		    background: #d9d9d9;
+		    opacity: 0.7;
+		    -webkit-transform: scale(0.5);
+		}
+		#fenceDetail .last_children:after{
+		    height: 0 !important
+		}
+		#fenceDetail .addCar_wrap span
+		{ 
+		    display:block; 
+		    width:30%; 
+		    height:40px; 
+		    color:#909090; 
+		    font-size: 17px;
+		    float:left; 
+		    line-height:46px; 
+		    /*text-indent:7%;*/
+		}
+		#fenceDetail .addCar_wrap input,select
+		{ 
+		    display:block; 
+		    width:70%; 
+		    border:none; 
+		    float:left; 
+		    height:49px; 
+		    margin:0; 
+		    background-color:#fff; 
+		    box-shadow:none; 
+		    font-size:14px;
+		    color: #4e555a;
+		    direction: rtl;
+		}
+		#fenceDetail .notify-item{
+			background: url(../myinfo/image/arrow.png) no-repeat;
+		    background-position: 96% center;
+		    background-size: 0.08rem 0.14rem;
+		}
+	</style>
+	<header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}'  navTitle='"围栏详情"'>
+    </header>
+    <div class="content" style = "background-color:#fff">
+    	<div class="addCar_wrap">
+            <div>
+                <span>围栏名字</span>
+                <input id="fenceName" type="text" maxlength="11" placeholder="我的围栏" disabled = "disabled"/>
+            </div>
+        </div>
+        <!-- <div class="addCar_wrap">
+            <div>
+                <span>围栏位置</span>
+                <input id="fenceLocation" type="text" maxlength="11" placeholder="" disabled = "disabled"/>
+            </div>
+        </div> -->
+        <div class="addCar_wrap">
+            <div>
+                <span>通知电话</span>
+                <input id="telphone" type="text" maxlength="11" placeholder="" disabled = "disabled"/>
+            </div>
+        </div>
+        <div class="addCar_wrap notify-item">
+            <div>
+                <span>关联到</span>
+                <select id="connectAddr">
+                	<option value="">暂不关联</option>
+                	<option value="home">家</option>
+                	<option value="company">公司</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>

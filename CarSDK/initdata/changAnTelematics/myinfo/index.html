@@ -1,0 +1,945 @@
+<div id="myinfo" data-view="myinfo/index">
+    <style type="text/css">
+        #myinfo .my-info-content {
+            width: 100%;
+            vertical-align: top;
+            margin: 0 auto;
+            padding-top: 40px;
+        }
+
+        #myinfo .content-wrapper::-webkit-scrollbar {
+            width: 0
+        }
+
+        #myinfo .my-info-bar {
+            height: 128px;
+            background-size: 100%;
+            margin: 0;
+            padding: 0;
+            background: #202020;
+            box-sizing: content-box;
+        }
+
+        #myinfo .my-info-head {
+            width: 56px;
+            height: 56px;
+            padding: 0 0 0 0;
+            /*margin: 0 auto;*/
+            margin-left: 16px;
+            float: left;
+            position: relative;
+        }
+
+        #myinfo .my-info-head img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: solid 2px white;
+        }
+
+        #myinfo .my-info-text-content {
+            text-align: center;
+            height: 100%;
+            float: left;
+            padding-left: 19px;
+            padding-top: 10px;
+        }
+
+        #myinfo .my-info-text {
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        #myinfo .my-info-text-simple {
+            color: #f3f3f3;
+            display: inline-block;
+            font-size: 18px;
+            line-height: 16px;
+            text-align: left;
+            float: left;
+        }
+
+        #myinfo .my-info-level {
+            height: 12px;
+            line-height: 12px !important;
+            text-align: center;
+            background-color: #00d4f9;
+            font-size: 10px !important;
+            color: black;
+            display: inline-block;
+            border-radius: 2px;
+            margin-left: 4px;
+        }
+
+        #myinfo .my-info-text-content > img {
+            width: 23px;
+        }
+
+        #myinfo .my-drive-imfor {
+            width: 100%;
+            /*height: 50px;*/
+            background: -webkit-gradient(linear, 0 0, 0 100%, from(#11141b), to(#282c33));
+            box-shadow: 0px 0px 3px #171b26;
+            margin-top: 22px;
+            opacity: 0.75;
+        }
+
+        #myinfo .my-line {
+            width: 1px;
+            height: 30px;
+            background-color: #4b5056;
+            /* float: left; */
+            line-height: 18px;
+            position: absolute;
+            left: 50%;
+            top: 10px;
+        }
+
+        #myinfo .my-drive-imfor > ul {
+            width: 100%;
+            height: 100%;
+            color: #FFFFFF;
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            position: relative;
+        }
+
+        #myinfo .my-drive-imfor > ul li {
+            float: left;
+            width: 50%;
+            height: 40px;
+            line-height: 20px;
+            font-family: 'Helvetica';
+        }
+
+        /*#myinfo .my-drive-imfor >ul li:first-child{
+             border-right: 1px solid #4b5056;
+        }*/
+        #myinfo .my-drive-imfor > ul li span:first-child {
+            font-size: 18px;
+            color: #00c2ff;
+        }
+
+        #myinfo .my-drive-imfor > ul > li span:last-child {
+            font-size: 12px
+        }
+
+        #myinfo .my-info-separate {
+            height: 35px;
+            background-color: #f0f0f3;
+            padding-left: 10px;
+            line-height: 36px;
+            color: #1d1d1e;
+            border-bottom: 1px solid #DFDFDF;
+            display: none;
+        }
+
+        #myinfo .my-info-msg-count span {
+            display: inline-block;
+        }
+
+        #myinfo .my-info-integral-count, #myinfo .my-info-integral-section {
+            margin-left: 0.5em;
+        }
+
+        #myinfo .my-info-integral-section {
+            width: 3.7em;
+            text-align: center;
+        }
+
+        #myinfo .my-info-integral-count {
+            color: #ed5565;
+            font-weight: normal;
+            font-size: 1.5em;
+            padding-right: 10%;
+            text-align: center;
+            line-height: 1.5em;
+        }
+
+        #myinfo .my-info-integral-text {
+            color: #9b9b9b;
+            font-size: 0.8em;
+            margin-top: 10px
+        }
+
+        #myinfo .my-info-integral-num {
+            font-weight: bold;
+            color: #353535;
+        }
+
+        #myinfo .my-info-msg-count {
+            float: right;
+        }
+
+        #myinfo .my-info-msg-count-tip {
+            width: 0.9em;
+            height: 0.9em;
+            -webkit-border-radius: 0.5em;
+            background-color: #ed5565;
+            color: #ed5565;
+            display: inline-block;
+            margin-left: 1em;
+            position: relative;
+            top: -0.3em;
+            font-size: 0.5em;
+        }
+
+        #myinfo .table-view-cell > a:not(.btn) {
+            text-indent: 27px;
+        }
+
+        #myinfo .navigate-right:after, .push-right:after {
+            right: 15px;
+        }
+
+        #myinfo .my-info-msg-count-num {
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1em;
+            position: relative;
+            top: -0.3em;
+            left: 1.5em;
+            width: 1.2em;
+            display: inline-block;
+            text-align: center;
+        }
+
+        #myinfo .my-info-msg {
+            height: 63px;
+            color: #737373;
+            border-bottom: 1px solid #DEDEE1;
+            line-height: 1.8em;
+            padding-left: 23px;
+            padding-top: 0.4em;
+            background-color: #F4F4F7;
+        }
+
+        #myinfo .my-info-msg-title, #myinfo .my-info-msg-summary {
+            outline-color: #737373;
+            color: #59595a;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            font-size: 0.95em;
+            width: 85%;
+        }
+
+        #myinfo .my-info-msg-summary {
+            color: #898c8c;
+            font-size: 0.85em;
+        }
+
+        #myinfo .table-view-cell {
+            font-size: 15px;
+            color: #59595a;
+            line-height: 30px;
+            height: 50px;
+        }
+
+        #myinfo .table-view-sep {
+            width: 8px;
+            display: inline-block;
+        }
+
+        #myinfo .icon-refresh {
+            position: absolute;
+            right: 0.5em;
+            top: 0.5em;
+        }
+
+        #myinfo .toggle .toggle-handle {
+            -webkit-transform: translate3d(0px, 0px, 0px);
+        }
+
+        #myinfo .active .toggle-handle {
+            -webkit-transform: translate3d(20px, 0px, 0px);
+        }
+
+        #myinfo .content-wrapper {
+            background: #f2f2f2;
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            top: 0px;
+            bottom: 0px;
+            overflow: auto;
+        }
+
+        #myinfo .my-info-msg .navigate-right {
+            position: relative;
+        }
+
+        #myinfo .navigate-right {
+            color: #515151;
+            height: 50px;
+        }
+
+        #myinfo .my-info-msg .navigate-right:after {
+            right: 1em;
+            position: relative;
+            float: right;
+            top: -2em;
+        }
+
+        #myinfo .navigate-right:after, .push-right:after {
+            content: "";
+            width: 23px;
+            height: 23px;
+            background: url(../myinfo/image/myinfo-right.png);
+            background-size: 23px;
+        }
+
+        #myinfo .my-info-integral {
+            height: 56px;
+            width: 100%;
+            background-color: #1e222d;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#DFDFDF' x='0' y='0' width='100%' height='0.8'/></svg>");
+            background-repeat: no-repeat;
+            background-position: 0% 100%;
+        }
+
+        #myinfo .sep-border {
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1' height='100%'><rect fill='#CCCDCC' x='0' y='0' height='100%' width='0.7'/></svg>");
+            background-repeat: no-repeat;
+            background-position: 100% 0%;
+            float: right;
+            height: 65%;
+            width: 1px;
+        }
+
+        #myinfo .table-view {
+            background-color: transparent;
+            position: relative;
+            background-image: none;
+            margin-bottom: 0;
+        }
+
+        /*   #myinfo .table-view:after {
+               content: "";
+               display: block;
+               position: absolute;
+               left: -50%;
+               width: 200%;
+               height: 1px;
+               background: #3c4455;
+               opacity: 0.9;
+               -webkit-transform: scale(0.5);
+           }*/
+
+        #myinfo .table-view-cell:after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: -50%;
+            width: 200%;
+            height: 1px;
+            bottom: 0;
+            background: #ececec;
+            opacity: 0.9;
+            -webkit-transform: scale(0.5);
+        }
+
+        #myinfo .table-view-cell {
+            background-image: url("") position : relative;
+        }
+
+        #myinfo .table-view .table-view-cell:last-child {
+            background-image: none;
+        }
+
+        #myinfo .table-view-cell > a:not(.btn):active {
+            /*background-image: none;*/
+            background-color: rgba(255, 255, 255, 0.05) !important;
+        }
+
+        #myinfo .logout-button {
+            height: 44px;
+            -moz-border-radius: 5px;
+            margin: 45px 0;
+            padding: 0 15px;
+            text-align: center;
+            display: table;
+            width: 100%;
+        }
+
+        #myinfo .logout-button:active {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        #myinfo .logout-button-txt {
+            display: table-cell;
+            vertical-align: middle;
+            color: #00c3fe;
+            font-size: 15px;
+        }
+
+        #myinfo #redShot {
+            width: 5px;
+            height: 5px;
+            border-radius: 100%;
+            background-color: red;
+            position: absolute;
+            right: 25px;
+            top: 21px;
+            display: none;
+        }
+
+        #myinfo #modifyPassword {
+            background: url(../myinfo/image/icon_lock.png) no-repeat;
+            background-size: 0.20rem 0.20rem;
+            background-position: 15px center;
+        }
+
+        #myinfo #modifyTelphone {
+            background: url(../myinfo/image/icon_phone.png) no-repeat;
+            background-size: 0.21rem 0.21rem;
+            background-position: 15px center;
+        }
+
+        #myinfo #my-info-toolkit {
+            background: url(../myinfo/image/icon_service.png) no-repeat;
+            background-size: 0.21rem 0.21rem;
+            background-position: 15px center;
+        }
+
+        #myinfo #safeCenter {
+            /*background: url(../myinfo/image/safeCenter_icon.png) no-repeat;*/
+            /*background: url(../myinfo/image/safeCenter.svg) no-repeat;*/
+            /*background-size: 0.21rem 0.21rem;*/
+            /*background-position: 15px center;*/
+        }
+
+        #myinfo .safeCenterIcon {
+            width: 0.21rem;
+            height: 0.21rem;
+            position: absolute;
+            left: 15px;
+            margin-top: 2px;
+        }
+
+        #myinfo #privacyAgreement {
+            background: url(../myinfo/image/secrety_icon.png) no-repeat;
+            background-size: 0.21rem 0.21rem;
+            background-position: 15px center;
+        }
+
+        #myinfo #my-info-cars {
+            /*background: url(../myinfo/image/icon_car.png) no-repeat;*/
+            /*background-size: 0.21rem 0.21rem;*/
+            /*background-position: 15px center;*/
+        }
+
+        #myinfo #my-info-message {
+            /*background: url(../myinfo/image/icon_message.png) no-repeat;*/
+            /*background-size: 0.21rem 0.21rem;*/
+            /*background-position: 15px center;*/
+        }
+
+        #myinfo #my-info-navigation {
+            background: url(../myinfo/image/icon_map.png) no-repeat;
+            background-size: 0.21rem 0.21rem;
+            background-position: 15px center;
+        }
+
+        #myinfo #my-info-suggest {
+            background: url(../myinfo/image/icon_suggest-new.png) no-repeat;
+            background-size: 0.21rem 0.21rem;
+            background-position: 15px center;
+        }
+
+        #myinfo #navigate-update > a {
+            /*background: url(../myinfo/image/icon_down.png) no-repeat;*/
+            /*background-size: 0.21rem 0.21rem;*/
+            /*background-position: 15px center;*/
+        }
+
+        #myinfo .content {
+            padding-top: 0 !important;
+            background-color: #1b1e29;
+            margin-top: 0 !important;
+            /*top: 0 !important;*/
+            /*bottom: 35px !important*/
+        }
+
+        #myinfo #member {
+            /*background: url(../myinfo/image/icon_v_wo.png) no-repeat;*/
+            /*background-size: 0.21rem 0.21rem;*/
+            /*background-position: 15px center;*/
+        }
+
+        #myinfo .my-info-text-phone {
+            display: inline-block;
+            color: #fbd398;
+            font-size: 10px;
+        }
+
+        #myinfo .my-info-merber {
+            display: none;
+            float: left;
+            /*width: 41px;*/
+            height: 15px;
+            background-repeat: no-repeat;
+            background-size: 41px 15px;
+        }
+
+ /*       #myinfo .my-info-merber#GeneralCard {
+            background-image: url(../myinfo/image/merber-icon-GeneralCard.png);
+        }
+
+        #myinfo .my-info-merber#SilverCard {
+            background-image: url(../myinfo/image/merber-icon-SilverCard.png);
+        }
+
+        #myinfo .my-info-merber#GoldCard {
+            background-image: url(../myinfo/image/merber-icon-GoldCard.png);
+        }
+
+        #myinfo .my-info-merber#DiamondCard {
+            background-image: url(../myinfo/image/merber-icon-DiamondCard.png);
+        }*/
+
+        #myinfo .changan-momey {
+            color: white;
+            height: 89px;
+            margin: 10px 0 9px;
+            padding: 25px 15px 0;
+            background-color: white;
+        }
+
+        #myinfo .changan-momey-item {
+            width: 20%;
+            display: inline-block;
+            float: left;
+        }
+
+        #myinfo .changan-momey-item p {
+            color: #999;
+            text-align: center;
+            font-size: 10px;
+            margin-bottom: 6px;
+        }
+
+        #myinfo .changan-momey-item p.value {
+            color: #126fb5;
+            font-size: 16px;
+            position: relative;
+        }
+
+        #myinfo .changan-momey-topic .value:after {
+            content: '';
+            display: inline-block;
+            width: 1px;
+            background: #bebebe;
+            position: absolute;
+            right: 0;
+            top: 5px;
+            bottom: -14px;
+        }
+
+
+
+        #myinfo .changan-momey-medal .value:after {
+            content: '';
+            display: inline-block;
+            width: 1px;
+            background: #bebebe;
+            position: absolute;
+            right: 0;
+            top: 5px;
+            bottom: -14px;
+        }
+
+        #myinfo .changan-momey-help .value:after {
+            content: '';
+            display: inline-block;
+            width: 1px;
+            background: #bebebe;
+            position: absolute;
+            right: 0;
+            top: 5px;
+            bottom: -14px;
+        }
+
+        #myinfo .changan-momey-activity .value:after {
+            content: '';
+            display: inline-block;
+            width: 1px;
+            background: #bebebe;
+            position: absolute;
+            right: 0;
+            top: 5px;
+            bottom: -14px;
+        }
+
+
+        #myinfo.ios-head .my-info-bar {
+            padding-top: 20px;
+        }
+
+        #myinfo .logout-item {
+            height: 44px;
+            line-height: 44px;
+            background-color: #ff8d00;
+            border-radius: 5px;
+            font-size: 16px;
+            color: white;
+        }
+
+        #myinfo .my-info-text-left:after {
+            content: "";
+            width: 100%;
+            display: block;
+            height: 1px;
+            clear: both;
+        }
+
+        #myinfo .my-info-text-right .medal-icon {
+            width: 30px;
+            height: 30px;
+            display: none;
+            background-size: 30px;
+            background-repeat: no-repeat;
+        }
+
+        #myinfo .my-info-text-right {
+            color: #e9d600;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        #myinfo .my-info-text-right .medal-icon.medal-fensi {
+            background-image: url(../myinfo/image/medal-fensi.png);
+            background-position-y: 2px;
+        }
+
+        #myinfo .my-info-text-right .medal-icon.medal-star {
+            background-image: url(../myinfo/image/medal-star.png);
+        }
+
+        #myinfo .my-info-text-right .medal-icon.medal-member {
+            background-image: url(../myinfo/image/medal-member.png);
+        }
+
+        #myinfo .my-info-text-right .medal-icon.medal-official {
+            background-image: url(../myinfo/image/medal-official.png);
+        }
+
+        #myinfo .goMemberRightIcon {
+            position: absolute;
+            right: 0;
+            top: 64px;
+            width: 95px;
+            height: 26px;
+            box-sizing: content-box;
+            border-bottom-left-radius: 20px;
+            border-top-left-radius: 20px;
+            background-color: #1f9ffa;
+        }
+        #myinfo .goMemberRightIcon-icon {
+            width: 14px;
+            height: 14px;
+            background-size: 14px;
+            background-repeat: no-repeat;
+            background-image: url(../myinfo/image/merber.png);
+            margin-top: 6px;
+            margin-left: 8px;
+            display: inline-block;
+                float: left;
+        }
+        #myinfo .goMemberRightIcon-text {
+            display: inline-block;
+            float: left;
+            line-height: 27px;
+            color: white;
+            padding-left: 4px;
+            font-size: 12px;
+        }
+         #myinfo .goMemberRightIcon-nav {
+            background-image: url(../myinfo/image/next-white.svg);
+            background-size: 5px;
+            background-repeat: no-repeat;
+            height: 16px;
+            width: 8px;
+            float: left;
+            margin-top: 8px;
+            margin-left: 4px;
+         }
+        
+        #myinfo .two-item {
+            height: 62px;
+            background-color: white;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        #myinfo .ti-item {
+            float: left;
+            width: 50%;
+            padding-top: 22px;
+            text-align: center;
+            color: #999;
+            position: relative;
+            height: 100%;
+        }
+        #myinfo .ti-item-value {
+            margin-left: 8px;
+            color: #525252;
+        }
+        #myinfo .ti-item .ti-concern-value:after {
+            content: '';
+            display: inline-block;
+            width: 1px;
+            background: #bebebe;
+            position: absolute;
+            right: 0;
+            top: 16px;
+            bottom: 18px;
+        }
+        #myinfo .my-info-head .myInfoHead-v {
+            border: 0;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: 0;
+            bottom: 0;
+            display: none;
+        }
+        #myinfo .message-number {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff4134;
+            border-radius: 6px;
+            right: -12px;
+            top: -3px;
+            display: none;
+        }
+        #myinfo .noCantacts1{
+            width: 8px;
+            height: 8px;
+            background-color: red;
+            display: -webkit-box;
+            border-radius: 100%;
+            position: absolute;
+            top: 17px;
+            left: 85px;
+            visibility: hidden;
+        }
+
+    </style>
+
+
+    <script id="myinfo-msg-count-template" type="text/x-underscore-template">
+        <span class="table-view-sep">&nbsp;</span><%=title%>
+        <div class="my-info-msg-count-tip" <%=(msg.totle>0?"style='display:none'":"") %> ></div>
+
+    </script>
+    <script id="myinfo-msg-template" type="text/x-underscore-template">
+        <div class="my-info-msg">
+
+            <a class="navigate-right" id="msg-btn" data-contentId="<%=msg.id%>">
+                <div class="my-info-msg-title"><%=msg.subject%></div>
+                <div class="my-info-msg-summary"><%=msg.summary%></div>
+            </a>
+        </div>
+    </script>
+    <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}'  navTitle='"个人中心"'>
+    </header>
+    <div class="content">
+        <div class="content-wrapper">
+            <div class="content-header-img">
+                <div class="my-info-bar">
+                    <div class="goMemberRightIcon">
+                        <div class="goMemberRightIcon-icon"></div>
+                        <div class="goMemberRightIcon-text">会员中心</div>
+                        <div class="goMemberRightIcon-nav"></div>
+                    </div>
+                    <div class="" id="myinfo-tab-title">
+                        <div class="my-info-content">
+                            <div id="myInfoHead" class="my-info-head">
+                                <img id="myInfoHeadImg" src="../myinfo/image/head.png"/>
+                                <img class="myInfoHead-v">
+                            </div>
+                            <div class="my-info-text-content">
+                                <div class="my-info-text-left">
+                                    <div class="my-info-text-simple"></div>
+                                </div>
+                                <div class="my-info-text-right">
+                                    <span class="my-info-merber"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="two-item">
+                    <div class="ti-item ti-concern">
+                        <span>关注</span>
+                        <span class="ti-item-value ti-concern-value">--</span>
+                    </div>
+                    <div class="ti-item ti-follower">
+                        <span>粉丝</span>
+                        <span class="ti-item-value ti-follower-value">--</span>
+                    </div>
+                </div>
+
+                <div class="changan-momey">
+                    <div class="changan-momey-item changan-momey-topic">
+                        <p class="value">--</p>
+
+                        <p>话题</p>
+                    </div>
+                    <div class="changan-momey-item changan-momey-help">
+                        <p class="value">--</p>
+
+                        <p>互助</p>
+                    </div>
+                    <div class="changan-momey-item changan-momey-activity">
+                        <p class="value">--</p>
+
+                        <p>活动</p>
+                    </div>
+                    <div class="changan-momey-item changan-momey-medal">
+                        <p class="value">--</p>
+
+                        <p>勋章</p>
+                    </div>
+                    <div class="changan-momey-item changan-momey-collection">
+                        <p class="value">--</p>
+
+                        <p>收藏</p>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="table-view" id="my-info-msg">
+                <li class="table-view-cell">
+                    <div id='redShot'></div>
+                    <a class="navigate-right" id="my-info-message" data-value="my-info-message">
+                        <img class="safeCenterIcon" src="../myinfo/image/myinfo-message.png"/>
+                        <span class="table-view-sep">&nbsp;</span><span style="position:relative">我的消息<div class="message-number"></div></span>
+                    </a>
+                </li>
+                <li class="table-view-cell">
+                    <a class="navigate-right" id="wallet" data-value="wallet">
+                        <img class="safeCenterIcon" src="../myinfo/image/myinfo-wallet.png"/>
+                        <span class="table-view-sep">&nbsp;</span>我的钱包
+                    </a>
+                </li>
+                <li class="table-view-cell">
+                    <a class="navigate-right" id="my-info-cars" data-value="my-info-cars">
+                        <img class="safeCenterIcon" src="../myinfo/image/myinfo-cars-new.png"/>
+                        <span class="table-view-sep">&nbsp;</span>车辆管理
+                    </a>
+                </li>
+                <li class="table-view-cell">
+                    <a class="navigate-right" id="mission" data-value="mission">
+                        <img class="safeCenterIcon" src="../myinfo/image/myinfo-mission.png"/>
+                        <span class="table-view-sep">&nbsp;</span>积分任务
+                    </a>
+                </li>
+                <li class="table-view-cell">
+                    <a class="navigate-right" id="shopping" data-value="shopping">
+                        <img class="safeCenterIcon" src="../myinfo/image/myinfo-shopping.png"/>
+                        <span class="table-view-sep">&nbsp;</span>积分商城
+                    </a>
+                </li>
+<!--                 <li class="table-view-cell">
+                    <a class="navigate-right" id="collection" data-value="collection">
+                        <img class="safeCenterIcon" src="../myinfo/image/myinfo-collection.png"/>
+                        <span class="table-view-sep">&nbsp;</span>我的收藏
+                    </a>
+                </li>
+
+                <li class="table-view-cell">
+                    <a class="navigate-right" id="safeCenter" data-value="safeCenter">
+                        <img class="safeCenterIcon" src="../myinfo/image/myinfo-safeCenter.png"/>
+                        <span class="table-view-sep">&nbsp;</span>安全中心
+                    </a>
+                </li>
+
+                <li class="table-view-cell">
+                    <a class="navigate-right" id="serviceRecord" data-value="serviceRecord">
+                        <img class="safeCenterIcon" src="../myinfo/image/myinfo-serviceRecord.png"/>
+                        <span class="table-view-sep">&nbsp;</span>维保记录
+                    </a>
+                </li>
+
+                <li class="table-view-cell">
+                    <div id='redShot'></div>
+                    <a class="navigate-right" id="my-info-message" data-value="my-info-message">
+                        <img class="safeCenterIcon" src="../myinfo/image/myinfo-message.png"/>
+                        <span class="table-view-sep">&nbsp;</span>我的消息
+                    </a>
+                </li>
+
+
+
+
+                <li class="table-view-cell" id="navigate-update">
+                    <a class="navigate-right">
+                        <img class="safeCenterIcon" src="../myinfo/image/myinfo-about.png"/>
+                        <span class="table-view-sep">&nbsp;</span>关于
+                    </a>
+                </li>
+
+                <li class="table-view-cell">
+                    <div id='redShot'></div>
+                    <a class="navigate-right" id="my-info-shared" data-value="my-info-shared">
+                        <img class="safeCenterIcon" src="../myinfo/image/myinfo-shared.png"/>
+                        <span class="table-view-sep">&nbsp;</span>分享给好友
+                    </a>
+                </li> -->
+            </ul>
+
+            <!-- <div class="my-info-separate" style="border-bottom: 0">其它设置</div> -->
+            <!--<ul class="table-view" style="background-color: transparent;margin-top: 15px;">-->
+            <!--<li class="table-view-cell" style="display: none">-->
+            <!--<span class="table-view-sep">&nbsp;</span>推送设置-->
+            <!--<div class="toggle" id="setting-btn">-->
+            <!--<div class="toggle-handle"></div>-->
+            <!--</div>-->
+            <!--</li>-->
+            <!--<li class="table-view-cell">-->
+            <!--<a class="navigate-right" id="my-info-suggest" data-value="my-info-suggest">-->
+            <!--<span class="table-view-sep">&nbsp;</span>改进建议-->
+            <!--</a>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <ul class="table-view" style="background-color: transparent;padding: 7px 0;margin-bottom: 50px;">
+                <li class="table-view-cell">
+                    <div id='redShot'></div>
+                    <a class="navigate-right" id="my-info-shared" data-value="my-info-shared">
+                        <img class="safeCenterIcon" src="../myinfo/image/myinfo-shared.png"/>
+                        <span class="table-view-sep">&nbsp;</span>分享给好友
+                    </a>
+                </li>
+          <!--       <li class="table-view-cell" id="navigate-Push">
+                    <a class="navigate-right" id="noticeSetting" data-value="noticeSetting">
+                        <img class="safeCenterIcon" src="../myinfo/image/myinfo-setting.png"/>
+                        <span class="table-view-sep">&nbsp;</span>推送设置
+                    </a>
+                </li> -->
+                <li class="table-view-cell">
+                    <a class="navigate-right" id="my-info-suggest" data-value="my-info-suggest">
+                        <span class="table-view-sep">&nbsp;</span>意见反馈
+                    </a>
+                </li>
+                <li class="table-view-cell" id="appSetting">
+                    <a class="navigate-right" id="appSetting" data-value="appSetting">
+                        <img class="safeCenterIcon" src="../myinfo/image/myinfo-setting-new.png"/>
+                        <span class="table-view-sep">&nbsp;</span>设置<span class="noCantacts1"></span>
+                    </a>
+                </li>
+          <!--       <li class="table-view-cell" id="navigate-logout">
+                    <a class="navigate-right" id="logout" data-value="logout">
+                        <img class="safeCenterIcon" src="../myinfo/image/myinfo-logout.png"/>
+                        <span class="table-view-sep">&nbsp;</span>退出
+                    </a>
+                </li> -->
+            </ul>
+     <!--        <div class='logout-button' id="logout">
+                <div class="logout-item">退出</div>
+            </div> -->
+        </div>
+    </div>
+</div>

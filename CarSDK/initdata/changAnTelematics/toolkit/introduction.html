@@ -1,0 +1,71 @@
+<div id="introduction" data-view='toolkit/introduction'>
+<style type="text/css">
+#introduction .introduction-menu{ width:100%;}
+#introduction .introduction-left{ float:left; width:40%; border-right:1px solid #dfdfdf; min-height:500px; position:relative;}
+#introduction-icon{ height:40px; position:absolute; top:0px; left:0px; width:2.5px; background-color:#21c779;}
+#introduction .introduction-left ul li{ width:100%; height:40px; border-bottom:1px solid #dfdfdf; line-height:40px; font-size:14px; text-align:center;}
+#introduction .introduction-left ul li.active{ color:#21c779;}
+#introduction .introduction-right{ float:right; width:60%;padding-top: 10px;}
+#introduction .introduction-right ul li{ text-indent:10px; width:100%; height:30px; line-height:30px; font-size:13px; color:#71767b; background:url(../toolkit/img/arrow.png) no-repeat; background-position:95% 9px;}
+#introduction .child-list:active{
+  background-color: #E6E6E7
+}
+
+#introduction .search-block
+{
+	width: 100%;
+	height: 45px; 
+	border-bottom:1px solid #dfdfdf;
+	position: relative;
+	margin-top: 10px;
+	display: none;
+}
+
+#introduction .search-img-btn
+{
+	width: 17px;
+	height: 17px;
+	float: left;
+	background:url(../toolkit/img/searchBtn.png) no-repeat;
+	/*background-size: 100%;*/
+	margin-left: 10px;
+	margin-top: 12px;
+	background-size: 90% 90%;
+	background-repeat: no-repeat;
+}
+
+
+</style>
+
+<script id="introduction-template" type="text/x-underscore-template">
+		<li data-id='<%=id%>'><%=name%></li>
+</script>
+
+<script id='child-template' type="text/x-underscore-template">
+		<li data-id='<%=contentId%>' class="child-list"><%=subject%></li>
+</script>
+
+<header id="nav-bar" class="bar bar-nav blue-bar" navTitle='"行车说明书"' navRight='{"text":"车型"}'></header>
+
+<div class="content">
+    <div class='introduction-menu'>
+	
+    	<div class='search-block'>
+
+    		<input class='search-field' type= "text" placeholder="搜索" style= "font: 12px arial; height: 30px; width:80%; margin-top: 4px; margin-left:7%; float:left;text-align: center;"/>
+
+    		<div class='search-img-btn' style="width: 30px;margin-top: 5px;height: 30px;margin-left: 15px;"></div>
+
+    	</div>
+
+		<div class='introduction-left'>
+			<ul></ul>
+		</div>
+		
+		<div class='introduction-right'>
+			<ul></ul>
+		</div>
+	
+	</div>
+</div>
+</div>

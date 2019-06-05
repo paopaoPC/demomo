@@ -1,0 +1,10 @@
+{
+  "name": "cc_缓存工具",
+  "identifier": "cc.fileUpload",
+  "description": "",
+  "version": "1.0.0",
+  "dependencies": {},
+  "build": 1,
+  "releaseNote": "",
+  "hidden": false
+}

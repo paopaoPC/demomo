@@ -1,0 +1,204 @@
+<style type="text/css">
+#map #bdmapContent{
+	height: 100%;
+}
+#map .masker{
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	display: none;
+	z-index: 1
+}
+#map .infowindow{
+	position: absolute;
+	width: 275px;
+	height: 42px;
+	top: 0px;
+	border-radius: 10px;
+	background: #fff;
+	/*border:1px solid #ccc;*/
+	z-index: 2;
+}
+#map .infowindow>div{
+	float: left;
+	height: 100%;
+}
+#map .div_one{
+	width: 22%;
+	background: #007cff;
+	border-bottom-left-radius: 10px;
+	border-top-left-radius: 10px;
+	text-align: center;
+}
+#map .div_one img{
+	width: 25px;
+	margin-top: 5px;
+}
+#map .div_one .timestamp{
+	color: #fff;
+	font-size: 12px;
+	text-align: center;
+	height: 16px;
+	line-height: 16px;
+}
+#map .div_three{
+	  width: 18%;
+	  margin-top: 4px;
+	  height: 34px!important;
+	  text-align: center;
+	  border-left: 1px solid #ccc;
+}
+#map .div_two{
+	width: 60%;
+}
+#map .div_three img{
+	width: 20px;
+	margin-top: 7px;
+}
+#map .line_one{
+	font-size: 16px;
+	text-align: center;
+	height: 20px;
+	line-height: 20px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+#map .line_two{
+	font-size: 12px;
+	text-align: center;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	height: 20px;
+	line-height: 20px;
+	color: #757575;
+}
+/*#map .rightIcon{
+	position: absolute;
+	top: 8px;
+	right: 5px;
+	color: #ccc;
+}*/
+#map s{
+	position: absolute;
+	top: 40px;
+	left: 92px;
+	display: block;
+	height: 0;
+	width: 0;
+	font-size: 0;
+	line-height: 0;
+	border-color: #ccc transparent transparent transparent;
+	border-style: solid solid solid solid;
+	border-width: 14px;
+}
+#map i{
+	position: absolute;
+	top: -15px;
+	left: -15px;
+	display: block;
+	height: 0;
+	width: 0;
+	font-size: 0;
+	line-height: 0;
+	border-color: #fff transparent transparent transparent;
+	border-style: solid solid solid solid;
+	border-width: 15px;
+}
+#map .locateBtn{
+	width: 35px;
+	height: 35px;
+	/*background: #fff;*/
+	position: absolute;
+	bottom: 70px !important;
+	left: 8px;
+	border-radius: 3px;
+	-webkit-box-shadow: 1px 1px 2px rgba(0,0,0,.4);
+	background: rgba(255,255,255,.8);
+	/*opacity: 0.8;*/
+}
+#map .locateBtn:active{
+	background: #ccc;
+}
+#map .locateBtn>div{
+	width: 20px;
+	height: 20px;
+	background: url("../map/img/locateBtn.png");
+	background-size: 20px;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -10px;
+	margin-left: -10px;
+}
+#map .chrysanthemum_map{
+	  width: 100px;
+  height: 100px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+  background-color: rgba(66,66,66,0.5);
+  z-index: 999;
+  border-radius: 10px;
+}
+#map .chrysanthemum_map.active>*:first-child {
+  -webkit-animation-name: loading;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+}
+#map .chrysanthemum_map>*:first-child {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  left: 50%;
+  margin-top: -20px;
+  margin-left: -20px;
+  background-image: url("data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGBAMAAACDAP+3AAAAHlBMVEX///+3t7e6urq4uLi4uLi5ubm5ubm5ubm5ubm5ubm/fxe2AAAACXRSTlMAIEaMjaPH8PN2+20BAAAA80lEQVR4XsWWLQ4CMRCFgRCwGDzHAIfCcwMEB8BxABQaw9yWAE1HfOS9bjahI799See187OTjjE7XM8bLZluI+K2kpp1vOMoNbuP5iGzuX80T5XRPL6xF3YWRXOqhHaWRXOphHZSUwjt5FmV0E7NmQb5iQZ5RJISTDUJNbwEnsXLZM4k9E7COwThW5DwTUlYGyB/6ClypgcOm7Aveqpw0VPJRU8lRxn8KhiUEwqvTePPaszZe/d32PYW/k1RA11KkcT3ju9B38t+JvjZMmRG+VnnZ6afvX6GN+8Cv1P8bvI7btiupMFRuzsNjv2XgB1R/P3iBSZwz1CJGJLVAAAAAElFTkSuQmCC");
+  -webkit-background-size: 40px 40px;
+  background-size: 40px 40px;
+}
+</style>
+
+<script id="map-infowindow-template" type="text/x-underscore-template">
+	<div class="infowindow" data-value='<%=JSON.stringify(rows)%>'>
+		<div class="div_one">
+			<div><img src="img/car.png"></div>
+			<div class="timestamp">0分钟</div>
+		</div>
+		<div class="div_two">
+			<div class="line_one"><%=rows.name%></div>
+			<div class="line_two"><%=rows.addr%></div>
+			<s><i></i></s>
+		</div>
+		<div class="div_three">
+		  <img src="img/navigation.png">
+		</div>
+	</div>
+</script>
+
+<script id="grid-template" type="text/x-underscore-template">
+<div class="grid" style="position:absolute;top:0px;bottom:0px;left:0px;right:0px;overflow:hidden;">
+<%for(var i = 0;i<document.body.offsetWidth / 50;i++){%>
+	<div class="lngline" style="border-left:1px solid #ccc;width:50px;height:100%;float:left"></div>
+	<%}%>
+<%for(var j = 0;j<document.body.offsetHeight / 50;j++){%>
+	<div class="latline" style="border-bottom:1px solid #ccc;width:100%;height:50px;"></div>
+	<%}%>
+</div>
+</script>
+
+<div id="bdmapContent">
+</div>
+
+<div class="locateBtn">
+	<div></div>
+</div>
+<!-- <div class="masker"></div> -->

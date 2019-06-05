@@ -1,0 +1,500 @@
+<div data-view="drivingBehavior/myDrivingBehavior" id="myDrivingBehavior"
+     style='background: url(../common/img/background.png) no-repeat;background-size: 100% 100%;background-color: #252432;'>
+    <style type="text/css">
+        #myDrivingBehavior .content {
+            background-color: transparent;
+        }
+
+        #myDrivingBehavior .im-default-nav-bar {
+            background-color: transparent !important
+        }
+
+        #myDrivingBehavior header {
+            background-color: transparent;
+        }
+
+        #myDrivingBehavior .driving-head {
+            width: 100%;
+            height: 298px;
+            background-color: #22212e;
+            text-align: center;
+            color: #ffffff;
+            padding-top: 20px;
+            position: relative;
+        }
+
+        /*#myDrivingBehavior .driving-head:before{
+            top: 1px;
+            content: "";
+            display: block;
+            position: absolute;
+            left: -50%;
+            width: 200%;
+            height: 1px;
+            background: #494f5f;
+            opacity:0.7;
+            -webkit-transform:scale(0.5);
+        }*/
+        #myDrivingBehavior .text-title {
+            font-size: 14px;
+            margin-bottom: 13px;
+            margin-top: 45px;
+        }
+
+        #myDrivingBehavior .text-value {
+            font-size: 14px;
+            /*background-image: -webkit-linear-gradient(left, #25e5b6 , #00ccff);
+             -webkit-background-clip: text;
+             -webkit-text-fill-color: transparent;
+*/ /*-webkit-mask-image: -webkit-gradient(linear,left top,right top,from(#00ccfe),to(#24e5b6));*/
+        }
+
+        #myDrivingBehavior .text-value > span {
+            font-size: 33px;
+            line-height: 26px;
+            padding-right: 5px;
+            font-family: OPTIGiant;
+        }
+
+        #myDrivingBehavior .text-content {
+            position: absolute;
+            font-size: 13px;
+            color: #dedede;
+            top: -17px;
+            left: 0;
+            width: 100%;
+        }
+
+        #myDrivingBehavior .my-driving-level {
+            width: 24px;
+            height: 12px;
+            line-height: 12px !important;
+            text-align: center;
+            background-color: #f7ab34;
+            font-size: 10px !important;
+            color: #FFFFFF;
+            display: inline-block;
+            border-radius: 2px;
+        }
+
+        #myDrivingBehavior .text-content > img {
+            height: 10px
+        }
+
+        #myDrivingBehavior .text-content > div {
+            width: 94px;
+            height: 17px;
+            line-height: 17px;
+            margin: 0 auto;
+            font-size: 17px;
+            color: #00d6ff;
+        }
+
+        #myDrivingBehavior .text-program {
+            margin-top: 73px;
+            position: relative;
+            padding: 0 70px 0 74px;
+        }
+
+        #myDrivingBehavior .program-start-value {
+            font-size: 14px;
+            position: absolute;
+            left: 0;
+            /*top: 1px;*/
+            width: 74px;
+            padding-right: 6px;
+            text-align: right;
+        }
+
+        #myDrivingBehavior .program-end-value {
+            font-size: 14px;
+            color: #52545a;
+            position: absolute;
+            right: 0;
+            top: 0px;
+            width: 70px;
+            text-align: left;
+            padding-left: 6px;
+        }
+
+        #myDrivingBehavior .text-program > img {
+            height: 12px;
+            width: 40%;
+            margin-right: 5px;
+            display: inline-block;
+        }
+
+        #myDrivingBehavior .program-line {
+            width: 100%;
+            height: 4px;
+            position: relative;
+            display: inline-block;
+            /* border: 1px solid #9dbad3; */
+            /*border-radius: 2px;*/
+            background-color: #5b5b64;
+        }
+
+        #myDrivingBehavior .program-green {
+            /*background-color: #25d474;*/
+            background-image: -webkit-linear-gradient(left, #00ccfe, #24e5b6);
+            /*-webkit-background-clip: text;*/
+            -webkit-text-fill-color: transparent;
+            width: 0px;
+            height: 4px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            border-radius: 0px;
+            -webkit-transition: width 2s;
+        }
+
+        #myDrivingBehavior .driving-rank {
+            width: 60%;
+            text-align: center;
+            position: relative;
+            margin: auto;
+            margin-top: 25px;
+            height: 36px;
+            padding-top: 5px;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 4px;
+        }
+
+        #myDrivingBehavior .driving-rank > div {
+            display: inline-block;
+
+        }
+
+        #myDrivingBehavior .driving-rank .driving-rank_img1 {
+            background: url(../drivingBehavior/img/star_icon.png) no-repeat;
+            background-position-x: 50%;
+            color: transparent;
+            background-size: 22px 26px;
+            width: 22px;
+            height: 26px;
+            position: relative;
+            /*top: 71px;*/
+        }
+
+        #myDrivingBehavior .driving-rank .driving-rank_img2 {
+            background: url(../drivingReport/img/whrite-arrow.png) no-repeat;
+            background-position-x: 50%;
+            color: transparent;
+            width: 5px;
+            height: 11px;
+            top: 6px;
+            left: 14px;
+            position: relative;
+            background-size: 100% 100%;
+        }
+
+        /*#myDrivingBehavior .driving-rank{
+            position: absolute;
+            color: #dedede;
+            font-size: 13px;
+            line-height: 14px;
+            top: 11px;
+            right: 4.5%
+        }*/
+        /*#myDrivingBehavior .driving-rank>img{
+            width: 15px;
+            height: 18.5px;
+            float: left;
+            margin-top: 3px;
+        }*/
+        #myDrivingBehavior .behavior-imfor {
+            background-color: #fff;
+            padding-top: .22186572rem;
+        }
+
+        #myDrivingBehavior .driving-list-block {
+            position: absolute;
+            width: 100%;
+            top: 182px;
+            bottom: 10px;
+            overflow: hidden;
+        }
+
+        #myDrivingBehavior .listview {
+            padding: 0;
+            position: absolute;
+            overflow: hidden;
+            top: 0px;
+        }
+
+        #myDrivingBehavior .scroller li {
+            height: 120px;
+        }
+
+        #myDrivingBehavior .scroller li:first-child {
+            margin-top: 20px;
+        }
+
+        #myDrivingBehavior .one-driving-imfor {
+            width: 100%;
+            height: 120px;
+        }
+
+        #myDrivingBehavior .driving-time {
+            width: 12%;
+            height: 100%;
+            text-align: right;
+            color: #4e555a;
+            float: left;
+            font-size: 12px
+        }
+
+        #myDrivingBehavior .driving-time > p {
+            margin-top: 5px;
+        }
+
+        #myDrivingBehavior .driving-line {
+            width: 10%;
+            height: 100%;
+            float: left;
+            text-align: center;
+        }
+
+        #myDrivingBehavior .driving-line > img {
+            width: 25px;
+            height: 25px;
+        }
+
+        #myDrivingBehavior .driving-line > div {
+            width: 1px;
+            height: 95px;
+            background-color: #e1e1e1;
+            margin-left: 50%;
+        }
+
+        #myDrivingBehavior .driving-imformation {
+            width: 78%;
+            height: 100%;
+            float: left;
+        }
+
+        #myDrivingBehavior .driving-distance {
+            width: 100%;
+            height: 30px;
+            padding-left: 10px;
+            line-height: 30px;
+            color: #6B6A6A;
+        }
+
+        #myDrivingBehavior .driving-imfor {
+            width: 96%;
+            height: 80px;
+            background-color: #FFFFFF;
+            border: 1px solid #e1e1e1;
+        }
+
+        #myDrivingBehavior .driving-imfor-left {
+            width: 88%;
+            height: 100%;
+            float: left;
+        }
+
+        #myDrivingBehavior .imfor-result {
+            padding-top: 10px;
+            padding-left: 10px;
+            font-size: 13px;
+        }
+
+        #myDrivingBehavior .rapid-brake, .rapid-speed-up, .rapid-speed-reduction, .rapid-turn {
+            width: 25%;
+            height: auto;
+            float: left;
+            text-align: center;
+            font-size: 12px;
+            color: #4e555a;
+            margin-top: 10px
+        }
+
+        #myDrivingBehavior .driving-imfor-left > div p:first-child {
+            margin-bottom: 5px
+        }
+
+        #myDrivingBehavior .driving-imfor-right {
+            width: 12%;
+            height: 80px;
+            float: left;
+            text-align: center;
+            line-height: 80px;
+            color: #f59900;
+            font-weight: bold;
+        }
+
+        #myDrivingBehavior .gain-score {
+            width: 100%;
+            height: .58026419rem;
+            line-height: .52906441rem;
+            color: #343434;
+            font-size: .14506605rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #myDrivingBehavior .gain-score > span:first-child {
+            color: #12c7ea;
+            font-size: .21333242rem !important;
+        }
+
+        #myDrivingBehavior .gain-score > span:last-child {
+            font-size: 11px;
+            color: #09a2e9;
+            padding: 0 8px;
+        }
+
+        #myDrivingBehavior .gain-score:after {
+            /*bottom: 0px;
+            content: "";
+            display: block;
+            position: absolute;
+            left: -36%;
+            width: 172%;
+            height: 1px;
+            background: #e6e6e6;
+            opacity:0.7;
+            -webkit-transform:scale(0.5);*/
+        }
+
+        #myDrivingBehavior .imfor-content {
+            width: 100%;
+            height: auto;
+        }
+
+        #myDrivingBehavior .option-line-one {
+            width: 100%;
+            height: .93866266rem;
+            margin-top: 2px;
+        }
+
+        #myDrivingBehavior .option-line-one > div {
+            width: 33.33%;
+            height: .93866266rem;
+            font-size: .10239956rem;
+            color: #A5A5A5;
+            text-align: center;
+            line-height: 18px;
+            /* padding-bottom: 0px; */
+            padding-top: .17066594rem;
+            float: left;
+            position: relative;
+        }
+
+        /*#myDrivingBehavior .option-line-one>div>img:first-child{
+            width: 48.5px;
+            height: 48.5px;
+        }*/
+        #myDrivingBehavior .option-line-one > div > img {
+            width: .06826638rem;
+            height: .09386627rem;
+            display: none;
+            position: absolute;
+            left: 78%;
+            top: .27306550rem
+        }
+
+        #myDrivingBehavior .option-line-one > div > div:first-child {
+            color: #343434;
+            font-size: .21333242rem;
+            line-height: .16213264rem;
+        }
+
+        #myDrivingBehavior .option-line-one > div > div {
+            padding: 5px 0px;
+            width: 100%;
+            overflow: hidden;
+            font-size: .11946616rem;
+            line-height: .11946616rem;
+            color: #666;
+        }
+
+        #myDrivingBehavior .driving-rank_words {
+            font-size: 16px;
+            height: 16px;
+            line-height: 16px;
+            top: 5px;
+            position: relative;
+            left: 8px;
+        }
+
+        #myDrivingBehavior .driving-rank_words span {
+            padding: 0 7px;
+        }
+
+        #myDrivingBehavior #navRight {
+            color: #00d6ff;
+        }
+    </style>
+    <header id="nav-bar" class="bar bar-nav blue-bar" navTitle='"驾驶行为"' navRight='{"text":"历史"}'>
+    </header>
+    <div class="content" style="background-color: #fff;">
+        <div class="driving-head">
+            <div class="text-program">
+                <span class="program-start-value">LV2</span>
+                <div class="program-line">
+                    <div class="program-green"></div>
+                </div>
+                <span class="program-end-value">LV3</span>
+                <div class="text-content">
+                    <div></div>
+                </div>
+            </div>
+
+            <div class="text-title">驾驶经验值</div>
+            <div class="text-value"><span>0</span>分</div>
+
+            <div class="driving-rank">
+                <div class="driving-rank_img1">123</div>
+                <div class="driving-rank_words" data-value="">我排在 --- 名</div>
+                <div class="driving-rank_img2">123</div>
+            </div>
+        </div>
+        <div class="behavior-imfor">
+            <div class="gain-score" id="scoreTime">今日获驾驶经验值<span>0</span>分</div>
+            <div class="imfor-content">
+                <div class="option-line-one">
+                    <div>
+                        <div id="kilometer">0</div>
+                        <div>里程数(km)</div>
+                        <img class="icon-image" src="../drivingBehavior/img/jiantou_icon.png">
+                    </div>
+
+                    <div>
+                        <div id="averSpeed">0</div>
+                        <div>速度(km/h)</div>
+                        <img class="icon-image" src="../drivingBehavior/img/jiantou_icon.png">
+                    </div>
+
+                    <div>
+                        <div id="time">0</div>
+                        <div>耗时(分)</div>
+                        <img class="icon-image" src="../drivingBehavior/img/jiantou_icon.png">
+                    </div>
+
+
+                </div>
+                <div class="option-line-one" style="display:none">
+                    <div>
+                        <div id="speedUp">0</div>
+                        <div>急加速(次)</div>
+                        <img class="icon-image" src="../drivingBehavior/img/jiantou_icon.png">
+                    </div>
+                    <div>
+                        <div id="speedDown">0</div>
+                        <div>急减速(次)</div>
+                        <img class="icon-image" src="../drivingBehavior/img/jiantou_icon.png">
+                    </div>
+                    <div>
+                        <div id="untrn">0</div>
+                        <div>急转弯(次)</div>
+                        <img class="icon-image" src="../drivingBehavior/img/jiantou_icon.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

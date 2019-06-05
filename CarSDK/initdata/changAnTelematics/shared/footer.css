@@ -1,0 +1,169 @@
+/*#main-footer {
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	z-index: 101;
+	height: 53px;
+}
+#main-footer .footerContent {
+	background-color: #f2f2f2;
+	box-shadow: none;
+	border-top: 1px solid #dfdfdf;
+}
+#main-footer .footerName{
+	color: #000;
+}
+#main-footer .footerContent .icon{
+	font-size: 18px;
+}
+#main-footer .footerContent .tab-item > div{
+	font-size: 12px;
+}
+@media (max-width: 399px){
+	#main-footer .eseIconDiv{
+		padding-top: 23px;
+		padding-bottom: 23px;
+	}
+	#main-footer .footerContent{
+		height: 50px;
+	}
+	#main-footer .footerContent .tab-item > div{
+		font-size: 11px;
+	}
+	#main-footer .icon-service {
+		background: url("img/service_off.ing");
+		background-size: 28px;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		height: 24px;
+		margin-bottom: 5px;
+	}
+	#main-footer .icon-consult {
+		background: url("img/consult_off.ing");
+		background-size: 28px;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		height: 24px;
+		margin-bottom: 5px;
+	}
+	#main-footer .icon-cusmade {
+		background-image: url("img/cusmade_off.ing");
+		background-size: 28px;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		height: 24px;
+		margin-bottom: 5px;
+	}
+	#main-footer .icon-myself {
+		background: url("img/myself_off.ing");
+		background-size: 28px;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		height: 24px;
+		margin-bottom: 5px;
+	}
+		#main-footer #popover {
+		bottom: 52px;
+	}
+
+} 
+ @media (min-width:400px) and (max-width: 539px){
+	#main-footer .footerContent{
+		height: 56px;
+	}
+
+	#main-footer .footerContent .tab-item > div{
+		font-size: 14px;
+	}
+	#main-footer .icon-service {
+		background-image: url("img/service_off.ing");
+		background-size: 30px;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		height: 25px;
+		margin-bottom: 5px;
+	}
+	#main-footer .icon-consult {
+		background-image: url("img/consult_off.ing");
+		background-size: 30px;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		height: 25px;
+		margin-bottom: 5px;
+	}
+	#main-footer .icon-cusmade {
+		background-image: url("img/cusmade_off.ing");
+		background-size: 30px;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		height: 25px;
+		margin-bottom: 5px;
+	}
+	#main-footer .icon-myself {
+		background-image: url("img/myself_off.ing");
+		background-size: 30px;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		height: 25px;
+		margin-bottom: 5px;
+	}
+	#main-footer #popover {
+		bottom: 57px;
+	}
+}
+ @media (min-width: 540px){
+	#main-footer .footerContent{
+		height: 70px;
+	}
+	#main-footer .footerContent .tab-item > div{
+		font-size: 22px;
+	}
+	#main-footer .icon-service {
+		background-image: url("img/service_off.ing");
+		background-size: 35px;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		height: 30px;
+		margin-bottom: 5px;
+	}
+	#main-footer .icon-consult {
+		background-image: url("img/consult_off.ing");
+		background-size: 35px;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		height: 30px;
+		margin-bottom: 5px;
+	}
+	#main-footer .icon-cusmade {
+		background-image: url("img/cusmade_off.ing");
+		background-size: 35px;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		height: 30px;
+		margin-bottom: 5px;
+	}
+	#main-footer .icon-myself {
+		background-image: url("img/myself_off.ing");
+		background-size: 35px;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		height: 30px;
+		margin-bottom: 5px;
+	}
+	#main-footer #popover {
+		bottom: 71px;
+	}
+	
+}
+#main-footer .uiservice .footerActive{
+		background-image: url("img/service_on.ing")!important;
+}
+#main-footer .uiconsult .footerActive{
+		background-image: url("img/consult_on.ing")!important;
+}
+#main-footer .uicusmade .footerActive{
+		background-image: url("img/cusmade_on.ing")!important;
+}
+#main-footer .uimyself .footerActive{
+		background-image: url("img/myself_on.ing")!important;
+}*/

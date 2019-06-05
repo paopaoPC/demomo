@@ -1,0 +1,202 @@
+<div id="bluetoothSharedListItemView" class="page" data-view="bluetooth/shared-list-item">
+	<style type="text/css">
+		#bluetoothSharedListItemView .im-text-navtitle {
+			/*font-size: 15px !important;*/
+		}
+		#bluetoothSharedListItemView .im-default-nav-bar {
+			border-bottom: none;
+		}
+		#bluetoothSharedListItemView .content {
+			background-color: #080808;
+			color: white;
+		}
+		#bluetoothSharedListItemView .input-item {
+			height: 46px;
+    		padding: 0 52px 0 120px;
+		}
+		#bluetoothSharedListItemView .item-label {
+			width: 120px;
+		    position: absolute;
+		    height: 40px;
+		    left: 0;
+		    line-height: 40px;
+		    text-align: left;
+		    padding-left: 15px;
+		}
+		#bluetoothSharedListItemView .item-input {
+			height: 40px;
+    		line-height: 40px;
+    		margin-top: -4px;
+		}
+		#bluetoothSharedListItemView .item-input .input-div,#bluetoothSharedListItemView .item-input input {
+			background: transparent;
+			margin-bottom: 0;
+			/*border-bottom: 1px solid #636363;*/
+			padding: 0;
+			height: 24px;
+			margin-top: 8px;
+			font-size: 16px;
+			padding-left: 6px;
+			color: rgb(153,153,153);
+		}
+		#bluetoothSharedListItemView .item-input .input-div {
+			height: 30px;
+			text-align: right;
+		}
+		#bluetoothSharedListItemView .input-item-time {
+			color: #0076d1;
+			font-size: 14px;
+			display: inline-block;
+			margin-right: 20px;
+		}
+		#bluetoothSharedListItemView .shared-btn {
+			height: 45px;
+			line-height: 45px;
+			text-align: center;
+			margin: auto;
+			background: #0098ff;
+			border-radius: 5px;
+			font-size: 18px;
+			/* margin-top: 15px; */
+			position: absolute;
+			left: 70px;
+			right: 70px;
+			/*bottom: 40px;*/
+			display: none;
+		}
+		#bluetoothSharedListItemView .shared-list {
+			margin-top: 55px;
+		}
+		#bluetoothSharedListItemView .shared-list-head {
+			padding-left: 15px;
+		}
+		#bluetoothSharedListItemView .shared-list-item {
+			padding: 20px 15px;
+			padding-right: 35px;
+		}
+		#bluetoothSharedListItemView .shared-list-item-content {
+			position: relative;
+		}
+		#bluetoothSharedListItemView .shared-list-item-head {
+			font-size: 12px;
+			color: #5a5a5a;
+			margin-bottom: 16px;
+		}
+		#bluetoothSharedListItemView .slic-item {
+			font-size: 15px;
+			color: white;
+		}
+		#bluetoothSharedListItemView .slic-item-left {
+			display: inline-block;
+		}
+		#bluetoothSharedListItemView .slic-item-right {
+			display: inline-block;
+		}
+		#bluetoothSharedListItemView .slic-item-operate {
+			position: absolute;
+			right: 45px;
+			top: -5px;
+			color: #025da5;
+			padding: 5px 40px 10px;
+		}
+		#bluetoothSharedListItemView .im-nav-right-text {
+			font-size: 17px;
+			color: white !important;
+		}
+		#bluetoothSharedListItemView .contact {
+			background-size: 25px;
+			width: 44px;
+			height: 32px;
+			background-repeat: no-repeat;
+			background-image: url(../bluetooth/img/addperson.png);
+			margin: auto;
+			background-position: center;
+			position: absolute;
+			right: 6px;
+			bottom: 8px;
+		}
+		#bluetoothSharedListItemView .right-icon {
+			background-size: 8px;
+		    width: 9px;
+		    height: 19px;
+		    background-repeat: no-repeat;
+		    background-image: url(../cars/img/icon_right.png);
+		    margin: auto;
+		    background-position: center;
+		    position: absolute;
+		    right: 21px;
+		    bottom: 16px;
+		}
+
+    </style>
+
+    <script id="bluetoothSharedView_temp" type="text/x-underscore-template">
+    	<% for(var i=0;i<dataArr.length;i++){ %>
+    	<div class="shared-list-item">
+    		<div class="shared-list-item-head">有效</div>
+    		<div class="shared-list-item-content">
+    			<div class="slic-item" style="margin-bottom: 9px;">
+    				<div class="slic-item-left">手机号：</div>
+    				<div class="slic-item-right"><%=dataArr[i].phone%></div>
+    			</div>
+    			<div class="slic-item">
+    				<div class="slic-item-left">有效期：</div>
+    				<div class="slic-item-right"><%=moment(dataArr[i].startTime).format('YYYY.MM.DD HH:mm')%>-<%=moment(dataArr[i].expireTime).format('YYYY.MM.DD HH:mm')%></div>
+    			</div>
+    			<div class="slic-item-operate" data-phone="<%=dataArr[i].phone%>" data-vin="<%=dataArr[i].vin%>">撤销</div>
+    		</div>
+    	</div>
+    	<%}%>
+    </script>
+
+    <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}' navTitle='"修改蓝牙钥匙授权"' style="background:transparent">
+    </header>
+    <div class="content">	
+		<div class="input-wrap" style="font-size: 16px;">
+			<div class="input-item" style="height: auto;padding: 0 15px;border-bottom: 1px solid #636363;margin-top: 16px;position: relative;padding-bottom: 3px;">
+				<div class="item-label" style="position: relative;width: 200px;padding-left: 0;font-size: 16px;">被授权手机号</div>
+				<div class="item-input">
+					<input id="phone-input" disabled="disabled" style='padding-left: 0;font-size: 16px;' type="text" id="phone-input" maxlength="11" placeholder="手机号">
+					<!-- <div class="contact"></div> -->
+				</div>
+			</div>
+		<!-- 	<div class="input-item">
+				<div class="item-label">有效期</div>
+				<div class="item-input">
+					<div class="input-item-time" data-value="1">一小时</div>
+					<div class="input-item-time" data-value="24">一天</div>
+					<div class="input-item-time" data-value="168">一周</div>
+					<div class="input-item-time" data-value="720">一月</div>
+				</div>
+			</div> -->
+			<div class="input-item" style="height: 32px;margin-top: 12px;">
+				<div class="item-label">起始时间</div>
+				<div class="item-input item-input-1">
+					<div id="item-input-1" class="input-div"></div>
+				</div>
+			</div>
+			<div class="input-item" style="border-bottom: 1px solid #636363;position: relative;">
+				<div class="item-label">有效期至</div>
+				<div class="item-input item-input-2">
+					<div id="item-input-2" class="input-div" style="color:white"></div>
+				</div>
+				<div class="right-icon"></div>
+			</div>
+			<div class="input-item" style="height: auto;padding: 0 15px;border-bottom: 1px solid #636363;margin-top: 10px;position: relative;padding-bottom: 3px;">
+				<div class="item-label" style="position: relative;width: 200px;padding-left: 0;font-size: 16px;">备注<span style="color:rgb(153,153,153)">(选填)</span></div>
+				<div class="item-input">
+					<input id="nickName" style='padding-left: 0;font-size: 16px;' type="text" id="phone-input" maxlength="8" placeholder="可填写被授权人昵称">
+				</div>
+			</div>
+             <div id="item-input-datepick"></div>
+		</div>
+	<!-- 	<div class="shared-list">
+			<div class="shared-list-head">我的分享</div>
+			<div class="shared-list-content">
+
+			</div>
+		</div> -->
+		<div class="shared-btn">修改授权</div>
+    </div>
+	<div id="datePlugin"></div>
+</div>

@@ -1,0 +1,130 @@
+<div id="autoPark" data-view='Laboratory/autoPark'>
+    <style>
+        #autoPark .content{
+            background-image: url('../common/img/background.png');
+        }
+        #autoPark .park{
+            width: 50%;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 5px;
+            color: #00c3fe;
+            font-size: 18px;
+            text-align: center;
+            clear: both;
+            margin: auto;
+            margin-top: 20px;
+            border: solid 1px #00c3fe;
+        }
+        #autoPark #animating{
+            width: 100%;
+            height: 3rem;
+            overflow:hidden;
+        }
+        #autoPark #standby{
+            width: 100%;
+            height: 3rem;
+            background: url(../Laboratory/images/car_firstScreen.png) center/1rem no-repeat;
+        }
+        #autoPark #lot{
+            background: url(../Laboratory/images/lot.png) top left/3.2rem repeat-x;
+            width:240%;
+            height:2.3rem;
+            margin-top: 10%;
+
+        }
+        #autoPark #lot .car{
+            opacity: 0.5;
+            transform: rotate(180deg);
+            width: 0.4rem;
+            float: left;
+            margin: 0.1rem 0 0 0.24rem;
+            position: relative;
+        }
+        #autoPark #lot .car.first{
+            margin-left:0.1rem;
+        }
+        #autoPark #animating .carRunning{
+            position: absolute;
+            transform: rotate(90deg);
+            width: 0.4rem;
+            left:44%;
+            top: 1.21rem;
+            transform-origin: bottom center;
+        }
+        #autoPark #description {
+            color: #00c3fe;
+            text-align: center;
+            line-height: 150%;
+            font-size: 0.155rem;
+            margin-top: 0.3rem;
+            white-space: pre-line;
+        }
+        #autoPark #description .dot{
+            width: 0;
+            overflow: hidden;
+            vertical-align: bottom;
+            margin-right: 0.85em;
+            display: inline-block;
+            animation: dot 2.5s step-start infinite;
+        }
+        #autoPark .carRunning.parkIn {
+            animation: parkIn 10s linear infinite;
+        }
+
+        @keyframes dot {
+            0% { width: 0; margin-right: 0.85em; }
+            33% { width: 0.25em; margin-right: 0.6em; }
+            66% { width: 0.5em; margin-right: 0.35em; }
+            100% { width: 0.85em; margin-right: 0;}
+        }
+        @keyframes parkIn {
+            0% {transform: translate3d(0,0,0) rotate(90deg)}
+            6.8% {transform: translate3d(-15%,0,0) rotate(99deg)}
+            13.6% {transform: translate3d(-30%,-0.5%,0) rotate(104deg)}
+            20.9% {transform: translate3d(-55%,-4.5%,0) rotate(109deg)}
+            28.2% {transform: translate3d(-70%,-8.5%,0) rotate(116deg)}
+            31.3% {transform: translate3d(-80%,-10.5%,0) rotate(124deg)}
+            34.9% {transform: translate3d(-90%,-15.5%,0) rotate(132deg)}
+            42.8% {transform: translate3d(-105%,-21.5%,0) rotate(137deg)}
+            52.1% {transform: translate3d(-105%,-30.5%,0) rotate(141deg)}
+            61.9% {transform: translate3d(-135%,-40.5%,0) rotate(146deg)}
+            74.6% {transform: translate3d(-150%,-54.5%,0) rotate(155deg)}
+            83.8% {transform: translate3d(-165%,-74.5%,0) rotate(165deg)}
+            100% {transform: translate3d(-170%,-96.5%,0) rotate(180deg)}
+        }
+    </style>
+    <script id='inputCircle' type="text/x-underscore-template">
+        <div class='inputCircle' style='width:40px; height:40px; position:relative; float:left;'>
+            <span style='display:block;width:6px;height:6px;background-color:#000;border-radius:100%; position:absolute;left:19px;top:19px;'></span>
+        </div>
+    </script>
+    <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}' navTitle='"自动泊车"'>
+    </header>
+    <div class="content">
+        <div id='standby' class="animate" ></div>
+        <div id="animating" class="animate" style="display: none">
+            <div id="lot" v-bind:style="{transform: 'translate3d(-'+ translate +'%,0,0)'}">
+                <img  class='car first' src="../Laboratory/images/car_firstScreen.png" v-visible="hidden != 1 && hidden!=8" />
+                <img  class='car' src="../Laboratory/images/car_firstScreen.png" v-visible="hidden != 2 && hidden!=9"/>
+                <img  class='car' src="../Laboratory/images/car_firstScreen.png" v-visible="hidden != 3 && hidden!=10"/>
+                <img  class='car' src="../Laboratory/images/car_firstScreen.png" v-visible="hidden != 4 && hidden!=11"/>
+                <img  class='car' src="../Laboratory/images/car_firstScreen.png" v-visible="hidden != 5 && hidden!=12"/>
+                <img  class='car' src="../Laboratory/images/car_firstScreen.png" v-visible="hidden != 6"/>
+                <img  class='car' src="../Laboratory/images/car_firstScreen.png" v-visible="hidden != 7"/>
+                <img  class='car' src="../Laboratory/images/car_firstScreen.png" v-visible="hidden != 8"/>
+                <img  class='car' src="../Laboratory/images/car_firstScreen.png" v-visible="hidden != 9"/>
+                <img  class='car' src="../Laboratory/images/car_firstScreen.png" v-visible="hidden != 10"/>
+                <img  class='car' src="../Laboratory/images/car_firstScreen.png" v-visible="hidden != 11"/>
+                <img  class='car' src="../Laboratory/images/car_firstScreen.png" v-visible="hidden != 12"/>
+            </div>
+            <img class="carRunning" src="../Laboratory/images/car_firstScreen.png" v-bind:style="{transform:parkIn}"/>
+            <!--<svg width='150px' height="150px" version="1.1" style="position: absolute;left: 19%;top: 37%;">-->
+                <!--<path d="M 118 115,C62.7 107.24,39 52.92,39 18" style="fill:none;stroke:red;stroke-width:3"></path>-->
+            <!--</svg>-->
+        </div>
+        <div id="description" v-show="running">{{description}}<span class="dot">...</span></div>
+        <div class="park" v-on:click="Park" data-model="0" v-show="!running">自动入库</div>
+        <div class="park" v-on:click="Park" data-model="1" v-show="!running">自动出库</div>
+    </div>
+</div>

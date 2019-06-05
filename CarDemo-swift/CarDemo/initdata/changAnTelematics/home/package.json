@@ -1,0 +1,10 @@
+﻿{
+  "name": "cc_主页",
+  "identifier": "cc.home",
+  "description": "",
+  "version": "1.0.4",
+  "dependencies": {},
+  "build": 5,
+  "releaseNote": "",
+  "hidden": false
+}

@@ -1,0 +1,247 @@
+<div id="my-tbox-equiment" data-view="cars/myTboxEquipment">
+
+    <style type="text/css">
+        #my-tbox-equiment {
+            background-color: white;
+            width: 100%;
+            height: 100%;
+        }
+
+        #content {
+            margin-top: 46px;
+            position: absolute;
+            width: 100%;
+        }
+
+        .my-equipment {
+            height: 68px;
+            width: 100%;
+            margin-top: 11px;
+        }
+
+        .top-gray-line {
+            height: 1px;
+            margin-top: 0px;
+            background-color: #e4e4e4;
+        }
+
+        /*.bottom-gray-line {*/
+            /*height: 1px;*/
+            /*margin-top: 65px;*/
+            /*!*margin-top: 3px;*!*/
+            /*background-color: #e4e4e4;*/
+        /*}*/
+        #my-tbox-equiment .bottom-gray-line {
+            height: 1px;
+            margin-top: 3px;
+            background-color: #e4e4e4;
+        }
+
+        .my-equipment .bottom-gray-line {
+            margin-top: 65px !important;
+        }
+
+        .equiment-title {
+            margin-top: 13px;
+            font-size: 16px;
+            color: black;
+            font-family: "Helvetica";
+            margin-left: 29px;
+        }
+
+        .equiment-detail {
+            margin-top: 10px;
+            font-size: 10px;
+            color: #bfbfbf;
+            font-family: "Helvetica";
+            margin-left: 29px;
+        }
+
+        .text-content {
+            float: left;
+            width: 70%;
+            margin-left: 0px;
+            height: 68px;
+        }
+
+        #add_equipment {
+            width: 95%;
+            height: 40px;
+            line-height: 40px;
+            margin: 10px auto;
+            border-radius: 5px;
+            background-color: #00c3fe;
+            color: #fff;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        #add_equipment:active {
+            color: #09aaec
+        }
+
+        .swich-equiment {
+            height: 26px;
+            width: 45px;
+            float: right;
+            background-color: #06d894;
+            margin-top: 20px;
+            margin-right: 20px;
+            border-radius: 12.5px;
+        }
+
+        .swich-equiment-positive {
+            background-color: #c3c3c3;
+        }
+
+        .swich-equiment-component {
+            height: 20px;
+            width: 20px;
+            background-color: white;
+            border-radius: 10px;
+            margin-top: 3px;
+            margin-left: 4px;
+        }
+
+        .swich-equiment-component-positive {
+            margin-left: 21px;
+        }
+
+        #my-tbox-equiment .equiment-right {
+            float: right;
+            width: 30%;
+            height: 100%;
+            position: relative;
+            padding: 10px 15px;
+        }
+
+        #my-tbox-equiment .equiment-dialog {
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 5px;
+            background-color: #00c3fe;
+            color: #fff;
+            text-align: center;
+        }
+        #my-tbox-equiment .downLoadTbox{
+            float: right;
+            margin-right: 20px;
+            background-color: #00c3fe;
+            color: #fff;
+            width: 60px;
+            text-align: center;
+            height: 25px;
+            padding-top: 5px;
+            border-radius: 5px;
+        }
+        #my-tbox-equiment .upInfo{
+            margin-top: 10px;
+            font-size: 10px;
+            font-family: "Helvetica";
+        }
+        .Tbox-box .crrentJindu{
+            height: 15px;
+            width: 0;
+            background-color: green;
+            border-radius: 3px;
+        }
+        .Tbox-box .JinduT{
+            width: 53%;
+            height: 15px;
+            background-color: white;
+            border-radius: 3px;
+        }
+        #my-tbox-equiment .downLoading{
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80px;
+            background-color: gainsboro;
+        }
+        #my-tbox-equiment .confirmEd{
+            background-color: gainsboro !important;
+        }
+        #my-tbox-equiment .setWifi{
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            right: 30px;
+            top: 16px;
+        }
+        #my-tbox-equiment #jinduNum{
+            position: absolute;
+            top: 0;
+            left: 56%;
+            color: gray;
+        }
+    </style>
+
+    <script id="my-equipment-obd-template" type="text/x-underscore-template">
+        <div class="my-equipment" data-index='<%=index%>' data-tuid='<%=rows.tuid%>' data-type='<%=rows.deviceType%>'>
+            <div class="top-gray-line"></div>
+            <div class="text-content">
+                <div class="equiment-title">设备: <%=rows.providerName%></div>
+                <div class="equiment-detail">该设备无法进行远程控制</div>
+            </div>
+
+
+            <div class="bottom-gray-line"></div>
+        </div>
+    </script>
+
+    <script id="my-equipment-tbox-template" type="text/x-underscore-template">
+        <%var tServiceStatus;%>
+        <div>
+            <div class="my-equipment" data-index='<%=index%>' data-tuid='<%=rows.tuid%>'
+                 data-type='<%=rows.deviceType%>'>
+                <div class="top-gray-line"></div>
+                <div class="text-content">
+                    <div class="equiment-title">设备: <%=rows.providerName+(rows.softVersion?"("+rows.softVersion+")":"")+(rows.hardwareVersion?"(*"+rows.hardwareVersion+")":"")%></div>
+                    <div class="equiment-detail">该设备不允许解绑</div>
+                </div>
+                <% if( tServiceStatus =='inactive' || tServiceStatus == null || tServiceStatus == undefined ){%>
+                <!--<div class='equiment-right'>-->
+                    <!--<div class='equiment-dialog'>激活</div>-->
+                <!--</div>-->
+                <% }%>
+                <%if(carUniqueCode){%>
+                <img class="setWifi" src="../cars/img/Wifi.png"/>
+                <%}%>
+            </div>
+            <div class="Tbox-box" style="padding-left: 29px;display: none;">
+            </div>
+            <div class="bottom-gray-line"></div>
+        </div>
+    </script>
+
+    <script id="tbox-update-template" type="text/x-underscore-template">
+        <p style="min-height: 25px;position: relative;width: 100%;">
+            <span style="position: absolute;left: 0;">当前版本：<%=currentVersion%></span><span style="position: absolute;left: 100px;">最新版本：<%=targetVersion%></span><span data-taskId="<%=taskId%>" class="downLoadTbox">更新</span>
+        </p>
+        <p class="upInfo">tbox固件升级将在车辆启动时自动进行</p>
+    </script>
+
+    <script id="tbox-updateing-template" type="text/x-underscore-template">
+        <div style="position: relative;">
+            <div class="JinduT"><p class="crrentJindu"></p></div>
+            <span id="jinduNum">0%</span>
+            <span class="downLoading downLoadTbox">固件下载…</span>
+            <p class="upInfo">tbox固件下载将在下一次车辆点火后自动开始</p>
+        </div>
+    </script>
+
+    <script id="tbox-complate-template" type="text/x-underscore-template">
+        <div style="position: relative;">
+            <p style="margin-top: 0;display: -webkit-inline-box;" class="upInfo">Tbox固件下载完成，请点击确认安装更新</p>
+            <span data-taskId="<%=taskId%>" id="comfirmInstall" class="downLoading downLoadTbox" style="background-color: #00c3fe;">确认安装</span>
+            <p class="upInfo">tbox固件安装将在下一次车辆熄火后自动进行</p>
+        </div>
+    </script>
+
+    <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}' navTitle='"我的设备"'>
+    </header>
+    <div class="content">
+        <div id="equiment-list"></div>
+    </div>
+</div>

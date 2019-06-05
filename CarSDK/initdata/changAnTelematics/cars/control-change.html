@@ -1,0 +1,185 @@
+<div id="controlChange" data-view="cars/control-change">
+    <style type="text/css">
+        #controlChange .control-info {
+            height: 45px;
+            line-height: 45px;
+            padding-left: 30px;
+            color: #9a9a9a;
+        }
+        #controlChange .control-item {
+            height: 55px;
+            line-height: 55px;
+            padding-left: 90px;
+            background-color: white;
+            position: relative;
+        }
+        #controlChange .control-item:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            left: 15px;
+            background-color: #d8d8d8;
+            transform: scaleY(0.5);
+            bottom: 0;
+        }
+        #controlChange .control-wrap:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            left: 15px;
+            background-color: #d8d8d8;
+            transform: scaleY(0.5);
+            bottom: 0px;
+        }
+        #controlChange .control-item:last-child:after {
+            content: '';
+            width: 0;
+            height: 0;
+        }
+        #controlChange .control-item-select {
+            width: 24px;
+            height: 24px;
+            background-repeat: no-repeat;
+            background-image: url('../cars/image/control_unselect.png');
+            position: absolute;
+            left: 15px;
+            top: 15px;
+                background-size: 24px;
+        }
+        #controlChange .control-item-select.select {
+            background-image: url('../cars/image/control_select.png');
+        }
+        #controlChange .control-item-icon {
+            width: 21px;
+            height: 21px;
+            position: absolute;
+            left: 54px;
+            top: 17px;
+            background-size: 21px;
+            background-repeat: no-repeat;
+        }
+        #controlChange .control-item-air .control-item-icon {
+            background-image: url(../cars/image/control-air.png);
+        }
+        #controlChange .control-item-air.select .control-item-icon {
+            background-image: url(../cars/image/control-air-light.png);
+        }
+        #controlChange .control-item-flashLight .control-item-icon {
+            background-image: url(../cars/image/control-flashLight.png);
+        }
+        #controlChange .control-item-flashLight.select .control-item-icon {
+            background-image: url(../cars/image/control-flashLight-light.png);
+        }
+        #controlChange .control-item-dormer .control-item-icon {
+            background-image: url(../cars/image/control-dormer.png);
+        }
+        #controlChange .control-item-dormer.select .control-item-icon {
+            background-image: url(../cars/image/control-dormer-light.png);
+        }
+        #controlChange .control-item-remoteSearchCar .control-item-icon {
+            background-image: url(../cars/image/control-remoteSearchCar.png);
+        }
+        #controlChange .control-item-remoteSearchCar.select .control-item-icon {
+            background-image: url(../cars/image/control-remoteSearchCar-light.png);
+        }
+        #controlChange .control-item-lock .control-item-icon {
+            background-image: url(../cars/image/control-lock.png);
+        }
+        #controlChange .control-item-lock.select .control-item-icon {
+            background-image: url(../cars/image/control-lock-light.png);
+        }
+        #controlChange .control-item-carWindows .control-item-icon {
+            background-image: url(../cars/image/control-carWindows.png);
+        }
+        #controlChange .control-item-carWindows.select .control-item-icon {
+            background-image: url(../cars/image/control-carWindows-light.png);
+        }
+        #controlChange .control-item-purge .control-item-icon {
+            background-image: url(../cars/image/control-purge.png);
+        }
+        #controlChange .control-item-purge.select .control-item-icon {
+            background-image: url(../cars/image/control-purge-light.png);
+        }
+        #controlChange .control-item-send_car_quick .control-item-icon {
+            background-image: url(../cars/image/control-send_car_quick.png);
+        }
+        #controlChange .control-item-send_car_quick.select .control-item-icon {
+            background-image: url(../cars/image/control-send_car_quick-light.png);
+        }
+        #controlChange .control-item .my-control {
+            color: #999;
+        }
+        #controlChange .control-item.select .my-control { 
+            color: black;
+        }
+    </style>
+    <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"text":"确定"}' navTitle='"快捷应用"'>
+    </header>
+    <div class="content">
+        <div class="control-info">
+            <span>快捷应用最多可添加3个</span>
+        </div>
+        <div class="control-wrap">
+            <div class="control-item control-item-air">
+                <div class="control-item-select ac_quick" data-value="ac_quick"></div>
+                <div class="control-item-icon"></div>
+                <div class='my-control'>
+                    <span>空调</span>
+                </div>
+            </div>
+            <div class="control-item control-item-purge">
+                <div class="control-item-select air_purify_quick" data-value="air_purify_quick"></div>
+                <div class="control-item-icon"></div>
+                <div class='my-control'>
+                    <span>空气净化器</span>
+                </div>
+            </div>
+            <div class="control-item control-item-remoteSearchCar">
+                <div class="control-item-select alarm_quick" data-value="alarm_quick"></div>
+                <div class="control-item-icon"></div>
+                <div class='my-control'>
+                    <span>闪灯鸣笛</span>
+                </div>
+            </div>
+            <div class="control-item control-item-flashLight">
+                <div class="control-item-select flash_light_quick" data-value="flash_light_quick"></div>
+                <div class="control-item-icon"></div>
+                <div class='my-control'>
+                    <span>闪灯</span>
+                </div>
+            </div>
+            <div class="control-item control-item-lock">
+                <div class="control-item-select lock_solutuin_quick" data-value="lock_solutuin_quick"></div>
+                <div class="control-item-icon"></div>
+                <div class='my-control'>
+                    <span>解闭锁</span>
+                </div>
+            </div>
+            <div class="control-item control-item-dormer">
+                <div class="control-item-select sunroof_quick" data-value="sunroof_quick"></div>
+                <div class="control-item-icon"></div>
+                <div class='my-control'>
+                    <span>天窗</span>
+                </div>
+            </div>
+            <div class="control-item control-item-carWindows">
+                <div class="control-item-select window_quick" data-value="window_quick"></div>
+                <div class="control-item-icon"></div>
+                <div class='my-control'>
+                    <span>车窗</span>
+                </div>
+            </div>
+            <div class="control-item control-item-send_car_quick">
+                <div class="control-item-select send_car_quick" data-value="send_car_quick"></div>
+                <div class="control-item-icon"></div>
+                <div class='my-control'>
+                    <span>发送到车</span>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>

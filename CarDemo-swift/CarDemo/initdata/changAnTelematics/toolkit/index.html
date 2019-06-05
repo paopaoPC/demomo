@@ -1,0 +1,249 @@
+<div id="toolkit" class="page" data-view='toolkit/index'>
+    <style type="text/css">
+        #toolkit .content {
+            color: #8f8e94;
+            background-color: transparent;
+        }
+
+        #toolkit .blue-bar {
+            background-color: transparent;
+        }
+
+        #toolkit .content::-webkit-scrollbar {
+            width: 0
+        }
+
+        #toolkit .operation-row-one {
+            margin: 0;
+        }
+
+        #toolkit .operation-row-two {
+            margin: 0;
+        }
+
+        #toolkit .operation-row-two {
+            margin: 0;
+        }
+
+        #toolkit .operation-block {
+            margin: 0;
+            padding-top: .22186572rem;
+            display: inline-block;
+            width: 33.3%;
+            text-align: center;
+            line-height: .1535993446rem;
+            font-size: 13px;
+            position: relative;
+        }
+
+        #toolkit .operation-block:active {
+            background-color: #151b26;
+        }
+
+        #toolkit .operation-block:after {
+            bottom: 0;
+            content: "";
+            display: block;
+            position: absolute;
+            left: -50%;
+            width: 200%;
+            height: 1px;
+            background: #3b394c;
+            opacity: 0.7;
+            -webkit-transform: scale(0.5);
+        }
+
+        #toolkit .operation-block:before {
+            right: 0;
+            bottom: -50%;
+            content: "";
+            display: block;
+            position: absolute;
+            width: 1px;
+            height: 200%;
+            background: #3b394c;
+            opacity: 0.7;
+            -webkit-transform: scale(0.5);
+        }
+
+        #toolkit .operation-button {
+            margin-bottom: .1279994539rem;
+            width: .3114653377rem;
+            height: .2986653924rem;
+            background-position: 0 0;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            margin-left: 1px;
+        }
+
+        #toolkit .swipe {
+            overflow: hidden;
+            visibility: visible;
+            width: 100%;
+            position: relative;
+        }
+
+        #toolkit .swipe-wrap {
+            overflow: hidden;
+            position: relative;
+            height: 197px;
+            width: 100%
+        }
+
+        #toolkit .swipe-wrap > div {
+            float: left;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        #toolkit #adArea {
+            position: relative;
+        }
+
+        #toolkit #adArea:after {
+            bottom: 0;
+            content: "";
+            display: block;
+            position: absolute;
+            left: -50%;
+            width: 200%;
+            height: 1px;
+            background: #696680;
+            opacity: 0.7;
+            -webkit-transform: scale(0.5);
+        }
+
+        #toolkit .pdfimg {
+            width: 100%;
+            height: 100%;
+        }
+
+        #toolkit .swipe-wrap img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /*导航点*/
+        #toolkit #position {
+            position: absolute;
+            bottom: 0;
+            display: none;
+            width: 100%;
+            height: 20px;
+            text-align: center;
+            list-style: circle;
+            background-color: #000;
+            opacity: 0.4;
+            line-height: 20px;
+        }
+
+        #toolkit #position li {
+            position: relative;
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 8px;
+            -moz-border-radius: 8px;
+            -webkit-border-radius: 8px;
+            background: #808080;
+            cursor: pointer;
+            border-bottom: none;
+            margin: 0 5px;
+
+        }
+
+        #toolkit .im-textclr-gray {
+            background-color: transparent;
+        }
+
+        #toolkit .im-textclr-gray > div > div {
+            background-color: rgba(25, 24, 33, 0.5);;
+            color: #c6c6c8;
+        }
+
+        #toolkit .swipe {
+            overflow: hidden;
+            visibility: hidden;
+            position: relative;
+        }
+
+        #toolkit .swipe-wrap {
+            overflow: hidden;
+            position: relative;
+        }
+
+        #toolkit .swipe-wrap > figure {
+            float: left;
+            position: relative;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        #toolkit.page {
+            background-image: url('../common/img/background.png');
+
+        }
+
+        #toolkit .operation-row-one, #toolkit .operation-row-two, #toolkit .operation-row-three {
+            height: 124px;
+        }
+
+        #toolkit .operation-block {
+            height: 124px;
+        }
+
+        @media (max-height: 532px) {
+            #toolkit .operation-block {
+                padding-top: .12186572rem;
+            }
+
+            #toolkit .operation-button {
+                margin-bottom: .0779994539rem;
+            }
+        }
+
+        @media (min-height: 533px) and (max-height: 640px) {
+            #toolkit .operation-block {
+                padding-top: .3rem;
+            }
+        }
+    </style>
+    <header id="nav-bar" class="bar bar-nav blue-bar" navTitle='"服务"' navRight='{"hide":true}' navLeft='{"hide":true}'>
+    </header>
+    <div class="content">
+        <div id="adArea">
+            <div id="adSwipe" class="swipe">
+                <div class='swipe-wrap'>
+                </div>
+            </div>
+            <div id='position'></div>
+        </div>
+
+        <div class="im-textclr-gray im-textfont-normal" id="normalBlock">
+            <div class="operation-row-one">
+                <div class="operation-block" id="operWbHistory">
+                    <button class="button-image operation-button" style="background-image:url(../toolkit/img/images/wbHistory.png)"></button><br>维保历史
+                </div><div id="operManual" class="operation-block">
+                    <button class="button-image operation-button" style="background-image:url(../toolkit/img/images/icon_xingche.png)"></button><br>行车说明书
+                </div><div class="operation-block" id="operIllegalSearch">
+                    <button class="button-image operation-button" style="background-image:url(../toolkit/img/images/icon_weizhang.png)"></button><br>违章查询
+                </div>
+            </div>
+            <div class="operation-row-two">
+                <div class="operation-block" id="openTT">
+                    <button class="button-image operation-button" style="background-image:url(../toolkit/img/icon_team.png)"></button><br>组队出行
+                </div><div id="openBY" class="operation-block">
+                    <button class="button-image operation-button" style="background-image:url(../toolkit/img/images/changan_icon.png)"></button><br>商城服务
+                </div><div class="operation-block" id="openFW">
+                    <button class="button-image operation-button" style="background-image:url(../toolkit/img/images/icon_zhoubian.png)"></button><br>周边服务
+                </div>
+            </div>
+            <div class="operation-row-three">
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>

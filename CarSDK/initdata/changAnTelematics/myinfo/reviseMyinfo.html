@@ -1,0 +1,122 @@
+<div id="reviseMyinfo" data-view="myinfo/reviseMyinfo">
+    <style type="text/css">
+        #reviseMyinfo .content{
+            background-color: #f0eff5;
+            padding-top: 48px;
+            color: #666666;
+        }
+        #reviseMyinfo .info_div{
+            width: 100%;
+            background-color: #fff;
+        }
+        #reviseMyinfo .info_ul{
+            width: 92%;
+            position: relative;
+            left: 8%;
+        }
+        #reviseMyinfo .info_ul li{
+            width: 100%;
+            height: 0.45rem;
+            position: relative;
+        }
+        #reviseMyinfo .info_ul li:not(.speli){
+            background: url(../myinfo/image/arrow.png) no-repeat;
+            background-position: 95% center;
+            background-size: 0.08rem 0.14rem;
+        }
+        #reviseMyinfo .info_ul li label{
+            display: block;
+            float: left;
+            color: #3d4245;
+            font-size: 16px;
+            height: 100%;
+            line-height: 0.45rem;
+        }
+        #reviseMyinfo .info_ul li:not(.last)::after{
+            bottom: 0px;
+            left: -50%;
+            content: "";
+            display: block;
+            position: absolute;
+            width: 200%;
+            height: 1px;
+            background: #e7e7e7;
+            -webkit-transform: scale(0.5);
+        }
+        #reviseMyinfo .info_ul .info_headimg{
+            height: 0.87rem;
+        }
+        #reviseMyinfo .info_ul .info_headimg label{
+            line-height: 0.87rem;
+        }
+        #reviseMyinfo .info_ul .info_headimg img{
+            display: block;
+            float: right;
+            width: 0.62rem;
+            height: 0.62rem;
+            border-radius: 50%;
+            background-size: 100%;
+            position: relative;
+            right: 13%;
+            top: 0.125rem;
+        }
+        #reviseMyinfo .info_ul li div{
+            float: right;
+            position: relative;
+            right: 13%;
+            height: 100%;
+            line-height: 0.45rem;
+            color: #989898;
+        }
+        #gender_select{
+              position: absolute;
+              left: 0;
+              text-indent: 85%;
+              width: 100%;
+              height: 100%;
+              border: none;
+              background-color: transparent;
+              box-shadow: none;
+              color: #989898;
+        }
+    </style>
+
+    <header id="nav-bar" class="bar bar-nav blue-bar" navTitle='"个人信息"' navRight='{"hide":true}'>
+    </header>
+    <div class="content">
+        <div class="info_div">
+            <ul class="info_ul">
+                <li class="info_headimg" data-value="head">
+                    <label>头像</label>
+                    <img id="info_headimg" src="../myinfo/image/head.png"/>
+                </li>
+                <li class="speli" >
+                    <label>手机号</label>
+                    <div id="info_mobile">暂无</div>
+                </li>
+                <li data-value="userName">
+                    <label>用户名</label>
+                    <div id="info_username">暂无</div>
+                </li>
+                <li data-value="nickname">
+                    <label>昵称</label>
+                    <div id="info_nickname">暂无</div>
+                </li>
+                <li data-value="gender" class="lispe">
+                    <label>性别</label>
+                    <select id="gender_select">
+                        <option value="m">男</option>
+                        <option value="f">女</option>
+                    </select>
+                </li>
+                <li id="birth_datapicker" class="last" data-value="birthday" value="">
+                    <label>生日</label>
+                    <div id="info_birthday"></div>
+                    <input type="hidden" id="info_birthday_value" />
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="datePlugin"></div>
+</div>
+

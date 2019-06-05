@@ -1,0 +1,42 @@
+<div id="findCar" data-view='Laboratory/findCar'>
+    <style type="text/css">
+        #findCar td{
+            height: 65px;
+            width: 46px;
+            text-align: center;
+        }
+        #findCar #photoShow{
+            display:none;
+            position: absolute;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(128, 128, 128, 0.46);
+        }
+    </style>
+    <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}' navTitle='"寻车"'>
+    </header>
+    <div class="content">
+        <div style="width:100%;height:100%;overflow-y: hidden;" id="carfind"></div>
+        <table style="position: absolute;bottom: 70px;right: 30px;background-color: rgba(248, 248, 255, 0.82)">
+            <tr>
+                <td>
+                    <img  style="" src="../Laboratory/images/get_location.png"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="border-style: solid;border-top-width: 1px;border-bottom-width: 1px;border-color: gainsboro;">
+                    <img  style="" src="../Laboratory/images/guild.png"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img id="take_photo" style="" src="../Laboratory/images/photo.png"/>
+                </td>
+            </tr>
+        </table>
+        <div id="photoShow">
+
+        </div>
+    </div>
+</div>

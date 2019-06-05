@@ -1,0 +1,125 @@
+<div id="detailTourpage" data-view='Laboratory/detailTour'>
+	<style type="text/css">
+	   .myshare{
+	   	position: absolute;
+	    right: 6px;
+	    top: 11px;
+	    border-radius: 7px;
+	    border-style: groove;
+	    background-color: #08285C;
+	    color: white;
+	    border-color: white;
+	    border-width: 1px;
+	   }
+	   .time_point{
+		   	width: 20px;
+		    height: 20px;
+		    background-color: #0AC70A;
+		    border-radius: 10px;
+		    margin-top: 26px;
+		    margin-bottom: 12px;
+		    position: relative;
+		    left: -9px;
+	   }
+	  #detailTourpage .revise_box{
+	   	width: 83%;
+	   	height: 145px;
+	   	background-color: white;
+	   	position: relative;
+	   	margin-left: auto;
+	   	margin-right: auto;
+	   	border-width: 1px;
+	   	border-style: solid;
+	   	border-radius: 11px;
+	   }
+	   #detailTourpage  .my_button_style{
+		    border-radius: 5px;
+		    border-style: groove;
+	   }
+	   #detailTourpage  .left_button{
+	   		float: left;
+		    margin-left: 16%;
+	   	}
+	   #detailTourpage  .right_button{
+	   		float: right;
+		    margin-right: 16%;
+	   	}
+		.continue{
+			width: 100%;
+			text-align: center;
+			height: 40px;
+			position: fixed;
+			bottom: 6px;
+			display: none;
+		}
+	   .span{
+		   display: inline-block;
+		   width: 1px;
+		   height: 100%;
+		   vertical-align: middle;
+	   }
+		.time_line{
+			width: 2px;
+			position: absolute;
+			top: 75px;
+			border-radius: 6px;
+			left: 76px;
+			margin-bottom: 10px;
+			background-color: rgb(220, 220, 220);
+		}
+		.tour_title{
+			margin: 10px;
+			font-size: 16px;
+			color: dodgerblue;
+			border-bottom-style: solid;
+			border-bottom-width: 1px;
+			border-bottom-color: black;
+			width:105px;
+			margin-top: 20px;
+			margin-left: 25px;
+		}
+		.revise{
+			width: 20px;
+			position: absolute;
+			top: 18px;
+			left: 149px;
+		}
+		.continue > div{
+			font-size: 16px;
+			background-color: rgba(0, 128, 0, 0.64);
+			width: 200px;
+			height: 27px;
+			border-radius: 18px;
+			margin: auto;
+			color: white;
+		}
+	</style>
+ 	<script id="tour_template" type="text/x-underscore-template">
+		<%var time=data.travelTime.substring(5,10);%>
+ 		<div class="single_tour" id="<%=data.id%>" style="margin-left: 25px;margin-top: 40px;position:relative;">
+ 			<span><%=time%></span>
+			<div  class="time_point" style="top: -28px;margin-left: 51px;position: absolute;"></div>
+ 			<div style="position: relative;left: 72px;width: 70%;top: -15px;"><%=data.discribetion%></div>
+ 			<div class="images" style="position: relative;left: 73px;width: 260px;"></div>
+ 			<p style="margin-left: 72px;margin-top: 16px;"><img style="width:20px;height: 20px;" src="../Laboratory/images/ief.png" /><%=data.travelLocation%></p>
+ 		</div>
+ 	</script>
+	<header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}' navTitle='"游记详情"'>
+		<input style="width: 50px;" class="myshare" type="button" value="分享" />
+    </header>
+    <div class="content" style="overflow-x: hidden;">
+		<p class="tour_title">成都三日游</p>
+		<img class="revise" src="../Laboratory/images/write.png"/>
+		<div class="time_line"></div>
+    	<div id="detailtour">
+
+    	</div>
+    	<div class="goto_map" style="margin-top: 36px;margin-bottom: 10px;display: none">
+    		<p style="font-size: 16px;margin-left: 48px;margin-top: 11px;color: black;">游记地图</p>
+    		<img style="width: 270px;height: 173px;margin-left: 72px;margin-top: 14px;" src="../Laboratory/images/tour.jpg"/>
+    	</div>
+		<div class="continue">
+			<div><span class="span"></span>继续写游记</div>
+		</div>
+	</div>
+</div>

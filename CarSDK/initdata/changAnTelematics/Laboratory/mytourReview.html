@@ -1,0 +1,179 @@
+<div id="mytourReview" data-view='Laboratory/mytourReview'>
+    <style type="text/css">
+        #mytourReview .listview {
+            padding: 0;
+            top: -50px;
+            bottom: 48px;
+        }
+        #mytourReview #mytourReviewList #wrapper {
+            position: absolute;
+            width: 100%; 
+            min-height: 100.5%;
+        }
+        #mytourReview #mytourReviewList ul {
+            padding-left: 14px;
+        }
+        #mytourReview .content {
+            background-color: white;
+        }
+        #mytourReview .mtr-item {
+            position: relative;
+        }
+        #mytourReview .mtr-itemLeft {
+            width: 51px;
+            position: absolute;
+        }
+        #mytourReview .mtr-itemRight {
+            margin-left: 51px;
+            position: relative;
+            padding-right: 14px;
+        }
+        #mytourReview .mtr-itemRight:after {
+            content: '';
+            left: -50%;
+            width: 200%;
+            height: 1px;
+            transform: scale(0.5);
+            -webkit-transform: scale(0.5);
+            background-color: #d9d9d9;
+            display: inline-block;
+            position: absolute;
+        }
+        #mytourReview .mtr-item {
+            padding-top: 11px;
+        }
+        #mytourReview .mtr-HeadImg {
+            width: 38.5px;
+            height: 38.5px;
+            background-size: 38.5px;
+            background-image: url(../drivingBehavior/img/headImg-black.png);
+            position: relative;
+        }
+        #mytourReview .mtr-HeadImg:after {
+            content: '';
+            display: inline-block;
+            width: 75px;
+            height: 75px;
+            border-radius: 50px;
+            border: 1px solid #bcbcbc;
+            left: -50%;
+            top: -50%;
+            transform: scale(0.5);
+            -webkit-transform: scale(0.5);
+            position: absolute;
+        }
+        #mytourReview .mtr-name {
+            margin-top: 5px;
+            font-size: 15px;
+            line-height: 15px;
+            color: #333;
+        }
+        #mytourReview .mtr-content {
+            font-size: 13px;
+            line-height: 16px;
+            margin-top: 5px;
+            color: #666;
+        }
+        #mytourReview .mtr-date {
+            margin-top: 5px;
+            padding-bottom: 13px;
+            font-size: 12px;
+            line-height: 12px;
+            color: #999;
+        }
+        #mytourReview #contentBottom {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: #efeff4;
+            padding: 7px 95px 7px 14px;
+        }
+        #mytourReview #contentBottom .textarea {
+            min-height: 34px;
+            max-height: 85px;
+            padding: 7px 6px;
+            margin-bottom: 0;
+            border: hidden;
+            font-size: 15px;
+            line-height: 21px;
+            background-color: white;
+            border-radius: 3px;
+            overflow: hidden;
+            overflow-y: auto;
+            user-modify: read-write-plaintext-only;
+            -webkit-user-modify: read-write-plaintext-only;
+            -webkit-user-select: auto !important;
+        }
+        #mytourReview #contentBottom .textarea:empty:after{
+            content:attr(placeholder);
+            font-size: 15px;
+            line-height: 21px;
+            color: #999;
+        }
+        #mytourReview #contentBottom .textarea:focus:after{
+            content:none;
+        }
+
+        #mytourReview #contentBottom .textarea::-webkit-scrollbar{width:0px}
+        #mytourReview .inputButton {
+            width: 70px;
+            height: 34px;
+            background-color: #00d6ff;
+            font-size: 15px;
+            color: #fff;
+            position: absolute;
+            right: 14px;
+            bottom: 7px;
+            line-height: 34px;
+            text-align: center;
+            border-radius: 3px;
+        }
+    </style>
+    <script id="mytourReviewTemplate" type="text/x-underscore-template">
+        <div class="mtr-item">
+            <div class="mtr-itemLeft">
+                <%if(img){%>
+                    <div class="mtr-HeadImg" style="background-image:url(<%=img%>)"></div>
+                <%} else {%>
+                    <div class="mtr-HeadImg"></div>
+                <%}%>
+            </div>
+            <div class="mtr-itemRight">
+                    <div class="mtr-name"><%=name%></div>
+                    <div class="mtr-content"><%=content%></div>
+                    <div class="mtr-date"><%=date%></div>
+            </div>
+        </div>
+    </script>
+    <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}' navTitle='"游记评价"'>
+    </header>
+
+    <div class="content">
+       <div class="listview" id="mytourReviewList">
+         <div id="wrapper">
+            <div id="scroller">
+                <div class="pulldown" style="dispaly:inline-block">
+                  <span class="icon"></span><span class="label"></span>
+                </div>
+                <div class="message">
+                    <div class="empty">没有数据</div>
+                    <div class="error">获取数据失败，请检查网络</div>
+                </div>
+                <ul>
+                  
+                </ul>
+                <button class="loadmore btn btn-block btn-outlined">
+                    <div class="label">加载更多</div>
+                    <span class="icon"></span>
+                </button>
+            </div>
+         </div>
+       </div>
+       <div id="contentBottom">
+            <!-- class="textarea" 替换 textarea -->
+           <div class="textarea" contenteditable="true" placeholder="添加评论"></div>
+           <div class="inputButton">发送</div>
+       </div>
+    </div>
+</div>

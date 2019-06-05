@@ -1,0 +1,10 @@
+{
+  "name": "cc_我",
+  "identifier": "cc.myinfo",
+  "description": "我的信息",
+  "version": "1.0.1",
+  "dependencies": {},
+  "build": 2,
+  "releaseNote": "",
+  "hidden": false
+}

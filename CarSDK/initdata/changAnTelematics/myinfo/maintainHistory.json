@@ -1,0 +1,46 @@
+{
+  "data": {
+      "data":[	
+              	{
+                 	 	"cost": "60",
+                 	 	"time":"2015-1-1",
+                    "detail":["更换A","更换A","更换C","更换E","更换G"],
+                    "detailStr":"",
+                    "shopName":"长安鹅岭4S店铺",
+                    "isOfficial":"1"
+              	},
+              	{
+                 	 	"cost": "70",
+                 	 	"time":"2014-1-1",
+                    "detail":[],
+                    "detailStr":"",
+                    "shopName":"长安鹅岭4S店铺",
+                    "isOfficial":"0"
+              	},
+              	{
+                 	 	"cost": "80",
+                 	 	"time":"2013-1-1",
+                    "detail":["更换A","更换A","更换C","更换E","更换G","更换A","更换A","更换C","更换E","更换G"],
+                    "detailStr":"",
+                    "shopName":"长安鹅岭4S店铺",
+                    "isOfficial":"0"
+              	},
+              	{
+                 	 	"cost": "90",
+                 	 	"time":"2013-1-1",
+                    "detail":["更换A","更换A","更换C","更换E","更换G"],
+                    "detailStr":"",
+                    "shopName":"长安鹅岭4S店铺",
+                    "isOfficial":"1"
+              	},
+                {
+                    "cost": "100",
+                    "time":"2013-1-1",
+                    "detail":["更换A","更换A","更换C","更换E","更换G"],
+                    "detailStr":"",
+                    "shopName":"长安鹅岭4S店铺",
+                    "isOfficial":"0"
+                }
+              ]
+          }
+}

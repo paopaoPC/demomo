@@ -1,0 +1,10 @@
+{
+  "name": "cvim_京东微联",
+  "identifier": "cvim.connetJD",
+  "description": "",
+  "version": "1.0.0",
+  "dependencies": {},
+  "build": 1,
+  "releaseNote": "",
+  "hidden": false
+}

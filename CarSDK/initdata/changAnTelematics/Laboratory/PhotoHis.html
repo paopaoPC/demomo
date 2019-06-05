@@ -1,0 +1,137 @@
+<div id="PhotoHis" data-view='Laboratory/PhotoHis'>
+    <style type="text/css">
+    	#PhotoHis .content {
+    		background-color: white;
+    	}
+		#PhotoHis .PHitemContent {
+			display: box;
+  			display: -webkit-box;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-justify-content:space-between;
+			justify-content: space-between;
+			-webkit-flex-wrap: wrap;
+			flex-wrap: wrap;
+		}
+		#PhotoHis #scroller {
+			#PhotoHis #photoHisListposition: absolute;
+		    z-index: 1;
+		    min-height: 100.5%;
+		}
+		#PhotoHis .PHitem {
+			padding: 20px 20px 20px 0;
+		}
+		#PhotoHis .PHitem:after {
+			content: '';
+			display: inline-block;
+			width: 100%;
+			height: 1px;
+			position: absolute;
+			margin-top: 20px;
+			background: #929292;
+			transform: scaleY(0.5);
+			-webkit-transform: scaleY(0.5);
+		}
+		#PhotoHis .PHitemTime {
+			color: #a7a7a7;
+			font-size: 12px;
+		}
+		#PhotoHis .PHitemImgWarp {
+			margin-top: 10px;
+			width: 31%;
+			height: .59733078rem;
+		}
+		#PhotoHis .PHitemImgWarp img {
+			width: 100%;
+    		height: 100%;
+		}
+		#PhotoHis #photoHisList {
+			padding: 0;
+		}
+		#PhotoHis #photoHisList ul {
+			padding-left: 20px;
+		}
+		#PhotoHis .pulldown {
+			position: absolute;
+		    top: -40px;
+		}
+
+    </style>
+    <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}' navTitle='"影像历史"'>
+    </header>
+    <script id="photoHisTemplate" type="text/x-underscore-template">
+    	<% var createTime,imgArr %>
+        <div class="PHitem">
+       		<div class="PHitemTime"><%=createTime%></div>
+       		<div class="PHitemContent">
+       			<%for(var i=0,imgLength=imgArr.length; i<imgLength; i=i+3){%>
+       				<div class="PHitemImgWarp">
+       					<%if(i<imgLength){%>
+       						<img src="<%= imgArr[i].img %>">
+       					<%}%>
+       				</div>
+       				<div class="PHitemImgWarp">
+       					<%if(i+1<imgLength){%>
+       						<img src="<%= imgArr[i+1].img %>">
+       					<%}%>
+       				</div>
+       				<div class="PHitemImgWarp">
+       					<%if(i+2<imgLength){%>
+       						<img src="<%= imgArr[i+2].img %>">
+       					<%}%>
+       				</div>
+       			<%}%>
+       		</div>
+       </div>
+    </script>
+
+    <script id="photoHisTemplate-image" type="text/x-underscore-template">
+          <img src="<%=src%>">
+    </script>
+
+    <script id="photoHisTemplate-item" type="text/x-underscore-template">
+          <%for(var i=0,imgLength=imgArr.length; i<imgLength; i=i+3){%>
+              <div class="PHitemImgWarp">
+                <%if(i<imgLength){%>
+                  <img src="<%= imgArr[i].img %>">
+                <%}%>
+              </div>
+              <div class="PHitemImgWarp">
+                <%if(i+1<imgLength){%>
+                  <img src="<%= imgArr[i+1].img %>">
+                <%}%>
+              </div>
+              <div class="PHitemImgWarp">
+                <%if(i+2<imgLength){%>
+                  <img src="<%= imgArr[i+2].img %>">
+                <%}%>
+              </div>
+            <%}%>
+    </script>
+
+
+    <div class="content">
+    <div class="listview" id="photoHisList">
+         <div id="scroller">
+             <div class="pulldown" style="dispaly:inline-block">
+               <div id='iconDiv'>
+                    <span class="icon"><div class='iconOne'></div>
+                    <div class='iconTwo'></div></span>
+                </div>
+                <span class="label"></span>
+             </div>
+             <div class="message">
+                 <div class="empty">没有数据</div>
+                 <div class="error">获取数据失败，请检查网络</div>
+             </div>
+             <ul>
+             </ul>
+             <button class="loadmore btn btn-block btn-outlined">
+                 <div class="label">加载更多</div>
+                 <span class="icon"></span>
+             </button>
+             
+         </div>
+    </div>
+    </div>
+</div>

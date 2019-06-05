@@ -1,0 +1,400 @@
+
+<div id="car-Details" data-view='cars/carDetails'>
+<style type="text/css">
+#car-Details .beCurrent
+{ 
+	width:90%; 
+	background-color:#00c3fe; 
+	height:40px; 
+	text-align:center; 
+	line-height:40px; 
+	border-radius:5px; 
+	color:#fff;
+	margin-left: 5%;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+#car-Details .content::-webkit-scrollbar {
+    width: 0
+ }
+#car-Details .beCurrent:active{
+	color: #09aaec
+}
+#car-Details .addCar_title{ height:40px; font-size:14px; line-height:40px; color:#1f1f1f; width:95%; margin:0px auto;}
+	#car-Details .addCar_wrap{ height:40px; font-size:14px; text-align:left; width:100%; margin:0px auto; background-color:#fff;border-bottom: 1px solid #f0eff5;}
+	#car-Details .addCar_wrap:active{
+		background-color: #f1f1f1;
+	}
+	#car-Details .addCar_wrap > div{ width:95%; height:100%;margin:0 auto;}
+	#car-Details .addCar_wrap img{
+		width: 20px;height: 20px;display: block;float: left;margin-left: 15px;margin-top: 10px;
+	}
+	#car-Details .addCar_wrap span{ display:block; width:35%; height:40px; color:#909090; float:left; line-height:40px; text-indent:3%;}
+	#car-Details .addCar_wrap .editDiv{ 
+		padding-left: 18px;
+		display:block; 
+		width:65%; 
+		border:none; 
+		float:left; 
+		height:39px; 
+		margin:0; 
+		background-color:#fff; 
+		box-shadow:none; 
+		font-size:14px;
+		color: #4e555a;
+		overflow: hidden;
+		line-height: 39px;  
+		background: url(../cars/img/icon_right.png) no-repeat;
+  		background-position: 95% center;
+  		background-size: 0.07rem 0.14rem;
+  		padding-right: 23px;
+  		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 1;
+		-webkit-box-orient: vertical;
+  	}
+  	#car-Details .insurance-name {
+  		background: url(../myinfo/image/arrow.png) no-repeat;
+  		background-size: 0.07rem 0.14rem;
+  		background-position: 95% center;
+  	}
+	#car-Details .addCar_wrap div .speDiv{
+	    display:block; width:65%; border:none; float:left; height:39px; margin:0; background-color:#fff; box-shadow:none; font-size:14px;color: #4e555a;line-height: 19px;overflow: hidden;text-overflow:ellipsis; white-space:nowrap;padding: 10px 15px;
+	}
+	#car-Details .addCar_wrap input[type=checkbox]{
+		width: 20px;height: 20px;float:left;margin-top: 10px;margin-left: 15px;
+	}
+	#car-Details .insurance-name{
+		display:block;
+		width:65%; 
+		border:none; 
+		float:left; 
+		height:39px; 
+		margin:0; 
+		background-color:#fff; 
+		box-shadow:none; 
+		font-size:14px;
+		color: #4e555a;
+		line-height: 39px;
+		padding-left: 18px;
+	}
+	#car-Details .time{
+		display: inline-block;
+	    font-size: 14px;
+	    color: #4e555a;
+	    width: 65%;
+	    height: 40px;
+	    line-height: 40px;
+	    padding-left: 18px;
+	}
+	#car-Details .my-title{
+		width: 100%;
+		height: 30px;
+		line-height: 30px;
+		text-indent: 5.5%;
+		margin-top: 10px;
+		color: #909090;
+	}
+	#car-Details .my-title>span{
+		color: #00c3fe;
+		float: right;
+		margin-right: 20px;
+	}
+	#car-Details .my-equipment>span{
+		width: 50%;
+	}
+	#car-Details .my-status{
+		width: 50%;
+		float: left;
+		text-align: right;
+		background: url(../myinfo/image/arrow.png) no-repeat;
+  		background-position: 95% center;
+  		background-size: 0.08rem 0.14rem;
+	}
+	#car-Details .my-status span{
+		width: 85%;
+		text-align: right;
+		color: #00c3fe;
+	}
+	.carItem{
+		width: 100%;
+		height: 40px;
+		padding-left: 14px;
+		padding-top: 12px;
+	}
+	#car-Details #oilTypeSelect{
+		width: 65%;
+		height: 39px;
+		border: none;
+		-webkit-box-shadow: none;
+		background-color: #FFFFFF;
+		color: #4e555a;
+	}
+	#car-Details .addCar_wrap #carVin,#car-Details .addCar_wrap #seriesCar {
+		padding-left: 18px;
+		display:block; 
+		width:65%; 
+		border:none; 
+		float:left; 
+		height:39px; 
+		margin:0; 
+		background-color:#fff; 
+		box-shadow:none; 
+		font-size:14px;
+		color: #4e555a;
+		overflow: hidden;
+		line-height: 39px;  
+		background: url(../cars/img/icon_right.png) no-repeat;
+  		background-position: 95% center;
+  		background-size: 0.07rem 0.14rem;
+  		padding-right: 23px;
+  		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 1;
+		-webkit-box-orient: vertical;
+	}
+	#car-Details .addCar_wrap.isCaCar #carVin,#car-Details .addCar_wrap.isCaCar #seriesCar {
+  		background-size: 0;
+  		color: #909090;
+	}
+	#car-Details .checkBox{
+        width: 50px;
+        height: 30px;
+        border: 1px solid #e4e4e4;
+        border-radius: 15px;
+        float: right;
+        margin-right: 14px;
+        margin-top: 5px;
+        position: relative;
+    }
+    #car-Details .check-icon{
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-radius: 30px;
+        border:1px solid #e4e4e4;
+        left: 0;
+        top: -1px;
+        background-color: #FFFFFF
+    }
+    #car-Details .active{
+    	background-color: #4cdb63
+    }
+    #car-Details .bf-chrysanthemum {
+    	background-color: rgba(66,66,66,0.5);
+    }
+    #car-Details #chrysanthemumWarp {
+    	top: 0;
+    }
+
+</style>
+<script id='inputCircle' type="text/x-underscore-template">
+    <div class='inputCircle' style='width:40px; height:40px; position:relative; float:left;'>
+        <span style='display:block;width:4px;height:4px;background-color:#000;border-radius:100%; position:absolute;left:19px;top:19px;'></span>
+    </div>
+</script>
+<script id="carItem" type="text/x-underscore-template">
+	<div class="carItem" data-value="<%=groupId%>">
+		<span class="carName"><%=groupName%></span>
+	</div>
+</script>
+
+<script id="carSeries" type="text/x-underscore-template">
+	<div class="carItem" data-value="<%=groupId%>">
+		<span class="carName"><%=groupShortName%></span>
+	</div>
+</script>
+
+<script id="carInfo" type="text/x-underscore-template">
+<%
+	if(carInfo.img==null){
+		carInfo.img = '../res/data/pv/img/cs35.jpg'
+	}
+%>
+
+
+<div class="my-title">车辆的基本信息</div>
+<div class="addCar_wrap" id="cardetailName">
+	<div>
+		<span>爱车昵称</span>
+    	<div role='name' class='editDiv'  value="<%=carInfo.carName%>"><%=carInfo.carName%></div>
+    </div>
+</div>
+<div class="addCar_wrap" id="cardetailPlateNum">
+	<div>
+		<span>车牌号</span>
+    	<div role='carId' class='editDiv' value="<%=carInfo.plateNumber%>"><%=carInfo.plateNumber%></div>
+    </div>
+</div>
+
+<div class="addCar_wrap <%=carInfo.isCaCar? 'isCaCar' : ''%>" id="cardetailVin">
+	<div>
+		<span>车架号</span>
+    	<div role='carVin' id="carVin" class="<%=carInfo.isCaCar? '' : 'editDiv'%>" value="<%=carInfo.vin%>"><%=carInfo.vin%></div>
+    </div>
+</div>
+<div class="addCar_wrap" id="cardetailEngineNum">
+	<div>
+		<span>发动机号</span>
+    	<div role='engineNum' class='editDiv' value="<%=carInfo.engineNo%>"><%=carInfo.engineNo%></div>
+    </div>
+</div>
+<div class="addCar_wrap <%=carInfo.isCaCar? 'isCaCar' : ''%>" id="cardetailSeries">
+	<div>
+		<span>车系</span>
+    	<div role='seriesCar' id="seriesCar" class="<%=carInfo.isCaCar? '' : 'editDiv'%>" value="<%=carInfo.seriesName%>"><%=carInfo.seriesName%></div>
+    </div>
+</div>
+
+<!--<div class="addCar_wrap" id="cardetailInsuranceCompany">
+	<div>
+		<span>保险公司</span>
+    	<div class="insurance-name"><%=carInfo.insuranceCompany%></div>
+    	<div class="insurance-phone" style="display: none"><%=carInfo.insurancePhone%></div>
+    </div>
+</div>-->
+
+<!--<div class="addCar_wrap" id="cardetailOilType">-->
+    <!--<div>-->
+        <!--<span>汽油型号</span>-->
+        <!--&lt;!&ndash;div role='oilType' class='editDiv' value="<%=carInfo.oilType%>"><%=carInfo.oilType%></div&ndash;&gt;-->
+        <!--<select id="oilTypeSelect" class="insurance-oil" value="<%=carInfo.oilType%>"></select>-->
+    <!--</div>-->
+<!--</div>-->
+<!--<div class="addCar_wrap">
+	<div>
+		<span>车辆电价</span>
+		<div role='oilType' class='editDiv' value="<%=carInfo.powerPrice%>"><%=carInfo.powerPrice%></div>
+	</div>
+</div>-->
+
+<div class="addCar_wrap" id="cardetailInsuranceUtilTime">
+	<div class='addCar_date'>
+		<span>保险到期时间</span>
+    	<div class="time" id = "insurance-util-date"><%=carInfo.insuranceEndDate == "0000-00-00" ? "" : carInfo.insuranceEndDate%></div>
+    </div>
+</div>
+
+
+
+<div class="addCar_wrap" id="cardetailInsuranceLastTime">
+	<div class='addCar_date'>
+		<span>上次年检时间</span>
+    	<div class="time" id = "last-time-check"><%=carInfo.lastCheckTime == "0000-00-00" ? "" : carInfo.lastCheckTime%></div>
+    </div>
+</div>
+
+<div id="cardetailRealNameAuth">
+<% if(carInfo.currentDeviceType === 'tbox'){ %>
+	<div class="my-title">实名认证状态</div>
+<%if(carInfo.realnameAuthStatus === 'AUTHED') {
+	var _authStatusStr = '已认证';
+	var _is_realname_auth = false;
+} else if(carInfo.realnameAuthStatus === 'AUTHING') {
+	var _authStatusStr = '认证中';
+	var _is_realname_auth = false;
+}else{
+	var _authStatusStr = '未认证';
+	var _is_realname_auth = true;
+} %>
+<div class="addCar_wrap">
+	<div class='my-equipment'>
+		<span><%=_authStatusStr%></span>
+		<% if(_is_realname_auth){ %>
+    		<div class="my-status oper-realname_auth"><!--<span>去认证</span>--></div>
+		<% } %>
+    </div>
+</div>
+<% } %>
+</div>
+
+<div id="cardetailBindEquipment">
+<div class="my-title">我的设备</div>
+<%
+	if (null == carInfo.devices || carInfo.devices.length == 0) {
+%>
+		<div class="addCar_wrap">
+			<div class='my-equipment'>
+				<span>暂未绑定设备</span>
+		    	<!--<div class="my-status oper-device"><span>绑定</span></div>-->
+		    </div>
+		</div>
+<%		
+	}else{
+%>
+	<div class="addCar_wrap">
+		<div class='my-equipment'>
+			<span>当前共<%=carInfo.devices.length%>个设备</span>
+	    	<div class="my-status oper-device"><span>设置</span></div>
+	    </div>
+	</div>
+<%
+}
+%>
+</div>
+
+<!--<div id="cardetailBindJD">
+<div class="my-title">京东微联</div>
+<%
+if (carInfo.bindedJD) {%>
+	<div class="addCar_wrap">
+		<div class='my-equipment'>
+			<span>已绑定车辆到京东</span>
+	    	<div class="my-status fence-connet-jd"><span>关联围栏到京东</span></div>
+	    </div>
+	</div>
+<%}else{%>
+	<div class="addCar_wrap">
+		<div class='my-equipment'>
+			<span>绑定车辆到京东</span>
+	    	<div class="my-status car-connet-jd"><span>立即绑定</span></div>
+	    </div>
+	</div>
+<%}
+%>
+-->
+</div>
+<div id="cardetailSafety">
+<div class="my-title">安全管理</div>
+<%
+if (carInfo.pin!="empty") {%>
+	<div class="addCar_wrap" id="cardetailSetPin">
+		<div class='my-equipment'>
+			<span>已设置控车码</span>
+	    	<div class="my-status oper-pin"><span>修改</span></div>
+	    </div>
+	</div>
+<%}else{%>
+	<div class="addCar_wrap" id="cardetailSetPin">
+		<div class='my-equipment'>
+			<span>未设置控车码</span>
+	    	<div class="my-status oper-pin"><span>设置</span></div>
+	    </div>
+	</div>
+	
+<%}%>
+<div class="addCar_wrap" id="cardetailDrivingHistory">
+	<div class='my-equipment'>
+		<span>轨迹记录</span>
+		<div class="checkBox <%=carInfo.isPrivacyDrvingHistory == 1?'':'active'%>">
+			<div class="check-icon" style="left:<%=carInfo.isPrivacyDrvingHistory == 1?0:'19px'%>"></div>
+		</div>
+	</div>
+</div>
+
+</div>
+<div class="beCurrent">解除绑定</div>
+
+
+</script>
+
+	<!-- 外围包裹层开始-->
+	<header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}'  navTitle='"车辆管理"'>
+    </header>
+    <div class="content">
+    
+    	<div id="car_details"></div>
+        
+   	</div>
+	<div id="datePlugin"></div>
+</div>

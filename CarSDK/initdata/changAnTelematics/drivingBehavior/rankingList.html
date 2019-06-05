@@ -1,0 +1,253 @@
+<div id="rankingList" class = "page" data-view='drivingBehavior/rankingList' style="background: url('../common/img/background.png') no-repeat;background-size: 100% 100%;background-color: #252432;" >
+  <style type="text/css">
+   #rankingList .content {
+        color: white;
+   }
+   #rankingList .nav-bar {
+        background-color: transparent;
+   }
+   #rankingList .contentHead {
+        height: 180px;
+        background-color: transparent;
+        position: relative;
+   }
+   #rankingList .contentHeadTop {
+        height: 105px;
+        padding-top: 22px;
+   }
+   #rankingList #myRanking {
+        font-size: 14px;
+        text-align: center;
+   }
+   #rankingList #myRanking span {
+        font-size: 33px;
+        padding: 0 10px 0 11px;
+   }
+    #rankingList #rankingTotal {
+        font-size: 14px;
+        text-align: center;
+        margin-top: 5px;
+    }
+    #rankingList #rankingList {
+        top: 180px;
+        /*bottom: 50px;*/
+        padding: 0;
+        background: white;
+    }
+     #rankingList .contentHeadBottom {
+        position: absolute;
+        bottom: 8px;
+        height: 68px;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.1);
+     }
+    #rankingList .rankingNumber {
+        font-size: 18px;
+        position: absolute;
+        height: 100%;
+        left: 4px;
+        line-height: 68px;
+        width: 60px;
+        text-align: center;
+    }
+    #rankingList .rankingListItem .rankingNumber {
+        color: #666;
+    }
+    #rankingList .rankingListItem  .rankingNumber.active {
+        color: #f95e09;
+    }
+    #rankingList .rankingItemHeadImg {
+        position: absolute;
+        left: 63px;
+        width: 38.5px;
+        height: 38.5px;
+        top: 50%;
+        transform: translateY(-50%);
+        -webkit-transform:translateY(-50%);
+        border-radius: 20px;
+    }
+    #rankingList #myHeadImg {
+        background-image: url(../drivingBehavior/img/headImg-white.png);
+        background-size: 38.5px;
+    }
+    #rankingList #myHeadImg::after {
+        content: '';
+        display: inline-block;
+        width: 75px;
+        height: 75px;
+        border-radius: 50px;
+        border: 1px solid #7B7B7B;
+        left: -50%;
+        top: -50%;
+        transform: scale(0.5);
+        -webkit-transform: scale(0.5);
+        position: absolute;
+    }
+    #rankingList .rankingListItem .rankingItemHeadImg {
+        background-image: url(../drivingBehavior/img/headImg-black.png);
+        background-size: 38.5px;
+    }
+    #rankingList .rankingListItem .rankingItemHeadImg::after {
+        content: '';
+        display: inline-block;
+        width: 75px;
+        height: 75px;
+        border-radius: 50px;
+        border: 1px solid #bcbcbc;
+        left: -50%;
+        top: -50%;
+        transform: scale(0.5);
+        -webkit-transform: scale(0.5);
+        position: absolute;
+    }
+    #rankingList .rankingItemInfo {
+        height: 100%;
+        padding-left: 111.5px;
+        padding-top: 16px;
+    }
+    #rankingList .rankingName {
+        font-size: 16px;
+        color: #343434;
+    }
+    #rankingList #myRankingName {
+        color: #fff;
+    }
+    #rankingList .rankingDrivingName {
+        color: #999;
+        font-size: 13px;
+        margin-top: 5px;
+    }
+    #rankingList .rankingScore {
+        height: 100%;
+        position: absolute;
+        right: 21px;
+        top: 0;
+        line-height: 68px;
+        font-size: 14px;
+    }
+    #rankingList .rankingListItem .rankingScore {
+        color: #343434;
+    }
+    #rankingList .rankingScore span {
+        color: #00d6ff;
+        padding-right: 6px;
+        font-size: 19px;
+    }
+    #rankingList .rankingListItem .rankingScore span {
+        color: #09aaec;
+    }
+    #rankingList .rankingListItem {
+        height: 68px;
+        position: relative;
+    }
+    #rankingList .rankingListItem::after {
+        content: '';
+        left: -50%;
+        width: 200%;
+        height: 1px;
+        transform: scale(0.5);
+        -webkit-transform: scale(0.5);
+        background-color: #d9d9d9;
+        display: inline-block;
+        position: absolute;
+    }
+    #rankingList #contentBottom {
+        height: 50px;
+        width: 100%;
+        background-color: #00d6ff;
+        line-height: 50px;
+        text-align: center;
+        color: white;
+        font-size: 17px;
+        position: absolute;
+        bottom: 0;
+        z-index: 1;
+        display: none;
+    }
+    #rankingList #contentBottom.clickBackground {
+        background-color: #52c3f2;
+    }
+     #rankingList #wrapper {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        height: auto;
+        overflow: hidden;
+    }
+
+    #rankingList #scroller {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+    }
+    #rankingList .message {
+        color: black;
+    }
+    #rankingList #myRankingNumber.active {
+        color: #f95e09;
+    }
+    #rankingList .im-default-nav-bar {
+        background-color: transparent !important;
+    }
+     #rankingList .content {
+            background-color: transparent;
+     }
+     #rankingList .blue-bar {
+         background-color: transparent;
+     }
+     #rankingList .clickBackground {
+            background-color: #52c3f2;
+        }
+  </style> 
+  <script id="rankingListTemplate" type="text/x-underscore-template">
+  <% var rankingNumber,url,userFullname,rankingDrivingName,score%>
+      <div class="rankingListItem">
+        <div class="rankingNumber <%=(rankingNumber<=3)?'active':''%>"><%=rankingNumber%></div>
+        <%if(url){%>
+            <div class="rankingItemHeadImg" style="background-image:url(<%=url%>)"></div>
+        <%} else {%>
+            <div class="rankingItemHeadImg"></div>
+        <%}%>
+        <div class="rankingItemInfo">
+            <div class="rankingName"><%=userFullname%></div>
+            <div class="rankingDrivingName"><%=rankingDrivingName%></div>
+        </div>
+        <div class="rankingScore"><span><%=score%></span>分</div>
+     </div> 
+    </script>
+  <header id="nav-bar" class="bar bar-nav blue-bar" navTitle='"驾驶经验值排行榜"' navRight='{"text":"分享"}'>
+  </header>
+  <div class="content">
+    <div class="contentHead">
+        <div class="contentHeadTop">
+            <div id="myRanking">我排在第<span></span>名</div>
+            <div id="rankingTotal">超过了全国<span></span>%的用户</div>
+        </div>
+        <div class="contentHeadBottom">
+            <div class="rankingNumber" id="myRankingNumber"></div>
+            <div id="myHeadImg" class='rankingItemHeadImg'></div>
+            <div class="rankingItemInfo">
+                <div class="rankingName" id="myRankingName">我</div>
+                <div class="rankingDrivingName" id="myRankingDrivingName"></div>
+            </div>
+            <div class="rankingScore" id="myRankingScore"><span></span>分</div>
+        </div>
+    </div>
+    <div class="listview" id="rankingList">
+    <div id="wrapper">
+        <div id="scroller">
+            <div class="message">
+                <div class="empty">没有数据</div>
+                <div class="error">获取数据失败，请检查网络</div>
+            </div>
+             <ul>
+                 
+             </ul>
+        </div>
+    </div>
+    </div>
+    <div id="contentBottom">分享</div>
+  </div>
+</div>

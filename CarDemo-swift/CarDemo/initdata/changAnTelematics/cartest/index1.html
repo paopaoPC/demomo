@@ -1,0 +1,1012 @@
+
+
+<div id="cartestContent1" class="page" data-view="cartest/index1" style="background:url(../common/img/background.png) no-repeat;background-size:100% 100%" >
+	<style type="text/css">
+		#cartestContent1 .im-default-nav-bar {
+	  background-color: #080808 !important;
+	}
+	#cartestContent1 #navRight{
+		color: #00c2ff !important
+	}
+	#cartestContent1 #navRight:active{
+		color: rgba(0,0,0,0.5) !important;
+	}
+	#cartestContent1 .content {
+	  	  background-color: black;
+	}
+	#cartestContent1 .needChange{ position:relative; width:100%; height:2.7rem; z-index: 9;}
+
+	#cartestContent1 .needChange  #bg{ 
+		overflow:hidden; width:100%; height:100%; 
+	}
+	#cartestContent1 .needChange #bg:after{
+		content: "";
+	    display: block;
+	    bottom: 0px;
+	    position: absolute;
+	    left: -50%;
+	    width: 200%;
+	    height: 1px;
+	    background-color: rgba(255,255,255,0.2);
+	    -webkit-transform:scale(0.5);
+	}
+
+	/*end*/
+
+	#cartestContent1 .needChange > #help{width:100%; height:0.7rem; position:absolute; z-index:999; bottom:0px;font-size: 0.13rem;color: #ffdc1e; text-align:center; overflow: hidden;line-height: 0.7rem;background-color: transparent;}
+	#cartestContent1 #help >#result-text{
+		display: inline-block;
+		overflow: hidden;
+	}
+	#cartestContent1 .needChange div div div{ float:left;}
+	#cartestContent1 .needChange div div div img{ height:14px;}
+	#cartestContent1 #pop{z-index:999;;animation-iteration-count:infinite;-webkit-animation-iteration-count:infinite;}
+
+	@keyframes down_down{
+		from{transform:rotate(0deg);}
+		to{transform:rotate(180deg);}
+	}
+	@-webkit-keyframes down_down{
+		from{transform:rotate(0deg);}
+		to{transform:rotate(180deg);}
+	}
+	@keyframes down_up{
+		from{transform:rotate(180deg);}
+		to{transform:rotate(0deg);}
+	}
+	@-webkit-keyframes down_up{
+		from{transform:rotate(180deg);}
+		to{transform:rotate(0deg);}
+	}
+	#cartestContent1 #data{
+		position: relative;
+	}
+	#cartestContent1 #data > .div_li{
+		height: 0.75rem;
+		width: 100%;
+		position: relative;
+		/*background-color: #1f232e;*/
+		background-color: rgba(31, 35, 46, 0);
+	}
+	#cartestContent1 #data > .div_li:after{
+		content: "";
+	    display: block;
+	    bottom: 0px;
+	    position: absolute;
+	    left: -50%;
+	    width: 200%;
+	    height: 1px;
+		background-color: rgba(255, 255, 255, 0.2);
+	    -webkit-transform:scale(0.5);
+	}
+	#cartestContent1 #data .window{
+		width: 100%;
+		display: none;
+		position: relative;
+		color: #fff;
+		/*background-color: #171b24;*/
+		background-color: rgba(23, 27, 36, 0);
+	}
+	#cartestContent1 #data .window:after{
+		content: "";
+	    display: block;
+	    bottom: 0px;
+	    position: absolute;
+	    left: -50%;
+	    width: 200%;
+	    height: 1px;
+		background-color: #353c4b;
+	    -webkit-transform:scale(0.5);
+	}
+	#cartestContent1 #data > .div_li .p_name{
+		font-size: 0.14rem;
+		float: left;
+		margin-left: 0.50rem;
+		line-height: 0.75rem;
+		color:#fff;
+	}
+	#cartestContent1 #data > .div_li .error{
+		position: absolute;
+		width: 0.30rem;
+		height: 0.30rem;
+		background: url(../cartest/img/error.png) no-repeat;
+		background-size: 100%;
+		right: 0.41rem;
+		top: 0.225rem;
+		display: none;
+	}
+	#cartestContent1 #data > .div_li .danger{
+		position: absolute;
+		width: 0.25rem;
+		height: 0.25rem;
+		background: url(../cartest/img/danger.png) no-repeat;
+		background-size: 100%;
+		right: 0.41rem;
+		top: 0.225rem;
+		display: none;
+	}
+	#cartestContent1 #data > .div_li .correct{
+		position: absolute;
+		width: 0.25rem;
+		height: 0.25rem;
+		background: url(../cartest/img/correct.png) no-repeat;
+		background-size: 100%;
+		right: 0.41rem;
+		top: 0.225rem;
+		display: none;
+	}
+
+	#cartestContent1 #data > .div_li .dongli{
+		position: absolute;
+		width: 0.25rem;
+		height: 0.25rem;
+		background: url(../cartest/img/item3.png) no-repeat;
+		background-size: 100%;
+		left: 0.20rem;
+		top: 0.25rem;
+	}
+
+	#cartestContent1 #data > .div_li .dianqi{
+		position: absolute;
+		width: 0.25rem;
+		height: 0.25rem;
+		background: url(../cartest/img/item2.png) no-repeat;
+		background-size: 100%;
+		left: 0.20rem;
+		top: 0.25rem;
+	}
+
+	#cartestContent1 #data > .div_li .dipan{
+		position: absolute;
+		width: 0.25rem;
+		height: 0.25rem;
+		background: url(../cartest/img/item1.png) no-repeat;
+		background-size: 100%;
+		left: 0.20rem;
+		top: 0.25rem;
+	}
+
+	#cartestContent1 #data > .div_li .arrow{
+		width: 0.12rem;
+		height: 0.06rem;
+		background: url(../cartest/img/down_item.png) no-repeat;
+		background-size: 100%;
+		position: absolute;
+		right: 0.15rem;
+		top: 0.345rem;
+		display: none;
+	}
+	#cartestContent1 #data > .odb_li .arrow{
+		width: 0.07rem;
+		height: 0.14rem;
+		background: url(../cars/img/icon_right.png) no-repeat;
+		background-size: 100%;
+		position: absolute;
+		right: 0.15rem;
+		top: 0.305rem;
+		display: block;
+	}
+	#cartestContent1 #data .fault_wrap{
+		width: 100%;
+	}
+	#cartestContent1 #data .fault_ul{
+		width: 90%;
+		margin-left: 10%;
+	}
+	#cartestContent1 #data .fault_ul .fault_li{
+		width: 100%;
+		height: 0.55rem;
+		position: relative;
+		color: #fff;
+	}
+	#cartestContent1 #data .fault_ul .fault_li:active{
+        background-color: rgba(0,0,0,0.1);
+    }
+
+	#cartestContent1 #data .fault_ul .fault_li:after{
+		content: "";
+	    display: block;
+	    bottom: 0px;
+	    position: absolute;
+	    left: -50%;
+	    width: 200%;
+	    height: 1px;
+	    background-color: rgba(255, 255, 255, 0.2);
+	    -webkit-transform:scale(0.5);
+	}
+	#cartestContent1 #data .fault_ul .fault_li > div{
+		position: absolute;
+	}
+	#cartestContent1 #data .fault_ul .fault_li > div.error{
+		top: 0.20rem;
+		left: 0.05rem;
+		width: 0.20rem;
+		height: 0.20rem;
+		background: url(../cartest/img/error.png) no-repeat;
+		background-size: 100%;
+	}
+	#cartestContent1 #data .fault_ul .fault_li > div.danger{
+		top: 0.20rem;
+		left: 0.05rem;
+		width: 0.20rem;
+		height: 0.20rem;
+		background: url(../cartest/img/danger.png) no-repeat;
+		background-size: 100%;
+	}
+	#cartestContent1 #data .fault_ul .fault_li > div.fault_des{
+	  left: 0.3rem;
+	  top: 0.20rem;
+	  font-size: 0.11rem;
+	  width: 80%;
+	  height: 0.20rem;
+	  line-height: 0.20rem;
+	  overflow: hidden;
+	  white-space: nowrap;
+	  text-overflow: ellipsis;
+	}
+	#cartestContent1 #data .fault_ul .fault_li > div.fault_code{
+		top: 28px;
+		left: 22px;
+		font-size: 12px;
+	}
+	#cartestContent1 #data .actions{
+		width: 100%;
+		padding-left: 10%;
+		height: 50px;
+	}
+	#cartestContent1 #data .actions > div{
+		width: 25%;
+		margin-left: 5%;
+		height: 25px;
+		line-height: 25px;
+		text-align: center;
+		border-radius: 5px;
+		border:1px solid #00c2ff;
+		color: #00c2ff;
+		font-size: 11px;
+		float: left;
+		margin-top: 12.5px;
+	}
+	#cartestContent1 #data div.ani_down{
+		animation:down_down 0.2s;
+		-webkit-animation:down_down 0.2s;
+	}
+	#cartestContent1 #data div.ani_up{
+		animation:down_up 0.2s;
+		-webkit-animation:down_up 0.2s;
+	}
+	#cartestContent1 #data .normal_identify{
+		width: 90%;
+		margin-left: 10%;
+		text-align: center;
+		height: 0.6rem;
+		font-size: 12px;
+		line-height: 0.6rem;
+		position: relative;
+		color: #74767c;
+	}
+	#cartestContent1 #data .normal_identify:after{
+		content: "";
+	    display: block;
+	    bottom: 0px;
+	    position: absolute;
+	    left: -50%;
+	    width: 200%;
+	    height: 1px;
+	    background-color: rgba(255, 255, 255, 0.2);
+	    -webkit-transform:scale(0.5);
+	}
+	#cartestContent1 #data .normal_identify .arrow{
+		width: 0.12rem;
+		height: 0.06rem;
+		background: url(../cartest/img/down_item.png);
+		background-size: 100%;
+		position: absolute;
+		right: 35%;
+		top: 0.27rem;
+	}
+	#cartestContent1 #data .normal_identify .down{
+		transform: rotate(0deg);
+	}
+	#cartestContent1 #data .normal_identify .up{
+		transform: rotate(180deg);
+	}
+	#cartestContent1 #data .none{
+		display: none;
+	}
+	#cartestContent1 #data .display{
+		display: block;
+	}
+	#cartestContent1 #data .normal_li{
+		width: 90%;
+		margin-left: 10%;
+		height: 0.55rem;
+		position: relative;
+	}
+	#cartestContent1 #data .normal_li:after{
+		content: "";
+	    display: block;
+	    bottom: 0px;
+	    position: absolute;
+	    left: -50%;
+	    width: 200%;
+	    height: 1px;
+	    background-color: rgba(255, 255, 255, 0.2);
+	    -webkit-transform:scale(0.5);
+	}
+	#cartestContent1 #data .normal_li:first-child{
+		/*border-top: 1px solid #076197;*/
+	}
+	#cartestContent1 #data .border_none .normal_li:first-child{
+		border-top: none;
+	}
+	#cartestContent1 #data .border_none .normal_li:active{
+        background-color: rgba(0,0,0,0.1);
+    }
+	#cartestContent1 #data .normal_li:last-child{
+		border-bottom: none;
+	}
+	#cartestContent1 #data .normal_li .normal{
+		width: 0.20rem;
+		height: 0.20rem;
+		background: url(../cartest/img/correct.png) no-repeat;
+		background-size: 100%;
+		position: absolute;
+		top: 0.20rem;
+		left: 0.05rem;
+	}
+	#cartestContent1 #data .normal_li .normal_des{
+		width: 80%;
+		overflow: hidden;
+		left: 0.30rem;
+		top: 0.20rem;
+		font-size: 0.11rem;
+		height: 0.20rem;
+		line-height: 0.20rem;
+		position: absolute;
+	}
+	#cartestContent1 #data .normal_li .f_n{
+		float: left;
+		width: 100%;
+	}
+	#cartestContent1 .dis_pop_div{
+		position:absolute;
+		left:0;
+		top:0px;
+		width:0;
+		height:0.75rem;
+		background-color:#1d364c;
+		opacity:0.3;
+		z-index:999;
+	}
+	#cartestContent1 #time{
+		width: 100%;
+		height: 0.5rem;
+		text-align: center;
+		color: #fff;
+		font-size: 0.12rem;
+		line-height: 0.5rem;
+		position: relative;
+		overflow: hidden;
+	}
+	#cartestContent1 #time div{
+		display: inline-block;
+		float: none;
+		font-size: 12px;
+		position: absolute;
+	    left: 0;
+	    width: 100%;
+	    margin-top: 15px;
+	}
+	#car_bg{
+		width:2.3rem; 
+		height:1.5rem; 
+		margin:0rem auto 0px; 
+		background: url(../cartest/img/halo.png) no-repeat center;
+        background-size: 2.8rem 1.52rem;
+		/*background:url(../cartest/img/check.png) no-repeat center; */
+		/*background:url(../cartest/img/halo.png) no-repeat center;*/
+		background-size:2.8rem 1.52rem;
+		position:relative;
+	}
+	#car_light{
+		width:9%; 
+		height:100%; 
+		background:url(../cartest/img/halo.png) no-repeat center;
+		background-size:2.8rem 1.52rem;
+		position:relative;
+		display: none;
+		background-position:-0.25rem -0.02rem;
+	}
+	#light{
+		display: none;
+		height:100%; 
+		width:0.04rem; 
+		background:url(../cartest/img/light.png) no-repeat center; 
+		background-size:100%; 
+		right: -0.02rem;
+		top:0px; 
+		position:absolute;
+	}
+
+	#cartestContent1 #data > .odb_li{
+		height: 0.75rem;
+		width: 100%;
+		line-height: 0.75rem;
+		text-indent: 0.52rem;
+		font-size: 0.14rem;
+		color: #fff;
+		position: relative;
+		/*background-color: #1e222d;*/
+		background-color: rgba(31, 35, 46, 0);
+	}
+	#cartestContent1 #data >.odb_li.backChange{
+		background-color: rgba(255,255,255,0.05);
+		/*background-color: #FFFFFF !important;*/
+	}
+	#cartestContent1 #data > .odb_li:after{
+		content: "";
+	    display: block;
+	    bottom: 0px;
+	    position: absolute;
+	    left: -50%;
+	    width: 200%;
+	    height: 1px;
+	    background-color: rgba(255, 255, 255, 0.2);
+	    -webkit-transform:scale(0.5);
+	}
+	#cartestContent1 #data > .odb_li .danger{
+		position: absolute;
+		width: 0.30rem;
+		height: 0.30rem;
+		background: url(../cartest/img/danger.png) no-repeat;
+		background-size: 100%;
+		left: 0.11rem;
+		top: 0.225rem;
+		display: block;
+	}
+	#cartestContent1 #data > .odb_li .error{
+		position: absolute;
+		width: 0.30rem;
+		height: 0.30rem;
+		background: url(../cartest/img/error.png) no-repeat;
+		background-size: 100%;
+		left: 0.11rem;
+		top: 0.225rem;
+		display: block;
+	}
+	#cartestContent1 #data > .odb_li .correct{
+		position: absolute;
+		width: 0.25rem;
+		height: 0.25rem;
+		background: url(../cartest/img/correct.png) no-repeat;
+		background-size: 100%;
+		left: 0.11rem;
+		top: 0.235rem;
+		display: block;
+	}
+	#cartestContent1 #reflesh{
+		width: 0.2rem;
+		color: transparent;
+		height: 100%;
+		background: url(../control/images/refresh.png) no-repeat center;
+		background-size: 0.2rem 0.2rem;
+		margin-left: 0.05rem;
+		display: none;
+	}
+	#cartestContent1 #wrapper {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        height: auto;
+        overflow: hidden;
+    }
+
+    #cartestContent1 #scroller {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        min-height: 101%;
+    }
+
+    #cartestContent1 .pulldown {
+        height: 60px;
+        position: absolute;
+        top: -60px;
+        /*top: 0;*/
+        color: white;
+        width: 100%;
+        z-index: 999;
+        padding-top: 10px;
+        text-align: center;
+            font-weight: inherit;
+    }
+    #cartestContent1 .pullDownInfoTop {
+        font-size: 13px;
+        height: 25px;
+        line-height: 25px;
+        text-align: center;
+        position: relative;
+    }
+    #cartestContent1 .pullDownInfoTop.hidden {
+        display: none;
+    }
+    #cartestContent1 .pullDowningInfoTop {
+        display: none;
+    }
+    #cartestContent1 .pullDownedInfoTop {
+        display: none;
+    }
+    #cartestContent1 .pullDowningInfoTop.show {
+        display: block;
+    }
+    #cartestContent1 .pullDownedInfoTop.show {
+        display: block;
+    }
+    #cartestContent1 .pullDownInfoBottom {
+        font-size: 10px;
+        margin-top: 3px;
+        padding-left: 10px;
+        height: 19px;
+        position: relative;
+        line-height: 19px;
+    }
+    #cartestContent1 .pulldown .icon {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background-size: 25px 50px;
+        float: none;
+    }
+    #cartestContent1 .pulldown.flip .pullDownInfoBottom {
+        display: none;
+    }
+    #cartestContent1 .pulldown.loading .icon {
+        background: url("../home/img/home-loading.png") no-repeat;
+        background-size: 19px;
+	    position: relative;
+	    top: -3px;
+	    width: 19px;
+        height: 19px;
+    }
+    #cartestContent1 .pulldown .label {
+        position: relative;
+        display: inline-block;
+    }
+    #cartestContent1 .pulldown.loading .label, #cartestContent1 .pulldown.flip .label {
+        line-height: 60px;
+    }
+
+
+    #cartestContent1 .iconOne {
+        position: absolute;
+        height: 28px;
+        width: 28px;
+        border-radius: 28px;
+        border: 1px solid white;
+        clip: rect(0px,28px,0px,14px);
+        top: 0;
+    }
+    #cartestContent1 .iconTwo {
+        position: absolute;
+        height: 28px;
+        width: 28px;
+        border-radius: 28px;
+        border: 1px solid white;
+        clip: rect(0px,28px,0px,14px);
+        transform: rotate(180deg);
+        top: 0;
+    }
+    #cartestContent1 .pulldown.flip .icon {
+        -webkit-transform: rotate(0) translateZ(0);
+    }
+    #cartestContent1 .pulldown.loading .iconOne {
+        clip: rect(0px 28px 28px 14px) !important;
+    }
+    #cartestContent1 .pulldown.loading .iconTwo {
+        clip: rect(0px 28px 26px 14px) !important;
+    }
+    #cartestContent1 .pulldown {
+        height: 60px;
+        position: absolute;
+        top: -60px;
+        /*top: 0;*/
+        color: white;
+        width: 100%;
+        z-index: 999;
+        padding-top: 10px;
+        text-align: center;
+        font-weight: inherit;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    #cartestContent1 .pulldownWrap {
+       
+    }
+    #cartestContent1 .pulldownWrap.hidden {
+        display: none;
+    }
+    #cartestContent1 .pulldown .icon {
+        display: inline-block;
+        width: 28px;
+        height: 28px;
+        background-size: 28px;
+        float: none;
+        background: url("../home/img/home-down.png");
+        background-repeat: no-repeat;
+        background-position: 50%;
+            -webkit-animation-duration: 1.3s;
+    }
+    #cartestContent1 .pulldown.flip .icon {
+        background-size: 0;
+    }
+    #cartestContent1 .pulldown.loading .icon {
+        background: url("../home/img/home-loading.png") no-repeat;
+        background-size: 19px;
+        position: relative;
+        top: -3px;
+        width: 28px;
+        height: 28px;
+        background-position: 50%;
+    }
+    #cartestContent1 .pulldown .label {
+    }
+    #cartestContent1 .pulldown.loading .label, #cartestContent1 .pulldown.flip .label {
+        line-height: 28px;
+    }
+    
+    #cartestContent1 #iconDiv {
+      
+    }
+    #cartestContent1 #pullDownInfoDiv {
+        display: block;
+        font-size: 10px;
+        line-height: 10px;
+        padding-left: 4px;
+        left: 30%;
+        position: relative;
+        margin-top: 7px;
+        margin-left: 15px;
+    }
+    #cartestContent1 .pulldownText {
+        display: inline-block;
+    }
+    #cartestContent1 .pulldown.flip #pullDownInfoDiv,#cartestContent1 .pulldown.loading #pullDownInfoDiv {
+        display: none;
+    }
+    #cartestContent1 .swiper-container {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        color: white;
+    }
+    #cartestContent1 .content .swiper-pagination  {
+		top: 10px;
+	    left: 0;
+	    width: 100%;
+	    height: 20px;
+	}
+	#cartestContent1 .content .swiper-pagination .swiper-pagination-bullet {
+		
+	    background: #fff;
+	    opacity: .5;
+	}
+	#cartestContent1 .content .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+		background: #fff;
+		opacity: 1;
+	}
+	#cartestContent1 .bg-top {
+		margin-top: 45px;
+		height: 38px;
+		line-height: 38px;
+		font-size: 17px;
+		/*padding-left: 48px;*/
+		    text-align: center;
+	}
+	#cartestContent1 .temp-value,#cartestContent1 .pm25-value {
+		padding-right: 16px;
+	}
+	#cartestContent1 .bg-one {
+		position: absolute;
+		width: 100%;
+		top: 35px;
+		bottom: 135px;
+		z-index: 5;
+		background: url(../cartest/img/bg-one.png) no-repeat;
+		background-size: 100%;
+	}
+	#cartestContent1 .mileage-detail,#cartestContent1 .oil-detail {
+		position: absolute;
+	    width: 100%;
+	    height: 100px;
+	    bottom: 0;
+	    border-top: 1px solid #333;
+	}
+	#cartestContent1 .MD-left,#cartestContent1 .OD-left {
+		background: url(../cartest/img/mileage-detail-icon.png) no-repeat;
+		background-size: 100%;
+		width: 18px;
+		height: 26px;
+		position: absolute;
+		top: 35px;
+		left: 17px;
+	}
+	#cartestContent1 .OD-left {
+		background: url(../home/img/icon_oil.png) no-repeat;
+	} 
+	#cartestContent1 .MD-center,#cartestContent1 .OD-center {
+		position: absolute;
+		top: 29px;
+		left: 58px;
+		right: 58px;
+		height: 60px;
+	}
+	#cartestContent1 .MD-right {
+		background: url(../cartest/img/icon-right.png) no-repeat;
+		background-size: 100%;
+		width: 9px;
+		height: 23px;
+		position: absolute;
+		top: 35px;
+		right: 17px;
+	}
+    #cartestContent1 #mileageView #CTanimate,#cartestContent1 #oilView #CTanimate{
+        margin: 15px 0 0 0;
+        height: 0.0128rem;
+        width: 80%;
+        position: relative;
+    }
+    #cartestContent1 #mileageView #CTanimateBackground,#cartestContent1 #oilView #CTanimateBackground{
+        position: absolute;
+        width: 100%;
+        height:4.5px;
+        top: 0;
+        background-color: #ffffff;
+	    border-radius: 10px;
+	    opacity: 0.3;
+    }
+    #cartestContent1 #mileageView #CTanimateShow,#cartestContent1 #oilView #CTanimateShow{
+        position: absolute;
+        width: 0;
+        height: 4.5px;
+        top: 0;
+        transition: width ease-in;
+        -webkit-transition: width ease-in;
+        background-color:white  !important;
+        border-radius: 10px;
+    }
+    </style>
+
+    <!-- 模板添加-->
+    <script id="car_grade" type="text/x-underscore-template">
+    <div id="result">
+    	<%
+    		var score=grade;
+    		if(score < 100){
+    			left1=91;
+    		}else{
+    			left1=82;
+    		}
+    	%>
+    		<p id="score_style" style="position:absolute;left:<%=left1%>px;top:86px;font-size: 20px;color:#1e9dfa">
+	    		<span style="font-size: 45px;font-weight: 300;"><%=grade%></span>
+	    		<span style="position: relative;top: -14px;font-size: 14px;">分</span>
+    		</p>
+    		<div style="position: absolute;left: 91px;top: 146px;color: #1e9dfa;">再次检测</div>
+    </div>
+    </script>
+    <!-- 模板添加-->
+
+    <script id="fault_temp" type="text/x-underscore-template">
+
+    	<div class="fault_wrap">
+    		<ul class="fault_ul">
+
+	    		<%
+	    			for(var i = 0;i<faultItems.length;i++){
+	    				var dangerOrError = 'error';
+	    				if(faultItems[i].status == "risk"){
+	    					dangerOrError = 'danger'
+	    				}
+	    				if(faultItems[i].itemCode.replace(/(^\s*)|(\s*$)/g, "") == ''){
+	    					faultItems[i].itemCode = '--';
+	    				}
+	    		%>
+
+	    			<li data-id=<%=faultItems[i].itemName%> class="fault_li">
+	    				<div class="<%=dangerOrError%>"></div>
+	    				<div class="fault_des"><%=faultItems[i].itemName%></div>
+	    			</li>
+
+	    		<%
+	    			}
+	    		%>
+
+	    	</ul>
+    	</div>
+
+
+
+    </script>
+
+    <script id="action_temp" type="text/x-underscore-template">
+
+    	<div class="actions">
+    		<%
+    			for(var j =0;j< actions.length;j++){
+    		%>
+    			<div url=<%=urls[j]%> ><%=actions[j]%></div>
+    		<%
+    			}
+    		%>
+    	</div>
+
+    </script>
+
+    <script id="normal_temp" type="text/x-underscore-template">
+		<%
+			var normalDown = 'up';
+			var dis = 'display';
+			var nod = 'none';
+			var border = 'border_none';
+			if(faultExist){
+				normalDown = 'down';
+				dis = 'none';
+				nod = 'display';
+				border = '';
+			}
+		%>
+		<div class='normal_identify <%=nod%>'>正常项目
+			<div class='arrow <%=normalDown%>'></div>
+		</div>
+		<div class='normal_wrap <%=dis%> <%=border%>'>
+			<ul>
+		    	<%
+		    		for(var i = 0;i<normalItems.length;i++){
+		    	%>
+		    		<li class="normal_li" data-id=<%=normalItems[i].itemName%>>
+		    			<div class='f_n'>
+		    				<div class="normal"></div>
+		    				<div class="normal_des"><%=normalItems[i].itemName%></div>
+		    			</div>
+		    		</li>
+		    	<%
+		    		}
+		    	%>
+	    	</ul>
+		</div>
+    </script>
+
+    <script id="other_temp" type="text/x-underscore-template">
+    	<%
+    		var classTemp;
+    		for(var i = 0;i<otherItems.length;i++){
+    			classTemp = ''
+    			if(otherItems[i].nodeName == '动力系统'){
+    				classTemp = 'dongli';
+    			}else if(otherItems[i].nodeName == '底盘系统'){
+    				classTemp = 'dipan';
+    			}else if(otherItems[i].nodeName == '电器系统'){
+    				classTemp = 'dianqi';
+    			}
+    	%>
+    		<div class="div_li">
+				<div class=<%=classTemp%>></div>
+				<div class="p_name"><%=otherItems[i].nodeName%></div>
+    		</div>
+    	<%
+    		}
+    	%>
+    </script>
+
+    <script id="odb_temp" type="text/x-underscore-template">
+		<%
+			var classObd = '';
+			switch(data.status)
+			{
+				case "risk":
+					classObd = 'danger';
+					break;
+				case "normal":
+					classObd = 'correct';
+					break;
+				case "fault":
+					classObd = 'error';
+					break;
+			}
+		%>
+    		<div class="odb_li" data-id='<%=data.itemName%>'>
+    			<%=data.itemName%>
+    			<div class='dis_pop_div'></div>
+    			<div class="<%=classObd%>"></div>
+    			<div class="arrow"></div>
+    		</div>
+    </script>
+
+
+    <header id="nav-bar" class="bar bar-nav blue-bar" navLeft='{"hide":"true"}' navRight='{"text":"诊断历史"}' navTitle='"车辆诊断"' style="background:transparent">
+    </header>
+    <div class="content">
+
+    	<div id="swiper-message" class="swiper-container">
+            <div class="swiper-wrapper">
+               <!--  <div class="swiper-slide">
+					<div class="bg-top">
+						<span class="temp-wrap" style="display:none">
+							车内温度：<span class="temp-value">--</span>  
+						</span>
+						<span class="pm25-warp" style="display:none">
+							PM2.5: <span class="pm25-value">--</span>	
+						</span>
+					</div>
+					<div class="bg-one"></div>
+					<div class="oil-detail" style="bottom:81px">
+						<div class="OD-left"></div>
+						<div class="OD-center">
+							<div id="oilView">
+		                        <div class="CTtitle">剩余油量</div>
+		                        <div id="CTanimate">
+		                            <div id="CTanimateBackground"></div>
+		                            <div id="CTanimateShow"></div>
+		                        </div>
+		                    </div>
+						</div>
+					</div>
+					<div class="mileage-detail">
+						<div class="MD-left"></div>
+						<div class="MD-center">
+							<div id="mileageView">
+		                        <div class="CTtitle">剩余保养里程</div>
+		                        <div id="CTanimate">
+		                            <div id="CTanimateBackground"></div>
+		                            <div id="CTanimateShow"></div>
+		                        </div>
+		                    </div>
+						</div>
+						<div class="MD-right"></div>
+					</div>
+                </div> -->
+                <div class="swiper-slide">
+    				<div id="wrapper">
+    			    <div id="scroller">
+    			    	<div class="pulldown">
+    			            <div class="pulldownWrap">
+    			                <div id='iconDiv'>
+    			                    <span class="icon"><div class='iconOne'></div>
+    			                    <div class='iconTwo'></div></span>
+    			                </div>
+    			                <span class="label">下拉刷新...</span>
+    			            </div>
+    			            
+    			        </div>
+    			        <div class="needChange">
+    			        	<div id="bg">
+    			                <div id='time'>
+    			                </div>
+    			                <div id='car_bg'>
+    			                	<div id='car_light'>
+    			                		<div id="light"></div>
+    			                	</div>
+    			                </div>
+    			            </div>
+    						<div id='help'><div id="result-text"></div><div id="reflesh"></div></div>
+    			        </div>
+    			        <div style="position: relative; overflow: hidden;">
+    				        <div id="data">
+    				        </div>
+    			        </div>
+    			    </div>
+    			    </div>
+                </div>
+                
+            </div>
+            <!-- 如果需要分页器 -->
+		    <!-- <div class="swiper-pagination"></div> -->
+        </div>
+
+		
+
+    </div>
+</div>

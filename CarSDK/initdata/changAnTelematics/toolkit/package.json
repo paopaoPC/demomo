@@ -1,0 +1,10 @@
+{
+  "name": "cc_工具箱",
+  "identifier": "cc.toolkit",
+  "description": "我的信息",
+  "version": "1.0.0",
+  "dependencies": {},
+  "build": 1,
+  "releaseNote": "",
+  "hidden": false
+}

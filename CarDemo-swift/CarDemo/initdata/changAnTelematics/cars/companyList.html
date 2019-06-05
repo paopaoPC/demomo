@@ -1,0 +1,43 @@
+<div id="companyList" data-view="cars/companyList">
+	<style type="text/css">
+		#companyList .content{
+			background-color: #FFFFFF;
+		}
+		#companyList .content-list{
+			width: 100%;
+			height: 47px;
+			line-height: 47px;
+			padding-left: 10px;
+			padding-right: 20px;
+			border-bottom: 1px solid #dddddd;
+		}
+		#companyList .content-list>img{
+			float: right;
+			width: 18px;
+			margin-top: 15px;
+			display: none;
+		}
+		#companyList .other-company{
+			width: 100%;
+			height: 47px;
+			text-align: center;
+			line-height: 47px;
+			color: #00cbfe;
+		}
+	</style>
+	<script type="text/x-underscore-template" id="sosCompanyList">
+		<div class="content-list" data-telphone="<%=insuranceHotline%>" data-name=<%=companyName%>>
+			<span class="company-name"><%=companyName%></span>
+			<img src="../cars/image/sos_ok.png">
+		</div>
+	</script>
+	<header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":true}' navTitle='"添加、修改保险公司"'>
+    </header>
+    <div class="content">
+    	<div class="content-list">请您选择你的保险公司：</div>
+    	<div class="company-name-list">
+    		
+    	</div>
+    	<div class="other-company">+其他保险</div>
+    </div>
+</div>

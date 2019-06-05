@@ -1,0 +1,65 @@
+<div id="Images" data-view='Laboratory/Images'>
+	<style type="text/css">
+	 	.image_list > li{
+	 		position: relative;
+	 		margin: 10px;
+	 	}
+	 	.preview {
+	 		width: 130px;
+	 		height: 100px;
+	 	}
+	 	.delete{
+			position: absolute;
+			bottom: 50px;
+			right: 10px;
+	 	}
+	 	.description{
+	 		position: absolute;
+		    top: 60px;
+		    left: 148px;
+	 	}
+	 	.download{
+			width: 33px;
+			position: absolute;
+			top: 18px;
+			right: 65px;
+	 	}
+	 	.myshare{
+		   	position: absolute;
+		    right: 6px;
+		    top: 11px;
+		    border-radius: 7px;
+		    border-style: groove;
+		    background-color: #08285C;
+		    color: white;
+		    border-color: white;
+		    border-width: 1px;
+	   }
+	   .slidein{
+	   		display: none;
+	   }
+	</style>
+	<script id="One_image" type="text/x-underscore-template">
+		<li style="position: relative">
+	 		<img class="preview" src="<%=data.src%>"/>
+	 		<div class="description">
+	 			<p><%=data.time%></p><br>
+	 			<p><%=data.location%></p>
+	 		</div>
+	 		<img class="download" src="../Laboratory/images/tongbu.png"/>
+	 		<img class="delete" src="../Laboratory/images/shanchu.png"/>
+    	 </li>
+	</script>>
+	<header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}' navTitle='"抓拍图库"'>
+		<input style="width: 50px;margin-top: 0px;" class="myshare" type="button" value="全选" />
+    </header>
+    <div class="content">
+    	 <ul class="image_list">
+    	 	
+    	 </ul>
+    	 <div id="Image_manage" class="slidein" style="overflow-y:hidden;height:36px;width: 100%;position: fixed;bottom: 0px;border-top-style: solid;border-top-width: 1px;">
+    	 	<img style="width: 33px;margin-left: 20%;" src="../Laboratory/images/tongbu.png">
+    	 	<img style="margin-left: 35%;" src="../Laboratory/images/shanchu.png"/>
+    	 </div>
+	</div>
+</div>

@@ -1,0 +1,10 @@
+{
+  "name": "cc_远程控制",
+  "identifier": "cc.control",
+  "description": "",
+  "version": "1.0.2",
+  "dependencies": {},
+  "build": 3,
+  "releaseNote": "",
+  "hidden": false
+}

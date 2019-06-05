@@ -1,0 +1,78 @@
+<div id="serviceDetail" data-view="toolkit/serviceDetail">
+    <style>
+        #serviceDetail{
+            background-color: #e7e7e7;
+        }
+        #serviceDetail .content::-webkit-scrollbar{
+            display: none;
+        }
+        #serviceDetail #nav-bar{
+            background: url('../home/img/background.png') no-repeat;
+        }
+        #serviceDetail .activity{
+            margin-top: 0.0853rem;
+            width:100%;
+            height:1.766rem;
+            background-color: white;
+        }
+        #serviceDetail .pakage{
+            height: 0.3413rem;
+            width: 100%;
+            padding: 0.1024rem;
+            box-sizing: border-box;
+            border-bottom: solid 1px lightgray;
+            font-size: 0.1365rem;
+        }
+        #serviceDetail .mainActivity{
+            height:1.425rem;
+            width:100%;
+            display: flex;
+            box-sizing: border-box;
+            padding:0.1707rem 0.2048rem 0 0.256rem;
+        }
+        #serviceDetail .circle{
+            width: 0.9557rem;
+            height: 0.9557rem;
+            margin-right: 0.2133rem;
+        }
+        #serviceDetail .detail{
+            width:1.561rem;
+            margin-top:-0.0853rem;
+        }
+        #serviceDetail .detail div{
+            border-bottom: solid 1px lightgray;
+            height: 0.2556rem;
+            font-size: 0.1024rem;
+            padding: 0.0768rem;
+            color:#666666;
+        }
+    </style>
+    <script id="template" type="text/x-handlebars-template">
+        <div class="activity">
+            <div class="pakage"><%= productName %></div>
+            <div class="mainActivity">
+                <svg class="circle">
+                    <circle  r="<%= 0.4607*rem %>" cx="<%=0.4779*rem %>" cy="<%= 0.4779*rem %>" stroke="#e5ebf6" fill="none" stroke-width="<%= 0.0341*rem%>"></circle>
+                    <circle r="<%= 0.4607*rem %>" cx="<%= 0.4779*rem %>" cy="<%= 0.4779*rem %>" stroke="#00bffe" fill="none" stroke-width="<%= 0.0341*rem %>"
+                            stroke-dasharray="<%= 2.897*rem %>" stroke-dashoffset="<%= (1-percentage/100)*2.897*rem %>" style="transform: rotate(-90deg);transform-origin: center";></circle>
+                    <%if(unit == '天'){%>
+                        <text fill="#666666" x="<%=0.4779*rem %>" y="<%= 0.4266*rem %>"  style="font-size: <%= 0.1024*rem %> "  text-anchor="middle">剩余时长</text>
+                    <%} else {%>
+                        <text fill="#666666" x="<%=0.4779*rem %>" y="<%= 0.4266*rem %>"  style="font-size: <%= 0.1024*rem %> "  text-anchor="middle">剩余流量</text> 
+                    <%}%>
+                    
+                    <text fill="#00bffe" x="<%=0.4779*rem %>" y="<%= 0.6826*rem %>" style="font-size: <%= 0.1963*rem %>"  text-anchor="middle"><%= left %><%= unit%></text>
+                </svg>
+                <div class="detail">
+                    <div class="remainTime">未使用：<%= left %><%= unit%></div>
+                    <div class="deadline">服务有效期至：<%= expirationTime %></div>
+                </div>
+            </div>
+        </div>
+    </script>
+    <header id="nav-bar" class="bar bar-nav blue-bar" navTitle='""' navRight='{"hide":true}'></header>
+
+    <div class="content">
+
+    </div>
+</div>

@@ -1,0 +1,468 @@
+
+<div id="carInfo-real" data-view='addChanganCar/carInfo-real'>
+    <style type="text/css">
+       /* #carInfo-real .content{
+            background-color: #ffffff
+        }*/
+        #carInfo-real .warm-title{
+            width: 100%;
+            /*height: 45px;*/
+            font-size: 0.13653275rem; /*16px*/
+            color: #656565;
+            /*line-height: 45px;*/
+            padding-left: 0.11946616rem; /*14px*/
+            padding-right: 0.11946616rem;
+            /*margin-top: 0.17066594rem;  */
+            padding-bottom: 0.11946616rem;    /*10px*/
+            background-color: white;
+        }
+        #carInfo-real select{
+            direction: ltr;
+            width: 78%;
+            padding-right: 0.25599891rem;  /*30px*/
+        }
+        #carInfo-real .warm-title>span:last-child{
+            font-size: 0.10239956rem;   /*12px*/
+            color: #333;
+        }
+        #carInfo-real .info_div{
+            width: 100%;
+            background-color: #fff;
+        }
+        #carInfo-real .info_ul{
+            width: 100%;
+            position: relative;
+            padding-left: 4%;
+        }
+        #carInfo-real .info_ul:after{
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 200%;
+            height: 1px;
+            background: #e7e7e7;
+            -webkit-transform:scale(0.5);
+            left: -50%
+        }
+        #carInfo-real .info_ul:before{
+            content: "";
+            position: absolute;
+            bottom: 0;
+            width: 200%;
+            height: 1px;
+            background: #e7e7e7;
+            -webkit-transform:scale(0.5);
+            left: -50%
+        }
+        #carInfo-real .info_ul li{
+            width: 100%;
+            height: 0.38399836rem;  /*45px*/
+            position: relative;
+        }
+        #carInfo-real .info_ul li:not(.speli){
+            /*background: url(../myinfo/image/arrow.png) no-repeat;*/
+            background-position: 96% center;
+            background-size: 0.08rem 0.14rem;
+        }
+        #carInfo-real .info_ul li label{
+            display: block;
+            float: left;
+            color: #343434;
+            font-size: 0.11946616rem;
+            height: 100%;
+            line-height: 0.38399836rem;
+            width: 22%;
+        }
+        #carInfo-real .info_ul li:not(.last)::after{
+            bottom: 0px;
+            left: -54%;
+            content: "";
+            display: block;
+            position: absolute;
+            width: 208%;
+            height: 1px;
+            background: #e7e7e7;
+            -webkit-transform: scale(0.5);
+        }
+        #carInfo-real .info_ul li div{
+            float: left;
+            position: relative;
+            /*left: 10%;*/
+            height: 100%;
+            line-height: 0.38399836rem;
+            color: #989898;
+            width: 78%;
+            text-align: left;
+            padding-right: 0.25599891rem;
+        }
+        #gender_select, #certificate_select{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: transparent;
+            box-shadow: none;
+            color: #989898;
+            padding-left: 0%;
+        }
+        #carInfo-real .poto-items{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            box-sizing:border-box;
+            text-align: center;
+            padding-top: 0.12799945rem;   /*15px*/
+            padding-bottom: 0.12799945rem;
+            background-color: #FFFFFF;
+            /*text-align: center;*/
+            -webkit-display:flex;
+            display: flex;
+            -webkit-flex-wrap:wrap;
+            flex-wrap: wrap;
+            -webkit-justify-content:between;
+            justify-content: space-between;
+            padding-left: 6%;
+            padding-right: 6%
+        }
+        #carInfo-real .poto-items:after{
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 200%;
+            height: 1px;
+            /*background: #e7e7e7;*/
+            -webkit-transform:scale(0.5);
+            left: -50%
+        }
+        #carInfo-real .poto-items:before{
+      /*      content: "";
+            position: absolute;
+            bottom: 0;
+            width: 200%;
+            height: 1px;
+            background: #e7e7e7;
+            -webkit-transform:scale(0.5);
+            left: -50%*/
+        }
+        #carInfo-real .items{
+            width: 140px;
+            height: 90px;
+            position: relative;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
+        #carInfo-real .items input {
+            display: none;
+        }
+        #carInfo-real .items.item3 {
+            background-image: url(../addChanganCar/img/upload-2.png);
+        }
+        #carInfo-real .items.item4 {
+            background-image: url(../addChanganCar/img/upload-3.png);
+        }
+        #carInfo-real .items.item2 {
+            background-image: url(../addChanganCar/img/upload-4.png);
+            margin: auto;
+        }
+        #carInfo-real .items:first-child{
+            margin-left: 0
+        }
+        #carInfo-real .items .ceng{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+            line-height: 80px;
+            font-size: 22px;
+            text-align: center;
+            top: 0;
+            background-image: url(../addChanganCar/img/addceng_icon.png);
+            background-size: 32px 32px;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+        }
+        #carInfo-real #submit_carid{ width:95%; height:40px; line-height:40px;border-radius:5px; background-color:#04a4dc; color:#fff; font-size:18px; text-align:center;clear: both;
+        margin-left: 2.5%;
+        margin-top: 0.17066594rem}
+        #carInfo-real #submit_carid:active{
+            color: #09aaec
+        }
+        #carInfo-real .warms{
+            height: auto;
+            /*margin-top: 0.21333242rem;*/
+            /*line-height: 1;*/
+        }
+        #carInfo-real .poto-modle{
+            height: 100%;
+            line-height: 100%;
+            font-size: 0.13653275rem !important;
+            color: #00c3fe !important;
+            margin-left: 0.08533297rem;
+        }
+        #carInfo-real #mask{
+            width: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            background-color: rgba(128, 128, 128, 0.50);
+        }
+        #carInfo-real #mask >div{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            /*height: 2.5rem;*/
+            background-color: white;
+        }
+        #carInfo-real #closeMask{
+            background-image: url(../addChanganCar/img/close-icon.png);
+            width: 25px;
+            height: 25px;
+            display: -webkit-inline-box;
+            background-size: 100% 100%;
+            position: absolute;
+            left: 12px;
+            top: 4px;
+        }
+        #carInfo-real #mask .titleblock{
+            width: 100%;
+            line-height: 35px;
+            text-align: center;
+            border-bottom: 1px solid gainsboro;
+        }
+        #carInfo-real #mask >div .imgContent{
+            width: 3rem;
+            height: 2.5rem;
+            margin: auto;
+            display: -webkit-box;
+            margin-top: .2rem;
+            background-image: url(../addChanganCar/img/picture.png);
+            background-size: 100%;
+        }
+        #carInfo-real #mask .imgContent.two{
+            background-position-y: -2.6rem;
+        }
+        #carInfo-real #mask .imgContent.three{
+            height: 2.3rem;
+            background-position-y: -5.045rem;
+        }
+        #carInfo-real #mask .imgContent.four{
+            height: 2.28rem;
+            background-position-y: -7.27rem;
+        }
+        #carInfo-real #mask .buttonClick{
+            width: 85%;
+            line-height: 40px;
+            background: #00c3fe;
+            text-align: center;
+            color: white;
+            margin: auto;
+            margin-top: .3rem;
+            margin-bottom: .3rem;
+            border-radius: 5px;
+            position: relative;
+        }
+        #carInfo-real .dialog-step-wrap input[type="file"]{
+            width: 100%;
+            height: 40px;
+            position: absolute;
+            opacity: 0;
+            z-index: 999;
+            left: 0;
+        }
+        #carInfo-real #mask .infotext{
+            width: 100%;
+            text-align: center;
+            color: black;
+            font-size: 13px;
+            line-height: 20px;
+        }
+
+        #carInfo-real .content-top {
+            width: 100%;
+            background-size: 100%;
+            padding-top: 18.7%;
+            background-repeat: no-repeat;
+            background-image: url(../addChanganCar/img/certification_steps_three.png);
+        }
+        #carInfo-real .dialog-step-1 {
+            background-color: #e6e6e6;
+            border-radius: 5px;
+            width: 300px;
+            margin: auto;
+            padding-bottom: 16px;
+            margin-top: 80px;
+        }
+        #carInfo-real .dialog-step-1-head {
+            text-align: center;
+            font-size: 18px;
+            padding: 16px 0 22px;
+        }
+        #carInfo-real .dialog-step-1-img-2 {
+            background-size: 300px;
+            background-repeat: no-repeat;
+            background-image: url(../addChanganCar/img/example_2.png);
+            background-position: center;
+            width: 300px;
+            height: 195px;
+            margin: auto;
+        }
+        #carInfo-real .dialog-step-1-img-3 {
+            background-size: 300px;
+            background-repeat: no-repeat;
+            background-image: url(../addChanganCar/img/example_3.png);
+            background-position: center;
+            width: 300px;
+            height: 195px;
+            margin: auto;
+        }
+        #carInfo-real .dialog-step-1-img-4 {
+            background-size: 300px;
+            background-repeat: no-repeat;
+            background-image: url(../addChanganCar/img/example_4.png);
+            background-position: center;
+            width: 300px;
+            height: 195px;
+            margin: auto;
+        }
+        #carInfo-real .dialog-step-1-btn {
+            text-align: center;
+            height: 44px;
+            line-height: 44px;
+            background-color: #2ca5da;
+            width: 233px;
+            color: white;
+            border-radius: 5px;
+            margin: auto;
+            margin-top: 15px;
+            position: relative;
+        }
+        #carInfo-real .dialog-step-wrap {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+        }
+    </style>
+
+    <script type='text/x-undeerscore-template' id='tips'>
+        <div id='mask'>
+            <div>
+                <p class='titleblock'><span id='closeMask'></span><%=title%></p>
+                <div class='imgContent <%=numId%>'></div>
+                <%for(var i=0;i<infos.length;i++){%>
+                    <p class='infotext'><%=infos[i]%></p>
+                <%}%>
+                <!-- <div class='buttonClick' id='upgrade' style="margin-bottom: 0;">从相册选择</div> -->
+                <!-- <div class='buttonClick' id='takePhoto' style="margin-top: .1rem;">上传照片</div> -->
+                <div class='buttonClick' id='takePhoto' style="margin-top: .1rem;">
+                    <input type="file"/>上传照片
+                </div>
+            </div>
+        </div>
+    </script>
+ <script src="../common/mobileBUGFix.mini.js"></script>
+
+	<header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}'  navTitle='"车辆实名认证"'>
+    </header>
+    <div class="content" style="overflow-x: hidden;">
+        <div class="content-top"></div>
+        <div class="info_div" style="margin-top:6px">
+            <ul class="info_ul">
+                <li data-value="">
+                    <label>车架号</label>
+                    <div id="info_vin"></div>
+                </li>
+                <li data-value="" style="height:100px">
+                    <label>购车发票</label>
+                    <div id="info_bugCarNumber" style="padding-top: 5px;padding-bottom: 5px;">
+                        <div class="item1 items" data-value='0' style="padding-left:15px"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="poto-items" style="margin-top:6px">
+            <div class="item3 items" data-value='2'>
+            </div>
+            <div class="item4 items" data-value='3'>
+            </div>
+        </div>
+      <!--   <div class="warm-title">
+            <span>车辆认证信息</span>
+            <span>（请确保认证信息与上传的照片信息一致）</span>
+        </div> -->
+        <div class="info_div">
+            <ul class="info_ul">
+                <li data-value="userName">
+                    <label>姓名</label>
+                    <div id="info_username"></div>
+                </li>
+                <li data-value="gender" class="lispe">
+                    <label>性别</label>
+                    <select id="gender_select" disabled="disabled">
+                        <option value="m">男</option>
+                        <option value="f">女</option>
+                    </select>
+                </li>
+                <li data-value="certificate" class="certificate-type">
+                    <label>证件类型</label>
+                    <select id="certificate_select" disabled="disabled">
+                        <option value="IDCARD">身份证</option>
+                        <option value="PASSPORT">护照</option>
+                        <option value="PLA">军官证</option>
+                        <option value="POLICEPAPER">警官证</option>
+                        <option value="TAIBAOZHENG">台湾居民来往大陆通行证</option>
+                        <option value="HKIDCARD">港澳居民来往内地通行证</option>
+                        <option value="UNITCREDITCODE">统一社会信用代码</option>
+                        <option value="OTHERLICENCE">其他</option>
+                    </select>
+                </li>
+                <li data-value="certificateNum" class="last">
+                    <label>证件号码</label>
+                    <div id="certificate-number"></div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- <div class="warm-title">上传认证照片<span class="poto-modle">(照片示例)</span></div> -->
+        <div class="poto-items" style="margin-top: 5px;">
+            <div class="item2 items" data-value='1' style="margin:auto">
+            </div>
+        </div>
+        <div class="warm-title warms"><span>温馨提示：请用后置摄像头拍摄，确保证件相关信息全部清晰</span></div>
+        <div id="submit_carid">确认提交</div>
+        <div class="dialog-step-wrap dialog-step-wrap-1">
+            <div class="dialog-step-1">
+                <div class="dialog-step-1-head">证件上传示例</div>
+                <div class="dialog-step-1-img dialog-step-1-img-4"></div>
+                <div class="dialog-step-1-btn">
+                    我知道了
+                    <input type="file" class="item-input-carInfo-1">
+                </div>
+            </div>
+        </div>
+        <div class="dialog-step-wrap dialog-step-wrap-2">
+            <div class="dialog-step-1">
+                <div class="dialog-step-1-head">证件上传示例</div>
+                <div class="dialog-step-1-img dialog-step-1-img-2"></div>
+                <div class="dialog-step-1-btn">
+                    我知道了
+                    <input type="file" class="item-input-carInfo-2">
+                </div>
+            </div>
+        </div>
+        <div class="dialog-step-wrap dialog-step-wrap-3">
+            <div class="dialog-step-1">
+                <div class="dialog-step-1-head">证件上传示例</div>
+                <div class="dialog-step-1-img dialog-step-1-img-3"></div>
+                <div class="dialog-step-1-btn">
+                    我知道了
+                    <input type="file" class="item-input-carInfo-3">
+                </div>
+            </div>
+        </div>
+   	</div>
+</div>

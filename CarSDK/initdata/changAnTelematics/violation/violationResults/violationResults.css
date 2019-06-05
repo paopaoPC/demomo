@@ -1,0 +1,322 @@
+{
+    -webkit-tap-highlight-color:blue;
+}
+#violationResults .content{
+    background-color: #f0eff5;
+}
+#violationResults .topItem
+{
+	width: 100%;
+	height: 100px;
+	border-bottom: 1px solid #d9d9d9;
+}
+#violationResults .topItem-left{
+	width: 25%;
+	height: 100%;
+	float: left;
+	background: url(../violationResults/head.png) no-repeat;
+	background-size: 50px 50px;
+	background-position: 50% 50%;
+}
+#violationResults .topItem-right{
+	width: 75%;
+	height: 100%;
+	float: left;
+	padding-left: 10px;
+}
+#violationResults .topItem-right>div{
+	width: 100%;
+	height: 50px;
+}
+#violationResults .car-number{
+	font-size: 17px;
+	color: #333333;
+	padding-top: 24px
+}
+#violationResults .score-money{
+	font-size: 18px;
+	color: #f95e09;
+	padding-top: 10px;
+}
+#violationResults .score-money>span:first-child{
+	/*background: url(../violationResults/fen_hui.png) no-repeat;*/
+	/*background-size: 15px 15px;*/
+	/*padding-left: 21px;*/
+	/*background-position: 0 49%;*/
+}
+#violationResults .score-money>span:last-child{
+	/*background: url(../violationResults/yuan_hui.png) no-repeat;*/
+	/*background-size: 15px 15px;*/
+	/*padding-left: 21px;*/
+	/*margin-left: 20px;*/
+	/*background-position: 0 49%;*/
+}
+#violationResults .topItem table tr td
+{
+	text-align: center;
+}
+#violationResults #topItemTable1
+{
+	margin-top: 5px;
+}
+#violationResults #topItemTable2
+{
+	font-size: 10px;
+	margin-top: 9px;
+	font-family: "Microsoft YaHei" ! important;
+}
+#violationResults #topItemTable1 td
+{
+	font-size: 18px;
+	font-weight:bolder;
+	color: #dd3362;
+}
+#violationResults .listview
+{
+	margin-top: 100px;
+    padding:0;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    margin-bottom: 0px;
+    height: auto;
+}
+#violationResults .headLine1 
+{
+    width: 100%;
+    height: 1px;
+    background-color: #dedede;
+    bottom: 0px;
+    position: absolute;
+}
+/*listview*/
+#violationResults .scroller
+{
+    overflow: hidden;
+	min-height: 101% !important;
+}
+#violationResults .scroller li
+{
+    height: auto;
+}
+#violationResults .listCell
+{
+	background-color: white;
+	width: auto;
+	height: auto;
+	border-radius: 5px;
+	border: 1px solid #d9d9d9;
+	margin-left: 14px;
+	margin-top: 13px;
+	margin-right: 14px;
+}
+#violationResults .cellTitle
+{
+	top: 12px;
+	line-height: 35px;
+	float: left;
+}
+#violationResults .cellDate 
+{
+	margin-left: 10px;
+	line-height: 37px;
+	color: #666666;
+}
+#violationResults .cellTime 
+{
+	margin-left: 12px;
+	color: #666666;
+}
+#violationResults .locationDetail
+{
+	padding-left: 10px;
+	line-height: 17px;
+	margin-top: 0;
+	float: left;
+	width: 100%;
+	font-size: 14px;
+	color: #333333;
+	padding-right: 10px;
+	margin-bottom: 10px;
+}
+#violationResults .violationDetail
+{
+	padding-left: 10px;
+	line-height: 16px;
+	float: left;
+	width: 100%;
+	margin-bottom: 14px;
+	font-size: 14px;
+	color: #333333;
+	padding-right: 10px;
+}
+#violationResults .moneyIcon
+{
+   background-size: 100% 100%;
+    width:15px;
+    height:15px;
+    background-repeat: no-repeat;
+    float: left;
+    margin-top: 15px;
+    margin-left: 79px;
+}
+#violationResults .costMoney
+{
+	margin-left: 4px;
+	top: 12px;
+	line-height: 15px;
+	float: left;
+	margin-top: 15px;
+}
+#violationResults .pointIcon
+{
+	float: left;
+	width: 15px;
+	height: 15px;
+	margin-top: 15px;
+	margin-left: 35px;
+}
+#violationResults .pointLost
+{
+	margin-left: 4px;
+	top: 12px;
+	line-height: 15px;
+	float: left;
+	margin-top: 15px;
+}
+
+
+
+#violationResults .timeBlock 
+{
+	height: 25px;
+	width: 100%
+}
+/*#violationResults .timeBlock>span:first-child{*/
+	/*width: 8%;*/
+	/*height: 25px;*/
+	/*background: url(../violationResults/icon_time.png) no-repeat;*/
+	/*background-size: 13px 13px;*/
+	/*background-position: 100% 100%;*/
+/*}*/
+/*#violationResults .locationBlock>span:first-child{*/
+	/*width: 8%;*/
+	/*height: 25px;*/
+	/*background: url(../violationResults/icon_add.png) no-repeat;*/
+	/*background-size: 13px 13px;*/
+	/*background-position: 100% 100%;*/
+/*}*/
+/*#violationResults .reasonBlock>span:first-child{*/
+	/*width: 8%;*/
+	/*height: 25px;*/
+	/*background: url(../violationResults/icon_word.png) no-repeat;*/
+	/*background-size: 13px 13px;*/
+	/*background-position: 100% 0;*/
+/*}*/
+#violationResults .locationBlock 
+{
+	height: 26px;
+	margin-top: 7px;
+}
+
+#violationResults .reasonBlock 
+{
+	height: auto;
+	margin-top: 7px;
+}
+
+#violationResults .scoreAndmoney{
+	font-size: 17px;
+	color: #f95e09;
+	line-height: 30px;
+	width: 100%;
+	margin-bottom: 12px;
+}
+#violationResults .scoreAndmoney:after{
+	-webkit-transform: scale(0.3);
+	content: "";
+	width: 292%;
+	background-color: #666666;
+	height: 1px;
+	transform: scale(0.3);
+	display: block;
+	position: absolute;
+	left: -96%;
+	margin-top: 3px;
+}
+#violationResults .infoText{
+	margin-left: 10px;
+	font-size: 12px;
+	color: #999999;
+}
+
+#violationResults .detailNumberBlock 
+{
+	width: 100%;
+	height: 10px;
+	background-color: #f95e09;
+	/* padding-left: 10px; */
+	/* font-size: 18px; */
+	/* color: #FFFFFF; */
+	/* line-height: 35px; */
+	margin-top: -1px;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+#violationResults .scoreAndmoney>span:first-child{
+	/* background: url(../violationResults/fen_bai.png) no-repeat; */
+	/* background-size: 15px 15px; */
+	padding-left: 10px;
+/* background-position: 0 49%;*/
+}
+#violationResults .scoreAndmoney>span:last-child{
+	/* background: url(../violationResults/yuan_bai.png) no-repeat; */
+	/* background-size: 15px 15px; */
+	/* padding-left: 21px; */
+	/* margin-left: 30px; */
+	/* background-position: 0 49%; */
+	float: right;
+	margin-right: 10px;
+}
+#violationResults .lis-detail{
+width: 100%;
+height: auto;
+overflow: hidden;
+font-size: 13px;
+color: #666666;
+}
+#violationResults .cellLine1
+{
+width: 100%;
+height: 1px;
+background-color: #dedede;
+position: relative;
+margin-left: 0px;
+margin-top: 0px;
+}
+
+#violationResults .cellLine2
+{
+width: auto;
+height: 1px;
+background-color: #dedede;
+position: relative;
+margin-left: 78px;
+margin-top: 0px;
+margin-right: 0px;
+}
+
+#violationResults .cellLine3
+{
+width: 100%;
+height: 1px;
+background-color: #dedede;
+position: relative;
+margin-left: 0px;
+margin-top: 44px;
+}
+#violationResults .icon-text{
+font-size: 14px;
+color: #666666;
+margin-right: 10px;
+}

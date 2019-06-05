@@ -1,0 +1,62 @@
+<div id="equiment-binding" data-view="cars/equipmentBinding">
+
+	<style type = "text/css">
+
+	#equiment-binding .input_wrap{
+		margin-top: 10px;
+		margin-left: 3%;
+		width: 94%;
+		height: 45px;
+	}
+
+	#equiment-binding .input_wrap select{
+		width: 100%;
+		border: 1px solid;
+		border-color: #d0d0d0;
+		/*height: 40px*/
+	}
+
+	#equiment-binding .input_wrap input{
+		/*margin-top: 10px;*/
+	}
+
+	#equiment-binding #confirm_to_add
+	{
+		width:95%; 
+	    height:40px; 
+	    line-height:40px; 
+	    margin:10px auto; 
+	    border-radius:5px; 
+	    background-color:#00c3fe; 
+	    color:#fff; 
+	    font-size:18px; 
+	    text-align:center;
+	}
+	</style>
+
+	<header id="nav-bar" class="bar bar-nav blue-bar"  navRight='{"hide":"true"}' navTitle='"设备绑定"'>
+    </header>
+
+    <div class="content">
+        
+        <div class="input_wrap">
+
+    		<select id="odb_factory_select">
+    		</select>
+    
+	    </div>
+	    
+	    <div class="input_wrap">
+	    
+	    	<input id="odb_number" type="text" maxLength="20" placeholder="请输入odb编号"/>
+	    
+	    </div>
+	    <div class="input_wrap">
+	    
+	    	<input id="odb_password" type="tel" maxLength="8" placeholder="请输入激活码"/>
+	    
+	    </div>
+	    <div id="confirm_to_add">确认添加</div>
+   	</div>
+   
+</div>

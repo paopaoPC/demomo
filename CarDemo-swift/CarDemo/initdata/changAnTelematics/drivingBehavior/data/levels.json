@@ -1,0 +1,10 @@
+[
+  {"levels":"LV1","name":"新手上路","value":"0-1000"},
+  {"levels":"LV2","name":"实习车手","value":"1000-3000"},
+  {"levels":"LV3","name":"初级车手","value":"3000-7000"},
+  {"levels":"LV4","name":"中级车手","value":"7000-15000"},
+  {"levels":"LV5","name":"高级车手","value":"15000-30000"},
+  {"levels":"LV6","name":"职业车手","value":"30000-50000"},
+  {"levels":"LV7","name":"冠军车手","value":"50000-100000"},
+  {"levels":"LV8","name":"超凡大师","value":"100000-以上"}
+]

@@ -1,0 +1,10 @@
+{
+  "name": "cvim_缓存工具",
+  "identifier": "cvim.ImageCache",
+  "description": "",
+  "version": "1.0.1",
+  "dependencies": {},
+  "build": 2,
+  "releaseNote": "",
+  "hidden": false
+}

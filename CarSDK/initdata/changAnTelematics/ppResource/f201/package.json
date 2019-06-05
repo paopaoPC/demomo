@@ -1,0 +1,11 @@
+{
+  "name": "cvim_OuShang",
+  "identifier": "cvim.OuShang",
+  "description": "",
+  "version": "1.0",
+  "dependencies": {},
+  "build": 1,
+  "releaseNote": "",
+  "funStatus":false,
+  "hidden": false
+}

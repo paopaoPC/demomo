@@ -1,0 +1,84 @@
+
+<div id="addCar" data-view='cars/addCar'>
+<style type="text/css">
+#addCar .form-mess{
+    width: 100%;height: auto;position: absolute;z-index: 0
+}
+#addCar .input_wrap{ width:95%; margin:10px auto 0; line-height:40px; height:40px;}
+#addCar .input_wrap input{ width:100%; height:100%; border:1px solid #dededf; border-radius:5px; font-size:14px;}
+#addCar #submit_carid{ width:95%; height:40px; line-height:40px;border-radius:5px; background-color:#00c3fe; color:#fff; font-size:18px; text-align:center;clear: both;
+    margin-left: 2.5%;}
+#addCar #submit_carid:active{
+    color: #09aaec
+}
+#addCar .car_vin{
+    width: 100% !important;float: left;
+}
+#addCar #button_scan{
+   width: 13%;background-color: #00c3fe;color: #fff;text-align: center;margin-left: 2%;float: left;border-radius: 5px;
+}
+#addCar .ceng-mess{
+    width: 100%;height: 100%;display: none;
+}
+#addCar .check-mess{
+    width: 100%; height: 100%; background-color: #000000; opacity: 0.5;position: absolute; z-index: 1;
+}
+#addCar .container{
+    width: 86%;height: 150px; background-color: #ffffff;border-radius: 10px;position: absolute; z-index: 4;left: 7%;top: 30%;
+}
+#addCar .container>div{
+    width: 100%;height: 75px;text-align: center;padding-top: 20px;
+}
+#addCar .waring-mess>span{
+    font-size: 14px; color: #0a3a7b;line-height: 2
+}
+#addCar .select-submit>div{
+    width: 80px;height: 30px;background-color: #2297e1;border-radius: 5px;text-align: center;line-height: 30px;float: left;font-size: 14px; color: #ffffff;margin-left: 15%;
+}
+#addCar .cars-add-car-demo
+{
+    width: 95%;
+    height: 40px;
+    line-height: 40px;
+    margin: 10px auto;
+    border-radius: 5px;
+    background-color: #00c3fe;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    /*display: none;*/
+}
+</style>
+	<!-- 外围包裹层开始-->
+	<header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}'  navTitle='"添加车辆"'>
+    </header>
+    <div class="content">
+        <div class="form-mess">
+            <!-- <div class="input_wrap">
+        
+                <input id="vin" maxlength="17" class="car_vin" type="text" placeholder="请输入您的车架号(17位)" /> -->
+                <!-- <div id="button_scan">扫描</div> -->
+            <!-- </div>
+            
+            <div id="submit_carid">提交</div> -->
+
+            <div id="addCarDemo" class="cars-add-car-demo">添加模拟车辆</div>
+        </div>
+        <div class="ceng-mess">
+            <div class="check-mess">
+       
+            </div>
+            <div class="container">
+                <div class="waring-mess">
+                    <span>未检测到该车辆的相关设备,</span></br>
+                    <span>是否添加长安盒子？</span>
+                </div>
+                <div class="select-submit">
+                    <div id="yesSubmit">确定</div>
+                    <div id="cancleSubmit">取消</div>               
+                </div>
+            </div>
+        </div>
+
+   	</div>
+</div>

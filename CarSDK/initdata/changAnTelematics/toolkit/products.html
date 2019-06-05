@@ -1,0 +1,312 @@
+<div id="products" data-view='toolkit/products'>
+<style type="text/css">
+#products .scroller ul{
+	margin-top: 17px;
+	/*padding-left: 10px;*/
+	background-color: #efeff4;
+}
+#products .products_search{
+	padding-top: 10px;
+	position: fixed;
+    width: 100%;
+    background-color: #efeff4;
+    z-index: 1000;
+}
+#carProduct_list li{
+	height: 69px;
+	background-color: #fff;
+	/*margin-top: 15px;*/
+	padding-left: 4%;
+}
+#carProduct_list li:before{
+	bottom: 0px;
+	content: "";
+	display: block;
+	position: absolute;
+	left: -50%;
+	width: 200%;
+	height: 1px;
+	background: #d9d9d9;
+	opacity: 0.7;
+	-webkit-transform: scale(0.5);
+}
+#carProduct_list li:first-child:after{
+	top: 0px;
+	content: "";
+	display: block;
+	position: absolute;
+	left: -50%;
+	width: 200%;
+	height: 1px;
+	background: #d9d9d9;
+	opacity: 0.7;
+	-webkit-transform: scale(0.5);
+}
+#products_select{
+	background: url(../toolkit/img/11.png) no-repeat;
+    background-position: 94% center;
+    background-size: 11px 5px;
+    -webkit-box-shadow: none;
+}
+#products_ser{
+	float: left;
+	width: 12%;
+	height: 30px;
+	padding: 0;
+	background: url(../toolkit/img/22.png) no-repeat center;
+	background-size: 18px 18px;
+	/* display: none; */
+	position: absolute;
+	right: 2%;
+	top: 10px;
+}
+#products .search-result-ul{
+	position: absolute;
+	background-color: #efeff4;
+	width: 66%;
+	height: auto;
+	left: 22%;
+	/* padding-left: 10px; */
+	color: #837B7B;
+	font-size: 12px;
+	border-bottom: 1px solid #dedede;
+	border-left: 1px solid #dedede;
+	border-right: 1px solid #dedede;
+	top: 40px;
+	z-index: 999999999;
+	display: none;
+}
+#products .search-result-ul > li{
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	/* border: 1px solid #dedede; */
+	/* border-bottom: none; */
+	border-top: 1px solid #dedede;
+	padding-left: 10px;
+}
+#products .select-name{
+	 float: left;
+	 width:33%;
+	 margin-left:3%; 
+	 height:31px; 
+	 padding:0; 
+	 font-size: 15px;
+	/* padding-right: 10px; */
+	padding-left: 2%;
+	padding-right: 5%;
+	background-color: #FFFFFF;
+	border-radius: 0px;
+	margin-bottom: 0px;
+	line-height: 30px;
+	border-right: none;
+}
+/*#products .products_search:before{
+	content: '';
+	position: absolute;
+	top: 9px;
+	left: 4%;
+	border: 1px solid #d9d9d9;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 184%;
+	height: 133%;
+	-webkit-transform: scale(0.5);
+	transform: scale(0.5);
+	-webkit-transform-origin: left top;
+	transform-origin: left top;
+}*/
+/*#products .products_search:before{
+	right: 0px;
+	content: "";
+	display: block;
+	position: absolute;
+	top: -50%;
+	width: 1;
+	height: 200%;
+	background: #d9d9d9;
+	opacity: 0.7;
+	-webkit-transform: scale(0.5);
+}*/
+/*#products .products_search:after{
+	bottom: 10px;
+	content: "";
+	display: block;
+	position: absolute;
+	left: -50%;
+	width: 200%;
+	height: 1px;
+	background: #d9d9d9;
+	opacity: 0.7;
+	-webkit-transform: scale(0.5);
+}*/
+/*#products .products_search:after{
+	left: 0px;
+	content: "";
+	display: block;
+	position: absolute;
+	top: -50%;
+	width: 1px;
+	height: 100%;
+	background: #d9d9d9;
+	opacity: 0.7;
+	-webkit-transform: scale(0.5);
+}*/
+#products #products_input{
+	float: left;
+	 width:61%;
+	 height:31px; 
+	 padding:0; 
+	 border-left: 1px solid #d9d9d9;
+	font-size: 16px;
+	line-height: 30px;
+	padding-left: 10px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	border-radius: 0px;
+	font-size: 15px;
+	/*border-right: none;
+	border-bottom: none;
+	border-top: none;*/
+	/*border-radius: 0px 5px 5px 0px;*/
+}
+#products .content-price{
+	height: 40px;
+	float: left;
+	width: 30%;
+	/* border-left: 1px solid #dadada; */
+	text-align: right;
+	padding-right: 14px;
+	/* height: 100%; */
+	line-height: 40px;
+	margin-top: 15px;
+	color: #f95e09;
+}
+#products .content-price>span{
+	font-size: 17px;
+}
+#products .content-ul{
+	margin-top: 10px;
+	/*padding-left: 10px;*/
+	background-color: #efeff4;
+	position: relative;
+	margin-top: 55px;
+}
+#products .content-li{
+	height: 60px;
+	border-bottom: 1px solid #dadada;
+	background-color: #fff;
+	margin-top: 10px;
+	padding-left: 10px;
+}
+#products .no-data{
+	width: 100%;
+	text-align: center;
+	margin-top: 60px;
+	display: none;
+}
+#products .selection{
+	background-color:#fff ;
+	border-bottom: 1px solid #dadada;
+	height: 101%;
+	display: none;
+}
+#products .products-name{
+	height: 35px;
+	line-height: 54px;
+	display: -webkit-box;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	font-size: 17px;
+	color: #343434;
+}
+</style>
+
+
+<header id="nav-bar" class="bar bar-nav blue-bar" navTitle='"配件查询"' navRight='{"hide":"true"}'>
+</header>
+<script type="text/x-underscore-template" id="result-template">
+	<li data-value="<%=result%>"><%=result%></li>
+</script>
+<script id="carProduct_template" type="text/x-underscore-template">
+    <%function isNull(data) {
+		var def = true;
+		if (typeof data == "string") {
+			data = data.trim();
+		}
+		if ((typeof data !== "undefined" && data && data.length !== 0) || typeof data === "function") {
+			def = false;
+		}
+		return def;
+    }%>
+	<div style='width:70%;height:100%; position:relative; float:left;'>
+		<div style='' class="products-name"><%=partName%></div>
+		<div style='height:34px; line-height:24px; color:#999999; font-size:14px'><%=serialNumber%></div>
+		<!--<div style='position:absolute; height:30px; line-height:30px; bottom:0px; right:10px; color:#A69A9A'><%=carSeriesName%></div>-->
+	</div>
+	<div class="content-price">￥<span><%=unitPrice%></span></div>
+</script>
+
+<script id="carProducts_template" type="text/x-underscore-template">
+    <%function isNull(data) {
+		var def = true;
+		if (typeof data == "string") {
+			data = data.trim();
+		}
+		if ((typeof data !== "undefined" && data && data.length !== 0) || typeof data === "function") {
+			def = false;
+		}
+		return def;
+    }%>
+    <li class="content-li">
+		<div style='width:70%;height:100%; position:relative; float:left;'>
+			<div class="products-name"><%=partName%></div>
+			<div style='height:30px; line-height:30px; color:#A69A9A'><%=serialNumber%></div>
+			<!--<div style='position:absolute; height:30px; line-height:30px; bottom:0px; right:10px; color:#A69A9A'><%=carSeriesName%></div>-->
+		</div>
+		<div class="content-price">￥<span><%=unitPrice%></span></div>
+	</li>
+</script>
+<div class="content">
+
+	<div class='products_search'>
+		<select id='products_select' class="select-name" style="margin-bottom: 10px">
+			
+		</select>
+		<input id='products_input' maxLength="18" type='text' placeholder="输入配件编号/配件名称"/>
+		<div id='products_ser'></div>
+	</div>
+	<ul class="search-result-ul">
+		
+	</ul>	
+	<div class="content-list" style='width:100%; height:94%; margin-top:41px; position:relative; overflow:hidden;'>
+		<div id="carProduct_list"  class="listview" style='padding:0;'>
+          <div class="scroller">
+                <div class="pulldown" style="postion:relative; display:none">
+                    <div id='iconDiv'>
+                        <span class="icon"><div class='iconOne'></div>
+                        <div class='iconTwo'></div></span>
+                    </div>
+                    <span class="label"></span>
+                </div>
+                <ul>
+                </ul>
+			  <div class="pullup">
+				  <span class="label"></span>
+			  </div>
+                <div class="message">
+                  <div class="empty">没有数据</div>
+                  <div class="error">数据加载失败</div>
+                </div>
+           </div>
+      </div>
+	</div>
+
+	<ul class="content-ul">
+    </ul>
+    <div class="no-data">没有数据</div>
+</div>
+
+</div>

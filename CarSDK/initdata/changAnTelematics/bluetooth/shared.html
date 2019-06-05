@@ -1,0 +1,159 @@
+<div id="bluetoothSharedView" class="page" data-view="bluetooth/shared">
+	<style type="text/css">
+		#bluetoothSharedView .im-text-navtitle {
+			/*font-size: 15px !important;*/
+		}
+		#bluetoothSharedView .im-default-nav-bar {
+			border-bottom: none;
+		}
+		#bluetoothSharedView .content {
+			background-color: #080808;
+			color: white;
+		}
+		#bluetoothSharedView .input-item {
+			height: 40px;
+    		padding: 0 45px 0 77px;
+		}
+		#bluetoothSharedView .item-label {
+			width: 77px;
+		    position: absolute;
+		    height: 40px;
+		    left: 0;
+		    line-height: 40px;
+		    text-align: left;
+		    padding-left: 15px;
+		}
+		#bluetoothSharedView .item-input {
+			height: 40px;
+    		line-height: 40px;
+		}
+		#bluetoothSharedView .item-input .input-div,#bluetoothSharedView .item-input input {
+			background: transparent;
+			margin-bottom: 0;
+			border-bottom: 1px solid #636363;
+			padding: 0;
+			height: 24px;
+			margin-top: 8px;
+			font-size: 13px;
+			padding-left: 6px;
+		}
+		#bluetoothSharedView .item-input .input-div {
+			height: 30px;
+		}
+		#bluetoothSharedView .input-item-time {
+			color: #0076d1;
+			font-size: 14px;
+			display: inline-block;
+			margin-right: 20px;
+		}
+		#bluetoothSharedView .shared-btn {
+			width: 150px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			margin: auto;
+			background: #025a9f;
+			border-radius: 5px;
+			font-size: 18px;
+			margin-top: 15px;
+		}
+		#bluetoothSharedView .shared-list {
+			margin-top: 55px;
+		}
+		#bluetoothSharedView .shared-list-head {
+			padding-left: 15px;
+		}
+		#bluetoothSharedView .shared-list-item {
+			padding: 20px 15px;
+			padding-right: 35px;
+		}
+		#bluetoothSharedView .shared-list-item-content {
+			position: relative;
+		}
+		#bluetoothSharedView .shared-list-item-head {
+			font-size: 12px;
+			color: #5a5a5a;
+			margin-bottom: 16px;
+		}
+		#bluetoothSharedView .slic-item {
+			font-size: 15px;
+			color: white;
+		}
+		#bluetoothSharedView .slic-item-left {
+			display: inline-block;
+		}
+		#bluetoothSharedView .slic-item-right {
+			display: inline-block;
+		}
+		#bluetoothSharedView .slic-item-operate {
+			position: absolute;
+			right: 45px;
+			top: -5px;
+			color: #025da5;
+			padding: 5px 40px 10px;
+		}
+
+    </style>
+
+    <script id="bluetoothSharedView_temp" type="text/x-underscore-template">
+    	<% for(var i=0;i<dataArr.length;i++){ %>
+    	<div class="shared-list-item">
+    		<div class="shared-list-item-head">有效</div>
+    		<div class="shared-list-item-content">
+    			<div class="slic-item" style="margin-bottom: 9px;">
+    				<div class="slic-item-left">手机号：</div>
+    				<div class="slic-item-right"><%=dataArr[i].phone%></div>
+    			</div>
+    			<div class="slic-item">
+    				<div class="slic-item-left">有效期：</div>
+    				<div class="slic-item-right"><%=moment(dataArr[i].startTime).format('YYYY.MM.DD HH:mm')%>-<%=moment(dataArr[i].expireTime).format('YYYY.MM.DD HH:mm')%></div>
+    			</div>
+    			<div class="slic-item-operate" data-phone="<%=dataArr[i].phone%>" data-vin="<%=dataArr[i].vin%>">撤销</div>
+    		</div>
+    	</div>
+    	<%}%>
+    </script>
+
+    <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}' navTitle='"分享钥匙"' style="background:transparent">
+    </header>
+    <div class="content">	
+		<div class="input-wrap">
+			<div class="input-item">
+				<div class="item-label">手机</div>
+				<div class="item-input">
+					<input type="text" id="phone-input" maxlength="11" placeholder="被分享人手机号">
+				</div>
+			</div>
+			<div class="input-item">
+				<div class="item-label">有效期</div>
+				<div class="item-input">
+					<div class="input-item-time" data-value="1">一小时</div>
+					<div class="input-item-time" data-value="24">一天</div>
+					<div class="input-item-time" data-value="168">一周</div>
+					<div class="input-item-time" data-value="720">一月</div>
+				</div>
+			</div>
+			<div class="input-item">
+				<div class="item-label">开始时间</div>
+				<div class="item-input item-input-1">
+					<div id="item-input-1" class="input-div"></div>
+				</div>
+			</div>
+			<div class="input-item">
+				<div class="item-label">结束时间</div>
+				<div class="item-input item-input-2">
+					<div id="item-input-2" class="input-div"></div>
+				</div>
+			</div>
+             <div id="item-input-datepick"></div>
+			<div class="shared-btn">分享钥匙</div>
+		</div>
+		<div class="shared-list">
+			<div class="shared-list-head">我的分享</div>
+			<div class="shared-list-content">
+
+			</div>
+		</div>
+    </div>
+	<div id="datePlugin"></div>
+</div>

@@ -1,0 +1,53 @@
+
+<div id="addCar-index" data-view='addChanganCar/index'>
+    <style type="text/css">
+        #addCar-index .addChanganCar, #addCar-index .other-car{
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            font-size: 16px;
+            color: #333333;
+            padding-left: 14px;
+            box-sizing:border-box;
+            background: url(../cars/img/icon_right.png) no-repeat;
+            background-size: 7px 14px;
+            background-position: 96% 50%;
+            background-color: #FFFFFF;
+            position: relative;
+            margin-top: 15px
+        }
+        #addCar-index .mess-info{
+            width: 100%;
+            padding-left: 14px;
+            color: #666666;
+            margin-top: 8px;
+        }
+        #addCar-index .other-car:after,#addCar-index .addChanganCar:after{
+            content: "";
+            position:absolute;
+            top: 0;
+            width: 200%;
+            height: 1px;
+            left: -50%;
+            background: #dfdfdf;
+            -webkit-transform:scale(0.5);
+        }
+        #addCar-index .other-car:before,#addCar-index .addChanganCar:before{
+            content: "";
+            position:absolute;
+            bottom: 0;
+            width: 200%;
+            height: 1px;
+            left: -50%;
+            background: #dfdfdf;
+            -webkit-transform:scale(0.5);
+        }
+    </style>
+	<header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}'  navTitle='"添加车辆"'>
+    </header>
+    <div class="content">
+        <div class="addChanganCar">添加长安车辆</div>
+        <div class='mess-info'>需要提供相关材料进行验证</div>
+        <div class="other-car">添加其他品牌车辆</div>
+   	</div>
+</div>

@@ -1,0 +1,108 @@
+<div id="safeCenter" data-view='myinfo/safeCenter'>
+	<style type="text/css">
+	.span{
+		display: inline-block;
+	    width: 1px;
+	    height: 100%;
+	    vertical-align: middle;
+	}
+	#tour > li{
+		height: 55px;
+	    font-size: 15px;
+	    color: #666666;
+	    background-color: #FFFFFF;
+	    padding: 0;
+	}
+	#safeCenter .table-view-cell > a:not(.btn):active {
+    	background-color: #f1f1f1 !important;
+    }
+	#safeCenter .table-view .table-view-cell{
+		background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#d9d9d9' x='0' y='0' width='100%' height='0.5'/></svg>");
+		background-position: 0 100%
+	}
+	
+	#safeCenter .table-view-cell>a:not(.btn){
+		height: 100%;
+		margin: 0;
+		padding-top: 19px;
+		padding-left: 14px;
+		line-height: 21px;
+		}
+	#safeCenter .notifyTel_icon{
+		width: 19px !important;
+		height: 19px;
+		background: url(../myinfo/image/icon_phone.png) no-repeat;
+		background-size: 19px 19px;
+		float: left;
+		margin-right: 15px;
+	}
+	#safeCenter .notifyPsw_icon{
+		width: 19px !important;
+		height: 19px;
+		background: url(../myinfo/image/icon_lock.png) no-repeat;
+		background-size: 19px 19px;
+		float: left;
+		margin-right: 15px;
+	}
+	#safeCenter .icon-next{
+		position: absolute;
+		right: 14px;
+		width: 40px;
+		height: 100%;
+		background: url(../Laboratory/images/icon_into.png) no-repeat;
+		background-size: 7px 12px;
+		background-position: 100% 50%;
+		top: 0
+	}
+	#safeCenter .navigate-right:after, .push-right:after{
+		display: none;
+	}
+	#safeCenter .new_tour{
+		position: fixed;
+		bottom: 50px;
+		width: 100%;
+	}
+	#safeCenter #cansle{
+		width: 20px;
+		position: absolute;
+		top: 1px;
+		right: 1px;
+	}
+	#safeCenter .noCantacts3{
+		width: 8px;
+		height: 8px;
+		background-color: red;
+		display: -webkit-box;
+		border-radius: 100%;
+		position: absolute;
+		top: 20px;
+		left: 125px;
+		visibility: hidden;
+	}
+	</style>
+
+	<header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}' navTitle='"安全中心"'>
+    </header>
+    <div class="content">
+    	<ul id="tour" class="table-view" style="background-color: #E5E8EF;font-size: 0.95em;margin-top:0px">
+			<li class="table-view-cell" id="notifyTel">
+				<a class="navigate-right">
+					<span class="table-view-sep notifyTel_icon">&nbsp;</span>修改手机
+					<div class="icon-next"></div>
+				</a>
+			</li>
+			<li class="table-view-cell" id="notifyPassword">
+				<a class="navigate-right">
+					<span class="table-view-sep notifyPsw_icon">&nbsp;</span>修改密码
+					<div class="icon-next"></div>
+				</a>
+			</li>
+			<li class="table-view-cell" id="contactsMobile">
+				<a class="navigate-right">
+					<span class="table-view-sep notifyTel_icon">&nbsp;</span>紧急联系人<span class="noCantacts3"></span>
+					<div class="icon-next"></div>
+				</a>
+			</li>
+    	</ul>
+	</div>
+</div>

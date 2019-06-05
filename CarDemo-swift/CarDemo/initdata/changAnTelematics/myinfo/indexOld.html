@@ -1,0 +1,719 @@
+<div id="myinfo" data-view="myinfo/indexOld">
+    <style type="text/css">
+        #myinfo .my-info-content {
+            width: 100%;
+            vertical-align: top;
+            margin: 0em auto;
+            padding-top: 10px;
+            height: 80px;
+        }
+
+        #myinfo .content-wrapper::-webkit-scrollbar {
+            width: 0
+        }
+
+        #myinfo .my-info-bar {
+            height: 80px;
+            /*background: url(../common/img/background.png) no-repeat;*/
+            background-size: 100%;
+            background-position: 0px -0.4rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        #myinfo .my-info-head {
+            width: 0.42666484622999rem;
+            height: 0.42666484622999rem;
+            padding: 0 0 0 0;
+            /*margin: 0 auto;*/
+            margin-left: 10px;
+            float: left;
+        }
+
+        #myinfo .my-info-head img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: solid 2px #fff;
+        }
+
+        #myinfo .my-info-text-content {
+            text-align: center;
+            height: 100%;
+            float: left;
+            padding-left: 10px;
+        }
+
+        #myinfo .my-info-text-content div {
+            line-height: 1.5em;
+            text-align: left;
+            /*font-size: 16px;*/
+        }
+
+        #myinfo .my-info-text {
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        #myinfo .my-info-text-simple {
+            font-size: 1em;
+            color: #ffffff;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        #myinfo .my-info-level {
+            height: 12px;
+            line-height: 12px !important;
+            text-align: center;
+            background-color: #00d4f9;
+            font-size: 10px !important;
+            color: black;
+            display: inline-block;
+            border-radius: 2px;
+            margin-left: 4px;
+        }
+
+        #myinfo .my-info-text-content > img {
+            width: 23px;
+        }
+
+        #myinfo .my-drive-imfor {
+            width: 100%;
+            /*height: 50px;*/
+            background: -webkit-gradient(linear, 0 0, 0 100%, from(#11141b), to(#282c33));
+            box-shadow: 0px 0px 3px #171b26;
+            margin-top: 22px;
+            opacity: 0.75;
+        }
+
+        #myinfo .my-line {
+            width: 1px;
+            height: 30px;
+            background-color: #4b5056;
+            /* float: left; */
+            line-height: 18px;
+            position: absolute;
+            left: 50%;
+            top: 10px;
+        }
+
+        #myinfo .my-drive-imfor > ul {
+            width: 100%;
+            height: 100%;
+            color: #FFFFFF;
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            position: relative;
+        }
+
+        #myinfo .my-drive-imfor > ul li {
+            float: left;
+            width: 50%;
+            height: 40px;
+            line-height: 20px;
+            font-family: 'Helvetica';
+        }
+
+        /*#myinfo .my-drive-imfor >ul li:first-child{
+             border-right: 1px solid #4b5056;
+        }*/
+        #myinfo .my-drive-imfor > ul li span:first-child {
+            font-size: 18px;
+            color: #00c2ff;
+        }
+
+        #myinfo .my-drive-imfor > ul > li span:last-child {
+            font-size: 12px
+        }
+
+        #myinfo .my-info-separate {
+            height: 35px;
+            background-color: #f0f0f3;
+            padding-left: 10px;
+            line-height: 36px;
+            color: #1d1d1e;
+            border-bottom: 1px solid #DFDFDF;
+            display: none;
+        }
+
+        #myinfo .my-info-msg-count span {
+            display: inline-block;
+        }
+
+        #myinfo .my-info-integral-count, #myinfo .my-info-integral-section {
+            margin-left: 0.5em;
+        }
+
+        #myinfo .my-info-integral-section {
+            width: 3.7em;
+            text-align: center;
+        }
+
+        #myinfo .my-info-integral-count {
+            color: #ed5565;
+            font-weight: normal;
+            font-size: 1.5em;
+            padding-right: 10%;
+            text-align: center;
+            line-height: 1.5em;
+        }
+
+        #myinfo .my-info-integral-text {
+            color: #9b9b9b;
+            font-size: 0.8em;
+            margin-top: 10px
+        }
+
+        #myinfo .my-info-integral-num {
+            font-weight: bold;
+            color: #353535;
+        }
+
+        #myinfo .my-info-msg-count {
+            float: right;
+        }
+
+        #myinfo .my-info-msg-count-tip {
+            width: 0.9em;
+            height: 0.9em;
+            -webkit-border-radius: 0.5em;
+            background-color: #ed5565;
+            color: #ed5565;
+            display: inline-block;
+            margin-left: 1em;
+            position: relative;
+            top: -0.3em;
+            font-size: 0.5em;
+        }
+
+        #myinfo .table-view-cell > a:not(.btn) {
+            text-indent: 27px;
+        }
+
+        #myinfo .navigate-right:after, .push-right:after {
+            right: 15px;
+        }
+
+        #myinfo .my-info-msg-count-num {
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1em;
+            position: relative;
+            top: -0.3em;
+            left: 1.5em;
+            width: 1.2em;
+            display: inline-block;
+            text-align: center;
+        }
+
+        #myinfo .my-info-msg {
+            height: 63px;
+            color: #737373;
+            border-bottom: 1px solid #DEDEE1;
+            line-height: 1.8em;
+            padding-left: 23px;
+            padding-top: 0.4em;
+            background-color: #F4F4F7;
+        }
+
+        #myinfo .my-info-msg-title, #myinfo .my-info-msg-summary {
+            outline-color: #737373;
+            color: #59595a;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            font-size: 0.95em;
+            width: 85%;
+        }
+
+        #myinfo .my-info-msg-summary {
+            color: #898c8c;
+            font-size: 0.85em;
+        }
+
+        /*#myinfo .table-view{*/
+        /*background-color: transparent; !important;*/
+        /*}*/
+
+        #myinfo .table-view-cell {
+            font-size: 15px;
+            color: #59595a;
+            line-height: 30px;
+            height: 50px;
+        }
+
+        #myinfo .table-view-sep {
+            width: 8px;
+            display: inline-block;
+        }
+
+        #myinfo .icon-refresh {
+            position: absolute;
+            right: 0.5em;
+            top: 0.5em;
+        }
+
+        #myinfo .toggle .toggle-handle {
+            -webkit-transform: translate3d(0px, 0px, 0px);
+        }
+
+        #myinfo .active .toggle-handle {
+            -webkit-transform: translate3d(20px, 0px, 0px);
+        }
+
+        #myinfo .content-wrapper {
+            background: #f2f2f2;
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            top: 0px;
+            bottom: 0px;
+            overflow: auto;
+        }
+
+        #myinfo .my-info-msg .navigate-right {
+            position: relative;
+        }
+
+        #myinfo .navigate-right {
+            color: #515151;
+            height: 50px;
+        }
+
+        #myinfo .my-info-msg .navigate-right:after {
+            right: 1em;
+            position: relative;
+            float: right;
+            top: -2em;
+        }
+
+        #myinfo .navigate-right:after, .push-right:after {
+            content: "";
+            width: 23px;
+            height: 23px;
+            background: url(../myinfo/image/myinfo-right.png);
+            background-size: 23px;
+        }
+
+        #myinfo .my-info-integral {
+            height: 56px;
+            width: 100%;
+            background-color: #1e222d;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#DFDFDF' x='0' y='0' width='100%' height='0.8'/></svg>");
+            background-repeat: no-repeat;
+            background-position: 0% 100%;
+        }
+
+        #myinfo .sep-border {
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1' height='100%'><rect fill='#CCCDCC' x='0' y='0' height='100%' width='0.7'/></svg>");
+            background-repeat: no-repeat;
+            background-position: 100% 0%;
+            float: right;
+            height: 65%;
+            width: 1px;
+        }
+
+        #myinfo .table-view {
+            background-color: transparent;
+            position: relative;
+            background-image: none;
+            margin-bottom: 0;
+        }
+
+        /*   #myinfo .table-view:after {
+               content: "";
+               display: block;
+               position: absolute;
+               left: -50%;
+               width: 200%;
+               height: 1px;
+               background: #3c4455;
+               opacity: 0.9;
+               -webkit-transform: scale(0.5);
+           }*/
+
+        #myinfo .table-view-cell:after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: -50%;
+            width: 200%;
+            height: 1px;
+            bottom: 0;
+            background: #ececec;
+            opacity: 0.9;
+            -webkit-transform: scale(0.5);
+        }
+
+        #myinfo .table-view-cell {
+            background-image: url("")
+            position: relative;
+        }
+
+        #myinfo .table-view .table-view-cell:last-child {
+            background-image: none;
+        }
+
+        #myinfo .table-view-cell > a:not(.btn):active {
+            /*background-image: none;*/
+            background-color: rgba(255, 255, 255, 0.05) !important;
+        }
+
+        #myinfo .logout-button {
+            /*border: 1px solid #3c4356;*/
+            width: 100%;
+            height: 44px;
+            -moz-border-radius: 5px;
+            /* -webkit-border-radius: 5px; */
+            /* border-radius: 5px; */
+            margin: 30px auto;
+            /*border: 1px solid #3c4455;*/
+            text-align: center;
+            display: table;
+            background-color: rgba(25, 24, 33, 0.3);
+        }
+
+        #myinfo .logout-button:active {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        #myinfo .logout-button-txt {
+            display: table-cell;
+            vertical-align: middle;
+            color: #00c3fe;
+            font-size: 15px;
+        }
+
+        #redShot {
+            width: 5px;
+            height: 5px;
+            border-radius: 100%;
+            background-color: red;
+            position: absolute;
+            right: 25px;
+            top: 21px;
+            display: none;
+        }
+
+        #modifyPassword {
+            background: url(../myinfo/image/icon_lock.png) no-repeat;
+            background-size: 0.20rem 0.20rem;
+            background-position: 15px center;
+        }
+
+        #modifyTelphone {
+            background: url(../myinfo/image/icon_phone.png) no-repeat;
+            background-size: 0.21rem 0.21rem;
+            background-position: 15px center;
+        }
+
+        #my-info-toolkit {
+            background: url(../myinfo/image/icon_service.png) no-repeat;
+            background-size: 0.21rem 0.21rem;
+            background-position: 15px center;
+        }
+
+        #safeCenter {
+            /*background: url(../myinfo/image/safeCenter_icon.png) no-repeat;*/
+            /*background: url(../myinfo/image/safeCenter.svg) no-repeat;*/
+            /*background-size: 0.21rem 0.21rem;*/
+            /*background-position: 15px center;*/
+        }
+
+        .safeCenterIcon{
+            width: 0.21rem;
+            height: 0.21rem;
+            position: absolute;
+            left: 15px;
+            margin-top: 2px;
+        }
+        #privacyAgreement {
+            background: url(../myinfo/image/secrety_icon.png) no-repeat;
+            background-size: 0.21rem 0.21rem;
+            background-position: 15px center;
+        }
+
+        #my-info-cars {
+            /*background: url(../myinfo/image/icon_car.png) no-repeat;*/
+            /*background-size: 0.21rem 0.21rem;*/
+            /*background-position: 15px center;*/
+        }
+
+        #my-info-message {
+            /*background: url(../myinfo/image/icon_message.png) no-repeat;*/
+            /*background-size: 0.21rem 0.21rem;*/
+            /*background-position: 15px center;*/
+        }
+
+        #my-info-navigation {
+            background: url(../myinfo/image/icon_map.png) no-repeat;
+            background-size: 0.21rem 0.21rem;
+            background-position: 15px center;
+        }
+
+        #my-info-suggest {
+            background: url(../myinfo/image/icon_suggest.png) no-repeat;
+            background-size: 0.21rem 0.21rem;
+            background-position: 15px center;
+        }
+
+        #navigate-update > a {
+            /*background: url(../myinfo/image/icon_down.png) no-repeat;*/
+            /*background-size: 0.21rem 0.21rem;*/
+            /*background-position: 15px center;*/
+        }
+
+        #myinfo .content {
+            padding-top: 0 !important;
+            background-color: #1b1e29;
+            top: 0 !important;
+            /*bottom: 35px !important*/
+        }
+
+        #myinfo #member {
+            /*background: url(../myinfo/image/icon_v_wo.png) no-repeat;*/
+            /*background-size: 0.21rem 0.21rem;*/
+            /*background-position: 15px center;*/
+        }
+
+        #myinfo .my-info-text-phone {
+            display: inline-block;
+            color: #fbd398;
+            font-size: 10px;
+        }
+
+        #myinfo .my-info-text-right .my-info-merber {
+            display: none;
+            color: #5e6b71;
+            font-size: 10px;
+            line-height: 14px;
+            height: 14px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 0 6px;
+        }
+
+        #myinfo .changan-momey {
+            color: white;
+            height: 50px;
+            /*background-color: rgba(25, 24, 33, 0.298039);*/
+            margin-bottom: 7px;
+            padding-top: 8px;
+        }
+
+        #myinfo .changan-momey-item {
+            width: 24%;
+            display: inline-block;
+        }
+
+        #myinfo .changan-momey-item p {
+            color: #e0ffff;
+            text-align: center;
+            font-size: 10px;
+            margin-bottom: 6px;
+        }
+
+        #myinfo .changan-momey-item p.value {
+            color: white;
+            font-size: 13px;
+            position: relative;
+        }
+
+        #myinfo .changan-momey-score .value:after {
+            content: '';
+            display: inline-block;
+            width: 1px;
+            background: #72daff;
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: -11px;
+        }
+
+        #myinfo .changan-momey-guanzhu .value:after {
+            content: '';
+            display: inline-block;
+            width: 1px;
+            background: #72daff;
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: -11px;
+        }
+
+        #myinfo .changan-momey-number .value:after {
+            content: '';
+            display: inline-block;
+            width: 1px;
+            background: #72daff;
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: -11px;
+        }
+        #myinfo .content-header-img {
+            background-color: #01cbf9;
+            /*background-image: url(../myinfo/image/myinfo-background.jpg);*/
+        }
+        #myinfo.ios-head .content-header-img {
+            padding-top: 45px;
+        }
+    </style>
+
+
+    <script id="myinfo-info-template" type="text/x-underscore-template">
+        <div class="my-info-content">
+            <div id="myInfoHead" class="my-info-head">
+                <img id="myInfoHeadImg" src="../myinfo/image/head.png"/>
+            </div>
+            <div class="my-info-text-content">
+                <div class="my-info-text-left">
+                    <div class="my-info-text-simple"><%=user.userFullname %></div>
+                </div>
+                <div class="my-info-text-right">
+                    <div class="my-info-merber"></div>
+                </div>
+
+
+            </div>
+        </div>
+    </script>
+
+    <script id="myinfo-msg-count-template" type="text/x-underscore-template">
+        <span class="table-view-sep">&nbsp;</span><%=title%>
+        <div class="my-info-msg-count-tip" <%=(msg.totle>0?"style='display:none'":"") %> ></div>
+
+    </script>
+    <script id="myinfo-msg-template" type="text/x-underscore-template">
+        <div class="my-info-msg">
+
+            <a class="navigate-right" id="msg-btn" data-contentId="<%=msg.id%>">
+                <div class="my-info-msg-title"><%=msg.subject%></div>
+                <div class="my-info-msg-summary"><%=msg.summary%></div>
+            </a>
+
+
+        </div>
+    </script>
+
+    <div class="content">
+        <div class="content-wrapper">
+            <div class="content-header-img">
+                <div class="my-info-bar">
+                    <div class="" id="myinfo-tab-title">
+                        <div class="my-info-content">
+                            <div id="myInfoHead" class="my-info-head">
+                                <img id="myInfoHeadImg" src="../myinfo/image/head.png"/>
+                            </div>
+                            <div class="my-info-text-content">
+                                <div class="my-info-text-left">
+                                    <div id="userNameItem" class="my-info-text-simple"></div>
+                                </div>
+                                <div class="my-info-text-right">
+                                    <div class="my-info-merber"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="changan-momey">
+                    <div class="changan-momey-item changan-momey-score">
+                        <p class="value">--</p>
+                        <p>消费积分</p>
+                    </div>
+                    <div class="changan-momey-item changan-momey-number">
+                        <p class="value">--</p>
+                        <p>电子卷</p>
+                    </div>
+                    <div class="changan-momey-item changan-momey-guanzhu">
+                        <p class="value">--</p>
+                        <p>关注</p>
+                    </div>
+                    <div class="changan-momey-item changan-momey-fensi">
+                        <p class="value">--</p>
+                        <p>粉丝</p>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="table-view" id="my-info-msg">
+                <li class="table-view-cell">
+                    <a class="navigate-right" id="safeCenter" data-value="safeCenter">
+                        <img class="safeCenterIcon" src="../myinfo/image/myinfo-safeCenter-old.png"/>
+                        <span class="table-view-sep">&nbsp;</span>安全中心
+                    </a>
+                </li>
+                <li class="table-view-cell">
+                    <a class="navigate-right" id="my-info-cars" data-value="my-info-cars">
+                        <img class="safeCenterIcon" src="../myinfo/image/myinfo-cars.png"/>
+                        <span class="table-view-sep">&nbsp;</span>车辆管理
+                    </a>
+                </li>
+                <!-- <li class="table-view-cell">
+                    <div id='redShot'></div>
+                    <a class="navigate-right" id="my-info-records" data-value="my-info-records">
+                        <img class="safeCenterIcon" src="../myinfo/image/myinfo-records.png"/>
+                        <span class="table-view-sep">&nbsp;</span>服务记录
+                    </a>
+                </li> -->
+                <li class="table-view-cell">
+                    <div id='redShot'></div>
+                    <a class="navigate-right" id="my-info-message" data-value="my-info-message">
+                        <img class="safeCenterIcon" src="../myinfo/image/myinfo-message-old.png"/>
+                        <span class="table-view-sep">&nbsp;</span>我的消息
+                    </a>
+                </li>
+                <li class="table-view-cell">
+                    <div id='redShot'></div>
+                    <a class="navigate-right" id="my-info-shared" data-value="my-info-shared">
+                        <img class="safeCenterIcon" src="../myinfo/image/myinfo-shared-old.png"/>
+                        <span class="table-view-sep">&nbsp;</span>分享给好友
+                    </a>
+                </li>
+            </ul>
+
+            <div class="my-info-separate" style="border-bottom: 0">其它设置</div>
+            <!--<ul class="table-view" style="background-color: transparent;margin-top: 15px;">-->
+            <!--<li class="table-view-cell" style="display: none">-->
+            <!--<span class="table-view-sep">&nbsp;</span>推送设置-->
+            <!--<div class="toggle" id="setting-btn">-->
+            <!--<div class="toggle-handle"></div>-->
+            <!--</div>-->
+            <!--</li>-->
+            <!--<li class="table-view-cell">-->
+            <!--<a class="navigate-right" id="my-info-suggest" data-value="my-info-suggest">-->
+            <!--<span class="table-view-sep">&nbsp;</span>改进建议-->
+            <!--</a>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <ul class="table-view" style="background-color: transparent;padding: 7px 0;margin-bottom: 50px;">
+                <li class="table-view-cell" id="navigate-update">
+                    <a class="navigate-right">
+                        <img class="safeCenterIcon" src="../myinfo/image/myinfo-about-old.png"/>
+                        <span class="table-view-sep">&nbsp;</span>关于
+                    </a>
+                </li>
+                <!-- <li class="table-view-cell" id="navigate-Push">
+                    <a class="navigate-right" id="noticeSetting" data-value="noticeSetting">
+                        <img class="safeCenterIcon" src="../myinfo/image/myinfo-setting.png"/>
+                        <span class="table-view-sep">&nbsp;</span>推送设置
+                    </a>
+                </li> -->
+                <li class="table-view-cell">
+                    <a class="navigate-right" id="my-info-suggest" data-value="my-info-suggest">
+                        <span class="table-view-sep">&nbsp;</span>改进建议
+                    </a>
+                </li>
+                <li class="table-view-cell" id="navigate-logout">
+                    <a class="navigate-right" id="logout" data-value="logout">
+                        <img class="safeCenterIcon" src="../myinfo/image/myinfo-logout.png"/>
+                        <span class="table-view-sep">&nbsp;</span>退出
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

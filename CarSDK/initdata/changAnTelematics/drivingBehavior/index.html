@@ -1,0 +1,323 @@
+<div data-view="drivingBehavior/index">
+	<style type="text/css">
+		#drivingBehavior .behavior-canvas{
+			width: 100%;
+			height: 250px;
+			background-color: #1e9dfa;
+			text-align: center;
+			position: relative;
+			background-size: 100% 100%;
+		}
+		#drivingBehavior .bg_img{
+			width: 100%;
+			position: absolute;
+			z-index: 1;
+			top: 15px;
+		}
+		#drivingBehavior .today-text{
+			width: 100%;
+			position: absolute;
+			z-index: 1;
+			top: 50px;
+		}
+		#drivingBehavior .today-text >span{
+			color: #fff;
+			font-weight: bold;
+			font-size: 14px;
+			letter-spacing: 2px;
+		}
+		#drivingBehavior .bg_img img{
+			width: 194px;
+			margin: 0 auto;
+		}
+		#drivingBehavior .bg_number{
+			width: 100%;
+			position: absolute;
+			z-index: 2;
+			top: 80px;
+		}
+		#drivingBehavior .behavior-canvas .scroll-number{
+			color: #fff;
+			font-weight: bold;
+			margin: 0 auto;
+			width: 120px;
+			height: 60px;
+			overflow: hidden;
+		}
+		.scroll-number >div{
+			width: 50%;
+			height: 100%;
+			float: left;
+			display: inline-block;
+		}
+		.ten_digit img, .the_unit img{
+			position: relative;
+			top: -555px;
+			width: 50px;
+			height: 600px;
+		}
+		.show-number9{
+			-webkit-animation: myfirst0 3s;
+		}
+		.show-number8{
+			-webkit-animation: myfirst1 3s;
+		}
+		.show-number7{
+			-webkit-animation: myfirst2 3s;
+		}
+		.show-number6{
+			-webkit-animation: myfirst3 3s;
+		}
+		.show-number5{
+			-webkit-animation: myfirst4 3s;
+		}
+		.show-number4{
+			-webkit-animation: myfirst5 3s;
+		}
+		.show-number3{
+			-webkit-animation: myfirst6 3s;
+		}
+		.show-number2{
+			-webkit-animation: myfirst7 3s;
+		}
+		.show-number1{
+			-webkit-animation: myfirst8 3s;
+		}
+		.show-number0{
+			-webkit-animation: myfirst9 3s;
+		}
+		@-webkit-keyframes myfirst0 /* Safari 和 Chrome 9*/
+		{
+			from {top: -555px;}
+			to {top: 0px;}
+		}
+		@-webkit-keyframes myfirst1 /* Safari 和 Chrome 8*/
+		{
+			from {top: -600px;}
+			to {top: -60px;}
+		}
+		@-webkit-keyframes myfirst2 /* Safari 和 Chrome 7*/
+		{
+			from {top: -600px;}
+			to {top: -120px;}
+		}
+		@-webkit-keyframes myfirst3 /* Safari 和 Chrome 6*/
+		{
+			from {top: -600px;}
+			to {top: -180px;}
+		}
+		@-webkit-keyframes myfirst4 /* Safari 和 Chrome 5*/
+		{
+			from {top: -600px;}
+			to {top: -240px;}
+		}
+		@-webkit-keyframes myfirst5 /* Safari 和 Chrome 4*/
+		{
+			from {top: -600px;}
+			to {top: -300px;}
+		}
+		@-webkit-keyframes myfirst6 /* Safari 和 Chrome 3*/
+		{
+			from {top: -600px;}
+			to {top: -360px;}
+		}
+		@-webkit-keyframes myfirst7 /* Safari 和 Chrome 2*/
+		{
+			from {top: -600px;}
+			to {top: -420px;}
+		}
+		@-webkit-keyframes myfirst8 /* Safari 和 Chrome 1*/
+		{
+			from {top: -540px;}
+			to {top: -480px;}
+		}
+		@-webkit-keyframes myfirst9 /* Safari 和 Chrome 0*/
+		{
+			from {top: -540px;}
+			to {top: -540px;}
+		}
+		.scroll-number >div{
+			width: 50%;
+			height: 64px;
+			text-align: center;
+			font-size: 70px;
+			display: inline-block;
+		}
+		#drivingBehavior .behavior-canvas p{
+			color: #fff;
+			font-size: 14px;
+			padding-top: 220px;
+		}
+		#drivingBehavior .behavior-title{
+			width: 100%;
+			height: 40px;
+			background-color: #EEE;
+			position: relative;
+			border-bottom:1px solid silver;
+		}
+		.nav-scroller{
+			position: absolute;
+			white-space: nowrap;
+			width: 100%
+		}
+		.carsDetail-nav-tab li{
+			display: inline-block;
+			width: 50%;
+			height: 40px;
+			text-align: center;
+			padding-top: 14px;
+			vertical-align: top;
+			color: #4d5457;
+			font-size: 14px;
+		}
+		.carsDetail-content{
+			margin-top: 45px;
+			padding-top: 46px !important;
+		}
+		.carsDetail-nav-tab li:first-child{
+			border-left: none;
+		}
+		.scroll-lite{
+			width: 100%;
+			height: 5px;
+			position: absolute;
+			bottom: 0px;
+		}
+		.scroll-lite span{
+			display: block;
+			position: absolute;
+			width: 50%;
+			height: 3px;
+			background: #007aff;
+			top: 1px;
+		}
+		.swipe {
+		  overflow: hidden;
+		  visibility: visible;
+		  top: 0px;
+		  bottom: 0px;
+		}
+		.swipe-wrap {
+		  overflow: hidden;
+		  position: relative;
+		  height: 100%
+		}
+		.swipe-wrap > div {
+		  float:left;
+		  width:100%;
+		  position: relative;
+		}
+		#slider{
+			margin-bottom: 10px;
+		}
+		#drivingBehavior .behavior-title-content{
+			margin-top: 10px;
+		}
+		#todayBehavior ul li,#yesterdayBehavior ul li{
+			margin: 0px;
+			height: 45px;
+			border-bottom: 1px solid #DDD;
+			margin-left: 20px;
+		}
+		#todayBehavior ul li div,#yesterdayBehavior ul li div{
+			width: 33%;
+			float: left;
+			height: 42px;
+			text-align: center;
+			color: #4d555b;
+			padding-top: 14px;
+		}
+		#todayBehavior ul li div:first-child,#yesterdayBehavior ul li div:first-child{
+			color: #4d555b;
+			font-size: 14px;
+		}
+		#todayBehavior ul li div:nth-child(2),#yesterdayBehavior ul li div:nth-child(2){
+			color: #0971da;
+			font-size: 12px;
+		}
+		#todayBehavior ul li div:nth-child(2) img,#yesterdayBehavior ul li div:nth-child(2) img{
+			width: 7px;
+			margin-left: 10px;
+		}
+		#todayBehavior ul li div:nth-child(3),#yesterdayBehavior ul li div:nth-child(3){
+			position: relative;
+			padding-top: 0px;
+		}
+		
+		#todayBehavior ul li div:nth-child(3) > div,#yesterdayBehavior ul li div:nth-child(3) >div{
+			width: 36px;
+			height: 19px;
+			margin-right: 20px;
+			text-align: center;
+			line-height: 0px;
+			font-size: 9px;
+			color: #fff;
+			border-radius: 2px;
+			margin-top: 12px;
+			padding-top: 10px;
+			float: right;
+		}
+	</style>
+	<header id="nav-bar" class="bar bar-nav blue-bar" navTitle='"驾驶行为"' navRight='{"hide":true}'>
+	</header>
+	<div class="content">
+		<div class="content-wrapper">
+			<div id="drivingBehavior">
+				<div class="behavior-canvas">
+					<div class="bg_img">
+						<img src="../drivingBehavior/img/behavior_03.png">						
+					</div>
+					<div class="today-text"><span>今日得分</span></div>
+					<div class="bg_number">
+						<div class="scroll-number">
+							<div class="ten_digit"><img src="../drivingBehavior/img/hehavior.png"></div>
+							<div class="the_unit"><img src="../drivingBehavior/img/hehavior.png"></div>
+						</div>
+					</div>
+					<p class="text-remind"></p>
+				</div>
+				<div class="behavior-title">
+					<div id="nav-list">
+						<div class="nav-scroller">
+							<ul class="carsDetail-nav-tab">
+								<li class='tab-item active' id='todayBehavior' data-index='0'>今天</li><!--
+							 --><li class='tab-item' id='yesterdayBehavior' data-index='1'>昨日</li>
+							</ul>
+							<div class="scroll-lite"><span></span></div>
+						</div>
+					</div>
+				</div>
+				<div id="slider" class="swipe">
+					<div class='swipe-wrap'>
+						<div id='todayBehavior' style='height:100%;'>
+							<ul>
+								<li><div>驾驶时间</div><div class="drivingTime0"></div><div class="timeType0"></div></li>
+								<li><div>急加速</div><div class="HardAcceleration0"></div><div class="Acceleration0"></div></li>
+								<li><div>急减速</div><div class="RapidDeceleration0"></div><div class="Deceleration0"></div></li>
+								<li><div>超速</div><div class="Speeding0"></div><div class="speed0"></div></li>
+								<li><div>急转弯</div><div class="Uturn0"></div><div class="turn0"></div></li>
+								<li><div>平均时速</div><div class="MaximumSpeed0"></div><div class="maxSpeed0"></div></li>
+							</ul>
+						</div>
+						<div id='yesterdayBehavior' style='height:100%;'>
+							<ul>
+								<li><div>驾驶时间</div><div class="drivingTime1"></div><div class="timeType1"></div></li>
+								<li><div>急加速</div><div class="HardAcceleration1"></div><div class="Acceleration1"></div></li>
+								<li><div>急减速</div><div class="RapidDeceleration1"></div><div class="Deceleration1"></div></li>
+								<li><div>超速</div><div class="Speeding1"></div><div class="speed1"></div></li>
+								<li><div>急转弯</div><div class="Uturn1"></div><div class="turn1"></div></li>
+								<li><div>平均时速</div><div class="MaximumSpeed1"></div><div class="maxSpeed1"></div></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+
+
+
+			</div>
+		</div>
+	</div>
+
+
+</div>

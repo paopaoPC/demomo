@@ -1,0 +1,10 @@
+{
+  "name": "cc_通用",
+  "identifier": "cc.common",
+  "description": "",
+  "version": "1.0.2",
+  "dependencies": {},
+  "build": 3,
+  "releaseNote": "",
+  "hidden": false
+}

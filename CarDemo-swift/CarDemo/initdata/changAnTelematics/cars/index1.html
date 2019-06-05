@@ -1,0 +1,870 @@
+<div id="cars-index1" data-view="cars/index1">
+	<style type="text/css">
+		#cars-index1 #wrapper {
+			position: absolute;
+			z-index: 1;
+			width: 100%;
+			top: 0;
+			bottom: 0;
+			height: auto;
+			overflow: hidden;
+		}
+
+		#cars-index1 #scroller {
+			position: absolute;
+			z-index: 1;
+			width: 100%;
+			min-height: 101%;
+		}
+
+		#cars-index1 .swiper-container {
+			width: 100%;
+			height: 100%;
+			/*padding-top: 40px;*/
+			box-sizing: border-box;
+		}
+
+		#cars-index1 .iconOne {
+			position: absolute;
+			height: 28px;
+			width: 28px;
+			border-radius: 28px;
+			border: 1px solid #666666;
+			clip: rect(0px, 28px, 0px, 14px);
+			top: 0;
+		}
+
+		#cars-index1 .iconTwo {
+			position: absolute;
+			height: 28px;
+			width: 28px;
+			border-radius: 28px;
+			border: 1px solid #666666;
+			clip: rect(0px, 28px, 0px, 14px);
+			transform: rotate(180deg);
+			top: 0;
+		}
+
+		#cars-index1 .pulldown.flip .icon,#cars-index1 .pulldown2.flip .icon {
+			-webkit-transform: rotate(0) translateZ(0);
+		}
+
+		#cars-index1 .pulldown.loading .iconOne,#cars-index1 .pulldown2.loading .iconOne {
+			clip: rect(0px 28px 28px 14px) !important;
+		}
+
+		#cars-index1 .pulldown.loading .iconTwo,#cars-index1 .pulldown2.loading .iconTwo {
+			clip: rect(0px 28px 26px 14px) !important;
+		}
+
+		#cars-index1 .pulldown,#cars-index1 .pulldown2 {
+			height: 60px;
+			position: absolute;
+			top: -60px;
+			/*top: 0;*/
+			color: #666666;
+			width: 100%;
+			z-index: 999;
+			padding-top: 10px;
+			text-align: center;
+			font-weight: inherit;
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		#cars-index1 .pulldownWrap {}
+
+		#cars-index1 .pulldownWrap.hidden {
+			display: none;
+		}
+
+		#cars-index1 .pulldown .icon,#cars-index1 .pulldown2 .icon {
+			display: inline-block;
+			width: 28px;
+			height: 28px;
+			background-size: 28px;
+			float: none;
+			background: url("../home/img/home-down_1.png");
+			background-repeat: no-repeat;
+			background-position: 50%;
+			-webkit-animation-duration: 1.3s;
+		}
+
+		#cars-index1 .pulldown.flip .icon,#cars-index1 .pulldown2.flip .icon {
+			background-size: 0;
+		}
+
+		#cars-index1 .pulldown.loading .icon,#cars-index1 .pulldown2.loading .icon {
+			background: url("../home/img/home-loading_1.png") no-repeat;
+			background-size: 19px;
+			position: relative;
+			top: -3px;
+			width: 28px;
+			height: 28px;
+			background-position: 50%;
+		}
+
+
+		#cars-index1 .smn-button {
+			display: inline-block;
+			width: 50%;
+			float: left;
+			height: 40px;
+			text-align: center;
+			color: black;
+			line-height: 38px;
+			position: relative;
+		}
+
+		#cars-index1 .smn-button.active {
+			color: #10b3ef;
+		}
+
+		#cars-index1 .smn-button.active:after {
+			content: '';
+			background: #10b3ef;
+			position: absolute;
+			width: 80px;
+			height: 2px;
+			bottom: 0;
+			left: 50%;
+			margin-left: -40px;
+		}
+
+		#cars-index1 .swiper-message-nav {
+			position: absolute;
+			width: 100%;
+			background-color: white;
+			z-index: 99;
+			border-bottom: 1px solid #f0f0f0;
+		}
+
+
+		#cars-index1 .pulldown .label {}
+
+		#cars-index1 .pulldown.loading .label,
+		#cars-index1 .pulldown.flip .label {
+			line-height: 28px;
+		}
+
+		#cars-index1 #iconDiv {}
+
+		#cars-index1 #pullDownInfoDiv {
+			display: block;
+			font-size: 10px;
+			line-height: 10px;
+			padding-left: 4px;
+			left: 30%;
+			position: relative;
+			margin-top: 7px;
+			margin-left: 15px;
+		}
+
+		#cars-index1 .pulldownText {
+			display: inline-block;
+		}
+
+		#cars-index1 .pulldown.flip #pullDownInfoDiv,
+		#cars-index1 .pulldown.loading #pullDownInfoDiv {
+			display: none;
+		}
+
+		#cars-index1 .view_list {
+			width: 100%;
+			margin: 12px auto 12px;
+		}
+
+		#cars-index1 .view_list ul {
+			width: 100%;
+			position: relative;
+		}
+
+		#cars-index1 .view_list ul:after {
+			top: 0px;
+			content: "";
+			display: block;
+			position: absolute;
+			left: -50%;
+			width: 200%;
+			height: 1px;
+			background: #d9d9d9;
+			opacity: 0.7;
+			-webkit-transform: scale(0.5);
+		}
+
+		#cars-index1 .view_list ul:before {
+			bottom: 0px;
+			content: "";
+			display: block;
+			position: absolute;
+			left: -50%;
+			width: 200%;
+			height: 1px;
+			background: #d9d9d9;
+			opacity: 0.7;
+			-webkit-transform: scale(0.5);
+		}
+
+		#cars-index1 .view_list ul li {
+			width: 100%;
+			padding-top: 15px;
+			padding-bottom: 15px;
+			border-bottom: 1px solid #f0eff5;
+			margin-bottom: 10px;
+			border-top: 1px solid #f0eff5;
+			background-color: #fff;
+			position: relative;
+			overflow: hidden;
+		}
+
+		#cars-index1 .view_list ul li.active {
+			background-color: #f1f1f1
+		}
+
+		#cars-index1 .view_list ul li:last-child {
+			border-bottom: none;
+		}
+
+		#cars-index1 .car-left>img,#cars-index1 .shar-car-left>img {
+			width: 89px;
+			/* height: 60px; */
+			/* margin-left: 5%; */
+			/* display: block; */
+			float: left;
+			margin: 0 auto;
+			text-align: center;
+			/* transform: translateX(19%); */
+			margin-top: 6px;
+			margin-left: 4px;
+		}
+
+		#cars-index1 .car-left {
+			width: 42%;
+			height: 60px;
+			float: left;
+			text-align: center;
+			padding-top: 6px;
+		}
+
+		#cars-index1 .car-right {
+			width: 34%;
+			height: 60px;
+			text-align: center;
+			float: left;
+			line-height: 60px
+		}
+
+		#cars-index1 .car-right-icon {
+			width: 89%;
+			height: auto;
+			background: url(../cars/img/current_icon.png) no-repeat;
+			background-size: 16px 16px;
+			background-position-y: 47%;
+			background-position-x: 21%;
+			padding-left: 25%;
+			color: #f95e09;
+			font-size: 14px;
+		}
+
+		#cars-index1 .set-car-status {
+			width: 82%;
+			line-height: 30px;
+			font-size: 0.11946616rem;
+			/*14px*/
+			height: 30px;
+			border: 1px solid #09a2e9;
+			border-radius: 3px;
+			margin-top: 16px;
+			/*margin-left: 6%;*/
+			color: #09a2ea;
+			float: right;
+			margin-right: 14px;
+		}
+
+		#cars-index1 .car-data {
+			width: 100%;
+			position: relative;
+		}
+
+		#cars-index1 .des {
+			width: 58%;
+			float: left;
+			font-size: 0.11946616rem;
+			/*14px*/
+			color: #999999;
+			padding-top: 5px
+		}
+
+		#cars-index1 .des div {
+			width: 100%;
+			height: 25px;
+			line-height: 25px;
+			overflow: hidden;
+		}
+
+		#cars-index1 .des div:first-child {
+			font-size: 0.14506605rem;
+			/*17px*/
+			color: #343434;
+			display: -webkit-box;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			-webkit-line-clamp: 1;
+			-webkit-box-orient: vertical;
+			word-wrap: break-word;
+		}
+
+
+       
+
+
+       
+
+       #cars-index1 .shar-car-data {
+			width: 100%;
+			position: relative;
+		}
+
+		#cars-index1 .shar-des {
+			width: 58%;
+			float: left;
+			font-size: 0.11946616rem;
+			/*14px*/
+			color: #999999;
+			padding-top: 5px
+		}
+
+		#cars-index1 .shar-des div {
+			width: 160%;
+			height: 25px;
+			line-height: 25px;
+			overflow: hidden;
+		}
+
+		#cars-index1 .shar-des div:first-child {
+			font-size: 15px;
+			/*17px*/
+			color: #343434;
+			display: -webkit-box;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			-webkit-line-clamp: 1;
+			-webkit-box-orient: vertical;
+			word-wrap: break-word;
+		}
+
+	
+		#cars-index1 .shar-car-left {
+			width: 42%;
+			height: 60px;
+			float: left;
+			text-align: center;
+			padding-top: 6px;
+		}
+
+		#cars-index1 .shar-car-right {
+			width: 30%;
+			height: 36px;
+			text-align: center;
+			float: right;
+			line-height: 36px;
+		}
+
+		#cars-index1 .shar-car-right-icon {
+			width: 89%;
+			height: auto;
+			background: url(../cars/img/current_icon.png) no-repeat;
+			background-size: 16px 16px;
+			background-position-y: 47%;
+			background-position-x: 21%;
+			padding-left: 25%;
+			color: #f95e09;
+			font-size: 14px;
+		}
+
+
+
+
+
+
+
+
+
+
+
+		#cars-index1 #nocar img {
+			width: 100%;
+		}
+
+		#cars-index1 #nocar,
+		#cars-index1 #addCarDemo {
+			width: 95%;
+			height: 40px;
+			line-height: 40px;
+			border-radius: 5px;
+			background-color: #00c3fe;
+			color: #fff;
+			font-size: 18px;
+			text-align: center;
+			clear: both;
+			margin-left: 2.5%;
+			margin-top: 15px;
+			display: none;
+		}
+
+		#cars-index1 .icon_right {
+			float: right;
+			margin-right: 15px;
+			margin-top: 16px;
+		}
+
+		#cars-index1 .icon_right>img {
+			width: 7px;
+			height: 14px
+		}
+
+		#cars-index1 .current_icon {
+			width: 50px;
+			position: absolute;
+			top: 0px;
+			right: 15px;
+		}
+
+		#cars-index1 .current_icon>img {
+			width: 50px;
+		}
+
+		#cars-index1 .current_icon>span {
+			font-size: 9px;
+			top: 5px;
+			left: 8px;
+			color: #fff;
+			position: absolute;
+			z-index: 22;
+			;
+		}
+
+		#cars-index1 .cars-add-car-demo {
+			margin-left: 5%;
+			margin-right: 5%;
+			width: 90%;
+			height: 40px;
+			text-align: center;
+			background-color: #1e9dfa;
+			font-size: 14px;
+			line-height: 40px;
+			color: white;
+			display: none;
+		}
+
+		#current_car_label {
+
+			z-index: 10;
+		}
+
+		#cars-index1 .no-audite-title {
+			width: 100%;
+			height: 30px;
+			line-height: 30px;
+			text-indent: 3.5%;
+			margin-top: 10px;
+			color: #909090;
+			display: none;
+		}
+
+		#cars-index1 .car-item {
+			width: 100%;
+			height: 93px;
+			padding-top: 15px;
+			padding-bottom: 15px;
+			border-bottom: 1px solid #f0eff5;
+			margin-bottom: 10px;
+			border-top: 1px solid #f0eff5;
+			background-color: #fff;
+			position: relative;
+			overflow: hidden;
+		}
+
+		#cars-index1 .car-left-new {
+			width: 28%
+		}
+
+		#cars-index1 .des-new {
+			width: 72%;
+			padding-top: 0
+		}
+
+		#cars-index1 .des-new>div {
+			height: 20px;
+			line-height: 20px;
+		}
+
+		#cars-index1 .car-status-doing {
+			background-image: url(../addChanganCar/img/shen_icon.png);
+			background-repeat: no-repeat;
+			background-size: 18px 18px;
+			background-position: 0 50%;
+			padding-left: 20px;
+			color: #00c3fe
+		}
+
+		#cars-index1 .car-status-error {
+			background-image: url(../addChanganCar/img/shen_error_icon.png);
+			background-repeat: no-repeat;
+			background-size: 18px 18px;
+			background-position: 0 50%;
+			padding-left: 20px;
+			color: #f8424e display:inline;
+		}
+		/*处理审核车辆点击返回动画*/
+
+		#cars-index1 .car-status-error>div {
+			position: absolute;
+			left: 0;
+			top: .46rem;
+		}
+
+		#cars-index1 .deleteBlock {
+			text-align: center;
+			height: 89px;
+			position: absolute;
+			width: 20%;
+			top: 1px;
+			line-height: 90px;
+			right: -21%;
+			background-color: rgba(255, 0, 0, 0.98);
+			color: #fff;
+			font-size: 18px;
+			/*-webkit-transition: all .3s linear ;*/
+			/*-moz-transition: all .3s linear ;*/
+			/*-ms-transition: all .3s linear ;*/
+			/*-o-transition: all .3s linear ;*/
+			/*transition: all .3s linear ;*/
+			/*text-align: center;*/
+			/*height: 90px;*/
+			/*position: absolute;*/
+			/*width: 20%;*/
+			/*top: 0;*/
+			/*line-height: 90px;*/
+			/*right: -21%;*/
+			/*background-color: rgba(255, 0, 0, 0.98);*/
+			/*color: #fff;*/
+			/*font-size: 18px;*/
+		}
+
+		#cars-index1 .car-item-left {
+			width: 101%;
+			height: 93px;
+			padding-top: 15px;
+			padding-bottom: 15px;
+			border-bottom: 1px solid #f0eff5;
+			margin-bottom: 10px;
+			border-top: 1px solid #f0eff5;
+			background-color: #fff;
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: 10;
+			-webkit-box-shadow: 1px 0 15px 1px #666;
+			-moz-box-shadow: 1px 0 15px 1px #666;
+			box-shadow: 1px 0 15px 1px #666;
+			/*-webkit-transition: all .3s linear;*/
+			/*-moz-transition: all .3s linear;*/
+			/*-ms-transition: all .3s linear;*/
+			/*-o-transition: all .3s linear;*/
+			/*transition: all .3s linear;*/
+		}
+
+		#cars-index1 .car-virtal {
+			width: 0.51199782rem;
+			/*60px*/
+			height: 0.20479913rem;
+			/*24px*/
+			background: url(../cars/img/my_car.png) no-repeat;
+			background-size: 100% 100%;
+			font-size: 0.10239956rem;
+			/*12px*/
+			position: absolute;
+			right: 0;
+			top: 0;
+			text-align: center;
+			line-height: 0.17066594rem;
+			/*20px*/
+			color: #FFFFFF;
+		}
+		#cars-index1 .car-right {
+			display: none;
+		}
+
+
+	</style>
+
+	<script id="carlist" type="text/x-underscore-template">
+		<%
+       for (var i = 0; i < rows.length; i++) {
+        if (rows[i].tserviceStatus == "active") {
+            rows[i].tserviceStatus ="激活"
+        }else if (rows[i].tserviceStatus == "inactive") {
+            rows[i].tserviceStatus = "未激活"
+        }else if (rows[i].tserviceStatus == "pause") {
+            rows[i].tserviceStatus = "暂停"
+        }else if (rows[i].tserviceStatus == "expire") {
+            rows[i].tserviceStatus = "已过期"
+        };
+           
+    %>
+			<div class="view_list" carId-number=<%=rows[i].carId%>>
+				<ul>
+					<%
+			if(rows[i].imgHandlerId){
+				rows[i].imgPath=bfDataCenter.getBaseConfig_dssDownLoad()+"&token="+token+"&dsshandle="+rows[i].imgHandlerId
+			}else{
+                rows[i].imgPath='../cars/img/cs35.png'
+            }
+
+        %>
+						<li>
+							<div class="car-data">
+								<div class="car-data-left" carId-number=<%=rows[i].carId%> style= "width:96%;height:auto;float:left;padding-right:30%">
+									<div class="car-left">
+										<img src=<%=rows[i].imgPath%> /></div>
+									<div class="des">
+
+										<div>
+											<%=rows[i].carName ? rows[i].carName :'我的爱车' %>
+										</div>
+
+										<div>
+											<%=rows[i].plateNumber ? rows[i].plateNumber : '暂无车牌'%>
+										</div>
+										<%if (rows[i].currentDeviceType == "tbox" && rows[i].tserviceStatus) {%>
+											<div>基础服务状态：
+												<%=rows[i].tserviceStatus%>
+											</div>
+											<%};%>
+									</div>
+								</div>
+								<div class="car-right">
+									<div class="set-car-status" index=<%=i%>>设为当前车辆</div>
+								</div>
+							</div>
+							<%if (rows[i].seriesCode ==="testSeries") {%>
+								<div class="car-virtal">虚拟车辆</div>
+								<%};%>
+						</li>
+				</ul>
+			</div>
+			<% }%>
+	</script>
+
+	<script id="currentCar" type="text/x-underscore-template">
+		<div class="view_list" id="currentCarView">
+			<ul>
+				<%
+            if(currentCar.imgHandlerId){
+                currentCar.imgPath=bfDataCenter.getBaseConfig_dssDownLoad()+"&token="+token+"&dsshandle="+currentCar.imgHandlerId
+            }else{
+                currentCar.imgPath='../cars/img/cs35.png'
+            }
+            if (currentCar.tserviceStatus == "active") {
+                currentCar.tserviceStatus ="激活"
+            }else if (currentCar.tserviceStatus == "inactive") {
+                currentCar.tserviceStatus = "未激活"
+            }else if (currentCar.tserviceStatus == "pause") {
+                currentCar.tserviceStatus = "暂停"
+            }else if (currentCar.tserviceStatus == "expire") {
+                currentCar.tserviceStatus = "已过期"
+            };
+        %>
+					<li>
+						<div class="car-data">
+							<div class="car-data-left" carId-number=<%=currentCar.carId%> style= "width:96%;height:auto;float:left;padding-right:30%">
+								<div class="car-left">
+									<img src=<%=currentCar.imgPath%> /></div>
+
+								<div class="des">
+
+									<div>
+										<%=currentCar.carName? currentCar.carName :'我的爱车'%>
+									</div>
+
+									<div>
+										<%=currentCar.plateNumber ? currentCar.plateNumber : '暂无车牌'%>
+									</div>
+									<%if (currentCar.currentDeviceType == "tbox" && currentCar.tserviceStatus) {%>
+										<div>基础服务状态：
+											<%=currentCar.tserviceStatus%>
+										</div>
+										<%};%>
+								</div>
+							</div>
+
+							<div class="car-right car-current" carId-number=<%=currentCar.carId%>>
+								<div class="car-right-icon">当前车辆</div>
+							</div>
+						</div>
+						<%if (currentCar.seriesCode ==="testSeries") {%>
+							<div class="car-virtal">虚拟车辆</div>
+							<%};%>
+					</li>
+			</ul>
+		</div>
+	</script>
+
+	<script id="noAuditeCarlist" type="text/x-underscore-template">
+		<%
+       for (var i = 0; i < rows.length; i++) {
+           
+            if(rows[i].imgHandlerId){
+                rows[i].imgPath=bfDataCenter.getBaseConfig_dssDownLoad()+"&token="+token+"&dsshandle="+rows[i].imgHandlerId
+            }else{
+                rows[i].imgPath='../cars/img/cs35.png'
+            }
+            var cerStatus = rows[i].certificationStatus;
+        %>
+			<div class="car-item failedCar">
+				<div class="car-item-left">
+					<div class="car-left car-left-new">
+						<img src="<%=rows[i].imgPath%>">
+					</div>
+					<div class="des des-new">
+						<div>
+							<span>VIN：</span>
+							<span>
+								<%=rows[i].vin%>
+							</span>
+						</div>
+						<div style="visibility: hidden;">
+							<span>发动机号：</span>
+							<span>
+								<%=rows[i].enginNo%>
+							</span>
+						</div>
+						<%if ( cerStatus== "CHECK_FAILED"|| cerStatus == "FAILED" || cerStatus == "AUTH_FAILED") {%>
+							<div class="car-status-error" data-index=<%=i%>>审核失败(点击修改)
+								<div></div>
+							</div>
+							<%}else{%>
+								<div class="car-status-doing">审核中</div>
+								<%}%>
+					</div>
+				</div>
+				<div class="deleteBlock" id="<%=rows[i].orderId%>">删除</div>
+			</div>
+			<!--<div class="car-item <%=( cerStatus== 'CHECK_FAILED'|| cerStatus == 'FAILED' || cerStatus == 'AUTH_FAILED')? 'failedCar':''%>">-->
+			<!--<div class="car-left car-left-new"><img src="<%=rows[i].imgPath%>"></div>-->
+			<!--<div class="des des-new">-->
+			<!--<div><span>VIN：</span><span><%=rows[i].vin%></span></div>-->
+			<!--<div><span>发动机号：</span><span><%=rows[i].enginNo%></span></div>-->
+			<!--<%if ( cerStatus== "CHECK_FAILED"|| cerStatus == "FAILED" || cerStatus == "AUTH_FAILED") {%>-->
+			<!--<div class="car-status-error" data-index=<%=i%>>审核失败</div>-->
+			<!--<%}else{%>-->
+			<!--<div class="car-status-doing">审核中</div>-->
+			<!--<%}%>-->
+			<!--</div>-->
+			<!--<div class="deleteBlock" id="<%=rows[i].orderId%>">删除</div>-->
+			<!--</div>-->
+			<% }%>
+	</script>
+
+
+   <script id="sharCarListTml" type="text/x-underscore-template">
+	<%
+       for (var i = 0; i < sharRows.length; i++) {
+        %>
+			<div class="view_list">
+				<ul>
+                    <li>
+						<div class="shar-car-data">
+							<div class="shar-car-data-left" style= "width:66%;height:auto;float:left">
+								<div class="shar-car-left">
+									<img src="../cars/img/cs35.png"/>
+								</div>
+								<div class="shar-des">
+									
+									<div class="shar-rows-vin"  id="<%=sharRows[i].vin%>">手机号：<%=sharRows[i].authPhone%></div>
+									<div>
+										车架号：<%=sharRows[i].vin%>
+									</div>
+									<div>
+										有效期：<%=moment(sharRows[i].endTime,'x').format('YYYY.MM.DD HH:mm')%>
+									</div>
+								</div>
+							</div>
+							<div class="shar-car-right car-current">
+								<div class="shar-blueview-status"  style="color: #09a2e9">蓝牙控制</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<% }%>
+	</script>
+
+	<header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"image":"url(../common/img/oper_plus.png)"}' navTitle='"车辆管理"'>
+	</header>
+
+	<div class="content">
+
+		<div class="swiper-message-nav" style="display: none;">
+			<div class="smn-button" data-value="0">我的车辆</div>
+			<div class="smn-button" data-value="1">分享车辆</div>
+		</div>
+
+        <!-- class="swiper-container" -->
+		<div id="swiper-message" class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<div id="wrapper">
+						<div id="scroller">
+							<div class="pulldown">
+								<div class="pulldownWrap">
+									<div id='iconDiv'>
+										<span class="icon">
+											<div class='iconOne'></div>
+											<div class='iconTwo'></div>
+										</span>
+									</div>
+									<span class="label">下拉刷新...</span>
+								</div>
+							</div>
+							
+							<div id="currentCa" style="margin-top: 15px;"></div>
+							<div id="carList"></div>
+							<div class="no-audite-title">审核车辆</div>
+							<div class="noAuditeList"></div>
+							<div id="nocar">添加车辆</div>
+							<div id="addCarDemo">添加模拟车辆</div>
+							
+						</div>
+					</div>
+				</div>
+
+				<div class="swiper-slide swiper-slide-two" >
+					<div id="wrapper">
+						<div id="scroller">
+							<div class="pulldown">
+								<div class="pulldownWrap">
+									<div id='iconDiv'>
+										<span class="icon">
+											<div class='iconOne'></div>
+											<div class='iconTwo'></div>
+										</span>
+									</div>
+									<span class="label">下拉刷新...</span>
+								</div>
+							</div>
+						
+							<div style="margin-top: 15px;"></div>
+							<div id="sharCarList" style="color: wihte"></div>
+
+						</div>	
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+   
+	 
+</div>

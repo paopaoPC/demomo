@@ -1,0 +1,178 @@
+<div id="more_feedback" data-view="myinfo/feedback">
+<style type="text/css" media="all">
+#more_feedback .rightIcon{
+  right: 10px;
+  top: 40%;
+  color: #959595;
+  font-size: 10px;
+  position: absolute;
+}
+#more_feedback .table-view{
+  background-image: none !important;
+  border-top: 1px solid #ccc !important;
+  border-bottom: 1px solid #ccc !important;
+}
+#more_feedback .table-view-cell{
+  background-image: none !important;
+  border-bottom: 1px solid #ccc !important;
+}
+#more_feedback table-view-cell:last-child{
+  border-bottom: 0px !important;
+}
+#more_feedback .line_one{
+  margin-top: 30px;
+margin-bottom: 10px;
+margin-left: 2%;
+}
+#more_feedback .text{
+  width: 96%;
+  margin-left: 2%;
+  position: relative;
+}
+#more_feedback .feedbtn{
+    background-color: #00c3fe;
+    color: #fff;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 3px;
+    width: 100%;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#more_feedback .feedbtn:active{
+  color: #09aaec
+}
+#more_feedback #wrapper{
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+#more_feedback #scroller{
+  position: fixed;
+  width: 100%;
+}
+#more_feedback textarea{
+  -webkit-touch-callout: auto !important;
+  -webkit-user-select: auto !important;
+  color:#1f1f1f;
+  margin: 0.1rem auto;
+}
+
+#more_feedback .blue-bar{
+    background-color: #2986cc;
+}
+#more_feedback .contentBodyBottom {
+    margin: 15px 4px;
+    margin-bottom: 0;
+    margin-right: 0;
+    margin-top: 5px;
+    background-color: #ffffff;
+    padding-bottom: 5px;
+}
+#more_feedback .contentBodyBottom.max:after {
+    content:'';
+    display: inline-block;
+    width: 0.63999727rem;
+    height: 0.63999727rem;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+#more_feedback .CBBIcon {
+  width: 0.63999727rem;
+  height: 0.63999727rem;
+/*  height: 75px;
+  width: 75px;*/
+  border: solid 1px #d9d9d9;
+  float: left;
+  display: inline-block;
+  /*background-size: 100%;*/
+  margin-left: 10px;
+  margin-top: 10px;
+  /*background-image: url(../Laboratory/images/headImage.png);*/
+}
+#more_feedback .CBAddButton {
+    width: 0.63999727rem;
+    height: 0.63999727rem;
+    border: solid 1px #d9d9d9;
+    display: inline-block;
+    background-size: 23px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    margin-left: 10px;
+        margin-top: 10px;
+    background-image: url(../Laboratory/images/icon_add_edit.png);
+}
+#more_feedback #mainNum{
+    /* position: absolute; */
+    /* bottom: 57px; */
+    /* right: 7px; */
+    text-align: right;
+    color: #555;
+    z-index: 10;
+    margin-bottom: 5px;
+    float: right;
+    /* margin-top: -14px; */
+}
+#more_feedback .recemondInfo{
+    line-height: 35px;
+    padding-left: 10px;
+    font-size: 14px;
+    color: gray;
+}
+#more_feedback .closeImg{
+  width: 25px;
+  position: absolute;
+  right: -9px;
+}
+#more_feedback .ImgContent{
+  position: relative;
+  display: inline-block;
+}
+#more_feedback-signIn .buttonColor{
+    background-color: #00c3fe !important;
+    border: none;
+}
+</style>
+<script id="feedback-template" type="text/x-underscore-template">
+</script>
+
+    <header id="nav-bar" class="bar bar-nav blue-bar" navTitle='"我的意见"' navRight='{"hide":true}'>
+</header>
+
+    <div class="content" ontouchstart="var txt = document.getElementById('mainArea');if(txt && txt.value.length==0){txt.placeholder='请在此留下您的宝贵意见...'}">
+                <div class="text">
+                    <textarea id="mainArea" style="margin-bottom: 0;resize: none;padding: 10px 15px 10px 15px;" maxlength = "200" rows="7" placeholder="请在此留下您的宝贵意见..." ontouchend="this.placeholder=''" ></textarea>
+                    <div id="mainNum"></div>
+                    <!--<select id="tucaoType">-->
+                      <!---->
+                    <!--</select>-->
+                    <div class="recemondInfo">图片（选填,提供问题截图）</div>
+
+                    <div class="contentBodyBottom">
+                        <!-- <div class="ImgContent">
+                          <img class="closeImg" src="../Laboratory/images/wallet_nfc_charge_failure_icon.png"/>
+                          <img class="CBBIcon" src='../Laboratory/images/foot.png'/>
+                        </div>
+                        <div class="ImgContent">
+                          <img class="closeImg" src="../Laboratory/images/wallet_nfc_charge_failure_icon.png"/>
+                          <img class="CBBIcon" src='../Laboratory/images/foot.png'/>
+                        </div>
+                        <div class="ImgContent">
+                          <img class="closeImg" src="../Laboratory/images/wallet_nfc_charge_failure_icon.png"/>
+                          <img class="CBBIcon" src='../Laboratory/images/foot.png'/>
+                        </div>
+                        <div class="ImgContent">
+                          <img class="closeImg" src="../Laboratory/images/wallet_nfc_charge_failure_icon.png"/>
+                          <img class="CBBIcon" src='../Laboratory/images/foot.png'/>
+                        </div>
+                         -->
+                        <div class="CBAddButton"></div>
+                    </div>
+                    <button class="feedbtn">提交</button>
+                </div>
+    </div>
+</div>

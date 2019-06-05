@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chameleon Exhibition</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*"/>
+    <meta name="format-detection" content="telephone=no"/>
+
+    <meta http-equiv="X-Frame-Options" content="ALLOW-FROM">
+    <meta http-equiv="pragma" content="no-cache"/>
+    <link href="../ratchet/css/ratchet.min.css" rel="stylesheet"/>
+    <link href="../ratchet/css/ratchet-theme-ios.min.css" rel="stylesheet"/>
+    <link href="../shared/css/theme.css" rel="stylesheet"/>
+    <link href="../shared/css/amap.css" rel="stylesheet"/>
+    <link href="../butterfly/css/butterfly.css" rel="stylesheet"/>
+    <!-- theme -->
+    <link href="../butterfly/css/animate.css" rel="stylesheet"/>
+    <link href="../common/css/im.css" rel="stylesheet"/>
+    <link href="../shared/css/swiper.min.css" rel="stylesheet"/>
+     <!-- mobiscroll -->
+  <link href="../shared/css/mobiscroll.custom-beta2.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../shared/css/mobiscroll.animation.css" rel="stylesheet" type="text/css"/>
+    <link href="../shared/css/mobiscroll.frame.css" rel="stylesheet" type="text/css"/>
+    <link href="../shared/css/mobiscroll.frame.ios.css" rel="stylesheet" type="text/css"/>
+    <link href="../shared/css/mobiscroll.scroller.css" rel="stylesheet" type="text/css"/>
+    <link href="../shared/css/mobiscroll.scroller.ios.css" rel="stylesheet" type="text/css"/> 
+    <link rel="stylesheet" type="text/css" href="../shared/css/mobileSelect.css">
+    <script type="text/javascript">
+        window.__currentIs4G = function(){
+            if(typeof OSApp == 'undefined'){
+                return navigator.onLine
+            } else {
+                return OSApp.getNetStatue()
+            }
+            
+        }
+        window.__closeCurentView = function(){
+            OSApp.closeView();
+        }
+
+        try {
+            window._zhihe_OS_version = JSON.parse(OSApp.getInfo()).OS + ' ' + JSON.parse(OSApp.getInfo()).OSVersion;
+            window._zhihe_app_version = JSON.parse(OSApp.getVersion()).code;
+        } catch(e){
+
+        }
+       
+
+        window.onDeviceOneLoaded = function(){
+            window._Bola_version =  OSApp.getVersion();
+            window._Bola_deviceInfo =  OSApp.getInfo();
+
+            window.localStorage.deviceId = JSON.parse(OSApp.getInfo()).deviceId;
+            // Notification.show({
+			// 			type:"error",
+			// 			message:OSApp.getInfo().deviceId
+			// 		});
+            // alert('111')
+            var obj = {};
+            obj.cpuInfo = OSApp.getCpuInfo();
+            obj.ramSize = OSApp.getMemory();
+            window.localStorage['CpuInfo'] = JSON.stringify(obj);
+            //      var obj = JSON.parse(jsonStr);
+                           //      var cpu = obj.cpuInfo;
+                           //      var ram = obj.ramSize;
+            // if(window._Bola_deviceInfo.OS == "android"){
+            //     window.PointerEvent = void 0;
+            // }            
+        };
+         function GetRequest_pp() {  
+           var url = location.search; //获取url中"?"符后的字串
+           var theRequest = new Object();  
+           if (url.indexOf("?") != -1) {  
+              var str = url.substr(1);  
+              strs = str.split("&");  
+              for(var i = 0; i < strs.length; i ++) {  
+                 theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);  
+              }  
+           }  
+           return theRequest;  
+        } 
+
+        // window.localStorage.setItem("loginModel", "authother")
+        var platform_pp = GetRequest_pp().platform;
+        window.SERVICEMODEL_pp = GetRequest_pp().SERVICEMODEL;
+        window.__currentPhone = GetRequest_pp().userPhone;
+        window.localStorage['goMainIndex'] = GetRequest_pp().goMainIndex;
+        if(window.localStorage['goMainIndex'] == "2"){
+            window.localStorage['goMainIndex2Vin'] = GetRequest_pp().vin;
+        }
+        var _fromPush_ss = GetRequest_pp().fromPush;
+        // var _fromPush_ss = '3';
+        if(_fromPush_ss){
+            window.localStorage['fromPush'] = _fromPush_ss;
+        } else {
+            window.localStorage['fromPush'] = '';
+        }
+
+
+        if(platform_pp == "android"){
+            window.PointerEvent = void 0;
+        }
+
+        
+    </script>
+    <!-- 里面只放了数字 -->
+    <style type="text/css">
+        @font-face {
+            font-family: 'OPTIGiant';
+            src: url('optigiant.woff') format('woff'),
+            url("optigiant.ttf") format("truetype");
+            font-weight: normal;
+            font-style: normal;
+        }
+        body{
+            background-image: url(loading.jpg);
+            /*background-image: url('../home/img/background.png');*/
+            overflow-x: hidden;
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+    </style>
+</head>
+<body application='application/bfApplicationAdapter' style="background-color: #252432;overflow-x: hidden;">
+<div id="navigationContainer">
+</div>
+<div id="HUDContainer"
+     style="position:absolute;background-color:transparent;pointer-events:none;z-index:100000000000000;width:100%;height:100%;">
+</div>
+<canvas id="canvas_is_webgl" width="0" height="0"></canvas>
+<script type="text/javascript" src="../butterfly/js/require.js" data-main="../butterfly/js/butterfly-amd"></script>
+ <script type="text/javascript">
+        var PP_require =require;
+    </script>
+<script type="text/javascript" src="../cordova.js"></script>
+<!-- mobiscroll -->
+<script src="../butterfly/vendor/jquery/jquery.js"></script>
+ <script src="../shared/js/mobiscroll.core.js"></script>
+<script src="../shared/js/mobiscroll.frame.js"></script>
+<script src="../shared/js/mobiscroll.scroller.js"></script>
+<script src="../shared/js/mobiscroll.select.js"></script> 
+</body>
+</html>

@@ -1,0 +1,141 @@
+<div id="mytourEdit" data-view='Laboratory/mytourEdit'>
+    <style type="text/css">
+        #mytourEdit .content {
+            /*background-color: white;*/
+        }
+        #mytourEdit .im-nav-right-text {
+            color: #00d6ff !important;
+        }
+        #mytourEdit .contentBody {
+            background-color: white;
+            padding-bottom: 13px;
+            padding-top: 11px;
+        }
+        #mytourEdit .contentBody textarea {
+            resize: none;
+            border: none;
+            padding: 11px 14px;
+            padding-top: 0;
+            margin-bottom: 0;
+            font-size: 15px;
+            line-height: 20px;
+                height: 81px;
+        }
+        #mytourEdit .contentBody textarea::-webkit-scrollbar{width:0px}
+         #mytourEdit .CBBIcon {
+            width: 0.63999727rem;
+            height: 0.63999727rem;
+            border: solid 1px #d9d9d9;
+            float: left;
+            display: inline-block;
+            background-size: 100%;
+            margin-left: 10px;
+            margin-top: 10px;
+            background-image: url(../Laboratory/images/headImage.png);
+         }
+        #mytourEdit .CBAddButton {
+            width: 0.63999727rem;
+            height: 0.63999727rem;
+            border: solid 1px #d9d9d9;
+            display: inline-block;
+            background-size: 23px;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            margin-left: 10px;
+                margin-top: 10px;
+            background-image: url(../Laboratory/images/icon_add_edit.png);
+        }
+        #mytourEdit .contentBodyBottom {
+            margin: 15px 4px;
+            margin-bottom: 0;
+            margin-right: 0;
+            margin-top: 5px;
+        }
+        #mytourEdit .contentBodyBottom.max:after {
+            content:'';
+            display: inline-block;
+            width: 0.63999727rem;
+            height: 0.63999727rem;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+        #mytourEdit .contentSelect {
+            margin-top: 10px;
+            background-color: white;
+            border-bottom: 1px solid #d9d9d9;
+                padding-left: 14px;
+        }
+        #mytourEdit .CSItem {
+            height: 43px;
+            font-size: 15px;
+            color: #999;
+            border-bottom: 1px solid #d9d9d9;
+                position: relative;
+        }
+        #mytourEdit .CSItem.noBorder {
+            border-bottom: none;
+        }
+        #mytourEdit .CSIcon.date {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            display: inline-block;
+            width: 12px;
+            height: 13px;
+            background-size: 12px 13px;
+            background-image: url(../Laboratory/images/icon_clock.png);
+        }
+        #mytourEdit .CSIcon.location {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            display: inline-block;
+            width: 12px;
+            height: 13px;
+            background-size: 12px 13px;
+            background-image: url(../Laboratory/images/icon_address.png);
+        }
+        #mytourEdit .CSText {
+            margin-left: 22px;
+            line-height: 43px;
+        }
+        #mytourEdit .rightIcon {
+            background-image: url(../myinfo/image/arrow.png);
+            background-size: 7px 13.5px;
+            width: 7px;
+            height: 13.5px;
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
+    <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"text":"完成"}' navTitle='"编辑游记"'>
+    </header>
+    <div class="content">
+        <div class="contentBody">
+            <textarea placeholder="您对照片描述..."></textarea>
+            <div class="contentBodyBottom">
+                <!--<div class="CBBIcon" style='background-image: url(../Laboratory/images/foot.png);'></div>-->
+                <!--<div class="CBBIcon" style='background-image: url(../Laboratory/images/foot.png);'></div>-->
+                <div class="CBAddButton"></div>
+            </div>
+        </div>
+        <div class="contentSelect">
+            <div class="CSItem" id="date_datapicker">
+                <div class="CSIcon date"></div>
+                <div id="info_date" class="CSText date">1992-12-13</div>
+                <input type="hidden" id="info_date_value" />
+                <div class="rightIcon"></div>
+            </div>
+            <div class="CSItem noBorder">
+                <div class="CSIcon location"></div>
+                <div class="CSText location">重庆-建新东路</div>
+                <div class="rightIcon"></div>
+            </div>
+        </div>
+    </div>
+    <div id="datePlugin"></div>
+</div>

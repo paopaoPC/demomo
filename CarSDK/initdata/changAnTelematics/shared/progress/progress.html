@@ -1,0 +1,71 @@
+
+    <style type="text/css">
+        #default-progress{
+            position: absolute;
+            top: 0;
+            bottom:0;
+            width:100%;
+            background-color: rgba(0,0,0,0.3);
+            z-index: 999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #default-progress-main{
+            padding:10px 20px 16px 20px;
+            position: relative;
+            word-break: break-all;
+            text-align: center;
+            color: #333333;
+            font-size: 15px;
+            line-height: 22px;
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #dfdfdf;
+            border-radius: 8px;
+            width: 90%;
+        }
+        #default-progress-bar{
+            height: 6px;
+            width: 100%;
+            border-radius:3px;
+            position: relative;
+            background-color: #c7c7c7;
+            margin-top: 20px;
+        }
+        #default-progress-bar .im-progress-text{
+            font-size: 13px;
+            position: absolute;
+            top: -22px;
+            right: -12px;
+            word-break: normal
+        }
+        #default-progress-bar .im-progress-front{
+            background-color: rgb(3, 154, 255);
+            height:100%;
+            width:0;
+            display: inline-block;
+            position: relative;
+            float: left;
+            transition: width .4s linear;
+            border-radius:3px;
+            background-image:-webkit-linear-gradient(45deg, rgba(0, 213, 254, 0.5) 25%, transparent 25%, transparent 50%, rgba(0, 213, 254, 0.5) 50%,rgba(0, 213, 254, 0.5) 75%, transparent 75%, transparent);
+            background-image: linear-gradient(45deg, rgba(0, 213, 254, 0.5) 25%, transparent 25%, transparent 50%, rgba(0, 213, 254, 0.5) 50%, rgba(0, 213, 254, 0.5) 75%, transparent 75%, transparent);
+            background-size: 45px 45px;
+            animation: defaultProgress .5s linear infinite;
+        }
+        @keyframes defaultProgress {
+            from {
+                background-position-x: 0;
+            }
+            to {
+                background-position-x: 45px;
+            }
+        }
+    </style>
+    <div id="default-progress-main">
+        <div id="default-progress-bar">
+            <div class="im-progress-front">
+                <div class="im-progress-text">0%</div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,181 @@
+<div id="experienceValue" data-view="drivingBehavior/experienceValue">
+	<style type="text/css">
+		#experienceValue header{
+			background-color: transparent !important
+		}
+		#experienceValue .content{
+			/*background-color: transparent !important;*/
+		}
+		#experienceValue .top-item{
+			width: 100%;
+			height: 100px;
+			background-color: #22212e;
+		}
+		#experienceValue .content-info{
+			/*width: 100%;*/
+			height: 154px;
+			background-color: #FFF;
+			border-radius: 4px;
+			top: 16px;
+			position: absolute;
+			left: 10px;
+			right: 10px;
+			padding-top: 0.12799945rem;
+			padding-left: 0.12799945rem;
+			color: #333333;
+			font-size: 0.11093286rem;
+			line-height: 1.6;
+			border:1px solid #d9d9d9
+		}
+		#experienceValue .value-evel{
+			width: 100%;
+			/*height: 100%;*/
+			background-color: #FFFFFF;
+			padding-top: 71px;
+			padding-bottom: 30px
+		}
+		#experienceValue .evel-item{
+			width: 100%;
+			height: 0.8362631rem;
+		}
+		#experienceValue .evel-item>div{
+			float: left;
+		}
+		#experienceValue .item-left{
+			width: 0.73386354rem;
+			height: 100%;
+			position: relative;
+		}
+		#experienceValue .item-right{
+			width: 2.30399017rem;
+			position: relative;
+    		padding-left: 0.08533297rem;
+		}
+		#experienceValue .line{
+			width: 1px;
+			height: 100%;
+			margin: 0 auto;
+			/*border-style: dashed;*/
+			border:1px dashed #d9d9d9;
+			/*margin-top: 0.25599891rem;*/
+		}
+		#experienceValue .levels{
+			width: 0.37546506rem;
+			height: 0.37546506rem;
+			background: url(../drivingBehavior/img/level_icon.png) no-repeat;
+			background-size: 0.37546506rem 0.37546506rem;
+			position: absolute;
+			left: 0.18773253rem;
+    		top: 0.25599891rem;
+    		color: #ffffff;
+    		font-size: 0.08533297rem;
+    		font-weight: bold;
+    		text-align: center;
+    		padding-top: 0.21333242rem;
+		}
+		#experienceValue .right-content{
+			width: auto;
+			height: 0.60586408rem;
+			background-color: #f1f1f1;
+			border-radius: 5px;
+			margin-top: 0.21333242rem;
+		}
+		#experienceValue .content-name{
+			font-size: 0.15359934rem;
+			color: #333333;
+			height: 0.60586408rem;
+			margin-left: 0.16213264rem;
+			float: left;
+			line-height: 0.60586408rem;
+			text-align: center;
+		}
+		#experienceValue .content-value{
+			height: 0.60586408rem;
+		    line-height: 0.21333242rem;
+		    float: right;
+		    margin-right: 0.16213264rem;
+		    padding-top: 0.08533297rem;
+		    text-align: right;
+		}
+		#experienceValue .content-value>span:first-child{
+			font-size: 0.11093286rem;
+			color: #333333;
+		}
+		#experienceValue .content-value>span:last-child{
+			font-size: 0.19626583rem;
+			color: #00ccff;
+		}
+		#experienceValue .littleTriangle
+		{
+		    width: 0px;
+		    height: 0px;
+		    margin-top: -2px;
+		    float: right;
+		    border-width: 10px;
+		    border-style: dashed solid dashed dashed;
+		    border-color: transparent #f1f1f1 transparent transparent;
+		    font-size: 0;
+		    line-height: 0;
+		    position: absolute;
+		    left: -10px;
+		    top: 37px;
+		}
+		#experienceValue .clearColorTriangle
+		{
+	        width: 15px;
+		    height: 15px;
+		    margin-top: -9px;
+		    margin-left: -8px;
+		    border-width: 9px;
+		    border-style: dashed dashed dashed dashed;
+		    border-color: transparent #f1f1f1 transparent transparent;
+		    font-size: 0;
+		    line-height: 0;
+		}
+	</style>
+	<script id="levels-template" type="text/x-underscore-template">
+		<%
+			if (scoreMin >= 15000) {
+				scoreMin = scoreMin/10000+"万"
+			};
+			if (scoreMax >= 30000) {
+				scoreMax = scoreMax/10000+"万"
+			};
+		%>
+		<div class="evel-item">
+			<div class="item-left">
+				<div class="line"></div>
+				<div class="levels">LV<%=rank%></div>
+			</div>
+			<div class="item-right">
+				<div class="right-content">
+					<div class="content-name"><%=title%></div>
+					<div class="content-value">
+						<span>驾驶经验值</span></br>
+						<span><%=scoreMin%>-<%=scoreMax%></span>
+					</div>
+				</div>
+				<div class="littleTriangle">
+                    <div class= "clearColorTriangle"></div>
+                </div>
+			</div>
+		</div>
+	</script>
+	<header id="nav-bar" class="bar bar-nav blue-bar" navTitle='"经验值攻略"' navRight='{"hide":true}'>
+	</header>
+	<div class="content" style="background-color: #fff;">
+		<div class="top-item"></div>
+		<div class="value-evel">	
+			
+
+		</div>
+		<div class="content-info">
+			<p>1.驾驶经验值 = 基础经验值 + 奖励 - 违规</p>
+			<p>2.基础：每公里获2经验值</p>
+			<p>3.奖励：单次行程大于50km，超出部分每公里奖1</p>
+			<p style="text-indent: 0.42666485rem;">经验值,单次行程小于50km无奖励</p>
+			<p>4.违规：违规一次扣5经验值，扣到0为止，</p>
+			<p style="text-indent: 0.42666485rem;">违规包括急加速、急减速、急转弯。</p>
+		</div>
+	</div>
+</div>

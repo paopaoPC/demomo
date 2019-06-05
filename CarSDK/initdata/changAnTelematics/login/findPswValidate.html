@@ -1,0 +1,134 @@
+<div id="findPswValidate" data-view="login/findPswValidate">
+	<style type="text/css">
+		#findPswValidate select{
+			border: 1px solid #d9d9d9;
+	        box-shadow: inset 0px 0px;
+	        -webkit-box-shadow: inset 0px 0px;
+		}
+		#findPswValidate input{
+	        margin-bottom: 10px;
+	        height: 44px;
+	        padding: 10px 0px;
+	        padding-left: 15px !important;
+	        font-size: 14px;
+	        color: #1f1f1f;
+	        border: 1px solid #d9d9d9;
+	        background-color: #fcfcfc;
+	        border-radius: 3px;
+	        width: 100%;
+	        transform-origin: 0 0;
+	        z-index: 9;
+		}
+		#findPswValidate .content{
+			padding: 0px 10px !important
+		}
+		#findPswValidate .input_item {
+		    position: relative;
+		    margin-top: 10px;
+		    width: 100%;
+		 }
+		 #findPswValidate .input_item label {
+	        font-size: 14px;
+	        text-align: left;
+	        position: absolute;
+	        top: 43%;
+	        transform: translateY(-50%);
+	        -webkit-transform: translateY(-50%);
+	        margin-left: 15px;
+	        color: #bcbcbc;
+	      }
+	      #findPswValidate .check_code{
+	      	width: 70% !important;
+	      	float: left;
+	      }
+	      #findPswValidate .check_time{
+	      	width: 30%;
+			height: 44px;
+			float: left;
+			background-color: #00c3fe;
+			margin-top: 10px;
+			text-align: center;
+			/*line-height: 44px;*/
+			color: #ffffff;
+			border: 0;
+			font-size: 13px;
+			font-family: '黑体';
+			  border-radius:3px;
+	      }
+	      #findPswValidate .submit_ok{
+	      	background-color: #00c3fe;
+	        color: #fff;
+	        height: 44px;
+	        /*line-height: 44px;*/
+	        text-align: center;
+	        font-size: 18px;
+	        border-radius: 3px;
+	        margin-bottom: 15px;
+	        margin-top: 15px;
+	      }
+	      #findPswValidate .password-info {
+	        margin-top: 6px;
+	        padding: 0 5px;
+	        font-size: 12px;
+	        color: #999999;
+	      }
+	      #findPswValidate .imageCode{
+	      	margin-top: 10px
+	      }
+	      #findPswValidate .image-code{
+	        width: 32%;
+	        float: right;
+	        height: 44px;
+	        text-align: center;
+	        /* padding-top: 14px; */
+	        border-radius: 3px;
+	        background-color: transparent; !important;
+	      }
+	      #findPswValidate .image-code>img{
+	        width: 100%;
+	        height: 100%
+	      }
+	</style>
+	<header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":true}' navTitle='"设置密码"'>
+    </header>
+    <div class="content">
+    	<!--<div style="margin-top: 10px;">选择验证方式</div>-->
+    	<!--<div class="input_item">-->
+    		<!--<select>-->
+    			<!--<option value="sms">手机验证</option>-->
+    			<!--&lt;!&ndash;<option value="email">邮箱验证</option>&ndash;&gt;-->
+    		<!--</select>-->
+    	<!--</div>-->
+    	<div class="input_item">
+          <!--<label class="hint">请输入手机号</label>-->
+          <input type="tel" id="contact" maxlength="11" placeholder="请输入手机号" onfocus="this.placeholder=''" onblur="this.placeholder='请输入手机号'">
+          <span class="close-button"></span>
+        </div>
+		<div class="input_item">
+			<!--<label class="hint">输入新密码</label>-->
+			<input type="password" id="newPassword" maxlength="16" onpaste="return false" onselectstart="return false" placeholder="输入新密码" onfocus="this.placeholder=''" onblur="this.placeholder='输入新密码'" style="margin-bottom:0px">
+			<span class="close-button"></span>
+		</div>
+		<div class='password-info'>请输入6-16位的密码,且密码需大、小写字母、数字、特殊字符中的至少两种</div>
+		<div class="input_item">
+			<!--<label class="hint">确认新密码</label>-->
+			<input type="password" id="sureNewPassword" maxlength="16" onpaste="return false" onselectstart="return false" placeholder="确认新密码" onfocus="this.placeholder=''" onblur="this.placeholder='确认新密码'">
+			<span class="close-button"></span>
+		</div>
+    	<!--<div class="reslut-state">发送验证码</div>-->
+    	<div class = "imageCode requireItem">
+            <!--<label class="hint">手机验证码</label>-->
+            <input type="text" style = "width:65%;" class="auth-code register-input" maxlength ='4' placeholder="输入图片验证码" onfocus="this.placeholder=''" onblur="this.placeholder='输入图片验证码'"><div class="image-code"><img id="checkImg" src=""/></div>
+          </div>
+    	<div style="width:100%; height:54px">
+    		<div class="input_item check_code">
+	          <!--<label class="hint">请输入验证码</label>-->
+	          <input style="width: 95%;" type="tel" id="authCode" maxlength="6" placeholder="请输入验证码" onfocus="this.placeholder=''" onblur="this.placeholder='请输入验证码'">
+	          <span class="close-button"></span>
+	        </div>
+	        <button class="check_time">发送验证码</button>
+    	</div>
+    	
+        <input type="button" class="submit_ok" value="确定">
+    </div>
+</div>

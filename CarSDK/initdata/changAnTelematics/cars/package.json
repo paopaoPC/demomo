@@ -1,0 +1,10 @@
+{
+  "name": "cc_我的车辆",
+  "identifier": "cc.cars",
+  "description": "",
+  "version": "1.0.1",
+  "dependencies": {},
+  "build": 2,
+  "releaseNote": "",
+  "hidden": false
+}

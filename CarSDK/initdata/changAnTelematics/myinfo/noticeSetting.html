@@ -1,0 +1,94 @@
+<div id="noticeSetting" data-view="myinfo/noticeSetting">
+	<style type="text/css">
+		#noticeSetting ul{
+			width: 100%;
+			height: auto;
+			overflow: hidden;
+			margin-top: 15px;
+			background-color: #FFFFFF;
+			padding-left: 15px;
+			box-sizing:border-box;
+			position: relative;
+		}
+		#noticeSetting ul:before{
+			content: "";
+			position: absolute;
+			width: 200%;
+			height: 1px;
+			top: 0;
+			left: -50%;
+			-webkit-transform:scale(0.5);
+			background-color: #d9d9d9
+		}
+		#noticeSetting ul:after{
+			content: "";
+			position: absolute;
+			width: 200%;
+			height: 1px;
+			background-color: #d9d9d9;
+			bottom: 0;
+			left: -50%;
+			-webkit-transform:scale(0.5);
+		}
+		#noticeSetting ul li{
+			width: 100%;
+			height: 45px;
+			color: #333333;
+			font-size: 15px;
+			position: relative;
+		}
+		#noticeSetting .show-line:after{
+			content: "";
+			position: absolute;
+			width: 200%;
+			height: 1px;
+			top: 0;
+			left: -50%;
+			-webkit-transform:scale(0.5);
+			background-color: #d9d9d9
+		}
+		#noticeSetting .content-left{
+			width: 60%;
+			height: 100%;
+			line-height: 45px;
+			float: left;
+		}
+		#noticeSetting .checkBox{
+            width: 50px;
+            height: 30px;
+            border: 1px solid #e4e4e4;
+            border-radius: 15px;
+            float: right;
+            margin-right: 14px;
+            margin-top: 8px;
+            position: relative;
+        }
+        #noticeSetting .check-icon{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 30px;
+            border:1px solid #e4e4e4;
+            left: 0;
+            top: -1px;
+            background-color: #FFFFFF
+        }
+        #noticeSetting .active{
+        	background-color: #4cdb63
+        }
+	</style>
+	<header id="nav-bar" class="bar bar-nav blue-bar" navTitle='"通知设置"' navRight='{"hide":"true"}'>
+	</header>
+	<div class="content">
+		<ul>
+			<li>
+				<div class="content-left">亲情活动通知</div>
+				<div class="checkBox" data-itemname="0"><div class="check-icon"></div></div>
+			</li>
+			<li class="show-line">
+				<div class="content-left">会员专属通知</div>
+				<div class="checkBox" data-itemname="1"><div class="check-icon"></div></div>
+			</li>
+		</ul>
+	</div>
+</div>

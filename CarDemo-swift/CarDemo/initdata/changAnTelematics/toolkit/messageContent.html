@@ -1,0 +1,39 @@
+<div id='messageContent' class="page" data-view="toolkit/messageContent">
+    <style type="text/css">
+        #messageContent .title{
+
+        }
+
+        #messageContent .message_title{
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.16rem;
+            margin-bottom: 0.08rem;
+        }
+        #messageContent #noMessage{
+            width: 100%;
+            line-height: 20px;
+            text-align: center;
+            margin-top: 30%;
+            font-size: .14rem;
+            color: gray;
+        }
+    </style>
+
+    <script id="tpl_messageContent" type="text/x-underscore-template">
+
+        <div class='clearfix <!--system_ts-->' style="width:90%;margin:0.1rem auto 0.1rem;" data-id="<%=data.messId%>">
+            <div class='message_title'><%=data.messTitle%></div>
+            <div style="width:100%;margin:0.15rem auto;font-size:12px;text-align:center;"><%=data.time%></div>
+            <div class='message_content'><%=data.messContent%></div>
+        </div>
+
+    </script>
+
+    <header id="nav-bar" class="bar bar-nav blue-bar" navTitle='"消息详情"' navRight='{"hide":true}'>
+    </header>
+
+    <div class="content">
+
+    </div>
+</div>

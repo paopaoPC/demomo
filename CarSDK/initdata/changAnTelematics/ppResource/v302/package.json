@@ -1,0 +1,12 @@
+{
+  "name": "v302_3d",
+  "identifier": "v302_3d",
+  "description": "",
+  "version": "4.3",
+  "dependencies": {},
+  "build": 3,
+  "funStatus":false,
+  "isNeedCB": true,
+  "releaseNote": "",
+  "hidden": false
+}

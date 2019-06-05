@@ -1,0 +1,57 @@
+
+<div id="editNickname" data-view='myinfo/editNickname'>
+<style type="text/css">
+    #editNickname input{
+          margin-bottom: 0px;
+          height: 44px;
+          padding: 10px 0px;
+          padding-left: 15px;
+          font-size: 14px;
+          color: #1f1f1f;
+          border: 1px solid #dededf;
+          background-color: #fcfcfc;
+          border-radius: 0px;
+          width: 100%;
+          transform-origin: 0 0;
+          z-index: 9;
+    }
+    #editNickname .submitName{
+        width: 94%;
+        margin: 0 auto;
+          background-color: #00c3fe;
+          color: #fff;
+          height: 44px;
+          line-height: 44px;
+          text-align: center;
+          font-size: 18px;
+          border-radius: 3px;
+          margin-bottom: 15px;
+          margin-top: 15px;
+    }
+    #editNickname .rename_input_wrap{
+          width: 95%;
+          margin: 10px auto 0;
+          line-height: 40px;
+          height: 40px;
+    }
+    #editNickname .password-info {
+        margin-top: 6px;
+        padding: 2px 10px;
+        font-size: 12px;
+        color: #999999;
+      }
+</style>
+
+  <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}'  navTitle='"修改昵称"'>
+    </header>
+    <div class="content">
+        <div class="rename_input_wrap">
+            <input id="editNickname_nickname" maxlength="15" type="text" value="" placeholder="请输入用户昵称"/>
+        </div>
+        <div class='password-info'>请输入3-15个字符组成的用户名(注:一个汉字算两个字符)</div>
+        <div class="rename_input_wrap">
+            <input id="editNickname_Password" maxlength="16" type="password" value="" placeholder="请输入用户密码"/>
+        </div>
+        <div class="submitName">提交</div>
+    </div>
+</div>

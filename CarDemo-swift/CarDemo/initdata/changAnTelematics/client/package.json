@@ -1,0 +1,10 @@
+{
+  "name": "cc.网络连接中心",
+  "identifier":"cc.client",
+  "description": "",
+  "version": "1.0.2",
+  "dependencies": {},
+  "build" : 3,
+  "releaseNote": "",
+  "hidden" : false
+}

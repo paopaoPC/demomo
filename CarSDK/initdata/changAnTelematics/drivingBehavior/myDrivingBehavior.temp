@@ -1,0 +1,22 @@
+<div class="one-driving-imfor">
+	<div class="driving-time">
+		<p class="day"><%=day%></p>
+		<p><%=time%></p>
+	</div>
+	<div class="driving-line">
+		<img src="../drivingBehavior/img/icon_car.png">
+		<div></div>
+	</div>
+	<div class="driving-imformation">
+		<div class="driving-distance"><%=mileage%>km</div>
+		<div class="driving-imfor">
+			<div class="driving-imfor-left">
+				<div class="rapid-brake"><p><%=(spendTime/60).toFixed(1)%>h</p><p>驾驶时间</p></div>
+				<div class="rapid-speed-up"><p><%=speedUp%>次</p><p>急加速</p></div>
+				<div class="rapid-speed-reduction"><p><%=speedDown%>次</p><p>急减速</p></div>
+				<div class="rapid-turn"><p><%=sharpTurn%>次</p><p>急转弯</p></div>
+			</div>
+			<div class="driving-imfor-right">+<%=score%></div>
+		</div>
+	</div>
+</div>

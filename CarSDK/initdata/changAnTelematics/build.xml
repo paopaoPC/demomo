@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="AppCv-Web" default="main" basedir="." xmlns:jacoco="antlib:org.jacoco.ant">
+	<target name="main">
+		<echo message="build AppCv-Web" />
+	</target>
+
+</project>

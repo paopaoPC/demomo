@@ -1,0 +1,26 @@
+{
+    "data": {
+        "data": [
+            {
+                "id": "保养",
+                "type": "保养",
+                "time": "2015.20.62",
+                "name": "kkk",
+                "price": "lllll",
+                "img": "dddd",
+                			"thumbnail":"444"
+
+            },
+            {
+                "id": "保养",
+                "type": "保养",
+                "time": "2015.20.62",
+                "name": "kkk",
+                "price": "lllll",
+                "img": "dddd",
+                "thumbnail":"444"
+            }
+
+        ]
+    }
+}

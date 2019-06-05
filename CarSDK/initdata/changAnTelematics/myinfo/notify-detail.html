@@ -1,0 +1,99 @@
+<div id="discovery-detail" data-view="myinfo/notify-detail">
+<style type="text/css">
+    .content{
+        background: #fff;
+    }
+    .blue-bar{
+        background-color: #2986cc;
+    }
+    .line-one{
+        padding-top: 14px;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+    }
+    .line-two{
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 12px;
+        color: #8d8d8d;
+    }
+    .line-three{
+        padding-top: 10px;
+        padding-left: 16px;
+        padding-right: 10px;
+        font-size: 12px;
+        color: #8d8d8d;
+    }
+    .line-three li{
+        list-style: none;
+        display: inline-block;
+        margin-left: -6px;
+        vertical-align: top;
+    }
+    .line-three li:nth-child(1){
+        width:50%;
+        text-align: left;
+    }
+    .line-three li:nth-child(2){
+        width:50%;
+        text-align: right;
+    }
+    #detail-wrapper{
+        width: 100%;
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        /*overflow: hidden;*/
+    }
+    .contBody{
+        width: 100%;
+        word-break: break-all;
+        padding: 0px 10px 0px 10px;
+    }
+    #detail-scroller img{
+        width: 100%;
+    }
+</style>
+
+<script id="discovery-template" type="text/x-underscore-template">
+    <%function setAuthorNames(array){
+    var authorNames = "";
+    for(var i = 0;i< array.length;i++){
+    authorNames = authorNames + array[i]+",";
+    }
+    authorNames = authorNames.substring(0,authorNames.length-1);
+    return authorNames;
+    }%>
+    <div class="wrap-one">
+        <div class="line-one">
+            <span><%=subject%></span>
+        </div>
+        <div class="line-two" style="display: none">
+            <span>经销商:<span><%=deptName%></span></span>
+        </div>
+        <div class="line-three">
+            <li>时间:<span><%=moment(publishTime).format("YYYY-MM-DD")%></li>
+
+        </div>
+    </div>
+    <div class="colortype3 contBody" id="content"></div>
+</script>
+<!-- header -->
+<header id="nav-bar" class="bar bar-nav blue-bar" navTitle='"我的消息"' navRight='{"hide":true}'>
+</header>
+
+
+
+<div class="content">
+
+    <div id="detail-wrapper" class="wrap-two">
+        <div id="detail-scroller">
+
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,364 @@
+<div id="mytour" data-view='Laboratory/mytour'>
+    <style type="text/css">
+    #mytour .im-default-nav-bar {
+            background-image: url(../drivingReport/img/back.png) !important;
+    }
+    #mytour #nav-bar .im-default-nav-bar:last-child{
+        display: none !important;
+    }
+    #mytour #slideChange {
+            width: 100%;
+            display: -webkit-box;
+            height: 42px;
+            line-height: 42px;
+            background-image: url(../drivingReport/img/back.png) !important;
+            /*position: fixed;*/
+            /*top: 44px;*/
+            /*left: 0px;*/
+            padding-left: 0px;
+            padding-right: 0px;
+            /*z-index: 1;*/
+        }
+        #mytour #slideChange:before {
+            content: "";
+            width: 200%;
+            height: 1px;
+            background: #4e4a59;
+            position: absolute;
+            -webkit-transform: scale(0.5);
+            opacity: 0.7;
+            left: -50%;
+        }
+        #mytour #slideChange .active-bar {
+            border-bottom: 3px solid rgb(0, 214, 255);
+        }
+        #mytour #item0:after {
+            width: 1px;
+            height: 84px;
+            content: "";
+            background-color: #4e4a59;
+            position: absolute;
+            right: 0;
+            -webkit-transform: scale(0.5);
+            opacity: 0.7;
+            top: -21px;
+            z-index: 1;
+        }
+        #mytour .second-title {
+            text-align: center;
+            width: 50%;
+            font-size: 17px;
+            color: white;
+        }
+        #mytour .swipe {
+            overflow: hidden;
+            visibility: hidden;
+            position: relative;
+            margin-top: 42px;
+        }
+
+        #mytour .swipe-wrap {
+            overflow: hidden;
+            position: relative;
+        }
+        #mytour .scroller li{
+            height: auto;
+            margin-top: 10px
+        }
+        /*#mytour .scroller li .selection{
+            display: none;
+        }*/
+        #mytour .container-list{
+            width: 94%;
+            margin: 0 auto;
+            height: auto;
+            background-color: #FFFFFF;
+            border-radius: 2px;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        #mytour .tour-image{
+            width: 100%;
+            height: 197px;
+        }
+        #mytour .tour-image>img{
+            width: 100%;
+            height: 195px;
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+        }
+        
+        #mytour .aru-tour-content{
+            margin-top: 12px !important;
+        }
+        #mytour .user-imfor{
+            /*width: 100%;*/
+            height: 29px;
+            padding-left: 39px;
+            line-height: 29px;
+            margin-top: 8px;
+            margin-left: 10px;
+            color: #333333;
+            font-size: 18px;
+            margin-top: 7px;
+            position: relative;
+        }
+        #mytour .user-imfor:after{
+            content: "";
+            width: 194%;
+            height: 1px;
+            background: #d9d9d9;
+            position: absolute;
+            -webkit-transform: scale(0.5);
+            opacity: 0.7;
+            left: -48%;
+            bottom: -7px
+        }
+        #mytour .tour-bottom{
+            width: 100%;
+            height: 20px;
+            font-size: 14px;
+            color: #666666;
+            padding-left: 10px;
+            padding-right: 10px;
+            line-height: 20px;
+        }
+        #mytour .tour-time{
+            float: left;
+            height: auto;
+            background: url(../Laboratory/images/icon_clock.png) no-repeat;
+            background-size: 12px 13px;
+            padding-left: 15px;
+            background-position: 0px 40%;
+        }
+        #mytour .tout-addr{
+            float: right;
+            height: auto;
+            background: url(../Laboratory/images/icon_address.png) no-repeat;
+            background-size: 12px 13px;
+            padding-left: 15px;
+            background-position: 0px 40%;
+        }
+        #mytour .share-icon{
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            background: url(../Laboratory/images/icon_share.png) no-repeat;
+            background-size: 20px 20px;
+            top: 10px;
+            right: 43px;
+        }
+        #mytour .zan-icon{
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            background: url(../Laboratory/images/icon_zan.png) no-repeat;
+            background-size: 20px 20px;
+            top: 10px;
+            right: 105px;
+        }
+        #mytour .world-icon{
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            background: url(../Laboratory/images/icon_words.png) no-repeat;
+            background-size: 20px 20px;
+            top: 10px;
+            right: 74px;
+        }
+        #mytour .collect-icon{
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            background: url(../Laboratory/images/icon_collect.png) no-repeat;
+            background-size: 20px 20px;
+            top: 10px;
+            right: 43px;
+        }
+        #mytour .delet-icon{
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            background: url(../Laboratory/images/icon_delete.png) no-repeat;
+            background-size: 20px 20px;
+            top: 10px;
+            right: 12px
+        }
+        #mytour .arg-share-icon{
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            background: url(../Laboratory/images/icon_share.png) no-repeat;
+            background-size: 20px 20px;
+           top: 10px !important;
+            right: 12px !important
+        }
+        #mytour .icon-add, .ceng-icon-add{
+            width: 46px ;
+            height: 46px;
+            background: url(../Laboratory/images/icon_add.png) no-repeat;
+            background-size: 46px 46px;
+            position: absolute;
+            bottom: 20px;
+            right: 20px
+        }
+        #mytour .container-ceng{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1111;
+            display: none;
+        }
+        #mytour .ceng-icon-edit{
+            width: 30px;
+            height: 30px;
+            background: url(../Laboratory/images/btn_edit.png) no-repeat;
+            background-size: 30px 30px;
+            position: absolute;
+            bottom: 28px ;
+            right: 28px ;
+            -webkit-transition: bottom 0.3s, right 0.3s;
+        }
+        #mytour .ceng-icon-photo{
+            width: 30px;
+            height: 30px;
+            background: url(../Laboratory/images/btn_photo.png) no-repeat;
+            background-size: 30px 30px;
+            position: absolute;
+            bottom: 28px;
+            right: 28px;
+            -webkit-transition: bottom 0.3s, right 0.3s;
+        }
+        #mytour .tour-content{
+            padding-left: 10px;
+            /* padding-top: 7px; */
+            color: #333333;
+            font-size: 16px;
+            display: -webkit-box;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            margin-top: 7px;
+            margin-bottom: 3px;
+            line-height: 21px;
+            padding-right: 10px;
+        }
+        #mytour {
+            display: block !important;
+        }
+        #mytour .pullup{
+            display: block !important;
+        }
+    </style>
+    <script id="myTourList" type="text/x-underscore-template">
+        <div class="container-list">
+            <div class="tour-image"><img class="lazy" data-original="<%=image%>"></div>
+            <div class="tour-content"><%=content%></div>
+            <div class="tour-bottom">
+                <div class="tour-time"><%=time%></div>
+                <div class="tout-addr"><%=address%></div>
+            </div>
+
+            <div class="share-icon"></div>
+            <div class="delet-icon"></div>
+        </div>
+    </script>
+    <script id="argumentsList" type="text/x-underscore-template">
+        <div class="container-list">
+            <div class="tour-image"><img src='<%=image%>'/></div>
+            <div class="user-imfor" style="background:url(../Laboratory/images/user_header.png) no-repeat; background-size:29px 29px">张三</div>
+            <div class="tour-content aru-tour-content"><%=content%></div>
+            <div class="tour-bottom">
+                <div class="tour-time"><%=time%></div>
+                <div class="tout-addr"><%=address%></div>
+            </div>
+
+            <div class="zan-icon" data-id=<%=id%>></div>
+            <div class="world-icon" data-id=<%=id%>></div>
+            <div class="collect-icon" data-id=<%=id%>></div>
+            <div class="arg-share-icon" data-id=<%=id%>></div>
+        </div>
+    </script>
+    <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}' navTitle='""'>
+        <div class="im-default-nav-bar">
+            <h1 class="title im-nav-title im-text-navtitle im-textclr-white" id="navTitle">游记</h1>
+            <button id="navLeft"
+                    class="button-image im-text-navbuttontext im-nav-button im-nav-left im-nav-left-image pull-left">
+            </button>
+            <button id="navRight"
+                    class="button-image im-text-navbuttontext im-nav-button  im-nav-right im-nav-right-image pull-right"
+                    style="display: none;">
+            </button>
+        </div>
+        <div id="slideChange">
+            <div id="item0" class="second-title active-bar" style="position: relative;">个人游记</div>
+            <div id="item1" class="second-title">社区游记</div>
+        </div>
+    </header>
+    <div class="content">
+        <div id="slider" class="swipe">
+            <div class="swipe-wrap">
+                <div style="height: 650px;">
+                    <div class="content-list" style='width:100%; height:94%; margin-top:4px; position:relative; overflow:hidden;'>
+                        <div id="mytour_list"  class="listview" style='padding:0;bottom:50px'>
+                          <div class="scroller">
+                                <div class="pulldown" style="dispaly:inline-block">
+                                    <div id='iconDiv'>
+                                        <span class="icon"><div class='iconOne'></div>
+                                        <div class='iconTwo'></div></span>
+                                    </div>
+                                    <span class="label"></span>
+                                </div>
+                                <ul>
+                                </ul>
+                              <div class="pullup">
+                                  <span class="label"></span>
+                              </div>
+                                <div class="message">
+                                  <div class="empty">没有数据</div>
+                                  <div class="error">数据加载失败</div>
+                                </div>
+                           </div>
+                      </div>
+                    </div>                   
+                </div>
+
+                <div style="height: 650px;">
+                    <div class="content-list" style='width:100%; height:94%; margin-top:4px; position:relative; overflow:hidden;'>
+                        <div id="argumentTour_list"  class="listview" style='padding:0;bottom:50px'>
+                          <div class="scroller">
+                                <div class="pulldown" style="dispaly:inline-block">
+                                    <div id='iconDiv'>
+                                        <span class="icon"><div class='iconOne'></div>
+                                        <div class='iconTwo'></div></span>
+                                    </div>
+                                    <span class="label"></span>
+                                </div>
+                                <ul>
+                                </ul>
+                              <div class="pullup">
+                                  <span class="label"></span>
+                              </div>
+                                <div class="message">
+                                  <div class="empty">没有数据</div>
+                                  <div class="error">数据加载失败</div>
+                                </div>
+                           </div>
+                      </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!--此处添加icon -->
+        <div class="icon-add"></div>
+    </div>
+    <div class="container-ceng">
+        <div class="ceng-icon-add"></div>
+        <div class="ceng-icon-edit"></div>
+        <div class="ceng-icon-photo"></div>
+    </div>
+</div>

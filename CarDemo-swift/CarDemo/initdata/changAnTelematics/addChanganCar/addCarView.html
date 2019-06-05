@@ -1,0 +1,204 @@
+
+
+<div id="addCarView" data-view='addChanganCar/addCarView'>
+    <style type="text/css">
+    #addCarView .form-mess{
+        width: 100%;height: auto;position: absolute;z-index: 0
+    }
+    #addCarView .input_wrap{ line-height:50px; height:50px;}
+    #addCarView .input_wrap input{ 
+        width: 100%;
+        height: 100%;
+        border: 0;
+        font-size: 16px;
+        padding-left: 100px;
+    }
+    #addCarView #submit_carid{     
+        height: 50px;
+        line-height: 50px;
+        border-radius: 5px;
+        background-color: #04a4dc;
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+        clear: both;
+        left: 20px;
+        right: 20px;
+         display: none; 
+        top: 0;
+        position: absolute;
+    }
+    #addCarView #submit_carid:active{
+        color: #09aaec
+    }
+    #addCarView .car_vin{
+        width: 100% !important;float: left;
+    }
+    #addCarView .note-info{
+        width: 100%;
+        padding-left: 12px;
+        box-sizing:border-box;
+        font-size: 12px;
+        color: #999999;
+        margin-top: 15px;
+        padding-right: 12px;
+        line-height: 14px;
+    }
+    #addCarView .content-top {
+        width: 100%;
+        background-size: 100%;
+        padding-top: 18.7%;
+        background-repeat: no-repeat;
+        background-image: url(../addChanganCar/img/certification_steps_one.png);
+    }
+    #addCarView .input_wrap {
+
+    }
+    #addCarView .input_info {
+        height: 32px;
+        padding-top: 13px;
+        padding-left: 15px;
+        color: #b3b3b3;
+        font-size: 12px;
+    }
+  
+    #addCarView .input_wrap_left_text {
+        position: absolute;
+        left: 15px;
+        font-size: 16px;
+    }
+    #addCarView .input_wrap_left_icon {
+        width: 50px;
+        height: 50px;
+        background-size: 18px;
+        background-repeat: no-repeat;
+        background-image: url(../addChanganCar/img/certification_icon_scan.png);
+        position: absolute;
+        background-position: center;
+        right: 0px;
+    }
+    #addCarView .input-gcNumber {
+        background-size: 140px;
+        background-repeat: no-repeat;
+        background-image: url(../addChanganCar/img/upload-1.png);
+        background-position: center;
+        height: 150px;
+        background-color: white;
+        margin-top: 30px;
+    }
+    #addCarView .dialog-step-1,#addCarView .dialog-step-1-alert {
+        background-color: #e6e6e6;
+        border-radius: 5px;
+        width: 300px;
+        margin: auto;
+        padding-bottom: 16px;
+        margin-top: 80px;
+    }
+    #addCarView .dialog-step-1-alert {
+        margin-top: 160px;
+    }
+    #addCarView .dialog-step-1-head,#addCarView .dialog-step-1-head-alert {
+        text-align: center;
+        font-size: 18px;
+        padding: 16px 0 22px;
+    }
+    #addCarView .dialog-step-1-head-alert {
+        padding: 45px 0 22px;
+        color: #333;
+        line-height: 23px;
+    }
+    #addCarView .item1 {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-image: url(../addChanganCar/img/upload-1.png);
+        background-position: center;
+        width: 140px;
+        height: 90px;
+        margin: auto;
+    }
+    #addCarView .dialog-step-1-img {
+        background-size: 300px;
+        background-repeat: no-repeat;
+        background-image: url(../addChanganCar/img/example_1.png);
+        background-position: center;
+        width: 300px;
+        height: 195px;
+        margin: auto;
+    }
+    #addCarView .dialog-step-1-btn,#addCarView .dialog-step-1-btn-alert {
+        text-align: center;
+        height: 44px;
+        line-height: 44px;
+        background-color: #2ca5da;
+        width: 233px;
+        color: white;
+        border-radius: 5px;
+        margin: auto;
+        margin-top: 15px;
+        position: relative;
+
+    }
+    #addCarView .dialog-step-wrap,#addCarView .dialog-step-wrap-alert {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none;
+    }
+    #addCarView .dialog-step-wrap input[type="file"]{
+            width: 100%;
+            height: 40px;
+            position: absolute;
+            opacity: 0;
+            z-index: 999;
+            left: 0;
+        }
+
+    </style>
+ <script src="../common/mobileBUGFix.mini.js"></script>
+
+    <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}'  navTitle='"车辆实名认证"'>
+    </header>
+    <div class="content">
+        <div class="content-top"></div>
+        <div class="form-mess">
+             <div class="input_info">车辆信息</div>
+            <div class="input_wrap">
+                <div class="input_wrap_left_text">车架号</div>
+                <input id="vin" maxlength="17" class="car_vin" type="text" placeholder="请输入您的车架号" />
+                <div class="input_wrap_left_icon showScanFanCode"></div>
+            </div>
+            <div class="item-wrap" style="    background-color: white;margin-top: 30px;
+    padding: 30px 0;">
+                <div class="item1 items"  data-value='0'></div>
+            </div>
+         <!--    <div class="input_wrap" >
+                <input id="engineNum" class="engine-number" type="text" placeholder="请输入您的发动机号" />
+            </div> -->
+            <!-- <div class="note-info" style="margin-top:45px;line-height：6px; color:red;font-size:14px;font-family:bold">1、此车辆认证仅限搭载tbox(具备车联网服务)的车型</div> -->
+            <!-- <div class="note-info" style="margin-top:45px;line-height：6px; color:red;font-size:14px;font-family:bold">1、企业实名认证请至购车经销商处理</div> -->
+			<!-- <div class="note-info" style="margin-top:4px;line-height：6px;color:red;font-size:14px;font-family:bold">2、企业实名认证请至购车经销商处理</div> -->
+        </div>
+         <div id="submit_carid">下一步</div>
+         <div class="dialog-step-wrap dialog-step-wrap-0">
+             <div class="dialog-step-1">
+                 <div class="dialog-step-1-head">证件上传示例</div>
+                 <div class="dialog-step-1-img"></div>
+                 <div class="dialog-step-1-btn openPicView_1">
+                    我知道了
+                     <!-- <input type="file" class="item-input-carInfo-0"> -->
+                 </div>
+             </div>
+         </div>
+         <div class="dialog-step-wrap-alert">
+             <div class="dialog-step-1-alert">
+                 <div class="dialog-step-1-head-alert">请确认识别到的车架号与<br>发票中的车架号一致</div>
+                 <div class="dialog-step-1-btn-alert">
+                    我知道了
+                 </div>
+             </div>
+         </div>
+    </div>
+</div>

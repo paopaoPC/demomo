@@ -1,0 +1,38 @@
+//修改模型车身颜色
+	changeAnyColor(#ab0c01);  //红色
+	changeAnyColor(#1834b8);  //蓝色
+	changeAnyColor(#ffffff);  //白色
+	changeAnyColor(#6a684f);  //灰色
+	changeAnyColor(#646464);  //黑色
+
+//车门打开状态(1表示开，0表示关)
+	openDoor('qlc',1);  //左前车门打开状态
+	openDoor('hlc',1);  //左后车门打开状态
+	openDoor('qrc',1);  //右前车门打开状态
+	openDoor('hrc',1);  //右后车门打开状态
+
+//后备箱打开状态(1表示开，0表示关)
+	openDoor('bc',1);  //后备箱打开状态
+
+//四门车窗打开状态(1表示开，0表示关)
+	openWindows('qlbc','',1);  //左前车窗打开状态
+	openWindows('hlbc','',1);  //左后车窗打开状态
+	openWindows('qrbc','',1);  //右前车窗打开状态
+	openWindows('hrbc','',1);  //右后车窗打开状态
+
+//天窗(1表示开，0表示关)
+	openWindows('tcc',1);  //天窗打开状态
+
+//保持模型一直自转(1表示自转，0表示停止自转)
+	rotationToggle(1);  //模型自转状态
+
+//车辆灯光(1表示开，0表示关)
+	lightToggle(1);  //灯光开启状态
+
+//车轮转动状态(1表示自转，0表示停止自转)
+	speedToggle(1);  //车轮自转状态
+
+//3D模型渲染状态
+	pause();  //暂停渲染
+	recovery();  //开启渲染
+	

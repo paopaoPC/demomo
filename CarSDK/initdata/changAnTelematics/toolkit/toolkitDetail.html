@@ -1,0 +1,148 @@
+<div id="toolkitDetail" data-view='toolkit/toolkitDetail'>
+    <style type="text/css">
+        #toolkitDetail .content-wrapper {
+            background-color: #efeff4;
+        }
+
+        #toolkitDetail .Wrapper {
+            padding: 0 14px;
+            background: white;
+        }
+
+        #toolkitDetail .myLoveCarWrapper {
+            margin-bottom: 12px;
+        }
+
+        #toolkitDetail .Head {
+            padding-top: 22px;
+            font-size: 16px;
+            color: #343434;
+        }
+
+        #toolkitDetail .WCRIContent {
+            width: 91px;
+        }
+
+        #toolkitDetail .WContent {
+            padding-bottom: 22px;
+        }
+
+        #toolkitDetail .WCRow {
+            margin-top: 18px;
+            margin-bottom: 31px;
+            height: 141px;
+        }
+
+        #toolkitDetail .MLCWContent .WCRow:last-child {
+            margin-bottom: 0;
+        }
+
+        #toolkitDetail .WCRow .WCRItem:nth-child(1) .WCRIContent {
+            float: left;
+        }
+
+        #toolkitDetail .WCRow .WCRItem:nth-child(2) .WCRIContent {
+            margin: 0 auto;
+        }
+
+        #toolkitDetail .WCRow .WCRItem:nth-child(3) .WCRIContent {
+            float: right;
+        }
+
+        #toolkitDetail .WCRItem {
+            width: 33%;
+            display: inline-block;
+            float: left;
+        }
+        #toolkitDetail .WCRIContent{
+            position: relative;
+        }
+        #toolkitDetail .WCRItem .open-product {
+            width: 91px;
+            height: 119px;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position-y: 25px;
+        }
+        #toolkitDetail .ceng{
+            position: absolute;
+            width: 91px;
+            height: 119px;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0,0.5);
+            text-align: center;
+            line-height: 119px;
+            color: #FFFFFF;
+        }
+        #toolkitDetail .seriesName {
+            width: 100%;
+            display: inline-block;
+            text-align: center;
+            padding-top: 7px;
+            font-size: 14px;
+        }
+        #toolkitDetail .progress{
+            width: 94%;
+            height: 10px;
+            background-color: #FFFFFF;
+            /*margin-top: 50px;*/
+            /* transition: width 2s; */
+            /*margin-left: auto;
+            margin-right: auto;*/
+            border-radius: 5px;
+            display: none;
+            position: absolute;
+            top: 54px;
+            left: 3%;
+            z-index: 3
+        }
+        #toolkitDetail .progress-line{
+            width: 0;
+            height: 100%;
+            background-color: #00d6ff;
+            border-radius: 5px;
+        }
+    </style>
+
+    <script type="text/x-underscore-template" id="toolkitDetail-myLoveCarWrapperRow">
+        <% if(data[0].index == '1'){%>
+        <div class="MLCWCRow WCRow">
+        <% } %>
+            <% if(data[0].manualId){%>
+            <div class="MLCWCItem WCRItem"  data-index='<%=data[0].index%>'>
+                <div class="MLCWCIContent WCRIContent">
+                    <div style="background-image: url(<%=data[0].imgHandler%>)" class="open-product"></div>
+                    <span class='seriesName'>《<span><%=data[0].groupName%></span>》</span>
+                    <div class="ceng" data-id='<%=data[0].manualId%>' data-name='<%=data[0].carGroupId%>'>
+                        <span>未下载</span>
+                    </div>
+                    <div class="progress"><div class="progress-line"></div></div>
+                </div>
+            </div>
+            <% } %>
+            
+        <% if(data[0].index == '1'){%>
+        </div>
+        <% } %>
+    </script>
+
+    <header id="nav-bar" class="bar bar-nav blue-bar" navTitle='"行车说明书"' navRight='{"hide":true}'>
+    </header>
+    <div class="content">
+        <div class="content-wrapper">
+            <div class="myLoveCarWrapper Wrapper" style="display:none">
+                <div class="MLCWHead Head">我的爱车</div>
+                <div class="MLCWContent WContent">
+
+                </div>
+            </div>
+            <div class="otherCarWrapper Wrapper">
+                <div class="OCWHead Head">其他车辆</div>
+                <div class="OCWContent WContent">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

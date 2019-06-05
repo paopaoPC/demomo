@@ -1,0 +1,119 @@
+<div data-view="violation/city" id="cityView">
+  <header id="nav-bar" class="bar bar-nav blue-bar" navTitle='"切换查询地点"' navRight='{"hide":true}'></header>
+
+  <style type="text/css">
+    
+    .active{
+      color: royalblue;font-weight: bold;
+    }
+    #beeantPinying{
+      position: fixed;
+      z-index: 9;
+      width: 40px;
+      height: 100%;
+      background: #ddd;
+      padding-top: 55px;
+      left: 100%;
+      margin-left: -40px;
+      text-align: center;
+    }
+    #cityView .content-wrapper{
+      width: auto;
+      /*height: auto;*/
+      /*overflow: hidden;*/
+    }
+    #beeantPinying > div{height:100%;}
+
+    .pyContainer{height:100%;}
+    .pyCode{
+      line-height: 17px;
+      height: 3.8%;
+    }
+    .pyDiv{
+      height: 50px;
+      width: 50px;
+      background-color: black;
+      filter: alpha(Opacity=40);
+      -moz-opacity: 0.4;
+      opacity: 0.4;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 50%;
+      margin-bottom: auto;
+      color: white;
+      text-align: center;
+      line-height: 50px;
+      font-weight: bold;
+    }
+    #province{
+      width: 25%;
+      float: left;
+      height:100%;
+      overflow-y: scroll;
+      position: absolute;      
+    }
+
+    .province{padding-right: 0px;}
+    .activeProvince{
+      background-color: #00c3fe;
+      color: white;
+    }
+    #cityinfo{
+      padding-top: 10px;
+      width: 75%;
+      height: 100%;
+      float: left;
+      position: absolute;
+      margin-left: 25%;
+      overflow-y: scroll;
+    }
+
+    .hidden{display: none};
+  </style>
+
+  <div class="content">
+      <!-- <input id="search" type="search" placeholder="请输入需要查询的城市"> -->        
+    <div id="province">
+      <div><ul class="table-view" id="provincelist"></ul>
+      </div>
+    </div>
+    <div id="cityinfo">
+      <div id="notice"></div>
+      <ul class="table-view" id="citylist"></ul>
+    </div>
+  </div>
+  <div id="beeantPinying">
+    <div>
+      <ul class="pyContainer">
+      <li class="pyCode" id="letterA">A</li>
+      <li class="pyCode" id="letterB">B</li>
+      <li class="pyCode" id="letterC">C</li>
+      <li class="pyCode" id="letterD">D</li>
+      <li class="pyCode" id="letterE">E</li>
+      <li class="pyCode" id="letterF">F</li>
+      <li class="pyCode" id="letterG">G</li>
+      <li class="pyCode" id="letterH">H</li>
+      <li class="pyCode" id="letterI">I</li>
+      <li class="pyCode" id="letterJ">J</li>
+      <li class="pyCode" id="letterK">K</li>
+      <li class="pyCode" id="letterL">L</li>
+      <li class="pyCode" id="letterM">M</li>
+      <li class="pyCode" id="letterN">N</li>
+      <li class="pyCode" id="letterO">O</li>
+      <li class="pyCode" id="letterP">P</li>
+      <li class="pyCode" id="letterQ">Q</li>
+      <li class="pyCode" id="letterR">R</li>
+      <li class="pyCode" id="letterS">S</li>
+      <li class="pyCode" id="letterT">T</li>
+      <li class="pyCode" id="letterU">U</li>
+      <li class="pyCode" id="letterV">V</li>
+      <li class="pyCode" id="letterW">W</li>
+      <li class="pyCode" id="letterX">X</li>
+      <li class="pyCode" id="letterY">Y</li>
+      <li class="pyCode" id="letterZ">Z</li>
+    </ul>
+    </div>    
+  </div>
+  <div class="hidden pyDiv" id="selectedPinying">
+  </div>
+</div>

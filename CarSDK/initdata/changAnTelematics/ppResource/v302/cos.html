@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport'
+          content='width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no'/>
+    <title>v302</title>
+    <!--<script src="jscolor/jscolor.js"></script>-->
+    <style>
+        button {
+            font-size: 0.8vh;
+        }
+
+        h5 {
+            margin: 0.5em;
+        }
+    </style>
+    <script src="__game-scripts.js"></script>
+</head>
+<body>
+<iframe id="three" src="index.html" width="100%" height="500px"></iframe>
+<!--<div class="color-change">
+    <button onclick="changeColor('#B4001E')">红色</button>
+    <button onclick="changeColor('#D8D7D3')">银色</button>
+    <button onclick="changeColor('#38220A')">棕色</button>
+    <button onclick="changeColor('#4C4A48')">灰色</button>
+    <button onclick="changeColor('#06070A')">黑色</button>
+    <button onclick="changeColor('#034180')">蓝色</button>
+
+    <div style="margin-top: 20px;">
+        <span>任意颜色: </span><input class="jscolor" value="ab2567" onchange="anyColorChange(this.value)">
+    </div>
+</div>
+<br>-->
+<section class="open-door">
+    <div>
+        <h5>开门</h5>
+        <button onclick="openDoor('qlc',1)">开前左门</button>
+        <button onclick="openDoor('qrc',1)">开前右门</button>
+        <button onclick="openDoor('hlc',1)">开后左门</button>
+        <button onclick="openDoor('hrc',1)">开后右门</button>
+        <button onclick="openDoor('bc',1)">开背门</button>
+    </div>
+    <div>
+        <h5>关门</h5>
+        <button onclick="openDoor('qlc',0)">关前左门</button>
+        <button onclick="openDoor('qrc',0)">关前右门</button>
+        <button onclick="openDoor('hlc',0)">关后左门</button>
+        <button onclick="openDoor('hrc',0)">关后右门</button>
+        <button onclick="openDoor('bc',0)">关背门</button>
+    </div>
+</section>
+<br>
+<section class="open-window">
+    <div>
+        <h5>开窗</h5>
+        <button onclick="openWindow('qlbc',1,0.2)">开前左窗</button>
+        <button onclick="openWindow('qrbc',1,0.4)">开前右窗</button>
+        <button onclick="openWindow('hlbc',1,0.6)">开后左窗</button>
+        <button onclick="openWindow('hrbc',1,0.8)">开后右窗</button>
+        <button onclick="openWindow('tcc',1,1)">开天窗</button>
+    </div>
+    <div>
+        <h5>关窗</h5>
+        <button onclick="openWindow('qlbc',0)">关前左窗</button>
+        <button onclick="openWindow('qrbc',0)">关前右窗</button>
+        <button onclick="openWindow('hlbc',0)">关后左窗</button>
+        <button onclick="openWindow('hrbc',0)">关后右窗</button>
+        <button onclick="openWindow('tcc',0)">关天窗</button>
+    </div>
+</section>
+<br>
+<section class="others">
+    <h5>开/关</h5>
+    <button onclick="osLightToggle(1)">开灯</button>
+    <button onclick="osLightToggle(0)">关灯</button>
+    <button onclick="osSpeedToggle(1)">启动</button>
+    <button onclick="osSpeedToggle(0)">停止</button>
+    <button onclick="osRotationToggle(1)">旋转</button>
+    <button onclick="osRotationToggle(0)">停止旋转</button>
+</section>
+<section>
+    <h5>销毁/恢复</h5>
+    <button onclick="destroy()">destroy</button>
+    <button onclick="recovery()">start</button>
+</section>
+<script type="text/javascript">
+    var iframe = document.getElementById("three");
+    console.log(iframe);
+
+    window.addEventListener('message', function (e) {
+        alert(e.data);
+    });
+
+    function changeColor(color) {
+        iframe.contentWindow.changeColor(color);
+    }
+
+    function osLightToggle(flag) {
+        iframe.contentWindow.lightToggle(flag);
+    }
+
+    function osSpeedToggle(flag) {
+        iframe.contentWindow.speedToggle(flag);
+    }
+
+    function anyColorChange(value) {
+        var color = "#" + value;
+        iframe.contentWindow.changeAnyColor(color);
+    }
+
+    function openDoor(name, flag) {
+        iframe.contentWindow.openDoor(name, flag);
+    }
+
+    function openWindow(name, flag, percent) {
+        iframe.contentWindow.openWindows(name, flag, percent);
+    }
+
+    function osRotationToggle(flag) {
+        iframe.contentWindow.rotationToggle(flag)
+    }
+
+    function destroy(){
+        iframe.contentWindow.pause()
+    }
+
+    function recovery(){
+        iframe.contentWindow.recovery()
+    }
+</script>
+</body>
+</html>

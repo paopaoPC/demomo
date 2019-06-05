@@ -1,0 +1,10 @@
+{
+  "name": "cvim_长安自注册",
+  "identifier": "cvim.addChanganCar",
+  "description": "",
+  "version": "1.0.3",
+  "dependencies": {},
+  "build": 4,
+  "releaseNote": "",
+  "hidden": false
+}

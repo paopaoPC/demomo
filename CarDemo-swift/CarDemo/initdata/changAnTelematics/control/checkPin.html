@@ -1,0 +1,147 @@
+<div id="checkPin" data-view="control/checkPin">
+	<style type="text/css">
+	#checkPin {
+		/*width: 100%;
+		height: 100%;
+		z-index: 9999;
+    	position: absolute;*/
+    	/*padding-top: 44px*/
+	}
+	#checkPin .content{
+		/*width: 100%;
+		height: 100%;
+		padding-top: 44px;*/
+		background-image: url(../control/img/background_1.png);
+		background-size: 100% 100%
+	}
+	#checkPin .content-top{
+		width: 100%;
+		height: auto;
+		overflow: hidden;
+		/*padding-top: 0.34133188rem;*/
+	}
+	#checkPin .content-title{
+		height: auto;
+		font-size: 0.21333242rem;
+		text-align: center;
+		/*margin-top: 0.34133188rem;*/
+		color: #FFFFFF;
+	}
+	#checkPin .content-info{
+		width: 100%;
+		height: 0.18rem;
+		text-align: center;
+		font-size: 14px;
+		color: #FFFFFF;
+		margin-top: 0.15359934rem;
+		line-height: 0.18773253rem
+	}
+	#checkPin .pin-title{
+		margin-top: 0.20479913rem;/*24px*/
+		font-size: 0.13653275rem;/*16px*/
+		text-align: center;
+		color: #FFFFFF
+	}
+	#checkPin .cricle-container{
+		width: 100%;
+		height: auto;  /*55px*/
+		/*line-height: 0.46933133rem; /*55px*/
+		text-align: center;
+		/*mix-blend-mode: soft-light*/
+	}
+	#checkPin .cricle-container>div{
+		width: 0.11093286rem; /*13px*/
+		height: 0.11093286rem; /*13px*/
+		border:1px solid #FFFFFF;
+		border-radius: 0.11093286rem;  /*13px*/
+		margin-left: 0.18773253rem; /*22px*/
+		display: inline-block;
+		margin-top: 30px;
+		/*mix-blend-mode: overlay*/
+	}
+	#checkPin .cricle-container>div:first-child{
+		margin-left: 0
+	}
+	#checkPin .cricle-container .active{
+		background-color: #FFFFFF
+	}
+	#checkPin .num-container{
+		width: 100%;
+		height: auto;
+		overflow: hidden;
+		text-align: center;
+		padding-bottom: 0.08533297rem;
+		/*padding-top: 0.08533297rem;   /*10px*/
+		/*mix-blend-mode: overlay*/
+	}
+	#checkPin .line-first{
+		margin-left: 0 !important
+	}
+	#checkPin .item{
+		width: 0.61439738rem;   /*72px*/
+		height: 0.61439738rem;   /*72px*/
+		border:1px solid rgba(255,255,255,0.5);
+		border-radius: 0.61439738rem;  /*72px*/
+		line-height: 0.61439738rem;    /*72px*/
+		text-align: center;
+		color: #FFFFFF;
+		font-size: 0.24746561rem;   /*29px*/
+		display: inline-block;
+		margin-left: 0.34133188rem;  /*40px*/
+		margin-top: 0.12799945rem;  /*15px*/
+  		position: relative;
+  		/*mix-blend-mode: overlay*/
+	}
+	#checkPin .buttom-item{
+		width: 100%;
+		height: auto;
+		text-align: center;
+		/*padding-top: 50px;   /*40px*/
+		/*padding-bottom: 40px;   /*30px*/
+	}
+	#checkPin .buttom-item>div{
+		width: 30%;
+		height: 30px;
+		line-height: 30px;
+		font-size: 0.13653275rem;  /*16px*/
+		color: #00fffd;
+		text-align: center;
+		display: inline-block;
+	}
+	</style>
+	<div class="content">
+		<div class="content-top">
+			<div class="content-title">空调远程开启</div>
+			<div class="content-info">
+				远程开启空调大概需要20秒
+			</div>
+			<P class="pin-title">请输入6位控车码</P>
+			<div class="cricle-container">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+		
+		<div class="num-container">
+			<p class="line-first item" data-item="1">1</p>
+			<p class="item" data-item="2">2</p>
+			<p class="item" data-item="3">3</p>
+			<p class="line-first item" data-item="4">4</p>
+			<p class="item" data-item="5">5</p>
+			<p class="item" data-item="6">6</p>
+			<p class="line-first item" data-item="7">7</p>
+			<p class="item" data-item="8">8</p>
+			<p class="item" data-item="9">9</p>
+			<p class="line-first item" data-item="0">0</p>
+		</div>
+		<div class="buttom-item">
+			<div id="cancle">取消</div>
+			<div id="forgetPin">忘记PIN码</div>
+			<div id="delect">删除</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,59 @@
+
+<div id="notifyWifi" data-view='Laboratory/notifyWifi'>
+<style type="text/css">
+    #notifyWifi input{
+          margin-bottom: 0px;
+          height: 44px;
+          padding: 10px 0px;
+          padding-left: 15px;
+          font-size: 14px;
+          color: #1f1f1f;
+          border: 1px solid #dededf;
+          background-color: #fcfcfc;
+          border-radius: 0px;
+          width: 100%;
+          transform-origin: 0 0;
+          z-index: 9;
+    }
+    #notifyWifi .submitName{
+          background-color: #00c3fe;
+          color: #fff;
+          height: 44px;
+          line-height: 44px;
+          text-align: center;
+          font-size: 18px;
+          border-radius: 3px;
+          margin-bottom: 15px;
+          margin-top: 15px;
+    }
+    #notifyWifi .submitName:active{
+      color: #09aaec
+    }
+    #notifyWifi .rename_input_wrap{
+          width: 95%;
+          margin: 10px auto 0;
+          line-height: 40px;
+          height: 40px;
+    }
+    #notifyWifi .note{
+          width:100%;
+          font-size: 13px;
+          color: #666666;
+          /*text-align: center;*/
+          margin-top: 8px;
+          margin-bottom: 25px;
+          margin-left: 14px;
+          display: none;
+    }
+</style>
+
+	<header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}'  navTitle='"爱车WIFI设置"'>
+    </header>
+    <div class="content">
+        <div class="rename_input_wrap">
+            <input id="rename_name" onkeyup="value=value.replace(/[\u4E00-\u9FA5]/g,'')" maxLength="12" type="text" value="" placeholder="请输入SSID"/>
+        </div>
+        <div class="note">密码长度为8-12个字符</div>
+        <div class="submitName">提交</div>
+   	</div>
+</div>

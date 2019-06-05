@@ -1,0 +1,276 @@
+<div id="toolkit" data-view="toolkit/newIndex">
+    <style>
+        #main-page #home #toolkit_up_arrow{
+            position: absolute;
+            width: 30%;
+            left: 35%;
+            height: 0.25rem;
+            background: url('../toolkit/img/up_arrow.png') center 33%/0.2rem no-repeat;
+            z-index:1000;
+            transition-property: transform;
+            bottom:41px
+        }
+
+        /*#toolkit {*/
+            /*position: absolute;*/
+            /*width: 100%;*/
+            /*height: 100%;*/
+            /*left:0;*/
+            /*right: 0;*/
+            /*z-index:10;*/
+            /*transition-property: transform,margin-top;*/
+        /*}*/
+        #toolkit .content::-webkit-scrollbar{
+            display: none;
+        }
+        #toolkit #toolkit-header{
+            width: 100%;
+            box-sizing: border-box;
+            background: url('../common/img/background.png');
+            border-bottom: solid rgba(60, 61, 73, 0.8) 1px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index:10;
+        }
+        #toolkit #toolkit-header-title{
+            text-align: center;
+            font-family: "Helvetica";
+            color: white;
+            margin: auto;
+            font-size: 19px !important;
+            line-height: 44px !important;
+            max-height: 44px;
+            display: block;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        #toolkit #toolkit-header-left{
+            position: absolute;
+            left: 0;
+            bottom:0;
+            color: white;
+            background-size: 0.09rem 0.15rem;
+            width: 44px;
+            height: 44px;
+            background-position: center;
+            background-image: url(../common/img/back.png);
+            background-repeat: no-repeat;
+            margin-left: -3px;
+            background-color: transparent;
+            border: none;
+        }
+        #toolkit .content{
+            position: absolute;
+            top:44px;
+            left:0;
+            right: 0;
+            bottom: 0;
+            /*background-image:url('../common/img/background.png');*/
+            background-size: 100%;
+            overflow:scroll;
+            background-color: black;
+        }
+        #toolkit #TboxService{
+            position: absolute;
+            top:  0.1706rem;
+            width: 100%;
+            padding: 0px 0.1278rem 0px 0.1278rem;
+            bottom: 0.1278rem;
+        }
+        #toolkit .serviceTitle{
+            background-size:auto 100%;
+            background-position: left center;
+            height:  0.1536rem;
+            padding: 0.0341rem 0px 0.0341rem  0.2048rem;
+            background-repeat: no-repeat;
+            color: white;
+        }
+        #toolkit .service{
+            height:0.6826rem;
+            padding:0.0768rem;
+            background-color: rgba(8, 90, 117, 0.5);
+            margin-top: 0.0853rem;
+            border-radius: 0.0682rem;
+        }
+        #toolkit .service .service_png{
+            width: 0.529rem;
+            height: 0.529rem;
+            margin-right: 0.0853rem;
+            float: left;
+        }
+        #toolkit  .service .service_name{
+            float: left;
+            font-size:  0.1365rem;
+            color: white;
+            display: inline-block;
+            white-space: pre;
+        }
+        #toolkit .service .deadline{
+            border-radius:0.0682rem;
+            display: inline-block;
+            border: solid 1px rgba(0, 211, 253, 0.7);
+            font-size: 0.0938rem;
+            color: rgba(0, 211, 253, 0.7);
+            height:  0.1280rem;
+            padding: .017rem 0.0512rem .017rem 0.0512rem;
+
+        }
+        #toolkit  .service .detail{
+            width:2.170rem;
+            margin-top: 0.0853rem;
+            display: inline-block;
+        }
+        #toolkit  .service .totalTime{
+            float: left;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.1024rem;
+            position: relative;
+            display: inline-block;
+            margin-top: 0.0426rem;
+        }
+        #toolkit  .service .remainTime{
+            display: inline-block;
+            float: right;
+            font-size: 0.1024rem;
+            text-align: right;
+            color: rgba(255,255,255,0.5);
+        }
+        #toolkit  .service .remainTime .days{
+            font-size:  0.1536rem;
+            color: #00d3fd;
+        }
+        #toolkit  .service .percent{
+            float: left;
+            width: 100%;
+            height: 0.0341rem;
+            background-color: rgba(255,255,255,0.5);
+            margin-top: 0.0853rem;
+            border-radius:  0.0171rem;
+            overflow: hidden;
+        }
+        #toolkit .service .percent .jindu{
+            height: 100%;
+            background-color: #0feeb2;
+            width: 100%;
+            position: relative;
+            left:-100%;
+            border-radius:  0.0171rem;
+            transition: transform 0.3s linear;
+        }
+        #toolkit .service .noPurchase{
+            width: 2.17rem;
+            margin-top: 0.0853rem;
+            font-size: 0.1278rem;
+            color: rgba(0, 211, 253, 0.7);
+            display: none;
+        }
+        #toolkit .service.nobuy .noPurchase{
+            display: inline-block;
+        }
+        #toolkit .service.nobuy .detail{
+            display: none;
+        }
+        #toolkit .service.nobuy .deadline{
+            display: none;
+        }
+        #toolkit #TboxService .description{
+            color:#ffd200;
+            align-items: center;
+            justify-content: center;
+            height: 80%;
+            display: none;
+        }
+        #toolkit #TboxService.noData .description{
+            display: flex ;
+        }
+        #toolkit #otherService{
+            margin-top:  0.1706rem;
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 0.1278rem;
+        }
+        #toolkit #otherService .block{
+            float: left;
+            width: 0.8960rem;
+            height:0.8960rem;
+            border-radius: 0.0683rem;
+            margin-left: 0.1278rem;
+            margin-top:  0.1536rem;
+            background-color: rgba(8, 90, 117, 0.5);
+            text-align: center;
+            overflow: hidden;
+        }
+        #toolkit #otherService .icon{
+            width: 0.3072rem;
+            height: 0.3072rem;
+            margin: 0.2133rem auto 0.0853rem auto;
+            display: block;
+        }
+        #toolkit #otherService .text{
+            font-size: 0.1109rem;
+            color:#c6c6c8;
+        }
+    </style>
+    <script id="template" type="text/x-handlebars-template">
+        <div class="service <%= isBuy?'':'nobuy' %>">
+            <img class="service_png" src="<%= url %>"/>
+            <div class="service_name"><%= name %>  </div>
+            <div class="detail">
+                <div class="totalTime">共<%= total %><%= totalUnit %></div>
+                <div class="remainTime">剩余<span class="days"><%= left %></span><%= leftUnit %></div>
+                <div class="percent">
+                    <div class="jindu" style="transform:translateX(<%= per %>)"></div>
+                </div>
+            </div>
+            <div class="noPurchase">您尚未购买</div>
+        </div>
+    </script>
+    <!--<div class="deadline"><%= deadline %>到期</div>-->
+    <!--<div id="up_arrow"></div>-->
+    <!--<header id="toolkit-header">-->
+        <!--<h1 id="toolkit-header-title">服务</h1>-->
+        <!--<button id="toolkit-header-left">-->
+        <!--</button>-->
+    <!--</header>-->
+    <header id="nav-bar" class="bar bar-nav blue-bar"  navRight='{"hide":"true"}' navTitle='"服务"'>
+    </header>
+    <div class="content">
+        <div id="TboxService" class="">
+            <div class="serviceTitle" style="background-image: url('../toolkit/img/TboxService.png'); ">车机服务</div>
+            <div class="description">暂无车机服务数据</div>
+        </div>
+        <!--<div id="otherService">-->
+            <!--<div class="serviceTitle" style="background-image: url('../toolkit/img/otherService.png');margin-left: 0.1278rem">其他服务</div>-->
+            <!--<div class="block" id="openPJ">-->
+                <!--<img class='icon' src="../toolkit/img/ZZDHImg.png">-->
+                <!--<span class="text">发送到车</span>-->
+            <!--</div>-->
+            <!--<div class="block" id="operManual">-->
+                <!--<img class='icon' src="../toolkit/img/images/icon_xingche.png">-->
+                <!--<span class="text">行车说明书</span>-->
+            <!--</div>-->
+            <!--<div class="block" id="openBY">-->
+                <!--<img class='icon' src="../toolkit/img/images/changan_icon.png">-->
+                <!--<span class="text">商城服务</span>-->
+            <!--</div>-->
+            <!--<div class="block" id="openFW">-->
+                <!--<img class='icon' src="../toolkit/img/images/icon_zhoubian.png">-->
+                <!--<span class="text">周边服务</span>-->
+            <!--</div>-->
+            <!--<div class="block" id="openTT">-->
+                <!--<img class='icon' src="../toolkit/img/icon_team.png">-->
+                <!--<span class="text">组队出行</span>-->
+            <!--</div>-->
+            <!--<div class="block" id="operIllegalSearch">-->
+                <!--<img class='icon' src="../toolkit/img/images/icon_weizhang.png">-->
+                <!--<span class="text">违章查询</span>-->
+            <!--</div>-->
+            <!--<div class="block" id="openZS">-->
+                <!--<img class='icon' src="../toolkit/img/icon_labor.png">-->
+                <!--<span class="text">实验室</span>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+</div>

@@ -1,0 +1,1834 @@
+<div id="home" class="page" data-view="home/newIndex">
+
+    <style type="text/css">
+        @font-face
+        {
+            font-family: DIN-Condensed-Bold;
+            src: url('../ratchet/fonts/DIN Condensed Bold.ttf');
+        }
+
+        #home #navTitle{
+            /*margin-top: -7px;*/
+            font-size: 18px !important;
+        }
+
+        #home #navTitle.afterShow::after{
+            content: '';
+            width: 14px;
+            height: 8px;
+            background-image: url(../home/img/home-select.png);
+            display: inline-block;
+            background-size: 13px;
+            vertical-align: middle;
+            margin-left: 7px;
+            background-repeat: no-repeat;
+        }
+        #home #updateTime{
+            margin: -17px 0 0 0.25rem;
+            font-size: 10px;
+            width: 100%;
+            text-align: center;
+            color: white;
+            white-space: pre-wrap;
+            display: none;
+        }
+        #home .page{
+            background-attachment: fixed;
+            /*background-image: url('../home/img/background.png');*/
+            background-color: #080808;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            bottom:0;
+            touch-action: none;
+        }
+        #home .content{
+            width:100%;
+            background: transparent;
+            /*background-image: url(../home/img/background.png);*/
+            background-size: 100%;
+        }
+        #home #wrapper {
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            top: 2.3rem;
+            bottom: 0px;
+            overflow: hidden;
+        }
+        #home #scroller {
+            position: absolute;
+            z-index: 1;
+            width:100%;
+            top:0;
+            /*bottom:-100px;*/
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            /*background-image: url(../home/img/background.png);*/
+          /*  background-repeat: no-repeat;
+            background-size: 100% 480px;*/
+        }
+        #home .pulldown.flip .icon {
+            -webkit-transform: rotate(0deg) translateZ(0);
+        }
+
+        #home .pulldown.loading .iconOne {
+            clip: rect(0px 28px 28px 14px) !important;
+        }
+
+        #home .pulldown.loading .iconTwo {
+            clip: rect(0px 28px 26px 14px) !important;
+        }
+
+        #home .pulldown {
+            height: 60px;
+            position: absolute;
+            top: -60px;
+            /*top: 0;*/
+            color: white;
+            width: 100%;
+            z-index: 999;
+            padding-top: 10px;
+            text-align: center;
+            font-weight: inherit;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        #home .pulldownWrap {
+        }
+
+        #home .pulldownWrap.hidden {
+            display: none;
+        }
+
+        #home .pulldown .icon {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background-size: 28px;
+            float: none;
+            background: url("../home/img/home-down.png");
+            background-repeat: no-repeat;
+            background-position: 50%;
+            -webkit-animation-duration: 1.3s;
+        }
+
+        #home .pulldown.flip .icon {
+            background-size: 0;
+        }
+
+        #home .pulldown.loading .icon {
+            background: url("../home/img/home-loading.png") no-repeat;
+            background-size: 19px;
+            position: relative;
+            top: -3px;
+            width: 28px;
+            height: 28px;
+            background-position: 50%;
+        }
+
+        #home .pulldownText {
+            display: inline-block;
+        }
+
+        #home #navRight{
+            background-position:center center;
+            position: relative;
+        }
+        #home #navLeft span {
+            font-size: 10px;
+            background-color: red;
+            min-width: 16px;
+            height: 16px;
+            border-radius: 16px;
+            display: block;
+            line-height: 16px;
+            right: 6px;
+            top: 6px;
+            position: absolute;
+            color: white;
+        }
+        #home .rightArrow{
+            background: url("../home/img/right_arrow_blue.svg") no-repeat;
+            background-size: 100%;
+            display: inline-block;
+            width: 0.085rem;
+            height: 0.085rem;
+            margin-left: 4px;
+        }
+        #home #CT{
+            margin-top:0.1706rem;
+            width: 100%;
+            height:.3413rem;
+        }
+        #home #CT #CTLeft{
+            position: absolute;
+            left:0.1195rem;
+        }
+        #home #CT #mileageView{
+            position: absolute;
+            right:0.1195rem;
+            text-align: right;
+        }
+
+        #home #CT .CTtitle{
+            color: rgba(250, 251, 250, 0.77);
+            font-size: 0.0939rem;;
+        }
+
+        #home  #CTLBody{
+            margin-top: 0.0426rem;
+            height: 0.1408rem;
+            position: relative;
+            /*font-size: 0.1545rem;*/
+            color:#00d5fe;
+        }
+        #home  #CTLBody.risk{
+            color:#ffde1f;
+        }
+        #home  #CTLBody.error{
+            color:#ff0000;
+        }
+
+        #home  #CTLBody .rightArrow{
+            background-image: none;
+            transform: translateY(-30%);
+        }
+        #home  #CTLBody.normal .rightArrow{
+            background-image:url("../home/img/right_arrow_blue.svg");
+        }
+        #home  #CTLBody.risk .rightArrow{
+            background-image:url("../home/img/right_arrow_yellow.svg");
+        }
+        #home  #CTLBody.error .rightArrow{
+            background-image:url("../home/img/right_arrow_red.svg");
+        }
+
+        #home #CTLeft #iconLeft{
+            display: inline-block;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-image:none;
+            width: 0.1365rem;
+            height: 0.1365rem;
+            /*vertical-align: top;*/
+            margin-right: 0.025rem;
+        }
+        #home #CTLBody.normal #iconLeft{
+            background-image:url('../home/img/normal-test.png');
+        }
+        #home #CTLBody.risk #iconLeft{
+            background-image:url("../home/img/risk-test.png");
+        }
+        #home #CTLBody.error #iconLeft{
+            background-image:url("../home/img/error-test.png");
+        }
+
+        #home #CTLeft #checkResult{
+            font-size: 0.1450rem;
+            vertical-align: top;
+            display: inline-block;
+            margin-left: -1px;
+        }
+
+        #home #oilView #CTanimate{
+            height: 0.0128rem;
+            width: 60%;
+            position: absolute;
+            margin: auto;
+            margin-top: 13px;
+            left: 22%;
+            top: 8px;
+            z-index: 999;
+            visibility: visible;
+        }
+
+        #home #oilView .CTanimateIcon {
+            background-image: url(../home/img/icon_oil.png);
+            background-size: 11px 12px;
+            background-repeat: no-repeat;
+            width: 12px;
+            height: 13px;
+            position: absolute;
+            top: -5px;
+            left: -18px;
+        }
+
+        #home #oilView #CTanimateBackground{
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            top: 0;
+            left: 0;
+            background-color: #575d68;
+            border-radius: 5px;
+        }
+        #home #oilView #CTanimateShow{
+            position: absolute;
+            width: 0;
+            height: 3px;
+            top: 0;
+            left: 0;
+            transition: width ease-in;
+            background-color: #00d5fe;
+            border-radius: 5px;
+        }
+
+        #home #oilView {
+            position: relative;
+            width: 2.304rem;
+            height: 2rem;
+            margin: -33px auto 0 auto;
+
+        }
+     
+        #home #oilView .oilView_car{
+            position: absolute;
+            top: 0;
+            left: -0.60rem;
+            width: 150%;
+            height: 100%;
+            background-size: 3.2rem;
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            display: block;
+        }
+        #home #oilView.noResource .oilView_car{
+            display: none;
+        }
+        #home #oilView.noCar .oilView_car{
+            display: none;
+        }
+        #home #oilView .oilView_car.main_car{
+            z-index: 14;
+        }
+        #home #oilView .oilView_car.LF{
+            z-index: 16;
+        }
+        #home #oilView .oilView_car.LB{
+            z-index: 15;
+        }
+        #home #oilView .oilView_car.RF{
+            z-index: 13;
+        }
+        #home #oilView .oilView_car.RB{
+            z-index: 12;
+        }
+        #home #oilView .oilView_car.lowBeam{
+            z-index:17
+        }
+        #home #oilView .oilView_car.dormer{
+            z-index:18
+        }
+        #home #oilView .oilView_car.positionLamp{
+            z-index:19
+        }
+        #home #oilView .oilView_car.turnLndicator{
+            z-index:20
+        }
+
+        #home #oilView .oil{
+            background: linear-gradient(210deg, #3af2b6 ,#38c2f1 70%,#38c2f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        #home #oilView .oil.num{
+            position: absolute;
+            font-size: 0.8704rem;
+            right: 0.83rem;
+            top: 0.3rem;
+            text-align: right;
+            font-family: DIN-Condensed-Bold;
+            line-height:100%;
+            padding-top: 0.12rem;
+        }
+        #home #oilView .oil.num.single{
+            right:1.0rem
+        }
+        #home #oilView .oil.unit{
+            position: absolute;
+            top: 0.90rem;
+            left: 1.55rem;
+            font-size: 0.15rem;
+        }
+        #home #oilView .oiltext{
+            position: absolute;
+            top: 0.66rem;
+            left: 1.55rem;
+            font-size: 0.0939rem;
+            color: white;
+        }
+        #home #oilView.oilWarning .oil, #home #oilView.oilWarning .oiltext{
+            display: none;
+        }
+
+        #home #oilView #oilWarning{
+            display: none;
+            text-align: center;
+            margin-top: 0.55rem;
+            position: absolute;
+            width: 100%;
+        }
+        #home #oilView.oilWarning #oilWarning{
+            display: block;
+        }
+        #home #oilView .oilWarnningInfoHead{
+            font-size: 0.1365rem;
+            color: rgba(250, 251, 250, 0.77);
+        }
+
+        #home #oilView .oilWarnningInfoText{
+            font-size:  0.1024rem;
+            margin-top: 0.12rem;
+            color: rgba(250, 251, 250, 0.77);
+        }
+
+        @keyframes Jindu{
+            from {stroke-dashoffset:0px;}
+            to {stroke-dashoffset: -2.91395rem}
+        }
+        @media screen and (min-device-aspect-ratio:375/610 ) {
+            #home #CT{
+                margin-top: 0.1354rem;
+            }
+        }
+        #home #purge00 {
+        }
+        #home .control-info {
+            color: #ffd200;
+            text-align: center;
+            line-height: 200%;
+            font-size: 0.12rem;
+            display: none;
+            position: absolute;
+            width: 100%;
+            z-index: 9999;
+        }
+    
+        #home #navLeft {
+            position: absolute;
+          /*  color: #00d3fb;
+            font-size: 0.12rem;
+            background-size: 15px 17px;*/
+        }
+        /*list-contain*/
+        #home .list-contain {
+            color: white;
+            position: relative;
+            width: 100%;
+        }
+        #home .list-contain-item {
+            height: 65px;
+            padding: 17px 14px 14px;
+            font-size: 15px;
+            position: relative;
+        }
+        #home .list-contain-item:after {
+            content: '';
+            display: block;
+            width: 100%;
+            position: absolute;
+            height: 1px;
+            background: #333;
+            bottom: 0;
+            left: 50px;
+        }
+        #home .list-contain-item.contain-news:after {
+            display: none;
+        }
+        #home .list-contain-left {
+            background-size: 21px;
+            width: 34px;
+            height: 34px;
+            background-repeat: no-repeat;
+            background-position-y: 50%;
+            display: inline-block;
+            float: left;
+        }
+        #home .list-contain-center {
+            display: inline-block;
+            float: left;
+            margin-left: 3px;
+            position: relative;
+            width: 80%;
+        }
+        #home .list-contain-item.contain-conditions .list-contain-left  {
+            background-image: url(../home/img/contain-conditions.png);
+        }
+        #home .list-contain-item.contain-location .list-contain-left  {
+            background-image: url(../home/img/contain-location.png);
+        }
+        #home .list-contain-item.contain-control .list-contain-left  {
+            background-image: url(../home/img/contain-control.png);
+        }
+        #home .list-contain-item.contain-diagnoses .list-contain-left  {
+            background-image: url(../home/img/contain-diagnoses.png);
+        }
+        #home .list-contain-item.contain-shopping .list-contain-left  {
+            background-image: url(../home/img/contain-shopping.png);
+        }
+        #home .list-contain-item.contain-trajectory .list-contain-left  {
+            background-image: url(../home/img/contain-trajectory.png);
+        }
+        #home .list-contain-item.contain-news .list-contain-left  {
+            background-image: url(../home/img/contain-news.png);
+        }
+        #home .list-contain-item.contain-car-life .list-contain-left  {
+            background-image: url(../home/img/contain-car-life.png);
+        }
+        #home .list-contain-item.contain-car-friend .list-contain-left  {
+            background-image: url(../home/img/contain-car-friend.png);
+        }
+        #home .list-contain-item.contain-bluetooth .list-contain-left  {
+            background-image: url(../home/img/contain_bluetoot_2.png);
+        }
+
+        #home .list-contain-item.contain-bluetooth {
+            display: none;
+        }
+
+
+        #home .list-contain-item.contain-shopping .LCC-one {
+            display: block;
+        }
+        #home .list-contain-item.contain-shopping.danger .LCC-one {
+            display: none;
+        }
+        #home .list-contain-item.contain-shopping .LCC-top,#home .list-contain-item.contain-shopping .LCC-bottom {
+            display: none;
+        }
+        #home .list-contain-item.contain-shopping.danger .LCC-top,#home .list-contain-item.contain-shopping.danger .LCC-bottom {
+            display: block;
+        }
+        #home .list-contain-item .LCC-bottom {
+            font-size: 13px;
+            color: #999;
+            margin-top: 6px;
+        }
+        #home .list-contain-item .LCC-one {
+            height: 34px;
+            line-height: 34px;
+        }
+        #home #oilView .canDrivingMil {
+            color: white;
+            text-align: center;
+            font-size: 15px;
+            margin-top: 4px;
+            position: absolute;
+            width: 100%;
+            z-index: 999;
+            visibility: visible;
+        }
+        #home .blue-bar .im-default-nav-bar {
+            background-color: #080808;
+            background-image: url();
+            border-bottom: 0;
+        }
+        #home #controlListView {
+            height: 188px;
+            position: relative;
+            overflow: hidden;
+        }
+        #home #controlListView .CLV-button-content {
+            display: -webkit-box;
+            display: flex;
+            justify-content: center;
+            -webkit-justify-content: center;
+        }
+        #home #controlListView .CLV-button-warp {
+            width: 70px;
+            height: 70px;
+            margin-top: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        #home #controlListView .CLV-button {
+            height: 47px;
+            width: 47px;
+            background-size: 47px;
+            background-repeat: no-repeat;
+            margin: auto;
+        }
+        #home #controlListView .CLV-button-ac_quick {
+            background-image: url(../home/img/ac_quick.png);
+        }
+        #home #controlListView .CLV-button-air_purify_quick {
+            background-image: url(../home/img/air_purify_quick.png);
+        }
+        #home #controlListView .CLV-button-alarm_quick {
+            background-image: url(../home/img/alarm_quick.png);
+        }
+        #home #controlListView .CLV-button-flash_light_quick {
+            background-image: url(../home/img/flash_light_quick.png);
+        }
+        #home #controlListView .CLV-button-lock_solutuin_quick {
+            background-image: url(../home/img/lock_solutuin_quick.png);
+        }
+        #home #controlListView .CLV-button-sunroof_quick {
+            background-image: url(../home/img/sunroof_quick.png);
+        }
+        #home #controlListView .CLV-button-window_quick {
+            background-image: url(../home/img/window_quick.png);
+        }
+        #home #controlListView .CLV-button-send_car_quick {
+            background-image: url(../home/img/send_car_quick.jpg);
+        }
+        #home .LCCB-temperature,#home .LCCB-oil {
+        }
+
+        #home #swiper-warning{
+            display: none;
+        }
+        #home #controlListView.noData {
+            height: 288px;
+        }
+        #home #controlListView.noData .swiper-container{
+            display: none;
+        }
+        #home #controlListView.noData #swiper-warning{
+            display: block;
+        }
+        #home #controlListView.noData .CLV-button-content {
+            display: none;
+        }
+        
+        #home .swiper-container{
+            overflow:visible;
+            height: 118px;
+        }
+
+        #home #swiper-warning .message{
+            color: #ffd200;
+            text-align: center;
+            line-height: 200%;
+            font-size: 13px;
+            margin-top: 30px;
+        }
+        #home #swiper-warning .button,#home .control-info .control-info-net-error-button-wrap {
+            border: solid 1px rgba(255, 255, 255, 0.3);
+            border-radius: 0.07rem;
+            color: rgb(0, 213, 254);
+            width: 1.348rem;
+            height: 40px;
+            line-height: 38px;
+            font-size: 15px;
+            margin: auto;
+            text-align: center;
+            display: block;
+            margin-top: 8px;
+        }
+        #home #demo-reminder-info {
+            color: #e8856a;
+            text-align: center;
+            font-size: 35px;
+            position: absolute;
+            margin-top: 1.1rem;
+            width: 100%;
+            z-index: 99;
+            display: none;
+        }
+        #home .LCC-news-number {
+            font-size: 10px;
+            background-color: red;
+            min-width: 16px;
+            height: 16px;
+            border-radius: 16px;
+            display: block;
+            line-height: 16px;
+            right: -10px;
+            top: 0px;
+            position: absolute;
+            display: none;
+            text-align: center;
+        }
+        #home .change3DView {
+            position: absolute;
+            right: 20px;
+            top: 8px;
+            font-size: 16px;
+            color: #cecece;
+            padding: 6px;
+            border: 1px solid #cecece;
+            border-radius: 30px;
+            z-index: 9999;
+            display: none;
+        }
+        #home .change3DView.active {
+            color: #00c2ff; 
+            border: 1px solid #00c2ff;
+        }
+        #home .LCC-bottom span span.active{
+            color:#ffd200;
+        }
+        #home .yubiao-icon {
+            background: url(../login/img/head_logo.png);
+            background-size: 157px;
+            background-repeat: no-repeat;
+            background-position: 50% 0;
+            height: 96px;
+            margin-top: 131px;
+            display: none;
+        }
+
+        
+        #home .im-default-nav-bar.disable #navRight {
+            visibility: hidden !important;
+        }
+
+        #home .im-default-nav-bar.disable:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            right: 7px;
+            bottom: 2px;
+            background-image: url(../common/img/loading.png);
+            background-size: 28px 28px;
+            background-repeat: no-repeat;
+            background-position: center;
+            -webkit-animation-name: loading;
+            -webkit-animation-duration: 1.5s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-timing-function: linear;
+        }
+
+        /* 新增电动车和油电车的判断 */
+        #home .elect-canDrivingMil {
+            display: none;
+        }
+
+        #home .oil-canDrivingMil {
+            display: none;
+        }
+                
+        #home #content-top.elect .elect-canDrivingMil {
+            display: block;
+        }
+                
+        #home #content-top.oil .oil-canDrivingMil {
+            display: block;
+        }
+        
+        #home #canDrivingMil-more {
+            position: absolute;
+            width: 120%;
+            margin-left: -10%;
+            z-index: 999;
+            margin-top: 31px;
+            color: white;
+            text-align: center;
+            font-size: 11px;
+            display: none;
+        }
+                
+        #home #content-top.elect #canDrivingMil-more {
+            display: block;
+        }
+
+        #home #content-top.oil .CTanimateIcon {
+            display: block;
+        }
+
+        #home #content-top.elect .CTanimateIcon {
+            display: block;
+        }
+        
+        #home #content-top.elect #CTanimate.elect-status-read .CTanimateIcon {
+            background-image: url(../home/img/elect-status-read.png);
+            background-size: 80px;
+            background-repeat: no-repeat;
+            width: 80px;
+            height: 60px;
+            position: absolute;
+            top: -26px;
+            left: -78px;
+        }
+
+        #home #content-top.elect #CTanimate.elect-status-no .CTanimateIcon {
+            background-image: url(../home/img/elect-status-no.png);
+            background-size: 80px;
+            background-repeat: no-repeat;
+            width: 80px;
+            height: 60px;
+            position: absolute;
+            top: -30px;
+            left: -78px;
+        }
+
+        #home #content-top.elect #CTanimate.elect-status-ing .CTanimateIcon {
+            background-image: url(../home/img/elect-status-ing.gif);
+            background-size: 80px;
+            background-repeat: no-repeat;
+            width: 80px;
+            height: 60px;
+            position: absolute;
+            top: -30px;
+            left: -78px;
+        }
+        #home #content-top.elect #CTanimate.elect-status-error .CTanimateIcon {
+            background-image: url(../home/img/elect-status-error.png);
+            background-size: 80px;
+            background-repeat: no-repeat;
+            width: 80px;
+            height: 60px;
+            position: absolute;
+            top: -30px;
+            left: -78px;
+        }
+        #home #content-top.elect #CTanimate.elect-status-end .CTanimateIcon {
+            background-image: url(../home/img/elect-status-end.png);
+            background-size: 80px;
+            background-repeat: no-repeat;
+            width: 80px;
+            height: 60px;
+            position: absolute;
+            top: -30px;
+            left: -78px;
+        }
+
+        #home .canDrivingMil-more-number {
+            padding-right: 4px;
+        }
+           
+        #home .home-oushang-style-download {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: none;
+            z-index: 99999;
+            background-image: url(../home/img/oushang-style.jpg);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-color: #0f1025;
+        }  
+        #home .home-blueethod-view {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: none;
+            z-index: 99999;
+            background-color: #060606;
+        }
+        #home .home-oushang-style-download-open {
+            position: absolute;
+            height: 50%;
+            bottom: 0;
+            width: 100%;
+        }
+        #home .content .swiper-wrapper {
+            height: 100%;
+        }
+
+        #home .content .swiper-pagination  {
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+        }
+        #home .content .swiper-pagination-switch {
+            width: 6px;
+            height: 6px;
+            margin: 0 4px;
+            display: inline-block;
+            border-radius: 100%;
+            background: #6b6b6b;
+        }
+        #home .content .swiper-pagination-switch.swiper-active-switch {
+            background: #fff;
+        }
+        #home .controlListView-top {
+            height: 70px;
+            font-size: 12px;
+            color: white;
+            display: -webkit-box;
+            display: flex;
+            justify-content: space-around;
+            -webkit-justify-content: space-around;
+            position: relative;
+        }
+        #home .controlListView-top-left {
+            width: 20%;
+            text-align: center;
+        }
+        #home .swiper-slide {
+            color: white;
+        }
+        #home .swiper-slide-one,#home .swiper-slide-two {
+            display: -webkit-box;
+            display: flex;
+            justify-content: space-around;
+            -webkit-justify-content: space-around;
+        }
+        #home .controlListView-top:after,#home #swiper22:after {
+            content: '';
+            display: block;
+            width: 100%;
+            position: absolute;
+            height: 1px;
+            background: #333;
+            bottom: 0;
+        }
+        #home .controlListView-top-left {
+            width: 20%;
+            text-align: center;
+        }
+        #home .controlListView-top-left-icon {
+            background-size: 28px;
+            width: 34px;
+            height: 34px;
+            background-repeat: no-repeat;
+            background-image: url(../home/image/oushang-sendcar.png);
+            margin: auto;
+            background-position: center;
+        }
+        #home .controlListView-top-right {
+            width: 20%;
+            text-align: center;
+        }
+        #home .controlListView-top-right-icon {
+            background-size: 28px;
+            width: 34px;
+            height: 34px;
+            background-repeat: no-repeat;
+            background-image: url(../home/image/oushang-sharekey.png);
+            margin: auto;
+            background-position: center;
+        }
+/*        #home .SS-one-item-close {
+            display: block;
+        }
+        #home .SS-one-item-open {
+            display: none;
+        }
+        #home .SS-one-item-wrap.isOpen .SS-one-item-close {
+            display: none;
+        }
+        #home .SS-one-item-wrap.isOpen .SS-one-item-open {
+            display: block;
+        }*/
+        #home .SS-one-item-icon {
+            background-size: 47px;
+            width: 47px;
+            height: 47px;
+            background-repeat: no-repeat;
+            /*background-image: url(../home/img/oushang-sendcar.png);*/
+            margin: auto;
+            background-position: center;
+            position: relative;
+        }
+        #home .SS-one-item-wrap {
+            width: 22%;
+            padding-top: 16px;
+        }
+        #home .SS-one-item-wrap-door.SS-one-item-close .SS-one-item .SS-one-item-icon {
+            background-image: url(../home/image1/unlock.png);
+        }
+        #home .SS-one-item-wrap-door.SS-one-item-close .SS-one-item:active .SS-one-item-icon {
+            background-image: url(../home/image1/unlock-p.png);
+        }
+        #home .SS-one-item-wrap-door.SS-one-item-open .SS-one-item .SS-one-item-icon {
+            background-image: url(../home/image1/lock.png);
+        }
+        #home .SS-one-item-wrap-door.SS-one-item-open .SS-one-item:active .SS-one-item-icon {
+            background-image: url(../home/image1/lock-p.png);
+        }
+
+        #home .SS-one-item-wrap-carWindows.SS-one-item-close .SS-one-item .SS-one-item-icon {
+            background-image: url(../home/image1/closethewindow.png);
+
+        }
+        #home .SS-one-item-wrap-carWindows.SS-one-item-close .SS-one-item:active .SS-one-item-icon {
+            background-image: url(../home/image1/closethewindow-p.png);
+        }
+        #home .SS-one-item-wrap-carWindows.SS-one-item-open .SS-one-item .SS-one-item-icon {
+            background-image: url(../home/image1/openthewindow.png);
+        }
+        #home .SS-one-item-wrap-carWindows.SS-one-item-open .SS-one-item:active .SS-one-item-icon {
+            background-image: url(../home/image1/openthewindow-p.png);
+
+        }
+
+        #home .SS-one-item-wrap-dormer.SS-one-item-close .SS-one-item .SS-one-item-icon {
+            background-image: url(../home/image1/closeskylight.png);
+        }
+        #home .SS-one-item-wrap-dormer.SS-one-item-open .SS-one-item .SS-one-item-icon {
+            background-image: url(../home/image1/openskylight.png);
+        }
+         #home .SS-one-item-wrap-dormer.SS-one-item-close .SS-one-item:active .SS-one-item-icon {
+            background-image: url(../home/image1/openskylight-p.png);
+        }
+        #home .SS-one-item-wrap-dormer.SS-one-item-open .SS-one-item:active .SS-one-item-icon {
+            background-image: url(../home/image1/openskylight-p.png);
+        }
+
+        #home .SS-one-item-wrap-slidingdoor.SS-one-item-open .SS-one-item .SS-one-item-icon {
+            background-image: url(../home/image2/slidingdoo-rightr.png);
+        }
+        #home .SS-one-item-wrap-slidingdoor.SS-one-item-open .SS-one-item:active .SS-one-item-icon {
+            background-image: url(../home/image2/slidingdoo-rightr-p.png);
+        }
+     /*   #home .SS-one-item-wrap-slidingdoor.SS-one-item-open.unable .SS-one-item-icon,#home .SS-one-item-wrap-slidingdoor.SS-one-item-open.unable .SS-one-item:active .SS-one-item-icon {
+            background-image: url(../home/image1/slidingdoor-unable.jpg);
+        }*/
+
+        #home .SS-one-item-wrap-air.SS-one-item-open .SS-one-item .SS-one-item-icon {
+            background-image: url(../home/image1/closeairconditioner.png);
+        }
+        #home .SS-one-item-wrap-air.SS-one-item-close .SS-one-item .SS-one-item-icon {
+            background-image: url(../home/image1/closeairconditioner.png);
+        }
+        #home .SS-one-item-wrap-autoAir.SS-one-item-open .SS-one-item .SS-one-item-icon {
+            background-image: url(../home/image1/openairconditioner.png);
+        }
+        #home .SS-one-item-wrap-autoAir.SS-one-item-close .SS-one-item .SS-one-item-icon {
+            background-image: url(../home/image1/openairconditioner.png);
+        }
+
+        #home .SS-one-item-wrap-air.SS-one-item-open .SS-one-item:active .SS-one-item-icon {
+            background-image: url(../home/image1/closeairconditioner-p.png);
+        }
+        #home .SS-one-item-wrap-air.SS-one-item-close .SS-one-item:active .SS-one-item-icon {
+            background-image: url(../home/image1/closeairconditioner-p.png);
+        }
+        #home .SS-one-item-wrap-autoAir.SS-one-item-open .SS-one-item:active .SS-one-item-icon {
+            background-image: url(../home/image1/openairconditioner-p.png);
+        }
+        #home .SS-one-item-wrap-autoAir.SS-one-item-close .SS-one-item:active .SS-one-item-icon {
+            background-image: url(../home/image1/openairconditioner-p.png);
+        }
+
+        #home .SS-one-item-wrap-whistle-0 .SS-one-item .SS-one-item-icon {
+            background-image: url(../home/image1/flash.png);
+        }
+        #home .SS-one-item-wrap-whistle-0 .SS-one-item:active .SS-one-item-icon {
+            background-image: url(../home/image1/flash-p.png);
+        }
+        #home .SS-one-item-wrap-whistle-1 .SS-one-item .SS-one-item-icon {
+            background-image: url(../home/image1/honking.png);
+        }
+        #home .SS-one-item-wrap-whistle-1 .SS-one-item:active .SS-one-item-icon {
+            background-image: url(../home/image1/honking-p.png);
+        }
+
+        #home .SS-one-item-wrap-trunk .SS-one-item .SS-one-item-icon {
+            background-image: url(../home/image1/opentrunk.png);
+        }
+        #home .SS-one-item-wrap-trunk .SS-one-item:active .SS-one-item-icon {
+            background-image: url(../home/image1/opentrunk-p.png);
+        }
+    /*    #home .SS-one-item-wrap-trunk.unable .SS-one-item-icon,#home .SS-one-item-wrap-trunk.unable .SS-one-item:active .SS-one-item-icon {
+            background-image: url(../home/image1/trunk-unable.jpg);
+        }*/
+
+
+
+        #home .SS-one-item-wrap-purge.SS-one-item-open .SS-one-item .SS-one-item-icon {
+            background-image: url(../home/image1/closeairconditioner.png);
+        }
+        #home .SS-one-item-wrap-purge.SS-one-item-open .SS-one-item:active .SS-one-item-icon {
+            background-image: url(../home/image1/closeairconditioner-p.png);
+        }
+        #home .SS-one-item-wrap-purge.SS-one-item-close .SS-one-item .SS-one-item-icon {
+            background-image: url(../home/image1/openairconditioner.png);
+        }
+        #home .SS-one-item-wrap-purge.SS-one-item-close .SS-one-item:active .SS-one-item-icon {
+            background-image: url(../home/image1/openairconditioner-p.png);
+        }
+
+        
+        
+
+        #home .SS-one-item-span {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 12px;
+        }
+        #home .im-nav-right-image {
+            background-size: 15px 13px;
+            margin-right: 6px;
+        }
+
+        #home .slider-svg {
+            position: absolute;
+            top: 0;
+            display: none; 
+            z-index: 25;
+            left: 50%;
+            transform: translateX(-50%);
+            -webkit-transform: translateX(-50%);
+            border-radius: 50px;
+        }
+
+        #home .mbsc-ios .dwo {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        #home .mbsc-ios .dwbc {
+            /* display: none; */
+            top: 3.333334em;
+            margin-top: 300px;
+        }
+        #home .mbsc-ios .dwb {
+            color: #fff !important;
+        }
+        #home .mbsc-ios .dwwr {
+            background-color: transparent;
+            padding-bottom: 80px;
+        }
+        #home .mbsc-ios .dwwr:before {
+            content: '档位';
+            color: #dedede;
+            font-size: 14px;
+            position: absolute;
+            left: 12%;
+            top: 3.833334em;
+            margin-top: 135px;
+        }
+        #home .mbsc-ios.dw-select .dwwr:before {
+            content: '目标温度';
+            color: #dedede;
+            font-size: 14px;
+            position: absolute;
+            left: 12%;
+            top: 3.333334em;
+            margin-top: 135px;
+        }
+        
+        #home .mbsc-ios .dwwb {
+            background-color: transparent;
+        }
+        #home .mbsc-ios .dw-li {
+            color: #535353;
+        }
+        #home .mbsc-ios .dw-sel {
+            color: #e5e5e5;
+            font-size: 26px;
+        }
+        #home .mbsc-ios .dw-sel .dw-i span {
+            font-size: 45px;
+         }
+        #home .mbsc-ios .dw-ltr {
+            top: 100px !important;
+        }
+        #home .mbsc-ios .dwl {
+            display: none;
+        }
+        #home .mbsc-ios .dwpm .dwwol {
+            height: 89px;
+            margin-top: -44.5px;
+        }
+         #home .dw-select .dwwol {
+            left: 34%;
+            width: 34%;
+            height: 89px;
+            margin-top: -43px;
+         }
+         #home  .dwwol {
+            left: 18%;
+            width: 65%;
+            height: 89px;
+            margin-top: -43px;
+         }
+         #home .mbsc-ios .dwb-c {
+            display: none;
+         }
+        #home .mbsc-ios .dwv::after,#home .mbsc-ios .dwbc::after {
+            display: none;
+        }
+        #home .mbsc-ios .dwbw {
+            width: 50%;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            float: none;
+            margin: auto;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        #home .mbsc-ios .dwb {
+            color: #fff;
+            width: 100%;
+        }
+        #home .dw-i {
+            text-align: center;
+            font-size: 24px;
+        }
+        #home .mbsc-ios .dw-sel .dw-i {
+            font-size: 40px;
+        }
+
+        #home .mbsc-ios .dwbw {
+            width: 50%;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            float: none;
+            margin: auto;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        #home .mbsc-ios .dwb-s .dwb {
+            color: #fff !important;
+        }
+        #home .mbsc-ios .dwwo {
+            background: transparent;
+        }
+        #home .mbsc-ios .dwv {
+            visibility : hidden;
+        }
+        #home .dwc {
+            max-width: 74%;
+            margin-left: 20%;
+        }
+        #home .dw-persp {
+           height: 100% !important;
+        }
+        #home .mbsc-ios .dw-ltr {
+            background-color: black;
+        }
+        #home #auctionType_dummy {
+            display: none;
+        }
+        #home .updateTimeContent {
+            color: #f2f2f2;
+            font-size: 10px;
+            text-align: center;
+            width: 100%;
+            color: #f2f2f2;
+        }
+        #home .oilView-contentWrap {
+            color:white;
+            display: -webkit-box;
+            display: flex;
+            justify-content: space-around;
+            -webkit-justify-content: space-around;
+            text-align: center;
+            margin-top: 37px;
+            padding: 0 20px 0 30px;
+        }
+        #home .oilView-contentWrapItem {
+            width: 40%;
+            position: relative;
+            height: 17px;
+        }
+        #home .OVCW-icon {
+            width: 17px;
+            height: 17px;
+            background-repeat: no-repeat;
+            margin: auto;
+            background-position: center;
+            position: relative;
+            display: inline-block;
+        }
+        #home .OVCW-icon {
+            vertical-align: middle;
+        }
+        #home .OVCW-text {
+            vertical-align: middle;
+            font-size: 16px;
+        }
+      /*  #home .blueetoothStatus-wrap .BTSW-icon {
+            display: inline-block;
+            background-size: 16px 17px;
+            background-image: url(../home/image/oushang-bluetooth-not-connected.png);
+        }
+        #home .blueetoothStatus-wrap.active .BTSW-icon {
+            display: none;
+            background-size: 16px 17px;
+            background-image: url(../home/image/oushang-bluetooth-not-connected.png);
+        }
+        #home .blueetoothStatus-wrap .BTSW-icon-active {
+            display: none;
+            background-size: 16px 17px;
+            background-image: url(../home/image/oushang-bluetooth-connected.png);
+        }  
+        #home .blueetoothStatus-wrap.active .BTSW-icon-active {
+            display: inline-block;
+            background-size: 16px 17px;
+            background-image: url(../home/image/oushang-bluetooth-connected.png);
+        } 
+
+        #home .blueetoothStatus-wrap .BTSW-text {
+            display: inline-block;
+        }
+        #home .blueetoothStatus-wrap.active .BTSW-text {
+            display: none;
+        }
+
+        #home .blueetoothStatus-wrap .BTSW-text-active {
+            display: none;
+        }
+        #home .blueetoothStatus-wrap.active .BTSW-text-active {
+            display: inline-block;
+            color: #0099fe;
+        }*/
+
+        #home .CDSW-icon {
+            background-size: 11px 12px;
+            background-image: url(../home/image/oushang-range.png);
+        }
+        #home .CTSW-icon {
+            background-size: 15px 17px;
+            background-image: url(../home/image/oushang-temperature.png);
+        }
+        #home .bluetoothPasscode {
+            color: white;
+            text-align: center;
+            padding-top: 4px;
+            position: absolute;
+            top: -31px;
+            width: 100%;
+            font-size: 12px;
+            display: none;
+            color: #00c2ff;
+            z-index: 999;
+            margin-left: -5px;
+
+        }
+        #home .sharedBluee-top {
+            position: absolute;
+            height: 44px;
+            line-height: 44px;
+            /* top: -40px; */
+            background: black;
+            z-index: 99999;
+            border: 1px solid #535353;
+            border-radius: 5px;
+            margin: 0 12px;
+            left: 0;
+            right: 0;
+            margin-top: 34px;
+            display: none;
+        }
+        #home .sharedBluee-top-close {
+            background-size: 27px;
+            width: 27px;
+            height: 27px;
+            background-repeat: no-repeat;
+            background-image: url(../home/image1/close.png);
+            margin: auto;
+            background-position: center;
+        }
+        #home .f201__icon {
+            width: 105px;
+            height: 17px;
+            background-size: 105px;
+            background-image: url(../home/image2/f201.jpg);
+            display: inline-block;
+            vertical-align: middle;
+            margin-top: -4px;
+        }
+        #home .blueetoothStatus-wrap-icon {
+           width: 107px;
+           height: 29px;
+           background-size: 106px;
+           background-repeat: no-repeat;
+           background-image: url(../home/image2/bluetooth-notconnected.png);
+           display: inline-block;
+           margin-top: -5px;
+        }
+        #home .blueetoothStatus-wrap-icon.loading {
+           background-image: url(../home/image2/bluetooth-connecting.png);
+        }
+        #home .blueetoothStatus-wrap-icon.active {
+           background-image: url(../home/image2/bluetooth-connected.png);
+        }
+
+       
+
+    </style>
+    <script id="HomeSlider" type="text/x-underscore-template">
+        <li class="homeSlider ">
+            <img class="sliderImg" src="<%= url %>"/>
+            <div class="description"><%= description %></div>
+        </li>
+    </script>
+
+
+  
+
+     <script id="control-dormer-temp" type="text/x-underscore-template">
+        <div class="SS-one-item-wrap SS-one-item-wrap-dormer SS-one-item-close">
+            <div class="SS-one-item" data-cmd='0' data-type="dormer" data-value="actionSunroofOpen">
+                <div class="SS-one-item-icon">
+                    <svg class="slider-svg " version="1.1">
+                        <path  fill="none" />
+                    </svg>
+                </div>
+                <div class="SS-one-item-span">开天窗</div>
+            </div>
+        </div>
+        <div class="SS-one-item-wrap SS-one-item-wrap-dormer SS-one-item-open">
+            <div class="SS-one-item" data-cmd='1' data-type="dormer" data-value="actionSunroofClose">
+                <div class="SS-one-item-icon">
+                    <svg class="slider-svg " version="1.1">
+                        <path  fill="none" />
+                    </svg>
+                </div>
+                <div class="SS-one-item-span">关天窗</div>
+            </div>
+        </div>
+    </script>
+
+    <script id="control-trunk-slidingdoor-temp" type="text/x-underscore-template">
+        <div class="SS-one-item-wrap SS-one-item-wrap-trunk unable">
+            <div class="SS-one-item" data-cmd='0' data-type="trunk" data-value="actionOpenTrunk_blueTooth">
+                <div class="SS-one-item-icon">
+                    <svg class="slider-svg " version="1.1">
+                        <path  fill="none" />
+                    </svg>
+                </div>
+                <div class="SS-one-item-span">后备箱</div>
+            </div>
+        </div>
+        <div class="SS-one-item-wrap SS-one-item-wrap-slidingdoor SS-one-item-open unable">
+            <div class="SS-one-item" data-cmd='0' data-type="slidingdoor" data-value="actionRightSlidingDoor_blueTooth">
+                <div class="SS-one-item-icon">
+                    <svg class="slider-svg " version="1.1">
+                        <path  fill="none" />
+                    </svg>
+                </div>
+                <div class="SS-one-item-span">右滑门</div>
+            </div>
+        </div>
+    </script>
+
+
+
+    <!-- 车窗 -->
+    <script id="control-carWindows-temp" type="text/x-underscore-template">
+        <div class="SS-one-item-wrap SS-one-item-wrap-carWindows SS-one-item-close">
+            <div class="SS-one-item" data-cmd='0' data-type="carWindows">
+                <div class="SS-one-item-icon">
+                    <svg class="slider-svg " version="1.1">
+                        <path  fill="none" />
+                    </svg>
+                </div>
+                <div class="SS-one-item-span">开车窗</div>
+            </div>
+        </div>
+        <div class="SS-one-item-wrap SS-one-item-wrap-carWindows SS-one-item-open">
+            <div class="SS-one-item" data-cmd='1' data-type="carWindows">
+                <div class="SS-one-item-icon">
+                    <svg class="slider-svg " version="1.1">
+                        <path  fill="none" />
+                    </svg>
+                </div>
+                <div class="SS-one-item-span">关车窗</div>
+            </div>
+        </div>
+    </script>
+    
+    <script id="control-purge-temp" type="text/x-underscore-template">
+        <div class="SS-one-item-wrap SS-one-item-wrap-purge SS-one-item-close">
+            <div class="SS-one-item" data-cmd='0' data-type="purge">
+                <div class="SS-one-item-icon">
+                    <svg class="slider-svg " version="1.1">
+                        <path  fill="none" />
+                    </svg>
+                </div>
+                <div class="SS-one-item-span">开空气净化器</div>
+            </div>
+        </div>
+        <div class="SS-one-item-wrap SS-one-item-wrap-purge SS-one-item-open">
+            <div class="SS-one-item" data-cmd='1' data-type="purge">
+                <div class="SS-one-item-icon">
+                    <svg class="slider-svg " version="1.1">
+                        <path  fill="none" />
+                    </svg>
+                </div>
+                <div class="SS-one-item-span">关空气净化器</div>
+            </div>
+        </div>
+    </script>
+
+    <script id="control-air-temp" type="text/x-underscore-template">
+        <div class="SS-one-item-wrap SS-one-item-wrap-air SS-one-item-close">
+            <div class="SS-one-item" data-cmd="0" data-type="air">
+                <div class="SS-one-item-icon"></div>
+                <div class="SS-one-item-span">开空调</div>
+                <select class="select-auction-type" id="auctionType" style="display:none" data-role="none">
+                    <option value="18"><span>18</span>°C</option>
+                    <option value="19"><span>19</span>°C</option>
+                    <option value="20"><span>20</span>°C</option>
+                    <option value="21"><span>21</span>°C</option>
+                    <option value="22"><span>22</span>°C</option>
+                    <option value="23"><span>23</span>°C</option>
+                    <option value="24"><span>24</span>°C</option>
+                    <option value="25"><span>25</span>°C</option>
+                    <option value="26"><span>26</span>°C</option>
+                    <option value="27"><span>27</span>°C</option>
+                    <option value="28"><span>28</span>°C</option>
+                    <option value="29"><span>29</span>°C</option>
+                    <option value="30"><span>30</span>°C</option>
+                    <option value="31"><span>31</span>°C</option>
+                    <option value="32"><span>32</span>°C</option>
+                </select>
+            </div>
+        </div>
+        <div class="SS-one-item-wrap SS-one-item-wrap-air SS-one-item-open">
+            <div class="SS-one-item" data-cmd="1" data-type="air">
+                <div class="SS-one-item-icon">
+                    <svg class="slider-svg " version="1.1">
+                        <path  fill="none" />
+                    </svg>
+                </div>
+                <div class="SS-one-item-span">关空调</div>
+            </div>
+        </div>
+    </script>
+
+    <script id="control-autoAir-temp" type="text/x-underscore-template">
+        <div class="SS-one-item-wrap SS-one-item-wrap-autoAir  SS-one-item-close">
+            <div class="SS-one-item" data-cmd='0' data-type="autoAir">
+                <div class="SS-one-item-icon">
+                    <svg class="slider-svg " version="1.1">
+                        <path  fill="none" />
+                    </svg>
+                </div>
+                <div class="SS-one-item-span">开空调</div>
+                <input id="auctionType0" style="display:none" />
+            </div>
+        </div>
+        <div class="SS-one-item-wrap SS-one-item-wrap-autoAir  SS-one-item-open">
+            <div class="SS-one-item" data-cmd="1" data-type="autoAir">
+                <div class="SS-one-item-icon">
+                    <svg class="slider-svg " version="1.1">
+                        <path  fill="none" />
+                    </svg>
+                </div>
+                <div class="SS-one-item-span">关空调</div>
+            </div>
+        </div>
+    </script>
+
+    <script id="control-xxxxxx-temp" type="text/x-underscore-template">
+        <div class="SS-one-item-wrap ">
+        </div>
+        <div class="SS-one-item-wrap">
+        </div>
+    </script>
+
+    <script id="control-first-temp" type="text/x-underscore-template">
+         <div class="swiper-slide swiper-slide-one">
+          <div class="SS-one-item-wrap SS-one-item-wrap-door SS-one-item-close">
+              <div class="SS-one-item" data-cmd='0' data-type="door" data-value="actionUnlock_blueTooth">
+                  <div class="SS-one-item-icon">
+                        <svg class="slider-svg " version="1.1">
+                            <path  fill="none" />
+                        </svg>
+                  </div>
+                  <div class="SS-one-item-span">解锁</div>
+              </div>
+          </div>
+          <div class="SS-one-item-wrap SS-one-item-wrap-door SS-one-item-open">
+              <div class="SS-one-item" data-cmd='1' data-type="door" data-value="actionLock_blueTooth">
+                  <div class="SS-one-item-icon">
+                    <svg class="slider-svg " version="1.1">
+                          <path  fill="none" />
+                      </svg>
+                  </div>
+                  <div class="SS-one-item-span">闭锁</div>
+              </div>
+          </div>
+          <div class="SS-one-item-wrap SS-one-item-wrap-whistle-0">
+              <div class="SS-one-item" data-cmd='0' data-type="whistle" data-value="whistle0_blueTooth">
+                  <div class="SS-one-item-icon">
+                      <svg class="slider-svg " version="1.1">
+                          <path  fill="none" />
+                      </svg>
+                  </div>
+                  <div class="SS-one-item-span">闪灯</div>
+              </div>
+          </div>
+          <div class="SS-one-item-wrap SS-one-item-wrap-whistle-1">
+              <div class="SS-one-item" data-cmd='1' data-type="whistle" data-value="whistle1_blueTooth">
+                  <div class="SS-one-item-icon">
+                      <svg class="slider-svg " version="1.1">
+                          <path  fill="none" />
+                      </svg>
+                  </div>
+                  <div class="SS-one-item-span">闪灯鸣笛</div>
+              </div>
+          </div>
+          
+        </div>
+    </script>
+
+    
+    <header id="nav-bar" class="bar bar-nav blue-bar" navtitle='"车辆列表"'  navRight='{"image":"url(../home/image/oushang-refresh.png)"}'>
+    </header>
+    <div class="sharedBluee-top">
+        <div class="sharedBluee-top-content" style="
+            color: white;
+            text-align: center;
+            font-size: 16px;
+            line-height: 47px;
+        ">
+            您有一辆新的分享车辆，点击查看<span></span>
+        </div>
+        <div class="sharedBluee-top-close">
+        </div>
+    </div>
+    <div class="content" style="overflow:hidden">
+        
+        <div class="message-wrap">
+            <div class="updateTimeWrap">
+                <p class="updateTimeContent">更新时间: ----.--.-- --:--:--</p>
+            </div>
+        </div>
+
+        <div id="content-top">
+                <div class="change3DView">
+                    <span>3D</span>
+                </div>
+                <div class="oilView-contentWrap">
+                    <div class="oilView-contentWrapItem blueetoothStatus-wrap" style="display:none">
+                        <div style="position: absolute;width: 100%;z-index: 9999;">
+                            <div class="blueetoothStatus-wrap-icon"></div>
+                          <!--   <span class="OVCW-icon BTSW-icon"></span>
+                            <span class="OVCW-text BTSW-text">钥匙未连接</span>
+                            <span class="OVCW-icon BTSW-icon-active"></span>
+                            <span class="OVCW-text BTSW-text-active">钥匙已连接</span> -->
+                        </div>
+                    </div>
+                    <div class="bluetoothPasscode">蓝牙配对码：<span></span></div>
+                    <div class="oilView-contentWrapItem canDrivingStatus-wrap">
+                        <div style="position: absolute;width: 100%;;z-index: 9999;">
+                            <span class="OVCW-icon CDSW-icon"></span>
+                            <span class="OVCW-text CDSW-text canDrivingMil" style="font-size:16px;"><span style="font-size:16px;">--</span>%</span>
+                        </div>
+                    </div>
+                    <div class="oilView-contentWrapItem carTempStatus-wrap LCCB-temperature" style="display:none">
+                        <div style="position: absolute;width: 100%;;z-index: 9999;">
+                            <span class="OVCW-icon CTSW-icon"></span>
+                            <span class="OVCW-text CTSW-text ">--</span>
+                        </div>
+                    </div>
+                </div>
+                <div id="oilView" class="">
+                    
+             <!--    <div class="canDrivingMil">
+                    <span class='oil-canDrivingMil'>剩余油量</span>
+                    <div class='elect-canDrivingMil' style="font-size: 12px;">当前电量：<span class="elect-canDrivingMil-number">--</span></div>
+                    </div>
+                    <div id="CTanimate">
+                        <div class="CTanimateIcon"></div>
+                        <div id="CTanimateBackground"></div>
+                        <div id="CTanimateShow"></div>
+                </div> -->
+             <!--    <div id="canDrivingMil-more">
+					<div style="float: left;margin-left: 5%;width: 35%;">可续航：<span class="canDrivingMil-more-number">--</span></div>
+					<div style="float: left;margin-left: 5%;width: 50%;">能耗：<span class="canDrivingMil-energy-consumption">--</span></div>
+                </div> -->
+                <div class="yubiao-icon" style="display:none"></div>
+                <div class="oilView_car main_car" style="background-image: url('../home/img/CAR.png')"></div>
+                    <div class="oilView_car LF" style="background-image: none"></div>
+                    <div class="oilView_car LB" style="background-image:none"></div>
+                    <div class="oilView_car RF" style="background-image:none"></div>
+                    <div class="oilView_car RB" style="background-image:none "></div>
+                    <div class="oilView_car lowBeam" style="background-image: none"></div>
+                    <div class="oilView_car positionLamp" style="background-image: none"></div>
+                    <div class="oilView_car turnLndicator" style="background-image:none;overflow:hidden">
+                       <iframe id="iframe_test" src="" frameborder="0" style="margin-top: 0rem; width: 100%;height: 2.35rem;"></iframe> 
+                    </div>
+                    <div class="oilView_car dormer" style="background-image: none"></div>
+                    <div class="oilView_car trunk" style="background-image: none"></div>
+            </div>
+        </div>
+        
+        <div id="wrapper">
+            <div id="scroller">
+                <div class="pulldown">
+                    <div class="pulldownWrap">
+                        <div id='iconDiv'>
+                                <span class="icon"><div class='iconOne'></div>
+                                <div class='iconTwo'></div></span>
+                        </div>
+                        <span class="label">下拉刷新...</span>
+                    </div>
+                </div>
+                
+
+                <div id="controlListView">
+                    <div class="controlListView-top">
+                        <div class="controlListView-top-left">
+                            <div class="controlListView-top-left-icon"></div>
+                            <p style="color:white;margin-top: 6px;">发送到车</p>
+                        </div>
+                        <div class="controlListView-top-right" style="display:none">
+                            <div class="controlListView-top-right-icon"></div>
+                            <p style="color:white;margin-top: 6px;">分享钥匙</p>
+                        </div>
+                    </div>
+                    <div id="swiper22" class="swiper-container">
+                         <div class="swiper-slide swiper-slide-one">
+                              <div class="SS-one-item-wrap SS-one-item-wrap-door SS-one-item-close">
+                                  <div class="SS-one-item" data-cmd='0' data-type="door" data-value="actionUnlock_blueTooth">
+                                      <div class="SS-one-item-icon">
+                                            <svg class="slider-svg " version="1.1">
+                                                <path  fill="none" />
+                                            </svg>
+                                      </div>
+                                      <div class="SS-one-item-span">解锁</div>
+                                  </div>
+                              </div>
+                              <div class="SS-one-item-wrap SS-one-item-wrap-door SS-one-item-open">
+                                  <div class="SS-one-item" data-cmd='0' data-type="door" data-value="actionLock_blueTooth">
+                                      <div class="SS-one-item-icon">
+                                        <svg class="slider-svg " version="1.1">
+                                              <path  fill="none" />
+                                          </svg>
+                                      </div>
+                                      <div class="SS-one-item-span">闭锁</div>
+                                  </div>
+                              </div>
+                              <div class="SS-one-item-wrap SS-one-item-wrap-whistle-0">
+                                  <div class="SS-one-item" data-cmd='0' data-type="whistle" data-value="whistle0_blueTooth">
+                                      <div class="SS-one-item-icon">
+                                          <svg class="slider-svg " version="1.1">
+                                              <path  fill="none" />
+                                          </svg>
+                                      </div>
+                                      <div class="SS-one-item-span">闪灯</div>
+                                  </div>
+                              </div>
+                              <div class="SS-one-item-wrap SS-one-item-wrap-whistle-1">
+                                  <div class="SS-one-item" data-cmd='1' data-type="whistle" data-value="whistle1_blueTooth">
+                                      <div class="SS-one-item-icon">
+                                          <svg class="slider-svg " version="1.1">
+                                              <path  fill="none" />
+                                          </svg>
+                                      </div>
+                                      <div class="SS-one-item-span">闪灯鸣笛</div>
+                                  </div>
+                              </div>
+                          
+                        </div>
+                    </div>
+                        <div id="swiper-warning">
+                            <div class="message" >当前车辆未为完成初始化,</br>请完成初始化之后进行操作!</div>
+                            <div class="button1 button" >初始化</div>
+                            <div class="button2 button" style="margin-top:20px;">添加认证车辆</div>
+                        </div>
+                        <div class="control-info">
+                            <div class="control-info-net-error">
+                                <span>获取控制选项信息超时，请重试</span>
+                                <div class="control-info-net-error-button-wrap">
+                                    <span class="control-info-net-error-button">
+                                        重新加载
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="control-info-no-data" style="margin-top:20px">
+                                <span>当前该车型无控制选项</span>
+                            </div>
+                        </div>
+                    <!-- <div class="CLV-button-content">
+                            <div class="CLV-button-warp">
+                                <div class="CLV-button"></div>
+                            </div>
+                            <div class="CLV-button-warp">
+                                <div class="CLV-button"></div>
+                            </div>
+                            <div class="CLV-button-warp">
+                                <div class="CLV-button"></div>
+                            </div>
+                        </div> -->
+                </div>
+             
+                <div id="list-contain" class="list-contain">
+                    <div class="list-contain-item contain-conditions" data-value="contain-conditions">
+                        <div class="list-contain-left"></div>
+                        <div class="list-contain-center">
+                            <div class="LCC-one">车况</div>
+                           <!--  <div class="LCC-bottom">
+                              <span class="LCCB-temperature"  style="display:none;margin-right: 10px;">车内温度：<span>--</span></span>
+                              <span class="LCCB-pm25" style="display:none;margin-right: 10px;">车内pm2.5: <span>--</span> </span>
+                              <span class="LCCB-bigLight" style="display:none;">大灯: <span>--</span> </span> -->
+                              <!-- <span class="LCCB-oil">油量：<span>--</span></span> -->
+                            <!-- </div> -->
+                        </div>
+                        <div class="list-contain-right"></div>
+                    </div>
+                      <div class="list-contain-item contain-location" data-value="contain-location">
+                          <div class="list-contain-left"></div>
+                          <div class="list-contain-center">
+                            <div class="LCC-top">位置</div>
+                            <div class="LCC-bottom" style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width: 250px;">--</div>
+                          </div>
+                          <div class="list-contain-right"></div>
+                      </div>
+                     <!--  <div class="list-contain-item contain-control" style="padding-right:0" data-value="contain-control">
+                          <div class="list-contain-left"></div>
+                          <div class="list-contain-center" style="width: 85%;">
+                            <div class="LCC-top">控制</div>
+                            <div class="LCC-bottom" style="font-size: 12px;">
+                                <span class="LCCB-carLock">车锁: <span>--</span> </span>
+                                <span class="LCCB-carDoor" style="margin-left: 5px;display:none">车门: <span>--</span> </span>
+                                <span class="LCCB-carWindow" style="margin-left: 5px;display:none;">车窗: <span>--</span> </span>
+                                <span class="LCCB-carDormer" style="margin-left: 5px;display:none">天窗: <span>--</span> </span>
+                                <span class="LCCB-trunk" style="margin-left: 5px;display:none">后备箱: <span>--</span> </span>
+                            </div>
+                          </div>
+                          <div class="list-contain-right"></div>
+                      </div> -->
+                   <!--    <div class="list-contain-item contain-bluetooth" data-value="contain-bluetooth">
+                          <div class="list-contain-left"></div>
+                          <div class="list-contain-center">
+                            <div class="LCC-one">蓝牙钥匙</div>
+                          </div>
+                          <div class="list-contain-right"></div>
+                      </div> -->
+                      <div class="list-contain-item contain-shopping" data-value="contain-shopping">
+                          <div class="list-contain-left"></div>
+                          <div class="list-contain-center">
+                            <div class="LCC-one">商城</div>
+                            <div class="LCC-top">商城</div>
+                            <div class="LCC-bottom">增值业务套餐即将结束，点击查看详情</div>
+                           </div>
+                          <div class="list-contain-right"></div>
+                      </div>
+                      <div class="list-contain-item contain-trajectory" data-value="contain-trajectory">
+                          <div class="list-contain-left"></div>
+                          <div class="list-contain-center">
+                            <div class="LCC-one">旅程</div>
+                           <!--  <div class="LCC-top">旅程</div>
+                                <div class="LCC-bottom"></div>
+                            </div> -->
+                          </div>
+                          <div class="list-contain-right"></div>
+                      </div>
+                      
+                      <div class="list-contain-item contain-news" style="color: white;" data-value="contain-news">
+                          <div class="list-contain-left"></div>
+                          <div class="list-contain-center" style="width: auto;">
+                            <div class="LCC-one">消息</div>
+                            <div class="LCC-news-number"></div>
+                          </div>
+                          <div class="list-contain-right"></div>
+                      </div> 
+                    <!--   <div class="list-contain-item contain-car-life" data-value="contain-car-life">
+                          <div class="list-contain-left"></div>
+                          <div class="list-contain-center">
+                            <div class="LCC-one">车生活</div>
+                          </div>
+                          <div class="list-contain-right"></div>
+                      </div> 
+                      <div class="list-contain-item contain-car-friend" data-value="contain-car-friend">
+                          <div class="list-contain-left"></div>
+                          <div class="list-contain-center">
+                            <div class="LCC-one">车友圈</div>
+                          </div>
+                          <div class="list-contain-right"></div>
+                      </div>  -->
+                </div>
+            </div>
+        </div>
+        <div class="home-blueethod-view" style="display:none">
+            
+        </div>
+        <div class="home-oushang-style-download">
+            <div class="home-oushang-style-download-open"></div>
+        </div>
+    </div>
+</div>

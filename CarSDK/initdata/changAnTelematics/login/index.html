@@ -1,0 +1,557 @@
+<div id="login" data-view="login/index">
+  <div id="login-mainPage" >
+    <style type="text/css">
+      #login-mainPage .content{
+        overflow: hidden;
+      }
+      #login-mainPage .loginItem {
+          width: 100%;
+          height: 9%;
+      }
+      #login-mainPage #login-page {
+        width: 100%;
+        height: 100%;    
+        background-size: 100% 100%;
+        background: black;
+      }
+      #login-mainPage .img-location{
+        width: 100%;
+        height: 1.34826091rem;
+        line-height: 100%;
+        text-align: center;
+      }
+      #login-mainPage .img-location>img{
+        width: 133px;
+        margin-top: 70px;
+      }
+      #login-mainPage .img-left{
+        float: left;
+        margin-left: 12%;
+        height: 0.35839847rem
+      }
+      #login-mainPage .img-left>img{
+        width: 0.17066594rem;
+        margin: 0 auto;
+        margin-top: 72%
+      }
+      #login-mainPage .input-div{
+        width: 69% !important;
+        position: relative;
+        float: left;
+        padding-top: 0.05973308rem;
+      }
+      #login-mainPage .check-div{
+          font-size: 0.11946616rem !important;
+          color: #1f1f1f !important;
+          width: 50% !important;
+          position: relative;
+          float: left;
+          padding-top: 7px;
+      }
+      #login-mainPage .checkCode-div{
+                 font-size: 0.11946616rem !important;
+                 color: #1f1f1f !important;
+                 width: 25% !important;
+                 position: relative;
+                 height: 43px;;
+                 float: left;
+                 padding-top: 7px;
+             }
+      #login-mainPage .boder-img{
+        width: 100%;
+        margin-top: 1%;
+        float: left;
+      }
+      #login-mainPage .nav-bar{
+        height: 0.37546506rem;
+        width: 100%;
+        background-color: #212730;
+        color: #ffffff;
+        line-height: 0.37546506rem;
+        text-align: center;
+        font-size: 0.13653275rem;
+      }
+      #login-mainPage .nav-bar>h1{
+        width: 50%;
+        height: 0.37546506rem;
+        line-height: 0.37546506rem;
+        font-size: 0.15359934rem;
+        text-align: center;
+        position: absolute;
+        display: block;
+        left: 25%;
+      }
+      #login-mainPage .requireList {
+         width: 100%;
+         padding: 0 10px;
+      }
+      #login-mainPage .requireItem {
+      position: relative;
+      margin-top: 0.08533297rem;
+      width: 100%;
+      }
+      #login-mainPage .loginItem:first-child {
+      margin-top: 0px;
+      }
+      #login-mainPage .requireItem label {
+      font-size: 0.11946616rem;
+      text-align: left;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      margin-left: 0.12799945rem;
+      color: #bcbcbc;
+      }
+      #login-mainPage .loginItem label {
+      font-size: 0.11946616rem;
+      text-align: left;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      margin-left: 0.12799945rem;
+      color: #bcbcbc;
+      padding-top: 9px;
+      }
+      #login-mainPage input{
+          margin-bottom: 0px;
+          height: 0.30719869rem;
+          padding: 0.08533297rem 0px;
+          padding-left: 0.12799945rem;
+          font-size: 0.11946616rem;
+          color: #ffffff;
+          opacity: 1;
+          border: 0px;
+          border-radius: 0px;
+          width: 100%;
+          transform-origin: 0 0;
+          z-index: 9;
+          background: transparent;
+      }
+      #login-mainPage .register-input{
+          height: 0.37546506rem;
+          background-color: #ffffff;
+          border: 1px solid #dededf;
+          border-radius: 3px;
+          color: #1f1f1f;
+          display: inline-block;
+      }
+      #login-mainPage .inputText {
+      margin-bottom: 0px;
+      height: 0.37546506rem;
+      padding: 0.08533297rem 0px;
+      padding-left: 0.12799945rem;
+      font-size: 0.11946616rem;
+      color: #1f1f1f;
+      border: 1px solid #dededf;
+      background-color: #fcfcfc;
+      border-radius: 3px;
+      width: 100%;
+      transform-origin: 0 0;
+      line-height: 0.37546506rem;
+      }
+      #login-mainPage .noRequireList {
+          margin-top: 20px;
+          font-size: 0.11946616rem;
+          padding: 0 10px
+      }
+      #login-mainPage .noRequireTitle {
+      text-align: center;
+      margin-bottom: 0.11946616rem;
+      margin-top: 22px;
+      }
+      #login-mainPage .noRequireList .line {
+      width: 85px;
+      border-bottom: 1px solid #dededf;
+      display: inline-block;
+      vertical-align: middle;
+      }
+      #login-mainPage .verifiation-btn{
+        width: 32%;
+        float: right;
+        height: 0.37546506rem;
+        text-align: center;
+        /* padding-top: 14px; */
+        border-radius: 3px;
+        background-color: #00d6ff;
+        color: #fff;
+        border: none;
+        /*line-height: 44px;*/
+        font-family: '黑体';
+        font-size: 13px;
+      }
+      #login-mainPage .noRequireList .noRequireText {
+      display: inline-block;
+      width: 0.37546506rem;
+      text-align: center;
+      font-size: 0.11946616rem;
+      color: #595959;
+      }
+      #login-mainPage .noRequireItem label.sex-text {
+      font-size: 0.12799945rem;
+      color: #1f1f1f;
+      }
+      #login-mainPage .noRequireItem {
+      position: relative;
+      margin-bottom: 0.12799945rem;
+      }
+      #login-mainPage .noRequireItem label {
+      /*width: 50px;*/
+      font-size: 0.11946616rem;
+      text-align: left;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      margin-left: 0.12799945rem;
+      color: #bcbcbc;
+      }
+      #login-mainPage .radio{
+      padding-left: 80px;
+      text-align: center;
+      color: #595959;
+      height: 0.37546506rem;
+      line-height: 0.37546506rem;
+      }
+      #login-mainPage .man {
+      display: inline-block;
+      position: relative;
+      width: 48%;
+      text-align: center;
+      }
+      #login-mainPage .female {
+      display: inline-block;
+      position: relative;
+      width: 48%;
+      text-align: center;
+      }
+      #login-mainPage .sexPoint-icon {
+      background-size: 17px 17px;
+      background-position: 100%;
+      background-repeat: no-repeat;
+      background-image: url("../login/img/uncheck-icon.png");
+      width: 17px;
+      height: 17px;
+      display: inline-block;
+      vertical-align: middle;
+      }
+      #login-mainPage .sexPoint-icon.check {
+      background-image: url("../login/img/check-icon.png");
+      }
+      #login-mainPage .sexText {
+      display: inline-block;
+      vertical-align: middle;
+      }  
+      #login-mainPage .button-contain{
+          width: 100%;
+          height: 31%;
+          padding-top: 7%;
+      }    
+      #login-mainPage .button-icon{
+          width: 68%;
+          margin: 0 auto;
+          color: #dedede;
+          height: 0.36693177rem;
+          line-height: 0.36693177rem;
+          text-align: center;
+          font-size: 0.13653275rem;
+          border-radius: 5px;
+          border: 1px solid #6e7377;         
+      }
+      #login-mainPage .loginBotton{
+      }
+      #login-mainPage .registerBotton{
+          margin-top: 6%;
+          border: 1px solid #00d6ff
+      }
+      #login-mainPage .login-registe {
+      font-size: 12px;
+      width: 100%;
+      text-align: right;
+      color: #9c9c9c;
+      }
+       #login-mainPage .registeBotton{
+        width: 100%;
+        height: 0.37546506rem;
+        background-color: #00d6ff;
+        color: #FFFFFF;
+        border-radius: 3px;
+        line-height: 0.37546506rem;
+        text-align: center;
+        margin-bottom: 0.08533207rem;
+        font-size: 0.14506605rem;
+        border: none;
+      }
+      #login-mainPage #registe-page {
+      display: none;
+      }
+      #login-mainPage .goLoginText {
+        margin-bottom: 0.12799945rem;
+        color: #1f1f1f;
+        font-size: 0.11946616rem;
+        padding: 0 10px;
+      }
+      #login-mainPage #goLoginPage {
+      color: #ed5565;
+      display: inline-block;
+      }
+      #login .close-button {
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      background-image: url("../login/img/close-icon.png");
+      background-repeat: no-repeat;
+      background-size: 0.12799945rem;
+      background-position: 50% 50%;
+      width: 50px;
+      height: 48px;
+      display: none;
+      z-index: 9999;
+      }
+      #login .clickBackground {
+            /*background-color: #52c3f2;*/
+        }
+      #login-mainPage .icall-check{
+        width: 100%;
+        height: 0.38399836rem;
+        color: #ffffff;
+        font-size: 0.10239956rem;
+        /* text-align: center; */
+        padding-right: 0.5rem;
+        padding-top: 0.11946616rem;
+      }
+      #login-mainPage .check-content{
+        width: auto;
+        height: 0.13653275rem;
+        margin: 0 auto;
+        padding-left: 12.5%;
+      }
+      #login-mainPage .check-box{
+        width: 0.10239956rem;
+        height: 0.10239956rem;
+        background-color: transparent;
+        border:1px solid #78787d;
+        border-radius: 0.01706659rem;
+        position: relative;
+        float: left;
+      }
+      #login-mainPage  .active{
+        content: '';
+        position: absolute;
+        width: 0.07679967rem;
+        height: 0.04266648rem;
+        background: transparent;
+        top: 1px;
+        left: 1px;
+        border: 1px solid #FFFFFF;
+        border-top: none;
+        border-right: none;
+        -webkit-transform:rotate(-45deg);
+        transform :rotate(-45deg);
+      }
+      #login-mainPage .item-last{
+        width: 100%;
+        height: auto;
+        font-size: 0.11093286rem;
+        color: #01d6fe;
+        overflow: hidden;
+        margin-top: 0.20479913rem;
+      }
+      #login-mainPage .item-last>div{
+        width: 50%;
+        height: 0.12799945rem;
+        overflow: hidden;
+        float: left;
+        text-align: center;
+        line-height: 0.12799945rem;
+      }
+      #login-mainPage .item-last>div:first-child{
+        border-right: 1px solid #61616e;
+      }
+      #login-mainPage .registeNow {
+        position: absolute;
+        color: white;
+        font-size: 16px;
+        margin-top: 11px;
+        right: 0;
+        padding: 10px 20px;
+      }
+      #login-mainPage .login-mask {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: black;
+        top: 0;
+        left: 0;
+        z-index: 99;
+      }
+      #login-mainPage .login-animation {
+        width: 133px;
+        height: 48px;
+        position: absolute;
+        background-image: url(../login/img/head_logo.png);
+        background-repeat: no-repeat;
+        background-size: 133px;
+        top: 300px;
+        left: 50%;
+        z-index: 100;
+        margin-left: -66.5px;
+        transform: scale(1.6);
+        -webkit-transform: scale(1.6);
+      }
+      #login-mainPage.no-animate .login-mask {
+        display: none;
+      }
+      #login-mainPage.running .login-mask {
+        animation: login-animation-mask 2.2s;
+        -webkit-animation: login-animation-mask 2.2s;
+        animation-fill-mode: forwards;
+        -webkit-animation-fill-mode: forwards;
+      }
+      #login-mainPage.no-animate .login-animation {
+        display: none;
+      }
+      #login-mainPage.running .login-animation {
+        animation: login-animation 2.2s;
+        -webkit-animation: login-animation 2.2s;
+        animation-fill-mode: forwards;
+        -webkit-animation-fill-mode: forwards;
+      }
+
+      @keyframes login-animation
+      {
+        0% {}
+        20% {transform: scale(1.6)}
+        90% {transform: scale(1) translateY(-230px);}
+        100% {transform: scale(1) translateY(-230px)}
+      }
+      @-webkit-keyframes login-animation /* Safari 和 Chrome */
+      {
+        0% {}
+        20% {transform: scale(1.6)}
+        90% {transform: scale(1) translateY(-230px);}
+        100% {transform: scale(1) translateY(-230px)}
+      }
+      @keyframes login-animation-mask
+      {
+        0% {}
+        80% {opacity: 1;transform: scale(1)}
+        81% {opacity: 0;transform: scale(1)}
+        82% {opacity: 0;transform: scale(0)}
+        100% {opacity: 0;transform: scale(0)}
+      }
+      @-webkit-keyframes login-animation-mask /* Safari 和 Chrome */
+      {
+        0% {}
+        80% {opacity: 1;transform: scale(1)}
+        81% {opacity: 0;transform: scale(1)}
+        82% {opacity: 0;transform: scale(0)}
+        100% {opacity: 0;transform: scale(0)}
+      }
+      #login-mainPage .oAuth2-buttom{
+          position: fixed;
+          width: 100%;
+          height: 0.7rem;
+          bottom: 12%;
+		  visibility: hidden;
+      }
+
+      #login-mainPage .wx-login-button{
+          width: 0.366665rem;
+          position: absolute;
+          right: 44.5%;
+          bottom: 9%;
+      }
+      #login-mainPage .wx-login-button>img{
+          width: 100%;
+      }
+      #login-mainPage .oAuth2-buttom .top{
+          margin: 0 auto;
+          text-align: center;
+          color: #fff;
+          font-size: .1065327rem;
+      }
+      #login-mainPage .oAuth2-buttom .bottom_bgUl{
+          width: 100%;
+          height: 1px;
+          position: absolute;
+          top: 7%;
+      }
+      #login-mainPage .oAuth2-buttom .bottom_bgUl>li{
+          width: 35%;
+          height: 100%;
+          background: url(../login/img/border_icon.png) no-repeat 0 /100%
+      }
+      #login-mainPage .oAuth2-buttom .bottom_bgUl>li:first-child{
+          float: left;
+          margin-left: 8%;
+      }
+      #login-mainPage .oAuth2-buttom .bottom_bgUl>li:last-child{
+          float: right;
+          margin-right: 8%;
+      }
+    </style>
+
+    <div class="content" style="height:100%" >
+      <div id="login-page">
+          <div class="registeNow">注册</div>
+          <div class="img-location"><img src="../login/img/head_logo.png"></div>
+          <div class="userName loginItem">
+              <div class="img-left"><img src="../login/img/user_icon.png"></div>
+              <div class="input-div">
+                  <!--<label class="hint">请输入您的手机号或用户名</label>-->
+                  <input type="text" id="login-userName" maxlength="16" placeholder="手机号或用户名" onfocus="this.placeholder=''" onblur="this.placeholder='手机号或用户名'">
+                  <span class="close-button"></span>
+              </div>
+              <img src="../login/img/border_icon.png" class="boder-img">
+          </div>
+          <div class="password loginItem">
+              <div class="img-left"><img src="../login/img/password_icon.png"></div>
+              <div class="input-div">
+                  <!--<label class="hint">请输入您的密码</label>-->
+                  <input type="password" id="login-password" maxlength="16" placeholder="密码" onfocus="this.placeholder=''" onblur="this.placeholder='密码'">
+                  <span class="close-button"></span>
+              </div>
+              <img src="../login/img/border_icon.png" class="boder-img">
+          </div>
+
+          <div class="checkcode loginItem" style="display: none">
+              <div class="img-left"><img src="../login/img/icon_checkcode.png"></div>
+              <div class="check-div">
+                  <label class="hint">请输入验证码</label>
+                  <input type="text" id="login-checkCode" >
+                  <span class="close-button"></span>
+              </div>
+              <div class="checkCode-div">
+                <img width="83px" height="40px" id="checkImg" src=""/>
+              </div>
+              <img src="../login/img/border_icon.png" class="boder-img">
+          </div>
+          <div class="icall-check">
+            <div class="fond-password" style="float: right;">找回密码</div>
+          </div>
+          <div class="button-contain">
+              <div class="button-icon loginBotton">登 录</div>
+          </div>
+           <div class="oAuth2-buttom">
+              <ul class="bottom_bgUl">
+                  <li></li>
+                  <li></li>
+              </ul>
+              <div class="top">其他登录</div>
+              <div class="wx-login-button">
+                  <img id="wx_login" src="../login/img/weixin-icon.png">
+              </div>
+          </div> 
+          
+      </div>
+        <div class="login-mask"></div>
+        <div class="login-animation"></div>
+
+    </div>  
+
+    </div>
+    <div id="datePlugin"></div>
+  </div>
+</div>

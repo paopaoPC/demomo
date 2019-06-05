@@ -1,0 +1,158 @@
+<div id="longSet" data-view='Laboratory/longSet'>
+    <style type="text/css">
+        #longSet{
+            background-repeat: no-repeat;
+            background-size: 100% 100%
+        }
+        #longSet .content{
+            background-color: white;
+        }
+      
+        #longSet .im-default-nav-bar{
+            background-image: none !important;
+        }
+    	#longSet .content-image{
+    		width: 96%;
+    		height: 100px;
+    		margin: 0 auto;
+    		margin-top: 20px;
+    		/*border:1px solid #00c3fe;*/
+    		border-radius: 4px;
+    		text-align: center;
+            color: #cccccc;
+            /*padding-top: 150px;*/
+    	}
+        #longSet .content-image>img{
+            width: 100%;
+            height: 100%
+        }
+    	#longSet .bottom-item{
+    		width: 72%;
+    		height: 44px;
+    		line-height: 44px;
+    		font-size: 17px;
+    		color: #00c3fe;
+            text-align: center;
+            margin: 0 auto;
+            margin-top: 20px;
+            border: 1px solid #00c3fe;
+            border-radius: 5px;
+    	}
+    	#longSet .bottom-item.active{
+    		border: 1px solid #cccccc;
+            color: #cccccc
+    	}
+
+        #longSet .content-radio {
+            height: 50px;
+            border-bottom: 1px solid #999;
+        }
+        #longSet .radio-item {
+            height: 100%;
+        }
+        #longSet .radio-title {
+            float: left;
+            width: 45%;
+            display: inline-block;
+            height: 100%;
+            line-height: 50px;
+            text-align: left;
+            font-size: 13px;
+            padding-left: 20px;
+        }
+        #longSet .radio-warp {
+            float: right;
+            width: 40%;
+            height: 100%;
+        }
+        #longSet .radio-warp-item {
+            display: inline-block;
+            width: 50%;
+            float: left;
+            height: 100%;
+            line-height: 50px;
+        }
+    </style>
+    <script id='inputCircle' type="text/x-underscore-template">
+        <div class='inputCircle' style='width:40px; height:40px; position:relative; float:left;'>
+            <span style='display:block;width:6px;height:6px;background-color:#000;border-radius:100%; position:absolute;left:19px;top:19px;'></span>
+        </div>
+    </script>
+    <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"hide":"true"}' navTitle='"远程设置"'>
+    </header>
+    <div class="content">
+        <div class="content-radio">
+            <div class="radio-item radio-item-latch">
+                <div class="radio-title">速度落锁</div>
+                <div class="radio-warp">
+                    <div class="radio-warp-item">
+                        <input type="radio" name="latch" value="1" checked>关闭
+                    </div>
+                    <div class="radio-warp-item">
+                        <input type="radio" name="latch" value="2">开启
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-radio">
+            <div class="radio-item radio-item-parkingUnlock">
+                <div class="radio-title">驻车解锁</div>
+                <div class="radio-warp">
+                    <div class="radio-warp-item">
+                        <input type="radio" name="parkingUnlock" value="1" checked>关闭
+                    </div>
+                    <div class="radio-warp-item">
+                        <input type="radio" name="parkingUnlock" value="2">开启
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-radio">
+            <div class="radio-item radio-item-parkingUnlock">
+                <div class="radio-title">跟随回家灯光</div>
+                <div class="radio-warp">
+                    <div class="radio-warp-item">
+                        <input type="radio" name="backHome" value="1" checked>关闭
+                    </div>
+                    <div class="radio-warp-item">
+                        <input type="radio" name="backHome" value="2">开启
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-radio">
+            <div class="radio-item radio-item-parkingUnlock">
+                <div class="radio-title">天窗OFF档自动关闭</div>
+                <div class="radio-warp">
+                    <div class="radio-warp-item">
+                        <input type="radio" name="skylight" value="1" checked>关闭
+                    </div>
+                    <div class="radio-warp-item">
+                        <input type="radio" name="skylight" value="2">开启
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-radio">
+            <div class="radio-item radio-item-parkingUnlock">
+                <div class="radio-title">倒挡后雨刷自动刷</div>
+                <div class="radio-warp">
+                    <div class="radio-warp-item">
+                        <input type="radio" name="Wiper" value="1" checked>关闭
+                    </div>
+                    <div class="radio-warp-item">
+                        <input type="radio" name="Wiper" value="2">开启
+                    </div>
+                </div>
+            </div>
+        </div>
+    	<div class="content-image">
+            <div>
+                <span style="line-height:2">修改爱车的远程设置</span><br>
+                <span>请点击下面的按钮</span><br>
+                <span style="line-height:6">整个过程需要大概2-3分钟</span>
+            </div>
+        </div>
+    	<div class="bottom-item">修改远程设置</div>
+    </div>
+</div>

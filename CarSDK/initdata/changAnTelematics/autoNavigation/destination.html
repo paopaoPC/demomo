@@ -1,0 +1,12 @@
+<li class="routeItem" id="routeItem<%=id%>" data-id="<%=id%>" data-lng="<%=lng%>" data-lat="<%=lat%>" data-orderedday="<%=orderedDay%>" data-orderedid="<%=orderedId%>" data-orderedtime="<%=orderedTime%>" data-orderedtype="<%=orderedType%>">  
+  <div class="routeDetail" data-id="<%=id%>">
+    <p class="destination route-icon-locaiton"  data-id="<%=id%>"><%=name%></p>
+    <p class="noteMessage" id="info<%=id%>"  data-id="<%=id%>"><%=time%> <%=distance%></p>
+  </div>
+  <div class="routeAction">
+    <ul>      
+      <li class="share" data-id="<%=id%>" data-lng="<%=lng%>" data-lat="<%=lat%>" ><p class="route-icon-share">分享</p></li>
+      <li class="tocar" data-id="<%=id%>" data-lng="<%=lng%>" data-lat="<%=lat%>" ><p class="route-icon-tocar2">发送到车</p></li>
+    </ul>
+  </div>  
+</li>

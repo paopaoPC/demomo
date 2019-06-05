@@ -1,0 +1,135 @@
+
+<div id="addMaintainRecord" data-view='myinfo/addMaintainRecord'>
+<style type="text/css">
+#addMaintainRecord .content{
+    overflow-x:hidden 
+}
+#addMaintainRecord .text_wrap{ 
+    font-size:14px; 
+    text-align:left; 
+    width:100%; 
+    margin:0px auto; 
+}
+#addMaintainRecord .text_wrap>div{ 
+    width:100%; 
+    /*border-bottom:1px solid #d6d6d6; */
+    margin:0 auto;
+    background-color:#fff;
+    float: left;
+    position: relative;
+}
+#addMaintainRecord .text_wrap>div:after{
+    bottom: 0px;
+    content: "";
+    display: block;
+    position: absolute;
+    left: -44%;
+    width: 192%;
+    height: 1px;
+    background: #d9d9d9;
+    opacity: 0.7;
+    -webkit-transform: scale(0.5);
+}
+#addMaintainRecord .text_wrap span{ 
+    height:49px;
+    display:block; 
+    width:30%; 
+    color:#333333; 
+    float:left; 
+    line-height:49px; 
+    text-indent:6%;
+    font-size: 17px;
+}
+#addMaintainRecord .text_wrap input,select{ 
+    display:block; 
+    width:70%; 
+    border:none; 
+    float:left; 
+    height:49px; 
+    margin:0; 
+    background-color:#fff; 
+    box-shadow:none; 
+    font-size:15px;
+    color: #333333;
+}
+#maintainContent 
+{
+    height:176px;
+    border:1px;
+    width:67%;
+    margin-left:30%;
+    margin-top:-33px;
+    float:left;
+    padding-left: 15px;
+    font-size: 14px;
+    -webkit-touch-callout: auto !important;
+    -webkit-user-select: auto !important;
+    resize: none;
+    color: #333333
+}
+#date, #carName
+{
+    height: 30px;
+    width: 70%;
+    float: left;
+    margin-top: 17px;
+    padding-left: 16px;
+    color: #333333;
+    font-family: sans-serif;
+}
+#addMaintainRecord .last_children:after{
+    left: -50% !important;
+    bottom: -1px !important
+}
+#addMaintainRecord .add-padding-100px {
+    position: absolute;
+    bottom: -100px;
+    width: 80%;
+    height: 1px;
+}
+</style>
+    <!-- 外围包裹层开始-->
+    <header id="nav-bar" class="bar bar-nav blue-bar" navRight='{"text":"提交"}'  navTitle='"添加维保"'>
+    </header>
+    <div class="content">
+        <div class="text_wrap">
+            <div>
+                <span>车辆</span>
+                <div id="carName" type="text"/></div>
+            </div>
+        </div>
+        <div class="text_wrap">
+            <div>
+                <span>日期</span>
+                <div id="date" type="text"/>2015-5-10</div>
+            </div>
+        </div>
+        <div class="text_wrap">
+            <div>
+                <span>4S店</span>
+                <input id="officialShop" maxlength="18" type="text" placeholder="请输入4S店"/>
+            </div>
+        </div>
+        <div class="text_wrap">
+            <div>
+                <span>维保金额</span>
+                <input id="maintainCost" maxlength="8" type="number" placeholder="人民币/元"/>
+            </div>
+        </div>
+        <div class="text_wrap">
+            <div>
+                <span>维保里程</span>
+                <input id="maintainMile" input-bind-offset="80" maxlength="9" type="number" placeholder="里程/公里"/>
+            </div>
+        </div>
+        <div class="text_wrap">
+            <div style="position:relative;" class="last_children">
+                <div id="maintainContent_num"  style="position:absolute;bottom:10px;right:7%;color:#999999;z-index:1"></div>
+                <span>内容</span>
+                <textarea id="maintainContent" input-bind-offset="100" maxlength = "200" type="text" placeholder="输入你的维保内容" style=""></textarea>
+            </div>
+        </div>
+        <div class="add-padding-100px"></div>
+        <div id="datePlugin" style = "margin-top:200px"></div>
+    </div>
+</div>
